@@ -1044,55 +1044,291 @@
   }
 
 /* ══════════════════════════════
-   MULTI-CLIENTES — extensão conservadora
-   Mantém fluxo antigo: parceiro abre, vê a escala, clica na vaga e reserva.
+   APP PARCEIRO-FIRST — uso real dos motoboys
 ══════════════════════════════ */
-.fbtn.on-blue   { background:var(--blue);   border-color:var(--blue);   color:#fff; }
-.fbtn.on-purple { background:var(--purple); border-color:var(--purple); color:#fff; }
-.fbtn.on-teal   { background:var(--teal);   border-color:var(--teal);   color:#fff; }
+body:not(.admin-mode) .controls,
+body:not(.admin-mode) .status-panel,
+body:not(.admin-mode) .time-panel,
+body:not(.admin-mode) .table-wrap,
+body:not(.admin-mode) .summary,
+body:not(.admin-mode) .legend,
+body:not(.admin-mode) .client-bar{
+  display:none!important;
+}
+body.admin-mode #partnerHome{ display:none!important; }
+body:not(.admin-mode) .btn-header:nth-of-type(2){ display:none!important; }
+body:not(.admin-mode) .header{ height:58px; }
+body:not(.admin-mode) .header-titles h1{ font-size:13px; }
+body:not(.admin-mode) .header-titles p{ display:block; font-size:10px; }
 
-.fbtn.on-meridio    { background:var(--blue);   border-color:var(--blue);   color:#fff; }
-.fbtn.on-fratelli   { background:var(--purple); border-color:var(--purple); color:#fff; }
-.fbtn.on-drica      { background:var(--orange); border-color:var(--orange); color:#fff; }
-.fbtn.on-barto      { background:var(--purple); border-color:var(--purple); color:#fff; }
-.fbtn.on-centermeat { background:var(--teal);   border-color:var(--teal);   color:#fff; }
-
-.card.blue   { border-left-color:var(--blue);   background:linear-gradient(to right,#EFF6FF 0px,var(--surface) 60px); }
-.card.purple { border-left-color:var(--purple); background:linear-gradient(to right,#F5F3FF 0px,var(--surface) 60px); }
-.card.teal   { border-left-color:var(--teal);   background:linear-gradient(to right,#ECFEFF 0px,var(--surface) 60px); }
-
-.client-section-header.meridio {
-  background:rgba(37,99,235,.08); color:rgba(37,99,235,.9);
-  border-left:2px solid rgba(37,99,235,.45);
+.partner-home{
+  display:block;
+  min-height:calc(100vh - 58px);
+  background:
+    radial-gradient(700px 260px at 20% -10%, rgba(220,38,38,.10), transparent 55%),
+    linear-gradient(180deg,#FFFFFF 0%,#F8F9FB 100%);
+  padding:14px 14px 92px;
 }
-.client-section-header.fratelli {
-  background:rgba(124,58,237,.08); color:rgba(124,58,237,.9);
-  border-left:2px solid rgba(124,58,237,.45);
+.partner-hero{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadow-md);
+  margin-bottom:12px;
 }
-.client-section-header.drica {
-  background:rgba(234,88,12,.08); color:rgba(234,88,12,.9);
-  border-left:2px solid rgba(234,88,12,.45);
-}
-.client-section-header.barto {
-  background:rgba(124,58,237,.08); color:rgba(124,58,237,.9);
-  border-left:2px solid rgba(124,58,237,.45);
-}
-.client-section-header.centermeat {
-  background:rgba(15,148,136,.08); color:rgba(15,148,136,.9);
-  border-left:2px solid rgba(15,148,136,.45);
-}
-
-/* deixa vaga aberta parecer ação, sem parecer erro */
-.card.vaga-aberta .moto-name {
-  text-decoration:none;
+.partner-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border-radius:999px;
+  background:#FEF2F2;
+  color:var(--red);
+  font-size:11px;
   font-weight:800;
+  padding:6px 10px;
+  margin-bottom:10px;
 }
+.partner-title{
+  font-size:22px;
+  font-weight:900;
+  color:var(--text);
+  letter-spacing:-.04em;
+  line-height:1.05;
+}
+.partner-sub{
+  color:var(--text-3);
+  font-size:13px;
+  font-weight:600;
+  line-height:1.45;
+  margin-top:6px;
+}
+.partner-safe{
+  margin-top:10px;
+  font-size:12px;
+  font-weight:800;
+  color:#92400E;
+  background:#FEF3C7;
+  border:1px solid #FDE68A;
+  border-radius:12px;
+  padding:9px 10px;
+}
+.partner-section{ margin-top:14px; }
+.partner-section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+.partner-section-title{
+  font-size:15px;
+  font-weight:900;
+  color:var(--text);
+  letter-spacing:-.02em;
+}
+.partner-section-small{
+  font-size:11px;
+  color:var(--text-4);
+  font-weight:700;
+}
+.partner-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.partner-empty{
+  padding:16px;
+  color:var(--text-3);
+  font-size:13px;
+  font-weight:600;
+  line-height:1.45;
+}
+.partner-reserva-row{
+  padding:13px 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid var(--border);
+}
+.partner-reserva-row:last-child{border-bottom:0;}
+.partner-reserva-icon{
+  width:38px;
+  height:38px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:#ECFDF5;
+  color:#059669;
+  font-size:19px;
+  flex:0 0 auto;
+}
+.partner-reserva-info{min-width:0;flex:1;}
+.partner-reserva-info strong{
+  display:block;
+  color:var(--text);
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.partner-reserva-info span{
+  display:block;
+  color:var(--text-3);
+  font-size:12px;
+  font-weight:700;
+  margin-top:2px;
+}
+.partner-reserva-status{
+  color:#059669;
+  background:#ECFDF5;
+  border:1px solid #A7F3D0;
+  border-radius:999px;
+  padding:5px 8px;
+  font-size:10px;
+  font-weight:900;
+  white-space:nowrap;
+}
+.partner-vagas-list{ display:grid; gap:10px; }
+.partner-vaga-group{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.partner-vaga-main{
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.partner-client-icon{
+  width:44px;
+  height:44px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:22px;
+  font-weight:900;
+  flex:0 0 auto;
+  box-shadow:var(--shadow-sm);
+}
+.partner-vaga-info{ flex:1; min-width:0; }
+.partner-vaga-info strong{
+  display:block;
+  color:var(--text);
+  font-size:15px;
+  font-weight:900;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.partner-vaga-info span{
+  display:block;
+  color:var(--text-3);
+  font-size:12px;
+  font-weight:700;
+  margin-top:2px;
+}
+.partner-vaga-count{
+  margin-top:6px;
+  display:inline-flex;
+  align-items:center;
+  color:#B91C1C;
+  background:#FEF2F2;
+  border:1px solid #FCA5A5;
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:11px;
+  font-weight:900;
+}
+.partner-vaga-btn{
+  border:0;
+  border-radius:12px;
+  background:var(--dark);
+  color:#fff;
+  min-height:42px;
+  padding:0 13px;
+  font-family:var(--font);
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.partner-vaga-details{
+  display:none;
+  border-top:1px solid var(--border);
+  padding:10px;
+  background:#FAFAFB;
+}
+.partner-vaga-group.open .partner-vaga-details{ display:grid; gap:8px; }
+.partner-slot-btn{
+  width:100%;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:13px;
+  padding:12px;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-family:var(--font);
+  cursor:pointer;
+}
+.partner-slot-btn strong{ color:var(--text); font-size:13px; font-weight:900; }
+.partner-slot-btn span{ color:var(--red); font-size:12px; font-weight:900; }
+.partner-actions{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  background:rgba(255,255,255,.96);
+  border-top:1px solid var(--border);
+  box-shadow:0 -10px 24px rgba(0,0,0,.08);
+  padding:10px 14px max(10px, env(safe-area-inset-bottom));
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  z-index:150;
+}
+.partner-bottom-btn{
+  min-height:48px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  font-family:var(--font);
+  font-size:13px;
+  font-weight:900;
+  cursor:pointer;
+}
+.partner-bottom-btn.primary{ background:var(--red); color:#fff; border-color:var(--red); }
 
-/* popup de bloqueio de reserva duplicada */
-.modal-titulo.alerta { color:#EA580C; }
+.card.blue{ border-left-color:var(--blue); background:linear-gradient(to right,#EFF6FF 0px,var(--surface) 60px); }
+.card.purple{ border-left-color:var(--purple); background:linear-gradient(to right,#F5F3FF 0px,var(--surface) 60px); }
+.card.teal{ border-left-color:var(--teal); background:linear-gradient(to right,#ECFEFF 0px,var(--surface) 60px); }
+.client-section-header.meridio{ background:rgba(37,99,235,.08); color:rgba(37,99,235,.9); border-left:2px solid rgba(37,99,235,.45); }
+.client-section-header.fratelli{ background:rgba(124,58,237,.08); color:rgba(124,58,237,.9); border-left:2px solid rgba(124,58,237,.45); }
+.client-section-header.drica{ background:rgba(234,88,12,.08); color:rgba(234,88,12,.9); border-left:2px solid rgba(234,88,12,.45); }
+.client-section-header.barto{ background:rgba(124,58,237,.08); color:rgba(124,58,237,.9); border-left:2px solid rgba(124,58,237,.45); }
+.client-section-header.centermeat{ background:rgba(15,148,136,.08); color:rgba(15,148,136,.9); border-left:2px solid rgba(15,148,136,.45); }
+.fbtn.on-blue{ background:var(--blue); border-color:var(--blue); color:#fff; }
+.fbtn.on-purple{ background:var(--purple); border-color:var(--purple); color:#fff; }
+.fbtn.on-teal{ background:var(--teal); border-color:var(--teal); color:#fff; }
+.fbtn.on-meridio{ background:var(--blue); border-color:var(--blue); color:#fff; }
+.fbtn.on-fratelli{ background:var(--purple); border-color:var(--purple); color:#fff; }
+.fbtn.on-drica{ background:var(--orange); border-color:var(--orange); color:#fff; }
+.fbtn.on-barto{ background:var(--purple); border-color:var(--purple); color:#fff; }
+.fbtn.on-centermeat{ background:var(--teal); border-color:var(--teal); color:#fff; }
+.card.vaga-aberta .moto-name{ text-decoration:none; font-weight:800; }
+.modal-titulo.alerta{ color:#EA580C; }
 
-.time-bloco.time-sem-operacao {
-  opacity:.62;
+@media (min-width:769px){
+  .partner-home{ max-width:760px; margin:0 auto; padding-top:22px; }
 }
 
 </style>
@@ -1288,6 +1524,7 @@
   </div>
 </div>
 
+
 <!-- Bloqueio: parceiro já está reservado no mesmo dia -->
 <div class="modal-overlay" id="mReservaDuplicada">
   <div class="modal-box">
@@ -1296,7 +1533,7 @@
       Já tem reserva nesse dia
     </div>
     <p class="modal-sub" id="modalDuplicadaInfo">
-      Você já está em outro horário/cliente neste mesmo dia. Para evitar conflito, fale com o suporte antes de pegar outra vaga.
+      Você já está em outro horário ou cliente neste mesmo dia. Para trocar, fale com o suporte.
     </p>
     <div class="modal-btns">
       <button class="modal-btn cancel" onclick="fechar('mReservaDuplicada')">Entendi</button>
@@ -1312,49 +1549,62 @@
   <button class="btn-admin-tool danger" onclick="document.getElementById('mSair').classList.add('visivel')">Sair do admin</button>
 </div>
 
+
+<!-- TELA DO PARCEIRO — ABERTURA PADRÃO -->
+<main class="partner-home" id="partnerHome">
+  <section class="partner-hero">
+    <div class="partner-kicker">🏍️ Agenda do parceiro</div>
+    <div class="partner-title">Escolha uma vaga disponível</div>
+    <div class="partner-sub">Aqui você vê só o que precisa: suas reservas de hoje e vagas abertas para pegar.</div>
+    <div class="partner-safe">Use parado, com segurança.</div>
+  </section>
+
+  <section class="partner-section">
+    <div class="partner-section-head">
+      <div class="partner-section-title">Minhas reservas de hoje</div>
+      <div class="partner-section-small" id="partnerHojeLabel">Hoje</div>
+    </div>
+    <div class="partner-card" id="partnerReservasHoje">
+      <div class="partner-empty">Você ainda não tem reserva salva neste celular hoje.</div>
+    </div>
+  </section>
+
+  <section class="partner-section">
+    <div class="partner-section-head">
+      <div class="partner-section-title">Vagas abertas hoje</div>
+      <div class="partner-section-small" id="partnerTotalVagas">—</div>
+    </div>
+    <div class="partner-vagas-list" id="partnerVagasHoje"></div>
+  </section>
+
+  <div class="partner-actions">
+    <button class="partner-bottom-btn" type="button" onclick="window.open(WA_SUPORTE,'_blank')">Suporte</button>
+    <button class="partner-bottom-btn primary" type="button" onclick="abrirModalSenha()">Admin</button>
+  </div>
+</main>
+
 <!-- CLIENTS -->
 <div class="client-bar">
   <span class="client-label">Clientes</span>
   <div class="client-badge pastel">
     <span class="client-dot" style="background:var(--red)"></span>
     Pastel da Camila
+    <span style="font-weight:400;font-size:10px;opacity:.7">— 10h–16h · 15h–21h · 16h–22h</span>
   </div>
   <div class="client-badge beven">
     <span class="client-dot" style="background:var(--green)"></span>
     Bevenutti
-  </div>
-  <div class="client-badge">
-    <span class="client-dot" style="background:var(--blue)"></span>
-    Meridio
-  </div>
-  <div class="client-badge">
-    <span class="client-dot" style="background:var(--purple)"></span>
-    Fratelli
-  </div>
-  <div class="client-badge">
-    <span class="client-dot" style="background:var(--orange)"></span>
-    Drica
-  </div>
-  <div class="client-badge">
-    <span class="client-dot" style="background:var(--purple)"></span>
-    Barto
-  </div>
-  <div class="client-badge">
-    <span class="client-dot" style="background:var(--teal)"></span>
-    Center Meat
+    <span style="font-weight:400;font-size:10px;opacity:.7">— 18h–0h30</span>
   </div>
 </div>
 
 <!-- LEGEND -->
 <div class="legend">
   <span class="legend-label">Turnos</span>
-  <div class="leg red">🏍 10h–16h</div>
-  <div class="leg orange">🏍 15h–21h</div>
-  <div class="leg yellow">🏍 16h–22h</div>
-  <div class="leg green">🏍 18h–0h30</div>
-  <div class="leg blue">🏍 17h–23h</div>
-  <div class="leg teal">🏍 18h–0h</div>
-  <div class="leg purple">🏍 11h–16h / 10h–20h</div>
+  <div class="leg red">🏍 10h–16h <span class="leg-client p">Pastel</span></div>
+  <div class="leg orange">🏍 15h–21h · Reinaldo <span class="leg-client p">Pastel</span></div>
+  <div class="leg yellow">🏍 16h–22h <span class="leg-client p">Pastel</span></div>
+  <div class="leg green">🏍 18h–0h30 <span class="leg-client b">Bevenutti</span></div>
 </div>
 
 <!-- CONTROLS -->
@@ -1613,115 +1863,84 @@ var TURNO_LABEL = { red:'10h–16h', orange:'15h–21h', yellow:'16h–22h', gre
 
 var ESCALA_PADRAO = {
   seg:[
-    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'José Henrique',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
-
-    // Barto Bar
     {nome:'Alessandro',turno:'purple',client:'barto'},
-
-    // Fratelli Gourmet — 3 vagas
     {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
-
-    // Pastel da Drica — 3 vagas
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true}
   ],
   ter:[
-    // Pastel da Camila mantido
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
-
-    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Renan Lopes',turno:'green',client:'beven'},
-
     {nome:'Alessandro',turno:'purple',client:'barto'},
-
     {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
-
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
-
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
   ],
   qua:[
-    // Pastel da Camila mantido
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
-
-    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Renan Lopes',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
-
     {nome:'Alessandro',turno:'purple',client:'barto'},
-
     {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
-
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
-
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
   ],
   qui:[
-    // Pastel da Camila mantido
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
-
-    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
     {nome:'Renan Lopes',turno:'green',client:'beven'},
-
     {nome:'Alessandro',turno:'purple',client:'barto'},
-
     {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
-
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
-
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
   ],
   sex:[
-    // Pastel da Camila mantido
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
     {nome:'Gabriel Marcos',turno:'yellow',client:'pastel'},
-
-    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Kleber Augusto',turno:'green',client:'beven'},
@@ -1730,19 +1949,15 @@ var ESCALA_PADRAO = {
     {nome:'Alessandro',turno:'green',client:'beven'},
     {nome:'Renan Lopes',turno:'green',client:'beven'},
     {nome:'Clayton Silva',turno:'green',client:'beven'},
-
     {nome:'Alessandro',turno:'purple',client:'barto'},
-
     {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli',vaga:true},
-
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica',vaga:true},
-
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
@@ -1750,15 +1965,12 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true}
   ],
   sab:[
-    // Pastel da Camila mantido
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Renan Lopes',turno:'red',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
     {nome:'Gabriel Marcos',turno:'yellow',client:'pastel'},
-
-    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Kleber Augusto',turno:'green',client:'beven'},
@@ -1767,19 +1979,15 @@ var ESCALA_PADRAO = {
     {nome:'Alessandro',turno:'green',client:'beven'},
     {nome:'Gabriel Martins',turno:'green',client:'beven'},
     {nome:'Clayton Silva',turno:'green',client:'beven'},
-
     {nome:'Alessandro',turno:'purple',client:'barto'},
-
     {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli',vaga:true},
-
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica',vaga:true},
-
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
@@ -1787,34 +1995,27 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true}
   ],
   dom:[
-    // Pastel da Camila mantido
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
     {nome:'Gabriel Marcos',turno:'yellow',client:'pastel'},
-
-    // Bevenutti mantido
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Kleber Augusto',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
     {nome:'Alessandro',turno:'green',client:'beven'},
     {nome:'Gabriel Martins',turno:'green',client:'beven'},
     {nome:'José Henrique',turno:'green',client:'beven'},
-
     {nome:'Vaga Aberta Barto',turno:'purple',client:'barto',vaga:true},
-
     {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli',vaga:true},
-
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica',vaga:true},
-
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
@@ -2183,22 +2384,16 @@ function normalizarNomeReserva(nome) {
 function encontrarReservaMesmoDia(nome, cardAtual) {
   var nomeNorm = normalizarNomeReserva(nome);
   if (!nomeNorm) return null;
-
   var col = cardAtual.closest('.day-col');
   if (!col) return null;
-
   var cards = Array.from(col.querySelectorAll('.card'));
-  for (var i = 0; i < cards.length; i++) {
+  for (var i=0; i<cards.length; i++) {
     var c = cards[i];
     if (c === cardAtual) continue;
     if (c.classList.contains('vaga-aberta')) continue;
-
-    var nomeCard = c.querySelector('.moto-name');
-    if (!nomeCard) continue;
-
-    if (normalizarNomeReserva(nomeCard.textContent) === nomeNorm) {
-      return c;
-    }
+    var el = c.querySelector('.moto-name');
+    if (!el) continue;
+    if (normalizarNomeReserva(el.textContent) === nomeNorm) return c;
   }
   return null;
 }
@@ -2207,15 +2402,13 @@ function avisarReservaDuplicada(nome, cardExistente) {
   var client = cardExistente.getAttribute('data-client');
   var turno  = TURNO_HORA[cardExistente.getAttribute('data-turno')] || '';
   var col = cardExistente.closest('.day-col');
-  var DIA_LABEL = { seg:'Segunda', ter:'Terca', qua:'Quarta', qui:'Quinta', sex:'Sexta', sab:'Sabado', dom:'Domingo' };
-  var dia = col ? (DIA_LABEL[col.getAttribute('data-day')] || '') : '';
-
+  var dia = col ? (DIA_PT[col.getAttribute('data-day')] || '') : '';
   document.getElementById('modalDuplicadaInfo').innerHTML =
-    '<strong>' + nome + '</strong>, você já está reservado em <strong>' +
+    '<strong>' + nome + '</strong>, você já está reservado hoje em <strong>' +
     getClienteNome(client) + '</strong>' +
     (turno ? ' no horário <strong>' + turno + '</strong>' : '') +
     (dia ? ' — <strong>' + dia + '</strong>' : '') +
-    '.<br><br>Para não deixar ninguém em dois lugares ao mesmo tempo, essa vaga não foi reservada. Fale com o suporte se precisar trocar.';
+    '.<br><br>Para trocar de vaga, fale com o suporte.';
   document.getElementById('mReservaDuplicada').classList.add('visivel');
 }
 
@@ -2231,14 +2424,16 @@ function confirmarPegarVaga() {
   var card = document.getElementById('mPegarVaga')._card;
   if (!card) return;
 
-  var jaReservado = encontrarReservaMesmoDia(nome, card);
-  if (jaReservado) {
+  var conflito = encontrarReservaMesmoDia(nome, card);
+  if (conflito) {
     fechar('mPegarVaga');
-    avisarReservaDuplicada(nome, jaReservado);
+    avisarReservaDuplicada(nome, conflito);
     return;
   }
 
   fechar('mPegarVaga');
+
+  try { localStorage.setItem('oe_partner_name', nome); } catch(e){}
 
   // Atualiza o nome no card e remove estado vaga-aberta
   var nmEl = card.querySelector('.moto-name');
@@ -2538,7 +2733,6 @@ function ativarDragDrop() {
             barto:'purple',
             centermeat:'purple'
           };
-
           if (DEFAULT_TURNO_CLIENTE[novoClient]) {
             if (novoClient === 'pastel' && !['red','orange','yellow'].includes(turnoAtual)) novoTurno = 'red';
             else if (novoClient === 'fratelli' && !['blue','teal'].includes(turnoAtual)) novoTurno = 'teal';
@@ -2639,7 +2833,6 @@ function abrirModalAdd(sec) {
 function syncTurnos() {
   var c = document.getElementById('addCliente').value;
   var s = document.getElementById('addTurno');
-
   var htmlTurnos = {
     beven:      '<option value="green">18h–0h30</option>',
     meridio:    '<option value="teal">18h–0h</option>',
@@ -2649,7 +2842,6 @@ function syncTurnos() {
     centermeat: '<option value="purple">10h–20h</option>',
     pastel:     '<option value="red">10h–16h</option><option value="orange">15h–21h</option><option value="yellow">16h–22h</option>'
   };
-
   s.innerHTML = htmlTurnos[c] || htmlTurnos.pastel;
 }
 
@@ -3084,6 +3276,140 @@ function agendarReset() {
   }, ms);
 }
 
+
+/* ═══════════════════════════════════════
+   TELA PARCEIRO — renderiza vagas abertas de hoje
+═══════════════════════════════════════ */
+function getDiaAtualParceiro(){
+  return WEEKDAY_MAP[new Date().getDay()];
+}
+function getIconeCliente(client){
+  return {
+    pastel:'🥟',
+    beven:'🍕',
+    meridio:'🍕',
+    fratelli:'🍽️',
+    drica:'🥟',
+    barto:'🍹',
+    centermeat:'🥩'
+  }[client] || '🏪';
+}
+function getCorCliente(client){
+  return {
+    pastel:'#DC2626',
+    beven:'#059669',
+    meridio:'#2563EB',
+    fratelli:'#7C3AED',
+    drica:'#EA580C',
+    barto:'#7C3AED',
+    centermeat:'#0F9488'
+  }[client] || '#0F172A';
+}
+function getCardHorario(card){
+  return TURNO_HORA[card.getAttribute('data-turno')] || '';
+}
+function getNomeSalvoParceiro(){
+  try { return localStorage.getItem('oe_partner_name') || ''; } catch(e){ return ''; }
+}
+function renderPartnerHome(){
+  var home = document.getElementById('partnerHome');
+  if(!home) return;
+
+  var dia = getDiaAtualParceiro();
+  var diaNome = DIA_PT[dia] || 'Hoje';
+  var label = document.getElementById('partnerHojeLabel');
+  if(label) label.textContent = diaNome;
+
+  var nomeSalvo = getNomeSalvoParceiro();
+  var col = document.querySelector('.day-col[data-day="'+dia+'"]');
+  var reservasBox = document.getElementById('partnerReservasHoje');
+  var vagasBox = document.getElementById('partnerVagasHoje');
+  var totalEl = document.getElementById('partnerTotalVagas');
+  if(!col || !reservasBox || !vagasBox) return;
+
+  var cards = Array.from(col.querySelectorAll('.card'));
+  var abertas = cards.filter(function(c){ return c.classList.contains('vaga-aberta'); });
+
+  reservasBox.innerHTML = '';
+  var minhas = [];
+  if(nomeSalvo){
+    minhas = cards.filter(function(c){
+      var el = c.querySelector('.moto-name');
+      return el && normalizarNomeReserva(el.textContent) === normalizarNomeReserva(nomeSalvo) && !c.classList.contains('vaga-aberta');
+    });
+  }
+  if(minhas.length === 0){
+    reservasBox.innerHTML = '<div class="partner-empty">' + (nomeSalvo ? 'Nenhuma reserva encontrada hoje para <strong>'+nomeSalvo+'</strong>.' : 'Você ainda não tem reserva salva neste celular hoje.') + '</div>';
+  } else {
+    minhas.forEach(function(c){
+      var client = c.getAttribute('data-client');
+      var div = document.createElement('div');
+      div.className = 'partner-reserva-row';
+      div.innerHTML =
+        '<div class="partner-reserva-icon">✓</div>' +
+        '<div class="partner-reserva-info"><strong>'+getClienteNome(client)+'</strong><span>'+getCardHorario(c)+' • '+c.querySelector('.moto-name').textContent.trim()+'</span></div>' +
+        '<div class="partner-reserva-status">Reservado</div>';
+      reservasBox.appendChild(div);
+    });
+  }
+
+  vagasBox.innerHTML = '';
+  if(totalEl) totalEl.textContent = abertas.length + (abertas.length === 1 ? ' vaga' : ' vagas');
+  if(abertas.length === 0){
+    vagasBox.innerHTML = '<div class="partner-card"><div class="partner-empty">Nenhuma vaga aberta para hoje neste momento.</div></div>';
+    return;
+  }
+
+  var grupos = {};
+  abertas.forEach(function(card){
+    var key = card.getAttribute('data-client') + '|' + card.getAttribute('data-turno');
+    if(!grupos[key]) grupos[key] = [];
+    grupos[key].push(card);
+  });
+
+  Object.keys(grupos).forEach(function(key){
+    var arr = grupos[key];
+    var first = arr[0];
+    var client = first.getAttribute('data-client');
+    var turno = first.getAttribute('data-turno');
+    var group = document.createElement('div');
+    group.className = 'partner-vaga-group';
+    group.innerHTML =
+      '<div class="partner-vaga-main">' +
+        '<div class="partner-client-icon" style="background:'+getCorCliente(client)+'">'+getIconeCliente(client)+'</div>' +
+        '<div class="partner-vaga-info">' +
+          '<strong>'+getClienteNome(client)+'</strong>' +
+          '<span>'+ (TURNO_HORA[turno] || '') +' • '+diaNome+'</span>' +
+          '<div class="partner-vaga-count">'+arr.length+' '+(arr.length === 1 ? 'vaga aberta' : 'vagas abertas')+'</div>' +
+        '</div>' +
+        '<button class="partner-vaga-btn" type="button">Ver vagas</button>' +
+      '</div>' +
+      '<div class="partner-vaga-details"></div>';
+
+    var details = group.querySelector('.partner-vaga-details');
+    arr.forEach(function(card, i){
+      var btn = document.createElement('button');
+      btn.className = 'partner-slot-btn';
+      btn.type = 'button';
+      btn.innerHTML = '<strong>Vaga '+(i+1)+'</strong><span>Pegar vaga</span>';
+      btn.addEventListener('click', function(){ abrirModalPegarVaga(card); });
+      details.appendChild(btn);
+    });
+
+    group.querySelector('.partner-vaga-btn').addEventListener('click', function(){
+      group.classList.toggle('open');
+    });
+
+    vagasBox.appendChild(group);
+  });
+}
+
+var _atualizarStatusClientesOriginal = atualizarStatusClientes;
+atualizarStatusClientes = function(){
+  _atualizarStatusClientesOriginal();
+  renderPartnerHome();
+};
+
 /* ═══════════════════════════════════════
    INIT
 ═══════════════════════════════════════ */
@@ -3095,21 +3421,10 @@ function agendarReset() {
 
   await carregarEscala();
   await aplicarConfirmacoes();
+  renderPartnerHome();
+  document.body.classList.remove('admin-mode');
   agendarReset();
 })();
 </script>
-
-<script>
-/* ═══════════════════════════════════════
-   ABERTURA PADRÃO — PARCEIRO
-   A tela abre para o parceiro. Admin só entra pela senha.
-═══════════════════════════════════════ */
-(function(){
-  document.addEventListener('DOMContentLoaded', function(){
-    document.body.classList.remove('admin-mode');
-  });
-})();
-</script>
-
 </body>
 </html>
