@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Escala Semanal de Motoboys — Osasco Express</title>
-<!-- OE ESCALA V2.5 FINAL: UX gestor + grupos oficiais + multi-clientes | 02/06/2026 -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
 
@@ -16,6 +15,9 @@
     --orange:#EA580C;    --orange-bg:#FFF7ED; --orange-mid:#FB923C;
     --yellow:#CA8A04;    --yellow-bg:#FEFCE8; --yellow-mid:#FCD34D;
     --green:#059669;     --green-bg:#ECFDF5;  --green-mid:#6EE7B7;
+    --blue:#2563EB;      --blue-bg:#EFF6FF;    --blue-mid:#93C5FD;
+    --purple:#7C3AED;    --purple-bg:#F5F3FF;  --purple-mid:#C4B5FD;
+    --teal:#0F9488;      --teal-bg:#ECFEFF;    --teal-mid:#67E8F9;
 
     /* Sistema de cores */
     --bg:#F8F9FB;
@@ -1041,2555 +1043,61 @@
     100% { transform:translateY(105vh) rotate(720deg) scaleX(.5); opacity:0; }
   }
 
+/* ══════════════════════════════
+   MULTI-CLIENTES — extensão conservadora
+   Mantém fluxo antigo: parceiro abre, vê a escala, clica na vaga e reserva.
+══════════════════════════════ */
+.fbtn.on-blue   { background:var(--blue);   border-color:var(--blue);   color:#fff; }
+.fbtn.on-purple { background:var(--purple); border-color:var(--purple); color:#fff; }
+.fbtn.on-teal   { background:var(--teal);   border-color:var(--teal);   color:#fff; }
 
-  /* ══════════════════════════════
-     EXPANSÃO MULTI-CLIENTES / MULTI-TURNOS
-  ══════════════════════════════ */
-  :root {
-    --blue:#2563EB;      --blue-bg:#EFF6FF;      --blue-mid:#93C5FD;
-    --teal:#0D9488;      --teal-bg:#F0FDFA;      --teal-mid:#5EEAD4;
-    --purple:#7C3AED;    --purple-bg:#F5F3FF;    --purple-mid:#C4B5FD;
-    --slate:#475569;     --slate-bg:#F8FAFC;     --slate-mid:#CBD5E1;
-  }
+.fbtn.on-meridio    { background:var(--blue);   border-color:var(--blue);   color:#fff; }
+.fbtn.on-fratelli   { background:var(--purple); border-color:var(--purple); color:#fff; }
+.fbtn.on-drica      { background:var(--orange); border-color:var(--orange); color:#fff; }
+.fbtn.on-barto      { background:var(--purple); border-color:var(--purple); color:#fff; }
+.fbtn.on-centermeat { background:var(--teal);   border-color:var(--teal);   color:#fff; }
 
-  .fbtn.on-blue   { background:var(--blue);   border-color:var(--blue);   color:#fff; }
-  .fbtn.on-teal   { background:var(--teal);   border-color:var(--teal);   color:#fff; }
-  .fbtn.on-purple { background:var(--purple); border-color:var(--purple); color:#fff; }
-  .fbtn.on-slate  { background:var(--slate);  border-color:var(--slate);  color:#fff; }
+.card.blue   { border-left-color:var(--blue);   background:linear-gradient(to right,#EFF6FF 0px,var(--surface) 60px); }
+.card.purple { border-left-color:var(--purple); background:linear-gradient(to right,#F5F3FF 0px,var(--surface) 60px); }
+.card.teal   { border-left-color:var(--teal);   background:linear-gradient(to right,#ECFEFF 0px,var(--surface) 60px); }
 
-  .fbtn.on-meridio, .fbtn.on-fratelli { background:var(--blue); border-color:var(--blue); color:#fff; }
-  .fbtn.on-drica { background:var(--teal); border-color:var(--teal); color:#fff; }
-  .fbtn.on-barto { background:var(--purple); border-color:var(--purple); color:#fff; }
-  .fbtn.on-centermeat { background:var(--slate); border-color:var(--slate); color:#fff; }
-
-  .client-section-header.meridio   { background:rgba(37,99,235,.08); color:rgba(37,99,235,.9); border-left:2px solid rgba(37,99,235,.45); }
-  .client-section-header.fratelli  { background:rgba(37,99,235,.08); color:rgba(37,99,235,.9); border-left:2px solid rgba(37,99,235,.45); }
-  .client-section-header.drica     { background:rgba(13,148,136,.08); color:rgba(13,148,136,.9); border-left:2px solid rgba(13,148,136,.45); }
-  .client-section-header.barto     { background:rgba(124,58,237,.08); color:rgba(124,58,237,.9); border-left:2px solid rgba(124,58,237,.45); }
-  .client-section-header.centermeat{ background:rgba(71,85,105,.08); color:rgba(71,85,105,.9); border-left:2px solid rgba(71,85,105,.45); }
-
-  .card.blue   { border-left-color:var(--blue); }
-  .card.teal   { border-left-color:var(--teal); }
-  .card.purple { border-left-color:var(--purple); }
-  .card.slate  { border-left-color:var(--slate); }
-  .card.blue   { background:linear-gradient(to right,#EFF6FF 0px,var(--surface) 60px); }
-  .card.teal   { background:linear-gradient(to right,#F0FDFA 0px,var(--surface) 60px); }
-  .card.purple { background:linear-gradient(to right,#F5F3FF 0px,var(--surface) 60px); }
-  .card.slate  { background:linear-gradient(to right,#F8FAFC 0px,var(--surface) 60px); }
-
-  .btn-enviar.client-btn { color:#fff; }
-
-
-
-/* ═══════════════════════════════════════
-   OE V2.5 — RODADAS 2 A 5: UX profissional sem quebrar fluxo
-   Referência operacional: clareza de app de entregador + dashboard gestor
-═══════════════════════════════════════ */
-:root{
-  --oe-navy:#071426;
-  --oe-navy-2:#0B1B31;
-  --oe-line:#DCE3EE;
-  --oe-soft:#F4F7FB;
-  --oe-soft-2:#FAFBFD;
-  --oe-ok:#059669;
-  --oe-warn:#F59E0B;
-  --oe-crit:#DC2626;
+.client-section-header.meridio {
+  background:rgba(37,99,235,.08); color:rgba(37,99,235,.9);
+  border-left:2px solid rgba(37,99,235,.45);
 }
-body{background:linear-gradient(180deg,#F7F9FC 0%,#EEF3F8 100%);}
-.header{
-  height:70px; padding:0 28px;
-  background:linear-gradient(135deg,#08172A 0%,#061022 55%,#091A32 100%);
-  box-shadow:0 10px 28px rgba(7,20,38,.18);
-  position:sticky; top:0; z-index:140;
+.client-section-header.fratelli {
+  background:rgba(124,58,237,.08); color:rgba(124,58,237,.9);
+  border-left:2px solid rgba(124,58,237,.45);
 }
-.header-logo-icon{width:44px;height:44px;border-radius:12px;box-shadow:0 10px 18px rgba(220,38,38,.25)}
-.header-titles h1{font-size:19px;letter-spacing:-.025em;font-weight:900;}
-.header-titles p{font-size:12px;color:#93A4BA;display:block!important;margin-top:3px;}
-.btn-header{min-height:38px;padding:8px 16px;border-radius:10px;color:#E6EDF7;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.18);font-size:12px;letter-spacing:.01em;text-transform:none;}
-.btn-header.ativo{background:#F59E0B;color:#111827;border-color:#F59E0B;font-weight:900;}
-.header-user{display:flex;align-items:center;gap:10px;margin-left:4px;padding:4px 10px 4px 4px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045);color:#fff;}
-.header-avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#E11D48,#F97316);font-size:11px;font-weight:900;border:2px solid rgba(255,255,255,.75)}
-.header-user-text{display:flex;flex-direction:column;line-height:1.08;}
-.header-user-text strong{font-size:12px;font-weight:800}.header-user-text small{font-size:10px;color:#9CAFC6;margin-top:2px}
-.admin-toolbar{background:#0B1009;border-bottom:2px solid #F59E0B;padding:9px 28px;gap:16px;box-shadow:0 6px 14px rgba(0,0,0,.08);}
-.admin-toolbar-label{color:#FDE68A;font-weight:900}.btn-admin-tool{border-radius:8px;padding:7px 14px}.btn-admin-tool.danger{color:#FCA5A5;border-color:#7F1D1D;background:#2A1012}
-.controls{
-  top:70px; height:auto; min-height:78px; padding:16px 28px; gap:10px;
-  background:rgba(255,255,255,.94); backdrop-filter:blur(10px);
-  border-bottom:1px solid #DDE5F0; box-shadow:0 6px 18px rgba(15,23,42,.06);
-  align-items:center; flex-wrap:nowrap;
+.client-section-header.drica {
+  background:rgba(234,88,12,.08); color:rgba(234,88,12,.9);
+  border-left:2px solid rgba(234,88,12,.45);
 }
-body.admin-mode .controls{top:70px;}
-.search-input{width:210px;height:42px;border-radius:10px;background:#F8FAFC;border-color:#D8E1EC;font-size:13px;padding-left:34px;}
-.search-input:focus{width:240px;border-color:#0F172A;background:#fff;}
-.search-wrap svg{left:12px;width:15px;height:15px}.filter-title{font-size:11px;font-weight:900;color:#64748B;letter-spacing:.04em;text-transform:uppercase;margin-left:2px;white-space:nowrap;}
-.filter-group{gap:7px}.filter-sep{height:28px;background:#E2E8F0;margin:0 4px}.fbtn{height:30px;padding:0 12px;border-radius:8px;background:#F8FAFC;border-color:#D9E2EC;color:#344256;font-size:11px;font-weight:800;box-shadow:0 1px 0 rgba(15,23,42,.02)}
-.fbtn .chip-dot{width:7px;height:7px}.fbtn:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(15,23,42,.08)}.btn-clear{height:30px;border-radius:8px}
-.time-panel{padding:20px 28px 6px;background:#FFFFFF;border-bottom:1px solid #E4EAF2;}
-.time-panel-topo{justify-content:space-between;align-items:center;margin-bottom:14px}.time-dia{font-size:20px;letter-spacing:-.035em;text-transform:none;color:#0F172A}.time-subtitulo{font-size:12px;color:#94A3B8;margin-top:2px}.btn-whatsapp-geral{border:1px solid #BBF7D0;background:#F0FDF4;color:#047857;border-radius:10px;padding:10px 14px;font-family:var(--font);font-weight:900;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(5,150,105,.08)}.btn-whatsapp-geral:hover{background:#DCFCE7;transform:translateY(-1px)}
-.time-blocos{display:grid;grid-template-columns:repeat(5,minmax(210px,1fr));gap:14px;align-items:stretch;}
-.time-bloco{min-width:0;border-radius:14px;background:#fff;border:1px solid #DDE6F1;box-shadow:0 7px 20px rgba(15,23,42,.055);position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s,border-color .15s;}
-.time-bloco:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,23,42,.09)}
-.time-bloco::after{content:'ATENÇÃO';position:absolute;top:12px;right:12px;padding:3px 8px;border-radius:999px;background:#FEF3C7;color:#B45309;font-size:9px;font-weight:900;letter-spacing:.04em;}
-.time-bloco.time-fechado{border-color:#A7F3D0;background:linear-gradient(180deg,#fff,#F0FDF4)}.time-bloco.time-fechado::after{content:'OK';background:#DCFCE7;color:#047857}.time-bloco.time-critico{border-color:#FCA5A5;background:linear-gradient(180deg,#fff,#FFF8F8)}.time-bloco.time-critico::after{content:'CRÍTICO';background:#FEE2E2;color:#B91C1C}.time-bloco.time-alerta::after,.time-bloco.time-quase::after{content:'ATENÇÃO'} .time-bloco.time-sem-operacao{background:#FFFFFF;border-color:#E2E8F0}.time-bloco.time-sem-operacao::after{content:'SEM OPERAÇÃO';background:#F1F5F9;color:#64748B}
-.time-bloco-header{padding:14px 14px 8px;background:transparent;border-bottom:0}.time-bloco-cliente{font-size:12px;font-weight:950;letter-spacing:.02em}.time-placar{font-size:20px;font-weight:950;color:#0F172A}.time-nomes{min-height:58px;padding:6px 14px 4px;gap:2px}.moto-slot{width:42px;height:46px}.moto-slot svg{width:36px;height:26px}.moto-slot .moto-label{font-size:8px}.time-barra-wrap{padding:0 14px 8px}.time-barra-track{height:5px;background:#E5EAF1;border-radius:999px;overflow:hidden}.time-barra-fill{height:100%;background:currentColor;border-radius:999px;transition:width .35s ease}.time-msg{font-size:12px;color:#334155;line-height:1.45;padding:0 14px 12px;min-height:42px;font-weight:650}.time-bloco-footer{display:flex;gap:8px;padding:0 14px 14px}.time-bloco-footer .btn-enviar,.time-bloco-footer .btn-enviar-incomplete{display:inline-flex!important;align-items:center;justify-content:center;min-height:34px;border-radius:8px;font-size:11px;font-weight:900;text-transform:none;letter-spacing:0;}.time-bloco-footer .btn-enviar{flex:1}.time-bloco-footer .btn-enviar-incomplete{flex:0 0 auto;background:#F8FAFC;border-color:#DDE6F1;color:#64748B}.time-bloco.time-sem-operacao .time-bloco-footer .btn-enviar,.time-bloco.time-sem-operacao .time-bloco-footer .btn-enviar-incomplete{display:none!important}
-.table-wrap{padding:18px 28px 24px;background:transparent}.grid{grid-template-columns:repeat(7,minmax(210px,1fr));gap:16px;min-width:1470px}.day-header{padding:13px 15px;border-radius:13px;background:linear-gradient(135deg,#101D31,#061222);box-shadow:0 8px 18px rgba(15,23,42,.13)}.day-col.today .day-header{background:linear-gradient(135deg,#103A67,#08213F);border-color:rgba(96,165,250,.28)}.day-name{font-size:14px}.day-count{font-size:11px;color:#8FA2B8}.client-section{gap:6px}.client-section-header{font-size:10px;border-radius:8px;padding:7px 10px;margin-top:3px;letter-spacing:.06em}.client-section-header.meridio{background:#EFF6FF;color:#1D4ED8;border-left-color:#3B82F6}.client-section-header.fratelli{background:#F5F3FF;color:#6D28D9;border-left-color:#7C3AED}.client-section-header.drica{background:#FFF7ED;color:#C2410C;border-left-color:#F97316}.client-section-header.barto{background:#F5F3FF;color:#6D28D9;border-left-color:#7C3AED}.client-section-header.centermeat{background:#F1F5F9;color:#334155;border-left-color:#64748B}
-.card{border-radius:10px;border-color:#DCE5EF;box-shadow:0 3px 8px rgba(15,23,42,.05);min-height:48px}.card:hover{box-shadow:0 8px 18px rgba(15,23,42,.09)}.card-row{padding:10px 12px 7px}.moto-name{font-size:13px;font-weight:850}.card-turno{font-size:10px;color:#64748B;font-weight:800}.confirmed-badge,.vaga-badge,.cobriu-badge{border-radius:6px;padding:2px 6px}.card.confirmado{background:linear-gradient(to right,#ECFDF5,#FFFFFF)!important}.card.vaga-aberta{background:repeating-linear-gradient(45deg,#FFF7ED,#FFF7ED 5px,#FFFBF5 5px,#FFFBF5 10px)!important}.btn-add-entregador{border-radius:10px;padding:9px;font-size:12px;background:rgba(255,255,255,.6)}
-.oe-footer-tip{margin:0 28px 18px;padding:11px 16px;border:1px solid #DDE6F1;border-radius:12px;background:#fff;color:#64748B;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 4px 12px rgba(15,23,42,.04)}.oe-legend{display:flex;gap:12px;align-items:center;white-space:nowrap}.oe-legend b{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:-7px}.lg-red{background:#DC2626}.lg-orange{background:#F59E0B}.lg-green{background:#059669}.lg-gray{background:#94A3B8}
-@media (max-width:1200px){.time-blocos{grid-template-columns:repeat(3,minmax(230px,1fr));}.grid{min-width:1320px}.header-user-text{display:none}}
-@media (max-width:768px){
-  .header{height:58px;padding:0 14px}.header-logo-icon{width:34px;height:34px}.header-titles h1{font-size:14px;max-width:180px}.header-titles p{display:none!important}.header-user{display:none}.btn-header{min-height:34px;padding:6px 10px}.controls{top:58px;min-height:54px;padding:9px 12px;gap:6px}.filter-title{display:none}.search-input{width:132px;height:36px;font-size:12px}.search-input:focus{width:150px}.fbtn{height:28px;font-size:10px;padding:0 9px}.filter-sep{display:none}.time-panel{padding:14px 12px 4px}.time-panel-topo{align-items:flex-start;gap:10px}.time-dia{font-size:17px}.time-subtitulo{font-size:11px}.btn-whatsapp-geral{padding:8px 10px;font-size:10px;white-space:nowrap}.time-blocos{display:flex;overflow-x:auto;gap:10px;padding-bottom:10px;scroll-snap-type:x proximity}.time-bloco{min-width:276px;scroll-snap-align:start}.table-wrap{padding:10px 0 36px}.grid{min-width:980px;gap:8px;padding:0 12px}.oe-footer-tip{margin:0 12px 14px;align-items:flex-start;flex-direction:column}.oe-legend{flex-wrap:wrap;gap:10px}.day-header{padding:9px 10px}.day-name{font-size:11px}.card-row{padding:7px 9px 5px}.moto-name{font-size:11px}
+.client-section-header.barto {
+  background:rgba(124,58,237,.08); color:rgba(124,58,237,.9);
+  border-left:2px solid rgba(124,58,237,.45);
+}
+.client-section-header.centermeat {
+  background:rgba(15,148,136,.08); color:rgba(15,148,136,.9);
+  border-left:2px solid rgba(15,148,136,.45);
 }
 
-
-
-/* ═══════════════════════════════════════
-   RODADA SENIOR — MOBILE GLASS + MOTO DANDO GRAU
-═══════════════════════════════════════ */
-:root{
-  --glass-white: rgba(255,255,255,.72);
-  --glass-border: rgba(255,255,255,.42);
-  --glass-shadow: 0 18px 42px rgba(15,23,42,.10), 0 6px 16px rgba(15,23,42,.08);
-  --glass-blur: blur(16px);
-}
-
-html{
-  background:
-    radial-gradient(1200px 500px at 10% -5%, rgba(59,130,246,.10), transparent 45%),
-    radial-gradient(1200px 500px at 90% -10%, rgba(16,185,129,.08), transparent 42%),
-    linear-gradient(180deg, #F5F8FC 0%, #EEF3F9 100%);
-}
-body{
-  background:transparent;
-}
-.header{
-  position:sticky;
-  top:0;
-  z-index:120;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 10px 28px rgba(2,8,23,.16);
-}
-.controls{
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.84));
-  box-shadow:0 10px 28px rgba(15,23,42,.06);
-}
-.search-input,
-.fbtn,
-.btn-header,
-.btn-whatsapp-geral,
-.time-bloco-footer .btn-enviar,
-.time-bloco-footer .btn-enviar-incomplete,
-.day-col .add-btn,
-.day-col .mini-btn{
-  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
-}
-.search-input,
-.fbtn{
-  background:rgba(255,255,255,.82);
-  border-color:#DDE6F1;
-  box-shadow:0 3px 10px rgba(15,23,42,.04);
-}
-.search-input:focus,
-.fbtn:hover,
-.btn-whatsapp-geral:hover,
-.day-col .add-btn:hover,
-.day-col .mini-btn:hover{
-  box-shadow:0 8px 18px rgba(15,23,42,.10);
-  transform:translateY(-1px);
-}
-.time-panel{
-  background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.86));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.time-bloco,
-.day-col,
-.oe-footer-tip,
-.legend,
-.summary,
-.table-wrap,
-.modal-content{
-  box-shadow: var(--glass-shadow);
-}
-.time-bloco,
-.day-col,
-.oe-footer-tip,
-.modal-content{
-  background:linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(248,250,252,.96) 100%);
-}
-.time-bloco{
-  border:1px solid #E6EDF5;
-}
-.time-bloco::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  pointer-events:none;
-  background:linear-gradient(180deg, rgba(255,255,255,.38), transparent 30%);
-}
-.time-bloco-header,
-.day-header{
-  position:relative;
-  overflow:hidden;
-}
-.time-bloco-header::after,
-.day-header::after{
-  content:'';
-  position:absolute;
-  inset:-40% auto auto -20%;
-  width:120px;
-  height:120px;
-  background:radial-gradient(circle, rgba(255,255,255,.18), transparent 68%);
-  pointer-events:none;
-}
-.time-nomes{
-  gap:4px;
-}
-.moto-slot{
-  position:relative;
-  isolation:isolate;
-}
-.moto-slot svg{
-  transform-origin:52% 83%;
-  will-change:transform;
-}
-.moto-slot.confirmado:nth-child(3n+1) svg{
-  animation:motoGrau 4.8s cubic-bezier(.45,.05,.2,1) infinite;
-}
-.moto-slot.confirmado:nth-child(3n+2) svg{
-  animation:motoGrau 5.4s cubic-bezier(.45,.05,.2,1) infinite;
-  animation-delay:.7s;
-}
-.moto-slot.confirmado:nth-child(3n) svg{
-  animation:motoGrau 6.2s cubic-bezier(.45,.05,.2,1) infinite;
-  animation-delay:1.1s;
-}
-.moto-slot.vaga svg{
-  animation: vagaPulse 2.8s ease-in-out infinite;
-}
-@keyframes motoGrau{
-  0%, 74%, 100%{ transform:translateY(0) rotate(0deg) scale(1); }
-  78%{ transform:translateY(-1px) rotate(-9deg) scale(1.02); }
-  81%{ transform:translateY(-5px) rotate(-18deg) scale(1.03); }
-  86%{ transform:translateY(-2px) rotate(-11deg) scale(1.02); }
-  90%{ transform:translateY(0) rotate(-2deg) scale(1); }
-}
-@keyframes vagaPulse{
-  0%,100%{ transform:translateY(0) scale(1); opacity:.72; }
-  50%{ transform:translateY(-2px) scale(1.05); opacity:.95; }
-}
-
-/* Ajustes de leitura e hierarquia */
-.time-dia{font-weight:950;}
-.time-subtitulo{font-size:12px; color:#64748B;}
-.time-placar{letter-spacing:-.03em;}
-.time-msg{font-size:12px;}
-.day-header{box-shadow: inset 0 1px 0 rgba(255,255,255,.06);}
-.day-count{opacity:.92;}
-.card{
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-}
-.card:hover{
-  transform:translateY(-1px);
-  box-shadow:0 8px 16px rgba(15,23,42,.08);
-}
-
-/* Mobile first glass */
-@media (max-width: 980px){
-  .header{
-    background:linear-gradient(180deg, rgba(2,10,31,.94), rgba(9,26,61,.88));
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-  .controls{
-    top:58px;
-    padding:10px 10px 12px;
-    background:linear-gradient(180deg, rgba(248,250,252,.82), rgba(255,255,255,.70));
-    border-bottom:1px solid rgba(255,255,255,.65);
-    box-shadow:0 14px 24px rgba(15,23,42,.08);
-    overflow-x:auto;
-    scrollbar-width:none;
-  }
-  .controls::-webkit-scrollbar{ display:none; }
-  .search-input{
-    min-width:148px;
-    border-radius:14px;
-    background:rgba(255,255,255,.88);
-  }
-  .fbtn{
-    border-radius:999px;
-    background:rgba(255,255,255,.72);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  .fbtn.active{
-    box-shadow:0 10px 20px rgba(15,23,42,.12);
-  }
-  .time-panel{
-    padding:12px 12px 6px;
-    background:transparent;
-    border-bottom:0;
-  }
-  .time-panel-topo{
-    position:sticky;
-    top:112px;
-    z-index:20;
-    padding:12px;
-    border:1px solid var(--glass-border);
-    border-radius:18px;
-    background:var(--glass-white);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    box-shadow: var(--glass-shadow);
-    margin-bottom:12px;
-  }
-  .time-dia{
-    font-size:18px;
-    line-height:1.05;
-  }
-  .time-subtitulo{
-    font-size:11px;
-    max-width:220px;
-  }
-  .btn-whatsapp-geral{
-    border-radius:12px;
-    min-height:38px;
-    padding:10px 12px;
-    font-size:11px;
-    background:rgba(240,253,244,.88);
-    box-shadow:0 8px 18px rgba(5,150,105,.12);
-  }
-  .time-blocos{
-    gap:12px;
-    padding:2px 2px 12px;
-  }
-  .time-bloco{
-    min-width:288px;
-    border-radius:18px;
-    background:linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.68));
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border:1px solid rgba(255,255,255,.56);
-  }
-  .time-bloco-header{
-    padding:14px 14px 8px;
-  }
-  .time-nomes{
-    min-height:68px;
-    padding:8px 14px 4px;
-  }
-  .moto-slot{
-    width:46px;
-    height:50px;
-  }
-  .moto-slot svg{
-    width:38px;
-    height:28px;
-  }
-  .moto-slot .moto-label{
-    font-size:8px;
-  }
-  .table-wrap{
-    padding:10px 0 24px;
-    background:transparent;
-    box-shadow:none;
-  }
-  .grid{
-    min-width:1010px;
-    gap:10px;
-    padding:0 12px;
-  }
-  .day-col{
-    border-radius:18px;
-    overflow:hidden;
-    background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.70));
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border:1px solid rgba(255,255,255,.56);
-  }
-  .day-header{
-    border-radius:18px 18px 12px 12px;
-  }
-  .oe-footer-tip{
-    margin:0 12px 16px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,.56);
-    background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.66));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .moto-slot.confirmado svg,
-  .moto-slot.vaga svg,
-  .moto-slot.confirmado,
-  .moto-slot.cobriu,
-  .card,
-  .fbtn,
-  .btn-whatsapp-geral{
-    animation:none !important;
-    transition:none !important;
-    transform:none !important;
-  }
-}
-
-
-
-/* ═══════════════════════════════════════
-   HOTFIX DEV GAMER — GRAU SEGURO DA MOTO
-   Corrige conflito entre animação de entrada e wheelie no SVG.
-   Agora o "grau" só roda depois da moto estar estável.
-═══════════════════════════════════════ */
-
-/* Cancela o grau anterior que estava aplicado direto no SVG e podia conflitar */
-.moto-slot.confirmado:nth-child(3n+1) svg,
-.moto-slot.confirmado:nth-child(3n+2) svg,
-.moto-slot.confirmado:nth-child(3n) svg{
-  animation:none !important;
-}
-
-/* Mantém a moto estável como base */
-.moto-slot svg{
-  transform-origin:50% 84%;
-  transform-box:fill-box;
-  backface-visibility:hidden;
-}
-
-/* O grau agora acontece no slot inteiro, mais seguro e com vibe gamer */
-.moto-slot.confirmado{
-  animation:
-    motoChega .45s cubic-bezier(.34,1.56,.64,1) both,
-    grauGamerSeguro 7.2s cubic-bezier(.25,.9,.28,1) 1.8s infinite !important;
-  transform-origin:50% 86%;
-}
-
-.moto-slot.confirmado:nth-child(2n){
-  animation-delay:0s, 2.6s !important;
-}
-
-.moto-slot.confirmado:nth-child(3n){
-  animation-delay:0s, 3.2s !important;
-}
-
-/* Efeito leve de sombra quando dá grau */
-.moto-slot.confirmado::after{
-  content:'';
-  position:absolute;
-  left:8px;
-  right:8px;
-  bottom:14px;
-  height:5px;
-  border-radius:999px;
-  background:rgba(15,23,42,.12);
-  filter:blur(3px);
-  transform:scaleX(.72);
-  opacity:.55;
-  z-index:-1;
-  transition:opacity .2s ease, transform .2s ease;
-}
-
-/* Animação principal: wheelie curto, controlado, sem quebrar o card */
-@keyframes grauGamerSeguro{
-  0%, 72%, 100%{
-    transform:translate3d(0,0,0) rotate(0deg) scale(1);
-  }
-  75%{
-    transform:translate3d(0,-1px,0) rotate(-4deg) scale(1.01);
-  }
-  78%{
-    transform:translate3d(2px,-6px,0) rotate(-14deg) scale(1.04);
-  }
-  81%{
-    transform:translate3d(4px,-7px,0) rotate(-18deg) scale(1.045);
-  }
-  84%{
-    transform:translate3d(3px,-4px,0) rotate(-10deg) scale(1.025);
-  }
-  88%{
-    transform:translate3d(0,0,0) rotate(1deg) scale(1);
-  }
-  91%{
-    transform:translate3d(0,0,0) rotate(0deg) scale(1);
-  }
-}
-
-/* Vaga aberta fica pulsando, sem usar grau */
-.moto-slot.vaga{
-  animation:vagaAbertaRespira 2.2s ease-in-out infinite !important;
-}
-
-@keyframes vagaAbertaRespira{
-  0%,100%{
-    transform:translateY(0) scale(1);
-    opacity:.78;
-  }
-  50%{
-    transform:translateY(-2px) scale(1.04);
-    opacity:1;
-  }
-}
-
-/* Mobile: reduz a intensidade para não cortar dentro do card */
-@media (max-width: 980px){
-  .moto-slot.confirmado{
-    animation:
-      motoChega .42s cubic-bezier(.34,1.56,.64,1) both,
-      grauGamerMobile 7.6s cubic-bezier(.25,.9,.28,1) 1.8s infinite !important;
-  }
-
-  @keyframes grauGamerMobile{
-    0%, 74%, 100%{
-      transform:translate3d(0,0,0) rotate(0deg) scale(1);
-    }
-    78%{
-      transform:translate3d(1px,-4px,0) rotate(-10deg) scale(1.025);
-    }
-    82%{
-      transform:translate3d(2px,-5px,0) rotate(-13deg) scale(1.03);
-    }
-    88%{
-      transform:translate3d(0,0,0) rotate(0deg) scale(1);
-    }
-  }
-
-  .moto-slot.confirmado::after{
-    bottom:12px;
-    opacity:.42;
-  }
-}
-
-/* Garante acessibilidade e evita bug em aparelhos que reduzem movimento */
-@media (prefers-reduced-motion: reduce){
-  .moto-slot.confirmado,
-  .moto-slot.vaga,
-  .moto-slot.confirmado svg,
-  .moto-slot.vaga svg{
-    animation:none !important;
-    transform:none !important;
-  }
-}
-
-
-
-/* ═══════════════════════════════════════
-   OE V3 — REDESIGN UX ESTILO DELIVERY / IFOOD-LIKE
-   Camada visual nova. Não altera funções nem dados.
-═══════════════════════════════════════ */
-:root{
-  --oe-red:#EA1D2C;
-  --oe-red-dark:#B80013;
-  --oe-red-soft:#FFF1F2;
-  --oe-red-border:#FFD4D8;
-  --oe-bg:#F7F7F8;
-  --oe-card:#FFFFFF;
-  --oe-text:#101828;
-  --oe-muted:#667085;
-  --oe-line:#EAECF0;
-  --oe-green:#00A86B;
-  --oe-yellow:#F6B100;
-  --oe-blue:#1D63ED;
-  --oe-purple:#7C3AED;
-  --oe-orange:#F97316;
-  --oe-teal:#008F86;
-  --oe-ink:#111827;
-  --oe-side:74px;
-  --shadow-card:0 12px 32px rgba(16,24,40,.08),0 2px 6px rgba(16,24,40,.04);
-  --shadow-soft:0 8px 22px rgba(16,24,40,.06);
-}
-*{scrollbar-width:thin;scrollbar-color:#D0D5DD transparent;}
-body{
-  background:var(--oe-bg)!important;
-  color:var(--oe-text)!important;
-  padding-left:var(--oe-side);
-  font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif!important;
-}
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  background:
-    radial-gradient(900px 420px at 20% -10%, rgba(234,29,44,.08), transparent 55%),
-    linear-gradient(180deg,#FFFFFF 0%,#F7F7F8 38%,#F3F4F6 100%);
-}
-
-/* Sidebar vermelha estilo app de delivery */
-.oe-v3-sidebar{
-  position:fixed;
-  inset:0 auto 0 0;
-  width:var(--oe-side);
-  z-index:500;
-  background:linear-gradient(180deg,#F7192D 0%,#D90416 52%,#B80013 100%);
-  box-shadow:18px 0 36px rgba(184,0,19,.18);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:14px 10px 18px;
-  gap:12px;
-}
-.oe-v3-side-logo{
-  width:48px;height:48px;border-radius:16px;
-  display:grid;place-items:center;
-  color:#fff;
-  background:rgba(255,255,255,.15);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 10px 22px rgba(0,0,0,.12);
-  margin-bottom:10px;
-}
-.oe-v3-side-item{
-  width:46px;height:46px;border:0;border-radius:14px;
-  display:grid;place-items:center;
-  cursor:pointer;
-  color:#fff;
-  background:transparent;
-  font-size:22px;
-  line-height:1;
-  font-weight:900;
-  transition:all .18s ease;
-}
-.oe-v3-side-item:hover,
-.oe-v3-side-item.active{
-  background:rgba(255,255,255,.18);
-  transform:translateY(-1px);
-  box-shadow:0 10px 20px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.22);
-}
-.oe-v3-side-spacer{flex:1;}
-
-/* Header vira topo branco premium */
-.header{
-  left:var(--oe-side)!important;
-  width:calc(100% - var(--oe-side))!important;
-  height:72px!important;
-  padding:0 28px!important;
-  background:rgba(255,255,255,.94)!important;
-  backdrop-filter:blur(18px)!important;
-  -webkit-backdrop-filter:blur(18px)!important;
-  color:var(--oe-text)!important;
-  border-bottom:1px solid var(--oe-line)!important;
-  box-shadow:0 10px 28px rgba(16,24,40,.05)!important;
-}
-.header-logo-icon{
-  width:44px!important;height:44px!important;border-radius:14px!important;
-  background:var(--oe-red)!important;
-  box-shadow:0 10px 20px rgba(234,29,44,.22)!important;
-}
-.header-logo-icon svg{width:24px!important;height:19px!important;}
-.header-titles h1{font-size:22px!important;color:var(--oe-text)!important;letter-spacing:-.03em!important;font-weight:950!important;}
-.header-titles p{display:block!important;font-size:13px!important;color:var(--oe-muted)!important;font-weight:650!important;margin-top:3px!important;}
-.header-user{display:flex!important;align-items:center;gap:10px;margin-left:8px;padding:7px 10px;border:1px solid var(--oe-line);border-radius:14px;background:#fff;box-shadow:var(--shadow-soft);}
-.header-avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#111827;color:#fff;font-size:12px;font-weight:900;}
-.header-user-text{display:flex;flex-direction:column;line-height:1.1;color:var(--oe-text);font-size:13px;}
-.header-user-text small{color:var(--oe-muted);font-size:11px;margin-top:3px;}
-.btn-header{
-  min-height:42px!important;
-  border-radius:12px!important;
-  padding:0 18px!important;
-  border:1px solid #D0D5DD!important;
-  background:#fff!important;
-  color:var(--oe-text)!important;
-  box-shadow:var(--shadow-soft)!important;
-  font-size:13px!important;
-  text-transform:none!important;
-  letter-spacing:0!important;
-  font-weight:850!important;
-}
-.btn-header:hover{border-color:var(--oe-red)!important;color:var(--oe-red)!important;transform:translateY(-1px);}
-.btn-header.ativo,
-body.admin-mode #btnAdmin{
-  background:var(--oe-red-soft)!important;
-  color:var(--oe-red)!important;
-  border-color:#FDA4AF!important;
-}
-
-/* Admin strip */
-.admin-toolbar{
-  margin-left:0!important;
-  padding:12px 28px!important;
-  min-height:50px!important;
-  background:linear-gradient(90deg,#FFF1F2 0%,#FFF7F8 70%,#fff 100%)!important;
-  border-bottom:1px solid #FFD4D8!important;
-  box-shadow:none!important;
-  gap:20px!important;
-}
-body.admin-mode .admin-toolbar{display:flex!important;}
-.admin-toolbar-label{
-  color:var(--oe-red)!important;
-  font-size:13px!important;
-  display:flex;align-items:center;gap:8px;
-}
-.admin-toolbar-label::before{content:'🛡';font-size:15px;}
-.btn-admin-tool{
-  min-height:34px!important;border-radius:11px!important;border:1px solid #FEE2E2!important;background:#fff!important;color:#344054!important;font-weight:800!important;
-}
-.btn-admin-tool:hover{color:var(--oe-red)!important;border-color:#FDA4AF!important;background:#FFF7F8!important;}
-.btn-admin-tool.danger{margin-left:auto!important;color:var(--oe-red)!important;border-color:#FDA4AF!important;background:#fff!important;}
-
-/* Filtros em card branco, estilo app */
-.controls{
-  top:72px!important;
-  min-height:120px!important;
-  height:auto!important;
-  flex-wrap:wrap!important;
-  align-content:center!important;
-  gap:12px 10px!important;
-  padding:18px 28px!important;
-  background:#fff!important;
-  border:1px solid var(--oe-line)!important;
-  border-radius:18px!important;
-  margin:18px 18px 0!important;
-  box-shadow:var(--shadow-card)!important;
-  position:sticky!important;
-  z-index:110!important;
-}
-body.admin-mode .controls{top:122px!important;}
-.search-wrap{order:1;}
-.search-input{
-  width:210px!important;height:46px!important;border-radius:13px!important;
-  background:#F9FAFB!important;border:1px solid #E5E7EB!important;
-  font-size:14px!important;color:var(--oe-text)!important;
-  box-shadow:none!important;
-}
-.search-input:focus{width:240px!important;border-color:var(--oe-red)!important;box-shadow:0 0 0 4px rgba(234,29,44,.08)!important;}
-.filter-title,.flabel{font-size:12px!important;font-weight:900!important;color:#344054!important;text-transform:none!important;letter-spacing:0!important;margin-left:4px;}
-.filter-group{gap:7px!important;}
-.filter-sep{height:32px!important;background:#EAECF0!important;margin:0 4px!important;}
-.fbtn{
-  height:36px!important;
-  border-radius:999px!important;
-  padding:0 13px!important;
-  background:#fff!important;
-  border:1px solid #DDE3EA!important;
-  color:#344054!important;
-  box-shadow:0 3px 10px rgba(16,24,40,.035)!important;
-  font-size:12px!important;
-  font-weight:850!important;
-  text-transform:none!important;
-}
-.fbtn:hover{border-color:#FDA4AF!important;color:var(--oe-red)!important;background:#FFF7F8!important;}
-.fbtn.on-red,.fbtn.on-pastel,.fbtn.on-day{background:var(--oe-red)!important;border-color:var(--oe-red)!important;color:#fff!important;box-shadow:0 10px 18px rgba(234,29,44,.18)!important;}
-.fbtn.on-green,.fbtn.on-beven{background:#ECFDF3!important;border-color:#ABEFC6!important;color:#067647!important;}
-.fbtn.on-blue{background:#EFF6FF!important;border-color:#BFDBFE!important;color:#1D4ED8!important;}
-.btn-clear{border-radius:999px!important;background:#FFF1F2!important;color:var(--oe-red)!important;border-color:#FDA4AF!important;}
-
-/* Painel hoje */
-.time-panel{
-  margin:18px 18px 0!important;
-  padding:0!important;
-  background:transparent!important;
-  border-bottom:0!important;
-  box-shadow:none!important;
-}
-.time-panel-topo{
-  display:flex!important;
-  align-items:center!important;
-  justify-content:space-between!important;
-  padding:8px 10px 10px!important;
-  margin:0!important;
-}
-.time-dia{font-size:24px!important;font-weight:950!important;color:var(--oe-text)!important;letter-spacing:-.04em!important;}
-#timeDiaNome{color:var(--oe-red)!important;}
-.time-subtitulo{font-size:12px!important;color:var(--oe-muted)!important;font-weight:700!important;}
-.time-subtitulo::after{content:'  ↻';color:#98A2B3;font-weight:950;}
-.btn-whatsapp-geral{
-  min-height:48px!important;
-  padding:0 22px!important;
-  border-radius:14px!important;
-  background:var(--oe-red)!important;
-  color:#fff!important;
-  border-color:var(--oe-red)!important;
-  box-shadow:0 14px 26px rgba(234,29,44,.20)!important;
-  font-size:14px!important;
-  font-weight:950!important;
-}
-.btn-whatsapp-geral::before{content:'☘';margin-right:8px;filter:grayscale(1) brightness(100);}
-.btn-whatsapp-geral:hover{background:var(--oe-red-dark)!important;transform:translateY(-1px)!important;}
-.time-blocos{
-  display:grid!important;
-  grid-template-columns:repeat(7,minmax(190px,1fr))!important;
-  gap:14px!important;
-  padding:0 10px 4px!important;
-}
-.time-bloco{
-  min-width:0!important;
-  position:relative!important;
-  border-radius:18px!important;
-  background:#fff!important;
-  border:1px solid var(--oe-line)!important;
-  box-shadow:var(--shadow-card)!important;
-  overflow:hidden!important;
-  scroll-snap-align:none!important;
-}
-.time-bloco::before{
-  content:'';
-  position:absolute;left:0;top:0;bottom:0;width:4px;
-  background:#D0D5DD;
-}
-#tb-pastel::before{background:var(--oe-red);}#tb-beven::before{background:var(--oe-green);}#tb-meridio::before{background:var(--oe-blue);}#tb-fratelli::before{background:var(--oe-purple);}#tb-drica::before{background:var(--oe-orange);}#tb-barto::before{background:var(--oe-purple);}#tb-centermeat::before{background:var(--oe-teal);}
-.time-bloco-header{padding:16px 16px 7px!important;background:transparent!important;border:0!important;}
-.time-bloco-cliente{font-size:13px!important;font-weight:950!important;letter-spacing:0!important;text-transform:none!important;}
-.time-placar{font-size:26px!important;font-weight:950!important;color:var(--oe-text)!important;font-family:var(--mono)!important;}
-.time-nomes{min-height:48px!important;padding:2px 16px 4px!important;gap:4px!important;}
-.moto-slot{width:38px!important;height:38px!important;}
-.moto-slot svg{width:30px!important;height:23px!important;}
-.moto-slot .moto-label{font-size:8px!important;max-width:38px!important;}
-.time-barra-wrap{padding:0 16px 9px!important;}
-.time-barra-track{height:6px!important;background:#EAECF0!important;border-radius:999px!important;}
-.time-barra-fill{border-radius:999px!important;}
-.time-msg{font-size:12px!important;line-height:1.35!important;color:#344054!important;font-weight:750!important;padding:0 16px 12px!important;min-height:50px!important;}
-.time-bloco.time-sem-operacao .time-msg{color:#667085!important;}
-.time-bloco-footer{padding:0 16px 16px!important;gap:10px!important;}
-.time-bloco-footer .btn-enviar,
-.time-bloco-footer .btn-enviar-incomplete{
-  min-height:38px!important;border-radius:11px!important;font-weight:950!important;font-size:12px!important;letter-spacing:0!important;
-}
-.time-bloco-footer .btn-enviar{background:var(--oe-red)!important;color:#fff!important;}
-.time-bloco-footer .btn-enviar-incomplete{background:#fff!important;color:var(--oe-text)!important;border:1px solid #D0D5DD!important;}
-.time-bloco.time-critico{border-color:#FDA4AF!important;background:linear-gradient(180deg,#fff,#FFF7F8)!important;}
-.time-bloco.time-alerta{border-color:#FEDF89!important;}
-.time-bloco.time-fechado{border-color:#ABEFC6!important;background:linear-gradient(180deg,#fff,#F6FEF9)!important;}
-.time-bloco.time-sem-operacao{background:#fff!important;opacity:1!important;}
-
-/* Grade semanal */
-.table-wrap{
-  margin:12px 18px 22px!important;
-  padding:0!important;
-  background:transparent!important;
-  box-shadow:none!important;
-  overflow-x:auto!important;
-}
-.grid{
-  grid-template-columns:repeat(7,minmax(230px,1fr))!important;
-  gap:14px!important;
-  min-width:1610px!important;
-  padding:0 10px 12px!important;
-}
-.day-col{
-  gap:8px!important;
-  padding:0 0 12px!important;
-  border:1px solid var(--oe-line)!important;
-  border-radius:18px!important;
-  background:#fff!important;
-  box-shadow:var(--shadow-card)!important;
-  overflow:hidden!important;
-}
-.day-col.today{border-color:#FDA4AF!important;box-shadow:0 18px 42px rgba(234,29,44,.12)!important;}
-.day-header{
-  margin:0!important;
-  padding:16px 16px 14px!important;
-  min-height:66px!important;
-  border-radius:0!important;
-  background:#fff!important;
-  color:var(--oe-text)!important;
-  border-bottom:1px solid var(--oe-line)!important;
-  box-shadow:none!important;
-}
-.day-col.today .day-header{background:linear-gradient(180deg,#FFF7F8,#fff)!important;border-color:#FDA4AF!important;}
-.day-name{font-size:16px!important;color:var(--oe-text)!important;text-transform:none!important;font-weight:950!important;letter-spacing:-.02em!important;}
-.day-col.today .day-name{color:var(--oe-red)!important;}
-.day-count{font-size:12px!important;color:var(--oe-muted)!important;font-weight:800!important;margin-top:2px!important;}
-.client-section{padding:0 10px!important;gap:6px!important;}
-.client-section-header{
-  border-radius:10px!important;
-  padding:8px 10px!important;
-  margin:2px 0 0!important;
-  font-size:10px!important;
-  letter-spacing:.03em!important;
-  border-left:3px solid currentColor!important;
-}
-.client-section-header.pastel{background:#FFF1F2!important;color:var(--oe-red)!important;}
-.client-section-header.beven{background:#ECFDF3!important;color:#067647!important;}
-.client-section-header.meridio{background:#EFF6FF!important;color:#1D4ED8!important;}
-.client-section-header.fratelli{background:#F4F3FF!important;color:#6D28D9!important;}
-.client-section-header.drica{background:#FFF7ED!important;color:#C2410C!important;}
-.client-section-header.barto{background:#F5F3FF!important;color:#6D28D9!important;}
-.client-section-header.centermeat{background:#F0FDFA!important;color:#0F766E!important;}
-.card{
-  border-radius:12px!important;
-  border:1px solid #E4E7EC!important;
-  border-left:3px solid currentColor!important;
-  background:#fff!important;
-  box-shadow:0 5px 12px rgba(16,24,40,.045)!important;
-  margin:0!important;
-  min-height:46px!important;
-}
-.card.red{color:var(--oe-red)!important;background:linear-gradient(90deg,#FFF7F8,#fff 44%)!important;}
-.card.green{color:var(--oe-green)!important;background:linear-gradient(90deg,#F6FEF9,#fff 44%)!important;}
-.card.blue{color:var(--oe-blue)!important;background:linear-gradient(90deg,#EFF6FF,#fff 44%)!important;}
-.card.purple{color:var(--oe-purple)!important;background:linear-gradient(90deg,#F5F3FF,#fff 44%)!important;}
-.card.orange{color:var(--oe-orange)!important;background:linear-gradient(90deg,#FFF7ED,#fff 44%)!important;}
-.card.teal{color:var(--oe-teal)!important;background:linear-gradient(90deg,#F0FDFA,#fff 44%)!important;}
-.card.slate{color:#475467!important;background:linear-gradient(90deg,#F8FAFC,#fff 44%)!important;}
-.card:hover{transform:translateY(-1px)!important;box-shadow:0 10px 22px rgba(16,24,40,.10)!important;}
-.card-row{padding:10px 12px 6px!important;gap:8px!important;}
-.card-row:last-child{padding:0 12px 9px!important;}
-.moto-name{font-size:12px!important;font-weight:900!important;color:#101828!important;}
-.card-turno{font-size:11px!important;color:#667085!important;font-weight:900!important;}
-.confirmed-badge,.vaga-badge{border-radius:999px!important;font-size:8px!important;padding:2px 6px!important;}
-.card.confirmado{border-color:#ABEFC6!important;background:linear-gradient(90deg,#ECFDF3,#fff 58%)!important;}
-.card.vaga-aberta{border-color:#FEDF89!important;background:linear-gradient(90deg,#FFFAEB,#fff 58%)!important;}
-.btn-add-entregador{
-  margin:4px 10px 0!important;
-  width:calc(100% - 20px)!important;
-  min-height:42px!important;
-  border-radius:12px!important;
-  border:1px solid #D0D5DD!important;
-  color:#344054!important;
-  background:#fff!important;
-  font-weight:900!important;
-}
-.btn-add-entregador::before{content:'+';font-size:18px;margin-right:8px;color:var(--oe-red);}
-.btn-add-entregador:hover{border-color:#FDA4AF!important;background:#FFF7F8!important;color:var(--oe-red)!important;}
-.admin-btn-card{border-radius:6px!important;background:#fff!important;border-color:#D0D5DD!important;}
-
-/* Modais com visual de produto */
-.modal-overlay{background:rgba(16,24,40,.48)!important;backdrop-filter:blur(8px)!important;}
-.modal-box{border-radius:22px!important;box-shadow:0 28px 70px rgba(16,24,40,.28)!important;border:1px solid rgba(255,255,255,.65)!important;}
-.modal-titulo{font-size:18px!important;font-weight:950!important;}
-.modal-btn.ok{background:var(--oe-red)!important;border-color:var(--oe-red)!important;}
-.modal-btn.danger{background:var(--oe-red)!important;border-color:var(--oe-red)!important;}
-.form-input:focus,.form-select:focus,.modal-input:focus{border-color:var(--oe-red)!important;box-shadow:0 0 0 4px rgba(234,29,44,.08)!important;}
-
-/* Footer */
-.oe-footer-tip{
-  margin:0 28px 24px!important;
-  border-radius:16px!important;
-  border:1px solid var(--oe-line)!important;
-  background:#fff!important;
-  box-shadow:var(--shadow-soft)!important;
-}
-
-/* Mobile: não assusta, vira app horizontal com sidebar menor */
-@media (max-width:980px){
-  :root{--oe-side:0px;}
-  body{padding-left:0!important;padding-bottom:74px!important;}
-  .oe-v3-sidebar{
-    inset:auto 0 0 0!important;
-    width:100%!important;height:64px!important;
-    flex-direction:row!important;
-    padding:8px 12px!important;
-    justify-content:space-around!important;
-    gap:6px!important;
-    border-radius:22px 22px 0 0;
-    box-shadow:0 -16px 32px rgba(184,0,19,.18)!important;
-  }
-  .oe-v3-side-logo{display:none!important;}
-  .oe-v3-side-spacer{display:none!important;}
-  .oe-v3-side-item{width:42px!important;height:42px!important;border-radius:14px!important;font-size:18px!important;}
-  .header{left:0!important;width:100%!important;height:64px!important;padding:0 14px!important;}
-  .header-titles h1{font-size:17px!important;max-width:210px!important;}
-  .header-titles p{display:none!important;}
-  .header-user{display:none!important;}
-  .btn-header{min-height:38px!important;padding:0 11px!important;font-size:12px!important;}
-  .controls{top:64px!important;margin:10px 10px 0!important;padding:12px!important;min-height:auto!important;display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;border-radius:16px!important;}
-  body.admin-mode .controls{top:114px!important;}
-  .search-input{width:170px!important;min-width:170px!important;height:40px!important;}
-  .filter-title,.flabel{display:none!important;}
-  .filter-sep{display:none!important;}
-  .fbtn{height:34px!important;min-width:max-content!important;}
-  .time-panel{margin:12px 10px 0!important;}
-  .time-panel-topo{padding:6px 2px 10px!important;position:static!important;background:transparent!important;box-shadow:none!important;border:0!important;}
-  .time-dia{font-size:20px!important;}
-  .btn-whatsapp-geral{min-height:42px!important;padding:0 12px!important;font-size:11px!important;}
-  .time-blocos{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;gap:12px!important;padding:0 2px 12px!important;}
-  .time-bloco{min-width:292px!important;scroll-snap-align:start!important;}
-  .table-wrap{margin:4px 10px 12px!important;}
-  .grid{min-width:1010px!important;gap:10px!important;padding:0 2px 12px!important;}
-  .day-col{border-radius:16px!important;}
-  .day-header{padding:13px 14px!important;}
-  .day-name{font-size:14px!important;}
-  .admin-toolbar{padding:8px 12px!important;overflow-x:auto!important;gap:10px!important;}
-  .btn-admin-tool{min-width:max-content!important;}
-}
-
-@media print{
-  body{padding-left:0!important;background:#fff!important;}
-  .oe-v3-sidebar{display:none!important;}
-  .header{left:0!important;width:100%!important;position:static!important;background:#fff!important;color:#000!important;box-shadow:none!important;}
-  .controls{display:none!important;}
-}
-
-
-/* ═══════════════════════════════════════
-   V3.1 MVP FUNCIONAL — MODO PARCEIRO / MOTOBOY
-   Mantém lógica existente e adiciona tela nova rápida para teste.
-═══════════════════════════════════════ */
-:root{
-  --oe-red:#E10600;
-  --oe-red-2:#FF2D33;
-  --oe-dark:#0F172A;
-  --oe-muted:#64748B;
-  --oe-line:#E2E8F0;
-  --oe-bg:#F8FAFC;
-  --oe-green:#16A34A;
-  --oe-yellow:#F59E0B;
-  --oe-blue:#2563EB;
-  --oe-purple:#7C3AED;
-  --oe-teal:#0F9488;
-}
-
-.oe-mode-switch{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:4px;
-  border:1px solid #E2E8F0;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 8px 18px rgba(15,23,42,.06);
-}
-.oe-mode-btn{
-  border:0;
-  border-radius:10px;
-  background:transparent;
-  color:#64748B;
-  height:34px;
-  padding:0 12px;
-  font:800 12px/1 var(--font, Arial, sans-serif);
-  cursor:pointer;
-}
-.oe-mode-btn.active{
-  background:var(--oe-red);
-  color:#fff;
-  box-shadow:0 8px 18px rgba(225,6,0,.22);
-}
-
-body.oe-parceiro .admin-only,
-body.oe-parceiro .controls,
-body.oe-parceiro .time-panel,
-body.oe-parceiro .table-wrap,
-body.oe-parceiro .oe-footer-tip,
-body.oe-parceiro .sidebar-admin,
-body.oe-parceiro .admin-bar{
-  display:none!important;
-}
-
-body.oe-parceiro{
-  background:#F8FAFC!important;
-}
-
-#parceiroApp{
-  display:none;
-}
-body.oe-parceiro #parceiroApp{
-  display:block;
-}
-
-.parceiro-shell{
-  min-height:calc(100vh - 72px);
-  display:grid;
-  grid-template-columns:230px minmax(0, 1fr);
-  background:
-    radial-gradient(900px 320px at 20% -10%, rgba(225,6,0,.08), transparent 58%),
-    linear-gradient(180deg,#fff 0%,#F8FAFC 100%);
-}
-
-.parceiro-sidebar{
-  background:linear-gradient(180deg,#E10600 0%,#BD0000 100%);
-  color:#fff;
-  padding:24px 18px;
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-  box-shadow:16px 0 34px rgba(225,6,0,.14);
-}
-.parceiro-brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:950;
-  font-size:24px;
-  line-height:.96;
-}
-.parceiro-logo{
-  width:54px;
-  height:54px;
-  border-radius:18px;
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.16);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
-}
-.parceiro-nav{
-  display:grid;
-  gap:8px;
-}
-.parceiro-nav button{
-  height:46px;
-  border:0;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:0 14px;
-  background:transparent;
-  color:rgba(255,255,255,.86);
-  font-weight:800;
-  cursor:pointer;
-  text-align:left;
-}
-.parceiro-nav button.active,
-.parceiro-nav button:hover{
-  background:#fff;
-  color:#E10600;
-}
-.parceiro-safety{
-  margin-top:auto;
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:16px;
-  padding:14px;
-  font-weight:800;
-  line-height:1.25;
-  font-size:13px;
-}
-.parceiro-user{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18);
-}
-.parceiro-avatar{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#0F172A;
-  display:grid;
-  place-items:center;
-  font-size:20px;
-}
-.parceiro-user strong{display:block;font-size:13px;}
-.parceiro-user span{display:block;font-size:11px;color:#BBF7D0;font-weight:800;}
-
-.parceiro-main{
-  padding:26px 32px 34px;
-}
-.parceiro-top{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:18px;
-}
-.parceiro-top h2{
-  margin:0;
-  font-size:30px;
-  letter-spacing:-.04em;
-  color:#0F172A;
-}
-.parceiro-top p{
-  margin:4px 0 0;
-  color:#64748B;
-  font-weight:700;
-}
-.parceiro-top-actions{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-.parceiro-bell{
-  position:relative;
-  width:42px;
-  height:42px;
-  border:1px solid #E2E8F0;
-  background:#fff;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  box-shadow:0 8px 18px rgba(15,23,42,.06);
-}
-.parceiro-bell::after{
-  content:'2';
-  position:absolute;
-  right:-4px;
-  top:-5px;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#E10600;
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-size:10px;
-  font-weight:900;
-}
-.parceiro-status-user{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  border:1px solid #E2E8F0;
-  background:#fff;
-  border-radius:16px;
-  padding:8px 12px;
-  min-width:172px;
-  box-shadow:0 8px 18px rgba(15,23,42,.06);
-}
-.parceiro-status-user .mini-avatar{
-  width:38px;height:38px;border-radius:50%;background:#111827;display:grid;place-items:center;color:#fff;
-}
-.parceiro-status-user strong{display:block;font-size:13px;color:#0F172A;}
-.parceiro-status-user span{display:block;font-size:11px;color:#16A34A;font-weight:900;}
-
-.parceiro-hero{
-  background:#fff;
-  border:1px solid #E2E8F0;
-  border-radius:22px;
-  box-shadow:0 18px 42px rgba(15,23,42,.08);
-  padding:24px;
-  display:grid;
-  grid-template-columns:1fr 320px;
-  gap:24px;
-  align-items:center;
-  margin-bottom:18px;
-}
-.parceiro-hero-title{
-  font-size:22px;
-  font-weight:950;
-  letter-spacing:-.03em;
-  color:#0F172A;
-  margin-bottom:16px;
-}
-.parceiro-hero-title span{color:#E10600;}
-.parceiro-hero-info{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-.parceiro-store-icon{
-  width:68px;
-  height:68px;
-  border-radius:50%;
-  background:#FEE2E2;
-  color:#E10600;
-  display:grid;
-  place-items:center;
-  font-size:30px;
-}
-.parceiro-hero-info h3{
-  margin:0;
-  font-size:24px;
-  color:#0F172A;
-}
-.parceiro-hero-info p{
-  margin:5px 0 0;
-  color:#64748B;
-  font-size:17px;
-}
-.parceiro-hero-info p strong{color:#E10600;}
-.parceiro-helper{
-  margin-top:12px;
-  color:#64748B;
-  font-weight:700;
-  font-size:13px;
-}
-.parceiro-hero-actions{
-  border-left:1px solid #E2E8F0;
-  padding-left:24px;
-  display:grid;
-  gap:12px;
-}
-.parceiro-pill-status{
-  justify-self:start;
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  background:#FEE2E2;
-  color:#E10600;
-  font-weight:900;
-  padding:8px 12px;
-  border-radius:999px;
-  font-size:12px;
-}
-.parceiro-btn{
-  height:48px;
-  border-radius:12px;
-  border:1px solid #E10600;
-  background:#fff;
-  color:#E10600;
-  font-weight:950;
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-.parceiro-btn.primary{
-  background:linear-gradient(135deg,#E10600,#FF2D33);
-  color:#fff;
-  border-color:#E10600;
-  box-shadow:0 12px 24px rgba(225,6,0,.22);
-}
-
-.parceiro-quick{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-bottom:18px;
-}
-.parceiro-quick-card{
-  border:1px solid #E2E8F0;
-  background:#fff;
-  border-radius:18px;
-  padding:18px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  box-shadow:0 12px 28px rgba(15,23,42,.06);
-  cursor:pointer;
-}
-.parceiro-quick-card i{
-  font-style:normal;
-  color:#E10600;
-  font-size:27px;
-}
-.parceiro-quick-card strong{display:block;color:#0F172A;font-size:14px;}
-.parceiro-quick-card span{display:block;color:#64748B;font-size:12px;margin-top:3px;}
-
-.parceiro-section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:18px 0 8px;
-}
-.parceiro-section-head h3{
-  margin:0;
-  color:#0F172A;
-  font-size:18px;
-  letter-spacing:-.02em;
-}
-.parceiro-section-head a{
-  color:#E10600;
-  font-weight:900;
+/* deixa vaga aberta parecer ação, sem parecer erro */
+.card.vaga-aberta .moto-name {
   text-decoration:none;
-  font-size:13px;
-}
-.vagas-row{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-.vaga-card{
-  background:#fff;
-  border:1px solid #E2E8F0;
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 12px 28px rgba(15,23,42,.06);
-}
-.vaga-card-top{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:12px;
-}
-.vaga-icon{
-  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:23px;
-}
-.vaga-icon.blue{background:#2563EB}.vaga-icon.green{background:#16A34A}.vaga-icon.purple{background:#7C3AED}
-.vaga-card h4{margin:0;color:#0F172A;font-size:16px;}
-.vaga-card p{margin:4px 0 0;color:#64748B;font-weight:700;}
-.vaga-card small{display:block;color:#64748B;font-weight:800;margin-bottom:12px;}
-.vaga-card small::before{content:'• ';color:currentColor;}
-
-.semana-list{
-  background:#fff;
-  border:1px solid #E2E8F0;
-  border-radius:18px;
-  box-shadow:0 12px 28px rgba(15,23,42,.06);
-  overflow:hidden;
-}
-.semana-day{
-  border-bottom:1px solid #E2E8F0;
-}
-.semana-day:last-child{border-bottom:0;}
-.semana-day-head{
-  min-height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
-  font-weight:950;
-  color:#0F172A;
-}
-.semana-day-head span:last-child{
-  color:#64748B;
-  font-size:13px;
   font-weight:800;
 }
-.semana-day.open{
-  border:1px solid #EF4444;
-  border-radius:16px;
-  margin:8px;
-  overflow:hidden;
-}
-.semana-day.open .semana-day-head{
-  color:#E10600;
-}
-.semana-entry{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px 16px;
-  border-top:1px solid #F1F5F9;
-}
-.semana-entry-icon{
-  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-}
-.semana-entry-icon.red{background:#FEE2E2;color:#E10600}
-.semana-entry-icon.green{background:#DCFCE7;color:#16A34A}
-.semana-entry strong{color:#0F172A;}
-.semana-entry small{color:#64748B;font-weight:800;}
-.semana-entry .spacer{flex:1}
-.status-pendente,.status-livre{
-  display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;font-weight:900;font-size:12px;
-}
-.status-pendente{background:#FEE2E2;color:#E10600;}
-.status-livre{background:#DCFCE7;color:#15803D;}
-.status-livre::before{content:'•';}
-.semana-detail-btn{
-  margin:10px 16px 14px;
-  height:38px;
-  border:1px solid #E10600;
-  border-radius:11px;
-  color:#E10600;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:950;
-}
 
-#parceiroMobileBar{
-  display:none;
-}
+/* popup de bloqueio de reserva duplicada */
+.modal-titulo.alerta { color:#EA580C; }
 
-@media (max-width: 900px){
-  body.oe-parceiro .header{display:none!important;}
-  .parceiro-shell{
-    display:block;
-    padding-bottom:74px;
-  }
-  .parceiro-sidebar{
-    display:none;
-  }
-  .parceiro-main{
-    padding:18px 14px 88px;
-  }
-  .parceiro-top{
-    align-items:center;
-    margin-bottom:12px;
-  }
-  .parceiro-top h2{
-    font-size:21px;
-  }
-  .parceiro-top p{
-    font-size:13px;
-  }
-  .parceiro-status-user{
-    display:none;
-  }
-  .parceiro-hero{
-    grid-template-columns:1fr;
-    gap:16px;
-    padding:18px;
-    border-radius:20px;
-  }
-  .parceiro-hero-info{
-    align-items:flex-start;
-  }
-  .parceiro-store-icon{
-    width:54px;height:54px;font-size:24px;
-  }
-  .parceiro-hero-info h3{
-    font-size:20px;
-  }
-  .parceiro-hero-actions{
-    border-left:0;
-    border-top:1px solid #E2E8F0;
-    padding-left:0;
-    padding-top:14px;
-    grid-template-columns:1fr 1fr;
-  }
-  .parceiro-pill-status{
-    grid-column:1/-1;
-  }
-  .parceiro-btn{
-    height:52px;
-  }
-  .parceiro-quick{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-  .parceiro-quick-card{
-    display:grid;
-    place-items:center;
-    text-align:center;
-    padding:14px 10px;
-  }
-  .parceiro-quick-card span{display:none;}
-  .vagas-row{
-    display:flex;
-    overflow-x:auto;
-    gap:12px;
-    scroll-snap-type:x proximity;
-    padding-bottom:8px;
-  }
-  .vaga-card{
-    min-width:218px;
-    scroll-snap-align:start;
-  }
-  .semana-list{
-    border-radius:16px;
-  }
-  #parceiroMobileBar{
-    display:grid;
-    position:fixed;
-    left:0;right:0;bottom:0;
-    z-index:400;
-    grid-template-columns:repeat(5,1fr);
-    background:rgba(255,255,255,.94);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border-top:1px solid #E2E8F0;
-    box-shadow:0 -12px 30px rgba(15,23,42,.10);
-    min-height:66px;
-  }
-  #parceiroMobileBar button{
-    border:0;
-    background:transparent;
-    color:#64748B;
-    font-size:11px;
-    font-weight:800;
-    display:grid;
-    place-items:center;
-    gap:2px;
-  }
-  #parceiroMobileBar button.active{
-    color:#E10600;
-  }
-  #parceiroMobileBar i{
-    font-style:normal;
-    font-size:22px;
-  }
-}
-
-
-/* ═══════════════════════════════════════
-   V3.2 FINAL — UX CLEAN ADMIN / iFood-like
-   Primeira dobra limpa. Filtros recolhidos. Lógica preservada.
-═══════════════════════════════════════ */
-:root{
-  --oe-red:#E10600;
-  --oe-red-dark:#B80000;
-  --oe-red-soft:#FFF1F2;
-  --oe-text:#0F172A;
-  --oe-muted:#64748B;
-  --oe-border:#E2E8F0;
-  --oe-bg:#F8FAFC;
-  --oe-card:#FFFFFF;
-  --oe-green:#16A34A;
-  --oe-yellow:#F59E0B;
-  --oe-orange:#F97316;
-  --oe-blue:#2563EB;
-  --oe-purple:#7C3AED;
-  --oe-teal:#0F9488;
-}
-
-/* Fundo limpo */
-body:not(.oe-parceiro){
-  background:
-    radial-gradient(900px 260px at 18% -10%, rgba(225,6,0,.08), transparent 55%),
-    linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%) !important;
-}
-
-/* Header branco produto */
-body:not(.oe-parceiro) .header{
-  min-height:72px!important;
-  height:72px!important;
-  padding:0 28px 0 92px!important;
-  background:rgba(255,255,255,.96)!important;
-  color:#0F172A!important;
-  border-bottom:1px solid var(--oe-border)!important;
-  box-shadow:0 10px 28px rgba(15,23,42,.06)!important;
-  backdrop-filter:blur(14px)!important;
-  -webkit-backdrop-filter:blur(14px)!important;
-}
-body:not(.oe-parceiro) .header-logo-icon{
-  background:var(--oe-red)!important;
-  color:#fff!important;
-  box-shadow:0 14px 26px rgba(225,6,0,.22)!important;
-}
-body:not(.oe-parceiro) .header-titles h1{
-  color:var(--oe-text)!important;
-  font-size:17px!important;
-  letter-spacing:-.035em!important;
-}
-body:not(.oe-parceiro) .header-titles p{
-  color:var(--oe-muted)!important;
-  font-size:11px!important;
-}
-body:not(.oe-parceiro) .btn-header{
-  height:40px!important;
-  border-radius:14px!important;
-  background:#fff!important;
-  color:var(--oe-text)!important;
-  border:1px solid var(--oe-border)!important;
-  box-shadow:0 8px 18px rgba(15,23,42,.05)!important;
-}
-body:not(.oe-parceiro) .btn-header:hover{
-  color:var(--oe-red)!important;
-  border-color:#FCA5A5!important;
-  background:var(--oe-red-soft)!important;
-}
-body:not(.oe-parceiro) .save-toast{
-  display:none!important;
-}
-body:not(.oe-parceiro) .oe-mode-switch{
-  height:42px;
-  border-radius:16px;
-  background:#F8FAFC;
-  border:1px solid var(--oe-border);
-  box-shadow:none;
-}
-body:not(.oe-parceiro) .oe-mode-btn{
-  height:34px;
-  border-radius:12px;
-}
-
-/* Sidebar se existir: mais limpa */
-body:not(.oe-parceiro) .oe-sidebar,
-body:not(.oe-parceiro) .sidebar,
-body:not(.oe-parceiro) .app-sidebar{
-  background:linear-gradient(180deg,#E10600,#B80000)!important;
-}
-
-/* Admin toolbar antigo e barra técnica menos invasiva */
-body:not(.oe-parceiro) .admin-toolbar{
-  margin-left:92px!important;
-  background:#fff!important;
-  color:var(--oe-text)!important;
-  border-bottom:1px solid var(--oe-border)!important;
-  padding:8px 28px!important;
-  box-shadow:none!important;
-}
-body:not(.oe-parceiro) .admin-toolbar-label{
-  color:var(--oe-red)!important;
-}
-body:not(.oe-parceiro) .btn-admin-tool{
-  background:#fff!important;
-  border:1px solid var(--oe-border)!important;
-  color:var(--oe-text)!important;
-  border-radius:12px!important;
-}
-
-/* Central do gestor */
-.admin-cleanbar{
-  display:none;
-}
-body:not(.oe-parceiro) .admin-cleanbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  margin:16px 28px 10px 92px;
-  padding:16px;
-  background:#fff;
-  border:1px solid var(--oe-border);
-  border-radius:22px;
-  box-shadow:0 16px 40px rgba(15,23,42,.07);
-}
-.admin-cleanbar-left{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  min-width:0;
-}
-.admin-cleanbar-icon{
-  width:46px;
-  height:46px;
-  border-radius:16px;
-  background:var(--oe-red-soft);
-  color:var(--oe-red);
-  display:grid;
-  place-items:center;
-  font-size:22px;
-  flex:0 0 auto;
-}
-.admin-cleanbar-title{
-  color:var(--oe-text);
-  font-weight:950;
-  font-size:16px;
-  letter-spacing:-.02em;
-}
-.admin-cleanbar-sub{
-  color:var(--oe-muted);
-  font-weight:700;
-  font-size:12px;
-  margin-top:2px;
-}
-.admin-cleanbar-actions{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex:0 0 auto;
-}
-.admin-clean-search-wrap{
-  height:44px;
-  min-width:260px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:0 12px;
-  background:#F8FAFC;
-  border:1px solid var(--oe-border);
-  border-radius:15px;
-}
-.admin-cleanbar-search{
-  border:0;
-  background:transparent;
-  outline:none;
-  width:100%;
-  min-width:0;
-  font:800 13px/1 var(--font,Arial,sans-serif);
-  color:var(--oe-text);
-}
-.btn-admin-filter-toggle,
-.btn-admin-primary{
-  height:44px;
-  border-radius:15px;
-  padding:0 15px;
-  font:900 13px/1 var(--font,Arial,sans-serif);
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  white-space:nowrap;
-}
-.btn-admin-filter-toggle{
-  border:1px solid var(--oe-border);
-  background:#fff;
-  color:var(--oe-text);
-}
-.btn-admin-filter-toggle:hover{
-  background:var(--oe-red-soft);
-  color:var(--oe-red);
-  border-color:#FCA5A5;
-}
-.btn-admin-primary{
-  border:1px solid var(--oe-red);
-  background:linear-gradient(135deg,var(--oe-red),var(--oe-red-dark));
-  color:#fff;
-  box-shadow:0 14px 28px rgba(225,6,0,.20);
-}
-.filter-count{
-  min-width:21px;
-  height:21px;
-  border-radius:999px;
-  background:var(--oe-red);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-size:11px;
-  font-weight:950;
-}
-.btn-admin-filter-toggle .filter-count:empty::before{content:'0';}
-
-/* Filtros viram drawer modal. Nada de poluir a tela */
-body:not(.oe-parceiro) .controls{
-  position:fixed!important;
-  z-index:500!important;
-  top:88px!important;
-  right:28px!important;
-  left:auto!important;
-  bottom:auto!important;
-  width:min(620px, calc(100vw - 32px))!important;
-  max-height:calc(100vh - 116px)!important;
-  height:auto!important;
-  min-height:0!important;
-  display:none!important;
-  flex-wrap:wrap!important;
-  align-items:flex-start!important;
-  align-content:flex-start!important;
-  gap:10px!important;
-  padding:58px 18px 18px!important;
-  background:rgba(255,255,255,.98)!important;
-  border:1px solid var(--oe-border)!important;
-  border-radius:24px!important;
-  box-shadow:0 30px 90px rgba(15,23,42,.24)!important;
-  overflow:auto!important;
-  backdrop-filter:blur(18px)!important;
-  -webkit-backdrop-filter:blur(18px)!important;
-}
-body:not(.oe-parceiro).admin-filters-open .controls{
-  display:flex!important;
-}
-body:not(.oe-parceiro).admin-filters-open::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  z-index:490;
-  background:rgba(15,23,42,.20);
-  backdrop-filter:blur(1px);
-}
-.admin-filters-title{
-  position:absolute;
-  top:18px;
-  left:20px;
-  color:var(--oe-text);
-  font-weight:950;
-  letter-spacing:-.02em;
-}
-.admin-filters-close{
-  position:absolute;
-  top:12px;
-  right:14px;
-  width:36px;
-  height:36px;
-  border-radius:12px;
-  border:1px solid var(--oe-border);
-  background:#fff;
-  color:#0F172A;
-  font-size:22px;
-  line-height:1;
-  cursor:pointer;
-}
-.admin-filters-close:hover{
-  background:var(--oe-red-soft);
-  color:var(--oe-red);
-}
-body:not(.oe-parceiro) .controls .search-wrap{
-  display:none!important;
-}
-body:not(.oe-parceiro) .controls .filter-title,
-body:not(.oe-parceiro) .controls .flabel{
-  width:100%;
-  margin:10px 0 2px;
-  color:var(--oe-text)!important;
-  font-size:11px!important;
-  font-weight:950!important;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-}
-body:not(.oe-parceiro) .controls .filter-sep{
-  display:none!important;
-}
-body:not(.oe-parceiro) .controls .fbtn{
-  height:36px!important;
-  border-radius:999px!important;
-  padding:0 13px!important;
-  border:1px solid var(--oe-border)!important;
-  background:#fff!important;
-  color:var(--oe-text)!important;
-  font-weight:850!important;
-  box-shadow:none!important;
-}
-body:not(.oe-parceiro) .controls .fbtn:hover,
-body:not(.oe-parceiro) .controls .fbtn.active,
-body:not(.oe-parceiro) .controls .fbtn.on-day,
-body:not(.oe-parceiro) .controls .fbtn.on-red,
-body:not(.oe-parceiro) .controls .fbtn.on-green,
-body:not(.oe-parceiro) .controls .fbtn.on-orange,
-body:not(.oe-parceiro) .controls .fbtn.on-yellow{
-  color:var(--oe-red)!important;
-  border-color:#FCA5A5!important;
-  background:var(--oe-red-soft)!important;
-}
-body:not(.oe-parceiro) .btn-clear{
-  display:inline-flex!important;
-  height:36px;
-  border-radius:999px;
-  align-items:center;
-  justify-content:center;
-}
-
-/* Painel Hoje: foco operacional, menos ruído */
-body:not(.oe-parceiro) .time-panel{
-  padding:12px 28px 8px 92px!important;
-  background:transparent!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-body:not(.oe-parceiro) .time-panel-topo{
-  display:flex!important;
-  align-items:center!important;
-  justify-content:space-between!important;
-  gap:14px!important;
-  margin-bottom:12px!important;
-}
-body:not(.oe-parceiro) .time-dia{
-  color:var(--oe-text)!important;
-  font-size:28px!important;
-  font-weight:950!important;
-  letter-spacing:-.045em!important;
-  text-transform:none!important;
-}
-body:not(.oe-parceiro) .time-dia span,
-body:not(.oe-parceiro) #timeDiaNome{
-  color:var(--oe-red)!important;
-}
-body:not(.oe-parceiro) .time-subtitulo{
-  color:var(--oe-muted)!important;
-  font-weight:700!important;
-  font-size:12px!important;
-}
-body:not(.oe-parceiro) .btn-whatsapp-geral{
-  background:linear-gradient(135deg,var(--oe-red),var(--oe-red-dark))!important;
-  color:#fff!important;
-  border:1px solid var(--oe-red)!important;
-  border-radius:15px!important;
-  min-height:44px!important;
-  padding:0 18px!important;
-  font-weight:950!important;
-  box-shadow:0 14px 30px rgba(225,6,0,.20)!important;
-}
-
-/* Cards de cliente compactos */
-body:not(.oe-parceiro) .time-blocos{
-  display:grid!important;
-  grid-template-columns:repeat(7, minmax(138px,1fr))!important;
-  gap:12px!important;
-}
-body:not(.oe-parceiro) .time-bloco{
-  min-width:0!important;
-  border:1px solid var(--oe-border)!important;
-  background:#fff!important;
-  border-radius:20px!important;
-  box-shadow:0 14px 34px rgba(15,23,42,.07)!important;
-  overflow:hidden!important;
-}
-body:not(.oe-parceiro) .time-bloco-header{
-  padding:13px 12px 4px!important;
-  background:#fff!important;
-  border-bottom:0!important;
-}
-body:not(.oe-parceiro) .time-bloco-cliente{
-  color:var(--oe-text)!important;
-  font-size:11px!important;
-  font-weight:950!important;
-  line-height:1.12!important;
-  text-transform:none!important;
-  letter-spacing:-.01em!important;
-}
-body:not(.oe-parceiro) .time-placar{
-  color:var(--oe-text)!important;
-  font-size:24px!important;
-  font-weight:950!important;
-}
-body:not(.oe-parceiro) .time-nomes{
-  min-height:26px!important;
-  padding:2px 12px!important;
-  gap:0!important;
-  overflow:hidden!important;
-}
-body:not(.oe-parceiro) .moto-slot{
-  width:26px!important;
-  height:26px!important;
-}
-body:not(.oe-parceiro) .moto-slot svg{
-  width:22px!important;
-  height:16px!important;
-}
-body:not(.oe-parceiro) .moto-slot .moto-label,
-body:not(.oe-parceiro) .moto-slot::before,
-body:not(.oe-parceiro) .moto-slot::after{
-  display:none!important;
-}
-body:not(.oe-parceiro) .time-barra-wrap{
-  padding:3px 12px 7px!important;
-}
-body:not(.oe-parceiro) .time-barra-track{
-  height:6px!important;
-  border-radius:999px!important;
-}
-body:not(.oe-parceiro) .time-msg{
-  padding:0 12px 8px!important;
-  min-height:32px!important;
-  font-size:10.5px!important;
-  line-height:1.25!important;
-  color:#475569!important;
-  font-weight:750!important;
-}
-body:not(.oe-parceiro) .time-bloco-footer{
-  display:grid!important;
-  grid-template-columns:1fr!important;
-  gap:6px!important;
-  padding:0 12px 12px!important;
-}
-body:not(.oe-parceiro) .time-bloco-footer .btn-enviar,
-body:not(.oe-parceiro) .time-bloco-footer .btn-enviar-incomplete{
-  min-height:32px!important;
-  border-radius:10px!important;
-  font-size:10.5px!important;
-  text-transform:none!important;
-}
-body:not(.oe-parceiro) .time-bloco-footer .btn-enviar-incomplete{
-  display:none!important;
-}
-body:not(.oe-parceiro) .time-bloco.time-sem-operacao{
-  opacity:.78;
-}
-body:not(.oe-parceiro) .time-bloco.time-sem-operacao .time-nomes,
-body:not(.oe-parceiro) .time-bloco.time-sem-operacao .time-barra-wrap{
-  opacity:.35;
-}
-
-/* Grade semanal limpa */
-body:not(.oe-parceiro) .table-wrap{
-  padding:12px 28px 42px 92px!important;
-  background:transparent!important;
-  box-shadow:none!important;
-}
-body:not(.oe-parceiro) .grid{
-  gap:14px!important;
-  padding:0!important;
-}
-body:not(.oe-parceiro) .day-col{
-  border:1px solid var(--oe-border)!important;
-  border-radius:22px!important;
-  background:#fff!important;
-  box-shadow:0 14px 36px rgba(15,23,42,.07)!important;
-  overflow:hidden!important;
-}
-body:not(.oe-parceiro) .day-header{
-  border-radius:22px 22px 0 0!important;
-  background:#fff!important;
-  border-bottom:1px solid #EEF2F7!important;
-  padding:13px 14px!important;
-}
-body:not(.oe-parceiro) .day-name{
-  color:var(--oe-text)!important;
-  font-size:13px!important;
-  letter-spacing:-.01em!important;
-}
-body:not(.oe-parceiro) .day-count{
-  color:var(--oe-muted)!important;
-  font-size:10px!important;
-}
-body:not(.oe-parceiro) .day-col.today{
-  border-color:#FCA5A5!important;
-}
-body:not(.oe-parceiro) .day-col.today .day-header{
-  background:var(--oe-red-soft)!important;
-}
-body:not(.oe-parceiro) .day-col.today .day-name{
-  color:var(--oe-red)!important;
-}
-body:not(.oe-parceiro) .client-section-header{
-  margin:8px 8px 4px!important;
-  border-radius:10px!important;
-  font-size:9px!important;
-}
-body:not(.oe-parceiro) .card{
-  margin:0 8px 6px!important;
-  border-radius:12px!important;
-  box-shadow:none!important;
-  border-color:#EEF2F7!important;
-}
-body:not(.oe-parceiro) .card:hover{
-  box-shadow:0 8px 18px rgba(15,23,42,.08)!important;
-  transform:translateY(-1px)!important;
-}
-body:not(.oe-parceiro) .btn-add-entregador{
-  margin:4px 8px 10px!important;
-  width:calc(100% - 16px)!important;
-  border-radius:12px!important;
-  min-height:38px!important;
-}
-
-/* Rodapé discreto */
-body:not(.oe-parceiro) .oe-footer-tip{
-  margin:0 28px 18px 92px!important;
-  border-radius:16px!important;
-  box-shadow:none!important;
-  border:1px solid var(--oe-border)!important;
-  background:#fff!important;
-}
-
-/* Responsivo admin: vira lista mais limpa */
-@media(max-width:980px){
-  body:not(.oe-parceiro) .header{
-    display:flex!important;
-    height:64px!important;
-    min-height:64px!important;
-    padding:0 14px!important;
-  }
-  body:not(.oe-parceiro) .header-titles h1{
-    font-size:13px!important;
-    max-width:150px!important;
-  }
-  body:not(.oe-parceiro) .admin-toolbar{
-    margin-left:0!important;
-    overflow:auto!important;
-  }
-  body:not(.oe-parceiro) .admin-cleanbar{
-    margin:10px 12px!important;
-    padding:14px!important;
-    border-radius:18px!important;
-    flex-direction:column!important;
-    align-items:stretch!important;
-  }
-  .admin-cleanbar-actions{
-    flex-wrap:wrap;
-  }
-  .admin-clean-search-wrap{
-    min-width:100%;
-    width:100%;
-  }
-  .btn-admin-filter-toggle,
-  .btn-admin-primary{
-    flex:1 1 150px;
-    justify-content:center;
-  }
-  body:not(.oe-parceiro) .controls{
-    top:78px!important;
-    left:12px!important;
-    right:12px!important;
-    width:auto!important;
-    max-height:calc(100vh - 96px)!important;
-    border-radius:20px!important;
-  }
-  body:not(.oe-parceiro) .time-panel{
-    padding:8px 12px 6px!important;
-  }
-  body:not(.oe-parceiro) .time-panel-topo{
-    align-items:flex-start!important;
-  }
-  body:not(.oe-parceiro) .time-dia{
-    font-size:22px!important;
-  }
-  body:not(.oe-parceiro) .time-subtitulo{
-    font-size:11px!important;
-  }
-  body:not(.oe-parceiro) .btn-whatsapp-geral{
-    font-size:11px!important;
-    padding:0 12px!important;
-  }
-  body:not(.oe-parceiro) .time-blocos{
-    display:flex!important;
-    overflow-x:auto!important;
-    gap:10px!important;
-    padding:2px 2px 12px!important;
-    scroll-snap-type:x proximity!important;
-  }
-  body:not(.oe-parceiro) .time-bloco{
-    min-width:230px!important;
-    scroll-snap-align:start!important;
-  }
-  body:not(.oe-parceiro) .table-wrap{
-    padding:8px 0 36px!important;
-  }
-  body:not(.oe-parceiro) .grid{
-    min-width:980px!important;
-    padding:0 12px!important;
-    gap:10px!important;
-  }
-  body:not(.oe-parceiro) .oe-footer-tip{
-    margin:0 12px 16px!important;
-  }
-}
-
-
-/* ═══════════════════════════════════════
-   V3.3 PROFISSIONAL — limpeza final e agenda recolhível
-═══════════════════════════════════════ */
-.btn-admin-secondary{
-  height:44px;
-  border-radius:15px;
-  padding:0 14px;
-  border:1px solid var(--oe-border, #E2E8F0);
-  background:#fff;
-  color:var(--oe-text, #0F172A);
-  font:900 13px/1 var(--font,Arial,sans-serif);
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  white-space:nowrap;
-}
-.btn-admin-secondary:hover{
-  background:var(--oe-red-soft,#FFF1F2);
-  border-color:#FCA5A5;
-  color:var(--oe-red,#E10600);
-}
-
-/* Por padrão a primeira dobra fica limpa: dashboard de hoje + ações. A grade abre só quando clicar. */
-body:not(.oe-parceiro):not(.admin-agenda-open) .table-wrap,
-body:not(.oe-parceiro):not(.admin-agenda-open) .oe-footer-tip{
-  display:none!important;
-}
-body:not(.oe-parceiro):not(.admin-agenda-open) .time-panel{
-  padding-bottom:28px!important;
-}
-body:not(.oe-parceiro) .admin-cleanbar::after{
-  content:'Modo gestor';
-  font-size:11px;
-  font-weight:950;
-  color:#E10600;
-  background:#FFF1F2;
-  border:1px solid #FCA5A5;
-  padding:8px 10px;
-  border-radius:999px;
-}
-body:not(.oe-parceiro) .admin-cleanbar-actions{
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-
-/* Mostra vagas abertas como oportunidade, não como erro visual */
-.card.vaga-aberta .moto-name{
-  text-decoration:none!important;
-}
-body:not(.oe-parceiro) .card.vaga-aberta{
-  background:linear-gradient(90deg,#FFF7ED,#fff 58%)!important;
-  border-color:#FED7AA!important;
-}
-body:not(.oe-parceiro) .card.vaga-aberta .moto-name{
-  color:#9A3412!important;
-}
-body:not(.oe-parceiro) .vaga-badge{
-  display:inline-flex;
-  align-items:center;
-  color:#EA580C;
-  background:#FFF7ED;
-  border:1px solid #FED7AA;
-}
-
-/* Botões no mobile não quebram a primeira dobra */
-@media(max-width:980px){
-  body:not(.oe-parceiro) .admin-cleanbar::after{display:none;}
-  .btn-admin-secondary,
-  .btn-admin-primary,
-  .btn-admin-filter-toggle{
-    min-width:0;
-    flex:1 1 calc(50% - 6px);
-  }
-  .admin-cleanbar-actions{
-    width:100%;
-  }
-}
-
-/* Evita que o drawer de filtros consuma a tela toda no notebook */
-@media(min-width:981px){
-  body:not(.oe-parceiro) .controls{
-    width:min(560px, calc(100vw - 140px))!important;
-  }
-}
-
-
-/* ═══════════════════════════════════════
-   V3.4 SAFE — cliente pediu fluxo antigo do parceiro
-   Não apaga lógica. Apenas desativa visualmente a tela nova de parceiro.
-═══════════════════════════════════════ */
-#oeModeSwitch,
-.oe-mode-switch,
-#parceiroApp,
-#parceiroMobileBar{
-  display:none!important;
-}
-body.oe-parceiro{
-  background:inherit!important;
-}
-body.oe-parceiro .controls,
-body.oe-parceiro .time-panel,
-body.oe-parceiro .table-wrap,
-body.oe-parceiro .oe-footer-tip{
-  display:revert!important;
-}
-body.oe-legacy-partner-flow .admin-cleanbar-sub::after{
-  content:' • fluxo do parceiro preservado';
-  color:#16A34A;
-  font-weight:900;
-}
-
-
-/* ═══════════════════════════════════════
-   V3.5 — PAINEL HOJE EM ÍCONES, NÃO CARDS
-   Menos poluição: clientes viram botões/ícones operacionais compactos.
-═══════════════════════════════════════ */
-
-/* O painel de clientes vira uma barra de ícones */
-body:not(.oe-parceiro) .time-blocos{
-  display:flex!important;
-  align-items:stretch!important;
-  gap:10px!important;
-  overflow-x:auto!important;
-  padding:4px 2px 12px!important;
-  scrollbar-width:thin;
-}
-
-/* Cada cliente deixa de ser card grande e vira ícone de status */
-body:not(.oe-parceiro) .time-bloco{
-  position:relative!important;
-  flex:0 0 118px!important;
-  width:118px!important;
-  min-width:118px!important;
-  min-height:112px!important;
-  border-radius:22px!important;
-  padding:10px!important;
-  display:grid!important;
-  grid-template-rows:auto auto auto!important;
-  align-content:start!important;
-  justify-items:center!important;
-  background:#fff!important;
-  border:1px solid #E2E8F0!important;
-  box-shadow:0 10px 24px rgba(15,23,42,.07)!important;
-  overflow:visible!important;
-  cursor:pointer!important;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease!important;
-}
-
-body:not(.oe-parceiro) .time-bloco:hover{
-  transform:translateY(-3px)!important;
-  box-shadow:0 18px 42px rgba(15,23,42,.12)!important;
-  z-index:20!important;
-}
-
-/* Ícone grande do cliente */
-body:not(.oe-parceiro) .time-bloco::before{
-  width:44px;
-  height:44px;
-  border-radius:16px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 6px;
-  color:#fff;
-  font-size:23px;
-  font-weight:900;
-  box-shadow:0 10px 20px rgba(15,23,42,.12);
-}
-
-/* Ícones por cliente usando o ID existente tb-CLIENTE */
-body:not(.oe-parceiro) #tb-pastel::before{content:'🥟';background:#E10600;}
-body:not(.oe-parceiro) #tb-beven::before{content:'🍕';background:#16A34A;}
-body:not(.oe-parceiro) #tb-meridio::before{content:'🍕';background:#2563EB;}
-body:not(.oe-parceiro) #tb-fratelli::before{content:'🍽️';background:#7C3AED;}
-body:not(.oe-parceiro) #tb-drica::before{content:'🥟';background:#F97316;}
-body:not(.oe-parceiro) #tb-barto::before{content:'🍹';background:#9333EA;}
-body:not(.oe-parceiro) #tb-centermeat::before{content:'🥩';background:#0F9488;}
-
-/* Status visual por borda superior */
-body:not(.oe-parceiro) .time-bloco.time-fechado{
-  border-color:#BBF7D0!important;
-  background:linear-gradient(180deg,#F0FDF4,#FFFFFF 55%)!important;
-}
-body:not(.oe-parceiro) .time-bloco.time-alerta,
-body:not(.oe-parceiro) .time-bloco.time-quase{
-  border-color:#FDE68A!important;
-  background:linear-gradient(180deg,#FFFBEB,#FFFFFF 55%)!important;
-}
-body:not(.oe-parceiro) .time-bloco.time-critico{
-  border-color:#FCA5A5!important;
-  background:linear-gradient(180deg,#FFF1F2,#FFFFFF 55%)!important;
-}
-body:not(.oe-parceiro) .time-bloco.time-sem-operacao{
-  border-color:#E5E7EB!important;
-  background:linear-gradient(180deg,#F8FAFC,#FFFFFF 55%)!important;
-  opacity:.78!important;
-}
-
-/* Cabeçalho vira só nome curto */
-body:not(.oe-parceiro) .time-bloco-header{
-  display:grid!important;
-  justify-items:center!important;
-  padding:0!important;
-  background:transparent!important;
-  border:0!important;
-  order:2!important;
-}
-
-body:not(.oe-parceiro) .time-bloco-cliente{
-  max-width:96px!important;
-  color:#0F172A!important;
-  text-align:center!important;
-  font-size:11px!important;
-  line-height:1.1!important;
-  font-weight:950!important;
-  letter-spacing:-.03em!important;
-  white-space:normal!important;
-  overflow:hidden!important;
-  display:-webkit-box!important;
-  -webkit-line-clamp:2!important;
-  -webkit-box-orient:vertical!important;
-}
-
-/* Placar fica destacado */
-body:not(.oe-parceiro) .time-placar{
-  margin-top:5px!important;
-  color:#0F172A!important;
-  font-size:20px!important;
-  line-height:1!important;
-  font-weight:950!important;
-  text-align:center!important;
-}
-
-/* Esconde motos, mensagens e texto grande na visão padrão */
-body:not(.oe-parceiro) .time-nomes,
-body:not(.oe-parceiro) .time-msg,
-body:not(.oe-parceiro) .time-bloco-footer{
-  display:none!important;
-}
-
-/* Barra de progresso vira mini indicador */
-body:not(.oe-parceiro) .time-barra-wrap{
-  width:76px!important;
-  padding:8px 0 0!important;
-  order:3!important;
-}
-
-body:not(.oe-parceiro) .time-barra-track{
-  height:6px!important;
-  border-radius:999px!important;
-  background:#E5E7EB!important;
-}
-
-body:not(.oe-parceiro) .time-barra-fill{
-  border-radius:999px!important;
-}
-
-/* Ações aparecem só quando o usuário abre/hover, como menu flutuante */
-body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer,
-body:not(.oe-parceiro) .time-bloco:focus-within .time-bloco-footer,
-body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer{
-  display:grid!important;
-  position:absolute!important;
-  top:calc(100% + 8px)!important;
-  left:50%!important;
-  transform:translateX(-50%)!important;
-  width:190px!important;
-  padding:10px!important;
-  border:1px solid #E2E8F0!important;
-  border-radius:16px!important;
-  background:#fff!important;
-  box-shadow:0 20px 50px rgba(15,23,42,.18)!important;
-  z-index:90!important;
-  gap:8px!important;
-}
-
-/* Mensagem aparece como tooltip curto no hover */
-body:not(.oe-parceiro) .time-bloco:hover .time-msg,
-body:not(.oe-parceiro) .time-bloco.icon-open .time-msg{
-  display:block!important;
-  position:absolute!important;
-  top:calc(100% + 92px)!important;
-  left:50%!important;
-  transform:translateX(-50%)!important;
-  width:190px!important;
-  min-height:auto!important;
-  padding:10px 12px!important;
-  border-radius:14px!important;
-  background:#0F172A!important;
-  color:#fff!important;
-  font-size:11px!important;
-  line-height:1.3!important;
-  text-align:center!important;
-  box-shadow:0 18px 42px rgba(15,23,42,.24)!important;
-  z-index:91!important;
-}
-
-/* Botões do menu compacto */
-body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer .btn-enviar,
-body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer .btn-enviar-incomplete,
-body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer .btn-enviar,
-body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer .btn-enviar-incomplete{
-  min-height:36px!important;
-  border-radius:11px!important;
-  font-size:11px!important;
-  display:inline-flex!important;
-}
-
-/* Sem operação não precisa menu */
-body:not(.oe-parceiro) .time-bloco.time-sem-operacao:hover .time-bloco-footer,
-body:not(.oe-parceiro) .time-bloco.time-sem-operacao.icon-open .time-bloco-footer{
-  display:none!important;
-}
-
-/* Título do painel deixa claro que são ícones */
-body:not(.oe-parceiro) .time-subtitulo::after{
-  content:' • clientes em ícones, clique para ações';
-  color:#E10600;
-  font-weight:900;
-}
-
-/* Mobile: ícones ficam ainda mais parecidos com app */
-@media(max-width:980px){
-  body:not(.oe-parceiro) .time-blocos{
-    gap:9px!important;
-    padding-bottom:14px!important;
-  }
-  body:not(.oe-parceiro) .time-bloco{
-    flex-basis:104px!important;
-    width:104px!important;
-    min-width:104px!important;
-    min-height:106px!important;
-    border-radius:20px!important;
-  }
-  body:not(.oe-parceiro) .time-bloco::before{
-    width:40px;
-    height:40px;
-    font-size:21px;
-    border-radius:15px;
-  }
-  body:not(.oe-parceiro) .time-bloco-cliente{
-    max-width:86px!important;
-    font-size:10px!important;
-  }
-  body:not(.oe-parceiro) .time-placar{
-    font-size:18px!important;
-  }
-  body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer,
-  body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer{
-    position:fixed!important;
-    left:12px!important;
-    right:12px!important;
-    bottom:82px!important;
-    top:auto!important;
-    transform:none!important;
-    width:auto!important;
-    z-index:800!important;
-  }
-  body:not(.oe-parceiro) .time-bloco:hover .time-msg,
-  body:not(.oe-parceiro) .time-bloco.icon-open .time-msg{
-    position:fixed!important;
-    left:12px!important;
-    right:12px!important;
-    bottom:162px!important;
-    top:auto!important;
-    transform:none!important;
-    width:auto!important;
-    z-index:801!important;
-  }
+.time-bloco.time-sem-operacao {
+  opacity:.62;
 }
 
 </style>
 </head>
 <body>
-
-<!-- OE V3 SIDEBAR VISUAL — não altera lógica -->
-<nav class="oe-v3-sidebar" aria-label="Navegação visual">
-  <div class="oe-v3-side-logo" title="Osasco Express">
-    <svg width="26" height="22" viewBox="0 0 40 28" fill="none" aria-hidden="true">
-      <circle cx="8" cy="21" r="5.2" stroke="currentColor" stroke-width="3"/>
-      <circle cx="32" cy="21" r="5.2" stroke="currentColor" stroke-width="3"/>
-      <path d="M13 21H27M20 21V12L15 6.5H25L30 12H21" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 12H18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-      <circle cx="27" cy="5" r="3" fill="currentColor"/>
-    </svg>
-  </div>
-  <button class="oe-v3-side-item active" title="Painel">▦</button>
-  <button class="oe-v3-side-item" title="Agenda">◷</button>
-  <button class="oe-v3-side-item" title="Parceiros">♙</button>
-  <button class="oe-v3-side-item" title="Clientes">▤</button>
-  <button class="oe-v3-side-item" title="Relatórios">↗</button>
-  <button class="oe-v3-side-item" title="Suporte">◌</button>
-  <div class="oe-v3-side-spacer"></div>
-  <button class="oe-v3-side-item" title="Alertas">◔</button>
-  <button class="oe-v3-side-item" title="Configurações">⚙</button>
-</nav>
-
 
 <!-- LOADING -->
 <div class="loading-overlay" id="loadingOverlay">
@@ -3618,13 +1126,7 @@ body:not(.oe-parceiro) .time-subtitulo::after{
   </div>
   <div class="header-spacer"></div>
   <div class="save-toast" id="saveToast"></div>
-  
-<div class="oe-mode-switch" id="oeModeSwitch">
-  <button class="oe-mode-btn active" type="button" onclick="setOEMode('admin')">Admin</button>
-  <button class="oe-mode-btn" type="button" onclick="setOEMode('parceiro')">Parceiro</button>
-</div>
-
-<button class="btn-header" id="btnAdmin" onclick="abrirModalSenha()">
+  <button class="btn-header" id="btnAdmin" onclick="abrirModalSenha()">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     <span id="adminLabel">Admin</span>
   </button>
@@ -3632,10 +1134,6 @@ body:not(.oe-parceiro) .time-subtitulo::after{
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
     Imprimir
   </button>
-  <div class="header-user" title="Perfil do gestor">
-    <span class="header-avatar">OE</span>
-    <span class="header-user-text"><strong>Gestão OE</strong><small>Operação ativa</small></span>
-  </div>
 </header>
 
 <!-- ── MODAIS ── -->
@@ -3790,6 +1288,23 @@ body:not(.oe-parceiro) .time-subtitulo::after{
   </div>
 </div>
 
+<!-- Bloqueio: parceiro já está reservado no mesmo dia -->
+<div class="modal-overlay" id="mReservaDuplicada">
+  <div class="modal-box">
+    <div class="modal-titulo alerta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Já tem reserva nesse dia
+    </div>
+    <p class="modal-sub" id="modalDuplicadaInfo">
+      Você já está em outro horário/cliente neste mesmo dia. Para evitar conflito, fale com o suporte antes de pegar outra vaga.
+    </p>
+    <div class="modal-btns">
+      <button class="modal-btn cancel" onclick="fechar('mReservaDuplicada')">Entendi</button>
+      <button class="modal-btn ok" onclick="window.open(WA_SUPORTE,'_blank')">Chamar suporte</button>
+    </div>
+  </div>
+</div>
+
 <!-- ADMIN TOOLBAR -->
 <div class="admin-toolbar">
   <span class="admin-toolbar-label">Admin ativo — salva automaticamente</span>
@@ -3803,37 +1318,30 @@ body:not(.oe-parceiro) .time-subtitulo::after{
   <div class="client-badge pastel">
     <span class="client-dot" style="background:var(--red)"></span>
     Pastel da Camila
-    <span style="font-weight:400;font-size:10px;opacity:.7">— 10h–16h · 15h–21h · 16h–22h</span>
   </div>
   <div class="client-badge beven">
     <span class="client-dot" style="background:var(--green)"></span>
     Bevenutti
-    <span style="font-weight:400;font-size:10px;opacity:.7">— 18h–0h30</span>
   </div>
-  <div class="client-badge meridio">
+  <div class="client-badge">
     <span class="client-dot" style="background:var(--blue)"></span>
-    Meridio Pizza
-    <span style="font-weight:400;font-size:10px;opacity:.7">— 18h–0h</span>
+    Meridio
   </div>
-  <div class="client-badge fratelli">
-    <span class="client-dot" style="background:var(--blue)"></span>
-    Fratelli Gourmet
-    <span style="font-weight:400;font-size:10px;opacity:.7">— 17h–23h · 18h–0h</span>
-  </div>
-  <div class="client-badge drica">
-    <span class="client-dot" style="background:var(--teal)"></span>
-    Pastel da Drica
-    <span style="font-weight:400;font-size:10px;opacity:.7">— 18h–0h</span>
-  </div>
-  <div class="client-badge barto">
+  <div class="client-badge">
     <span class="client-dot" style="background:var(--purple)"></span>
-    Barto Bar
-    <span style="font-weight:400;font-size:10px;opacity:.7">— 11h–16h</span>
+    Fratelli
   </div>
-  <div class="client-badge centermeat">
-    <span class="client-dot" style="background:var(--slate)"></span>
+  <div class="client-badge">
+    <span class="client-dot" style="background:var(--orange)"></span>
+    Drica
+  </div>
+  <div class="client-badge">
+    <span class="client-dot" style="background:var(--purple)"></span>
+    Barto
+  </div>
+  <div class="client-badge">
+    <span class="client-dot" style="background:var(--teal)"></span>
     Center Meat
-    <span style="font-weight:400;font-size:10px;opacity:.7">— 10h–20h</span>
   </div>
 </div>
 
@@ -3846,51 +1354,43 @@ body:not(.oe-parceiro) .time-subtitulo::after{
   <div class="leg green">🏍 18h–0h30</div>
   <div class="leg blue">🏍 17h–23h</div>
   <div class="leg teal">🏍 18h–0h</div>
-  <div class="leg purple">🏍 11h–16h</div>
-  <div class="leg slate">🏍 10h–20h</div>
+  <div class="leg purple">🏍 11h–16h / 10h–20h</div>
 </div>
 
 <!-- CONTROLS -->
 <div class="controls">
-<button id="adminFiltersClose" class="admin-filters-close" type="button" onclick="closeAdminFilters()">×</button>
-<div class="admin-filters-title">Filtros da escala</div>
-
   <div class="search-wrap">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <input type="text" class="search-input" id="searchInput" placeholder="Buscar motoboy…" oninput="applyFilters()">
   </div>
   <div class="filter-sep"></div>
-  <span class="filter-title">Horários</span>
   <div class="filter-group" id="fTurnos">
-    <button class="fbtn" data-t="red" onclick="toggleTurno('red')"><span class="chip-dot" style="background:var(--red)"></span>10h–16h</button>
+    <button class="fbtn" data-t="red"    onclick="toggleTurno('red')"   ><span class="chip-dot" style="background:var(--red)"></span>10h–16h</button>
     <button class="fbtn" data-t="orange" onclick="toggleTurno('orange')"><span class="chip-dot" style="background:var(--orange)"></span>15h–21h</button>
     <button class="fbtn" data-t="yellow" onclick="toggleTurno('yellow')"><span class="chip-dot" style="background:var(--yellow)"></span>16h–22h</button>
-    <button class="fbtn" data-t="green" onclick="toggleTurno('green')"><span class="chip-dot" style="background:var(--green)"></span>18h–0h30</button>
-    <button class="fbtn" data-t="blue" onclick="toggleTurno('blue')"><span class="chip-dot" style="background:var(--blue)"></span>17h–23h</button>
-    <button class="fbtn" data-t="teal" onclick="toggleTurno('teal')"><span class="chip-dot" style="background:var(--teal)"></span>18h–0h</button>
-    <button class="fbtn" data-t="purple" onclick="toggleTurno('purple')"><span class="chip-dot" style="background:var(--purple)"></span>11h–16h</button>
-    <button class="fbtn" data-t="slate" onclick="toggleTurno('slate')"><span class="chip-dot" style="background:var(--slate)"></span>10h–20h</button>
+    <button class="fbtn" data-t="green"  onclick="toggleTurno('green')" ><span class="chip-dot" style="background:var(--green)"></span>18h–0h30</button>
+    <button class="fbtn" data-t="blue"   onclick="toggleTurno('blue')"  ><span class="chip-dot" style="background:var(--blue)"></span>17h–23h</button>
+    <button class="fbtn" data-t="teal"   onclick="toggleTurno('teal')"  ><span class="chip-dot" style="background:var(--teal)"></span>18h–0h</button>
+    <button class="fbtn" data-t="purple" onclick="toggleTurno('purple')"><span class="chip-dot" style="background:var(--purple)"></span>11h–16h / 10h–20h</button>
   </div>
   <div class="filter-sep"></div>
-  <span class="filter-title">Clientes</span>
   <div class="filter-group" id="fClientes">
-    <button class="fbtn" data-c="pastel" onclick="toggleCliente('pastel')"><span class="chip-dot" style="background:var(--red)"></span>Pastel da Camila</button>
-    <button class="fbtn" data-c="beven" onclick="toggleCliente('beven')"><span class="chip-dot" style="background:var(--green)"></span>Bevenutti</button>
-    <button class="fbtn" data-c="meridio" onclick="toggleCliente('meridio')"><span class="chip-dot" style="background:var(--blue)"></span>Meridio Pizza</button>
-    <button class="fbtn" data-c="fratelli" onclick="toggleCliente('fratelli')"><span class="chip-dot" style="background:var(--blue)"></span>Fratelli Gourmet</button>
-    <button class="fbtn" data-c="drica" onclick="toggleCliente('drica')"><span class="chip-dot" style="background:var(--teal)"></span>Pastel da Drica</button>
-    <button class="fbtn" data-c="barto" onclick="toggleCliente('barto')"><span class="chip-dot" style="background:var(--purple)"></span>Barto Bar</button>
-    <button class="fbtn" data-c="centermeat" onclick="toggleCliente('centermeat')"><span class="chip-dot" style="background:var(--slate)"></span>Center Meat</button>
+    <button class="fbtn" data-c="pastel"     onclick="toggleCliente('pastel')"    ><span class="chip-dot" style="background:var(--red)"></span>Pastel</button>
+    <button class="fbtn" data-c="beven"      onclick="toggleCliente('beven')"     ><span class="chip-dot" style="background:var(--green)"></span>Bevenutti</button>
+    <button class="fbtn" data-c="meridio"    onclick="toggleCliente('meridio')"   ><span class="chip-dot" style="background:var(--blue)"></span>Meridio</button>
+    <button class="fbtn" data-c="fratelli"   onclick="toggleCliente('fratelli')"  ><span class="chip-dot" style="background:var(--purple)"></span>Fratelli</button>
+    <button class="fbtn" data-c="drica"      onclick="toggleCliente('drica')"     ><span class="chip-dot" style="background:var(--orange)"></span>Drica</button>
+    <button class="fbtn" data-c="barto"      onclick="toggleCliente('barto')"     ><span class="chip-dot" style="background:var(--purple)"></span>Barto</button>
+    <button class="fbtn" data-c="centermeat" onclick="toggleCliente('centermeat')"><span class="chip-dot" style="background:var(--teal)"></span>Center Meat</button>
   </div>
   <div class="filter-sep"></div>
-  <span class="filter-title">Dias</span>
   <div class="filter-group" id="fDias">
     <button class="fbtn" data-d="seg" onclick="toggleDay('seg')">Seg</button>
     <button class="fbtn" data-d="ter" onclick="toggleDay('ter')">Ter</button>
     <button class="fbtn" data-d="qua" onclick="toggleDay('qua')">Qua</button>
     <button class="fbtn" data-d="qui" onclick="toggleDay('qui')">Qui</button>
     <button class="fbtn" data-d="sex" onclick="toggleDay('sex')">Sex</button>
-    <button class="fbtn" data-d="sab" onclick="toggleDay('sab')">Sáb</button>
+    <button class="fbtn" data-d="sab" onclick="toggleDay('sab')">Sab</button>
     <button class="fbtn" data-d="dom" onclick="toggleDay('dom')">Dom</button>
   </div>
   <button class="btn-clear" id="btnClear" onclick="clearAll()">Limpar</button>
@@ -3899,21 +1399,12 @@ body:not(.oe-parceiro) .time-subtitulo::after{
 <!-- SUMMARY -->
 <div class="summary">
   <div class="pill"><span class="pdot" style="background:var(--text)"></span>Total semana: <strong id="cTotal">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--red)"></span>10h–16h: <strong id="cTurno-red">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--orange)"></span>15h–21h: <strong id="cTurno-orange">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--yellow)"></span>16h–22h: <strong id="cTurno-yellow">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--green)"></span>18h–0h30: <strong id="cTurno-green">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--blue)"></span>17h–23h: <strong id="cTurno-blue">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--teal)"></span>18h–0h: <strong id="cTurno-teal">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--purple)"></span>11h–16h: <strong id="cTurno-purple">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--slate)"></span>10h–20h: <strong id="cTurno-slate">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--red);border-radius:2px"></span>Pastel da Camila: <strong id="cClient-pastel">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--green);border-radius:2px"></span>Bevenutti: <strong id="cClient-beven">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--blue);border-radius:2px"></span>Meridio Pizza: <strong id="cClient-meridio">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--blue);border-radius:2px"></span>Fratelli Gourmet: <strong id="cClient-fratelli">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--teal);border-radius:2px"></span>Pastel da Drica: <strong id="cClient-drica">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--purple);border-radius:2px"></span>Barto Bar: <strong id="cClient-barto">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--slate);border-radius:2px"></span>Center Meat: <strong id="cClient-centermeat">0</strong></div>
+  <div class="pill"><span class="pdot" style="background:var(--red)"></span>10h–16h: <strong id="cRed">0</strong></div>
+  <div class="pill"><span class="pdot" style="background:var(--orange)"></span>15h–21h: <strong id="cOrange">0</strong></div>
+  <div class="pill"><span class="pdot" style="background:var(--yellow)"></span>16h–22h: <strong id="cYellow">0</strong></div>
+  <div class="pill"><span class="pdot" style="background:var(--green)"></span>18h–0h30: <strong id="cGreen">0</strong></div>
+  <div class="pill"><span class="pdot" style="background:var(--red);border-radius:2px"></span>Pastel da Camila: <strong id="cPastel">0</strong></div>
+  <div class="pill"><span class="pdot" style="background:var(--green);border-radius:2px"></span>Bevenutti: <strong id="cBeven">0</strong></div>
 </div>
 
 <!-- CELEBRAÇÃO — time fechado -->
@@ -3929,39 +1420,12 @@ body:not(.oe-parceiro) .time-subtitulo::after{
 </div>
 
 <!-- PAINEL DO TIME — DIA ATUAL -->
-
-<section class="admin-cleanbar" id="adminCleanbar" aria-label="Ações principais do gestor">
-  <div class="admin-cleanbar-left">
-    <div class="admin-cleanbar-icon">⚡</div>
-    <div>
-      <div class="admin-cleanbar-title">Central do gestor</div>
-      <div class="admin-cleanbar-sub">Veja primeiro quem precisa de atenção hoje. O resto fica nos filtros.</div>
-    </div>
-  </div>
-
-  <div class="admin-cleanbar-actions">
-    <div class="admin-clean-search-wrap">
-      <span>🔎</span>
-      <input class="admin-cleanbar-search" id="adminCleanSearch" type="search" placeholder="Buscar motoboy rápido">
-    </div>
-    <button class="btn-admin-filter-toggle" type="button" onclick="toggleAdminFilters()">
-      ⚙️ Filtros <span class="filter-count" id="filterCountBadge">0</span>
-    </button>
-    <button class="btn-admin-secondary" type="button" onclick="toggleAgendaSemanal()">▦ Agenda semanal</button>
-    <button class="btn-admin-secondary" type="button" onclick="aplicarBaseOperacionalAtualizada()">↺ Aplicar base atualizada</button>
-    <button class="btn-admin-primary" type="button" onclick="enviarEscalaCompletaHoje()">📲 Enviar escala do dia</button>
-  </div>
-</section>
-
 <div class="time-panel" id="timePanel">
   <div class="time-panel-topo">
-    <div>
-      <div class="time-dia">Hoje — <span id="timeDiaNome">—</span></div>
-      <div class="time-subtitulo">Bate o olho, confirma e libera o time</div>
-    </div>
-    <button class="btn-whatsapp-geral" onclick="enviarEscalaCompletaHoje()">Enviar escala completa via WhatsApp</button>
+    <div class="time-dia">Hoje — <span id="timeDiaNome">—</span></div>
+    <div class="time-subtitulo">Bate o olho, confirma e libera o time</div>
   </div>
-    <div class="time-blocos">
+  <div class="time-blocos">
 
     <div class="time-bloco" id="tb-pastel">
       <div class="time-bloco-header">
@@ -3972,11 +1436,10 @@ body:not(.oe-parceiro) .time-subtitulo::after{
       <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-pastel" style="width:0%"></div></div></div>
       <div class="time-msg" id="tm-pastel"></div>
       <div class="time-bloco-footer">
-        <button class="btn-enviar client-btn" style="background:var(--red)" onclick="enviarEscala('pastel')">Enviar escala via WhatsApp</button>
+        <button class="btn-enviar pastel-btn" onclick="enviarEscala('pastel')">Enviar escala via WhatsApp</button>
         <button class="btn-enviar-incomplete" id="btn-pastel-inc" onclick="enviarEscalaIncompleta('pastel')" style="display:none">Enviar incompleta</button>
       </div>
     </div>
-
     <div class="time-bloco" id="tb-beven">
       <div class="time-bloco-header">
         <span class="time-bloco-cliente" style="color:var(--green)">Bevenutti</span>
@@ -3986,11 +1449,10 @@ body:not(.oe-parceiro) .time-subtitulo::after{
       <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-beven" style="width:0%"></div></div></div>
       <div class="time-msg" id="tm-beven"></div>
       <div class="time-bloco-footer">
-        <button class="btn-enviar client-btn" style="background:var(--green)" onclick="enviarEscala('beven')">Enviar escala via WhatsApp</button>
+        <button class="btn-enviar beven-btn" onclick="enviarEscala('beven')">Enviar escala via WhatsApp</button>
         <button class="btn-enviar-incomplete" id="btn-beven-inc" onclick="enviarEscalaIncompleta('beven')" style="display:none">Enviar incompleta</button>
       </div>
     </div>
-
     <div class="time-bloco" id="tb-meridio">
       <div class="time-bloco-header">
         <span class="time-bloco-cliente" style="color:var(--blue)">Meridio Pizza</span>
@@ -4000,39 +1462,36 @@ body:not(.oe-parceiro) .time-subtitulo::after{
       <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-meridio" style="width:0%"></div></div></div>
       <div class="time-msg" id="tm-meridio"></div>
       <div class="time-bloco-footer">
-        <button class="btn-enviar client-btn" style="background:var(--blue)" onclick="enviarEscala('meridio')">Enviar escala via WhatsApp</button>
+        <button class="btn-enviar pastel-btn" onclick="enviarEscala('meridio')">Enviar escala via WhatsApp</button>
         <button class="btn-enviar-incomplete" id="btn-meridio-inc" onclick="enviarEscalaIncompleta('meridio')" style="display:none">Enviar incompleta</button>
       </div>
     </div>
-
     <div class="time-bloco" id="tb-fratelli">
       <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--blue)">Fratelli Gourmet</span>
+        <span class="time-bloco-cliente" style="color:var(--purple)">Fratelli Gourmet</span>
         <span class="time-placar" id="tp-fratelli">0/0</span>
       </div>
       <div class="time-nomes" id="tn-fratelli"></div>
       <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-fratelli" style="width:0%"></div></div></div>
       <div class="time-msg" id="tm-fratelli"></div>
       <div class="time-bloco-footer">
-        <button class="btn-enviar client-btn" style="background:var(--blue)" onclick="enviarEscala('fratelli')">Enviar escala via WhatsApp</button>
+        <button class="btn-enviar pastel-btn" onclick="enviarEscala('fratelli')">Enviar escala via WhatsApp</button>
         <button class="btn-enviar-incomplete" id="btn-fratelli-inc" onclick="enviarEscalaIncompleta('fratelli')" style="display:none">Enviar incompleta</button>
       </div>
     </div>
-
     <div class="time-bloco" id="tb-drica">
       <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--teal)">Pastel da Drica</span>
+        <span class="time-bloco-cliente" style="color:var(--orange)">Pastel da Drica</span>
         <span class="time-placar" id="tp-drica">0/0</span>
       </div>
       <div class="time-nomes" id="tn-drica"></div>
       <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-drica" style="width:0%"></div></div></div>
       <div class="time-msg" id="tm-drica"></div>
       <div class="time-bloco-footer">
-        <button class="btn-enviar client-btn" style="background:var(--teal)" onclick="enviarEscala('drica')">Enviar escala via WhatsApp</button>
+        <button class="btn-enviar pastel-btn" onclick="enviarEscala('drica')">Enviar escala via WhatsApp</button>
         <button class="btn-enviar-incomplete" id="btn-drica-inc" onclick="enviarEscalaIncompleta('drica')" style="display:none">Enviar incompleta</button>
       </div>
     </div>
-
     <div class="time-bloco" id="tb-barto">
       <div class="time-bloco-header">
         <span class="time-bloco-cliente" style="color:var(--purple)">Barto Bar</span>
@@ -4042,26 +1501,24 @@ body:not(.oe-parceiro) .time-subtitulo::after{
       <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-barto" style="width:0%"></div></div></div>
       <div class="time-msg" id="tm-barto"></div>
       <div class="time-bloco-footer">
-        <button class="btn-enviar client-btn" style="background:var(--purple)" onclick="enviarEscala('barto')">Enviar escala via WhatsApp</button>
+        <button class="btn-enviar pastel-btn" onclick="enviarEscala('barto')">Enviar escala via WhatsApp</button>
         <button class="btn-enviar-incomplete" id="btn-barto-inc" onclick="enviarEscalaIncompleta('barto')" style="display:none">Enviar incompleta</button>
       </div>
     </div>
-
     <div class="time-bloco" id="tb-centermeat">
       <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--slate)">Center Meat</span>
+        <span class="time-bloco-cliente" style="color:var(--teal)">Center Meat</span>
         <span class="time-placar" id="tp-centermeat">0/0</span>
       </div>
       <div class="time-nomes" id="tn-centermeat"></div>
       <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-centermeat" style="width:0%"></div></div></div>
       <div class="time-msg" id="tm-centermeat"></div>
       <div class="time-bloco-footer">
-        <button class="btn-enviar client-btn" style="background:var(--slate)" onclick="enviarEscala('centermeat')">Enviar escala via WhatsApp</button>
+        <button class="btn-enviar beven-btn" onclick="enviarEscala('centermeat')">Enviar escala via WhatsApp</button>
         <button class="btn-enviar-incomplete" id="btn-centermeat-inc" onclick="enviarEscalaIncompleta('centermeat')" style="display:none">Enviar incompleta</button>
       </div>
     </div>
-
-  </div>
+  </div>  </div>
 </div>
 
 <!-- GRADE -->
@@ -4069,79 +1526,76 @@ body:not(.oe-parceiro) .time-subtitulo::after{
   <div class="grid" id="grid">
     <div class="day-col" data-day="seg" id="col-seg">
       <div class="day-header"><span class="day-name">Segunda</span><span class="day-count" id="cnt-seg">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="seg"><div class="client-section-header pastel">Pastel da Camila · 10h–16h · 15h–21h · 16h–22h</div></div>
+      <div class="client-section" data-client="pastel" data-day="seg"><div class="client-section-header pastel">Pastel da Camila</div></div>
       <div class="client-section" data-client="beven" data-day="seg"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
       <div class="client-section" data-client="meridio" data-day="seg"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="seg"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h · 18h–0h</div></div>
+      <div class="client-section" data-client="fratelli" data-day="seg"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
       <div class="client-section" data-client="drica" data-day="seg"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
       <div class="client-section" data-client="barto" data-day="seg"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
       <div class="client-section" data-client="centermeat" data-day="seg"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
     </div>
     <div class="day-col" data-day="ter" id="col-ter">
       <div class="day-header"><span class="day-name">Terça</span><span class="day-count" id="cnt-ter">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="ter"><div class="client-section-header pastel">Pastel da Camila · 10h–16h · 15h–21h · 16h–22h</div></div>
+      <div class="client-section" data-client="pastel" data-day="ter"><div class="client-section-header pastel">Pastel da Camila</div></div>
       <div class="client-section" data-client="beven" data-day="ter"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
       <div class="client-section" data-client="meridio" data-day="ter"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="ter"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h · 18h–0h</div></div>
+      <div class="client-section" data-client="fratelli" data-day="ter"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
       <div class="client-section" data-client="drica" data-day="ter"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
       <div class="client-section" data-client="barto" data-day="ter"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
       <div class="client-section" data-client="centermeat" data-day="ter"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
     </div>
     <div class="day-col" data-day="qua" id="col-qua">
       <div class="day-header"><span class="day-name">Quarta</span><span class="day-count" id="cnt-qua">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="qua"><div class="client-section-header pastel">Pastel da Camila · 10h–16h · 15h–21h · 16h–22h</div></div>
+      <div class="client-section" data-client="pastel" data-day="qua"><div class="client-section-header pastel">Pastel da Camila</div></div>
       <div class="client-section" data-client="beven" data-day="qua"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
       <div class="client-section" data-client="meridio" data-day="qua"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="qua"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h · 18h–0h</div></div>
+      <div class="client-section" data-client="fratelli" data-day="qua"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
       <div class="client-section" data-client="drica" data-day="qua"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
       <div class="client-section" data-client="barto" data-day="qua"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
       <div class="client-section" data-client="centermeat" data-day="qua"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
     </div>
     <div class="day-col" data-day="qui" id="col-qui">
       <div class="day-header"><span class="day-name">Quinta</span><span class="day-count" id="cnt-qui">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="qui"><div class="client-section-header pastel">Pastel da Camila · 10h–16h · 15h–21h · 16h–22h</div></div>
+      <div class="client-section" data-client="pastel" data-day="qui"><div class="client-section-header pastel">Pastel da Camila</div></div>
       <div class="client-section" data-client="beven" data-day="qui"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
       <div class="client-section" data-client="meridio" data-day="qui"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="qui"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h · 18h–0h</div></div>
+      <div class="client-section" data-client="fratelli" data-day="qui"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
       <div class="client-section" data-client="drica" data-day="qui"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
       <div class="client-section" data-client="barto" data-day="qui"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
       <div class="client-section" data-client="centermeat" data-day="qui"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
     </div>
     <div class="day-col" data-day="sex" id="col-sex">
       <div class="day-header"><span class="day-name">Sexta</span><span class="day-count" id="cnt-sex">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="sex"><div class="client-section-header pastel">Pastel da Camila · 10h–16h · 15h–21h · 16h–22h</div></div>
+      <div class="client-section" data-client="pastel" data-day="sex"><div class="client-section-header pastel">Pastel da Camila</div></div>
       <div class="client-section" data-client="beven" data-day="sex"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
       <div class="client-section" data-client="meridio" data-day="sex"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="sex"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h · 18h–0h</div></div>
+      <div class="client-section" data-client="fratelli" data-day="sex"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
       <div class="client-section" data-client="drica" data-day="sex"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
       <div class="client-section" data-client="barto" data-day="sex"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
       <div class="client-section" data-client="centermeat" data-day="sex"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
     </div>
     <div class="day-col" data-day="sab" id="col-sab">
       <div class="day-header"><span class="day-name">Sábado</span><span class="day-count" id="cnt-sab">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="sab"><div class="client-section-header pastel">Pastel da Camila · 10h–16h · 15h–21h · 16h–22h</div></div>
+      <div class="client-section" data-client="pastel" data-day="sab"><div class="client-section-header pastel">Pastel da Camila</div></div>
       <div class="client-section" data-client="beven" data-day="sab"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
       <div class="client-section" data-client="meridio" data-day="sab"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="sab"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h · 18h–0h</div></div>
+      <div class="client-section" data-client="fratelli" data-day="sab"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
       <div class="client-section" data-client="drica" data-day="sab"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
       <div class="client-section" data-client="barto" data-day="sab"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
       <div class="client-section" data-client="centermeat" data-day="sab"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
     </div>
     <div class="day-col" data-day="dom" id="col-dom">
       <div class="day-header"><span class="day-name">Domingo</span><span class="day-count" id="cnt-dom">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="dom"><div class="client-section-header pastel">Pastel da Camila · 10h–16h · 15h–21h · 16h–22h</div></div>
+      <div class="client-section" data-client="pastel" data-day="dom"><div class="client-section-header pastel">Pastel da Camila</div></div>
       <div class="client-section" data-client="beven" data-day="dom"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
       <div class="client-section" data-client="meridio" data-day="dom"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="dom"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h · 18h–0h</div></div>
+      <div class="client-section" data-client="fratelli" data-day="dom"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
       <div class="client-section" data-client="drica" data-day="dom"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
       <div class="client-section" data-client="barto" data-day="dom"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
       <div class="client-section" data-client="centermeat" data-day="dom"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
     </div>
   </div>
 </div>
-
-<div class="oe-footer-tip"><span>ⓘ Dica: arraste para reordenar motoboys dentro do mesmo cliente.</span><span class="oe-legend"><b class="lg-red"></b>Crítico <b class="lg-orange"></b>Atenção <b class="lg-green"></b>OK <b class="lg-gray"></b>Sem operação</span></div>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <script>
@@ -4155,157 +1609,111 @@ var PWD     = 'osasco2025';
 
 var DIAS = ['seg','ter','qua','qui','sex','sab','dom'];
 
-
-var CLIENTES = {
-  pastel:     { nome:'Pastel da Camila',  turnos:['red','orange','yellow'], cor:'#DC2626', whatsapp:'https://chat.whatsapp.com/Ie2qpJoOhFx6c0nW2acYoJ?s=cl&p=a&mlu=2', icone:'🔥' },
-  beven:      { nome:'Bevenutti',         turnos:['green'],               cor:'#059669', whatsapp:'https://chat.whatsapp.com/CaFE5AiQlCAK8SxDb23WNQ?s=cl&p=a&mlu=2', icone:'🟢' },
-  meridio:    { nome:'Meridio Pizza',     turnos:['teal'],                cor:'#2563EB', whatsapp:'https://chat.whatsapp.com/KaoKSIsxnYWJ7wmLtgiGqh', icone:'🍕' },
-  fratelli:   { nome:'Fratelli Gourmet',  turnos:['blue','teal'],         cor:'#2563EB', whatsapp:'https://chat.whatsapp.com/KoLz5e4KEz3BHzJhKwPUVr?s=cl&p=a&mlu=2', icone:'🍽️' },
-  drica:      { nome:'Pastel da Drica',   turnos:['teal'],                cor:'#0D9488', whatsapp:'https://chat.whatsapp.com/F0NOHTx0SPj7n9wk8QqahI', icone:'🥟' },
-  barto:      { nome:'Barto Bar',         turnos:['purple'],              cor:'#7C3AED', whatsapp:'https://chat.whatsapp.com/IL3kYWx26XqJjH82NaQhAq', icone:'🍔' },
-  centermeat: { nome:'Center Meat',       turnos:['slate'],               cor:'#475569', whatsapp:'https://chat.whatsapp.com/Cxh5L3vsXM741CDWMtjV3Q', icone:'🥩' }
-};
-
-var TURNOS = {
-  red:    { label:'10h–16h',   msg:'10h-16h',   cor:'#DC2626' },
-  orange: { label:'15h–21h',   msg:'15h-21h',   cor:'#EA580C' },
-  yellow: { label:'16h–22h',   msg:'16h-22h',   cor:'#CA8A04' },
-  green:  { label:'18h–0h30',  msg:'18h-0h30',  cor:'#059669' },
-  blue:   { label:'17h–23h',   msg:'17h-23h',   cor:'#2563EB' },
-  teal:   { label:'18h–0h',    msg:'18h-0h',    cor:'#0D9488' },
-  purple: { label:'11h–16h',   msg:'11h-16h',   cor:'#7C3AED' },
-  slate:  { label:'10h–20h',   msg:'10h-20h',   cor:'#475569' }
-};
-
-function getClienteNome(client) { return CLIENTES[client] ? CLIENTES[client].nome : client; }
-function getClienteIcone(client) { return CLIENTES[client] ? CLIENTES[client].icone : '🏁'; }
-function getClienteCor(client) { return CLIENTES[client] ? CLIENTES[client].cor : '#0F172A'; }
-
-var TURNO_LABEL = {};
-var TURNO_HORA  = {};
-var TURNO_MSG   = {};
-Object.keys(TURNOS).forEach(function(k){
-  TURNO_LABEL[k] = TURNOS[k].label;
-  TURNO_HORA[k]  = TURNOS[k].label;
-  TURNO_MSG[k]   = TURNOS[k].msg;
-});
-
+var TURNO_LABEL = { red:'10h–16h', orange:'15h–21h', yellow:'16h–22h', green:'18h–0h30', blue:'17h–23h', teal:'18h–0h', purple:'11h–16h / 10h–20h' };
 
 var ESCALA_PADRAO = {
   seg:[
-    // Bevenutti — manter como estava
+    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'José Henrique',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
 
-    // Barto Bar — 1 vaga, Alessandro fixo seg a sáb
+    // Barto Bar
     {nome:'Alessandro',turno:'purple',client:'barto'},
 
-    // Fratelli Gourmet — 3 vagas seg a qui. Mantém dois horários: 17h–23h + 18h–0h
-    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli'},
+    // Fratelli Gourmet — 3 vagas
+    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
 
-    // Pastel da Drica — segunda 3 vagas
-    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica'}
+    // Pastel da Drica — 3 vagas
+    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true}
   ],
   ter:[
-    // Pastel da Camila — manter como estava
+    // Pastel da Camila mantido
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
 
-    // Bevenutti — manter como estava
+    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Renan Lopes',turno:'green',client:'beven'},
 
-    // Barto
     {nome:'Alessandro',turno:'purple',client:'barto'},
 
-    // Fratelli — 3 vagas
-    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli'},
+    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
 
-    // Drica — terça 2 vagas
-    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica'},
+    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
 
-    // Meridio — terça 3 vagas
-    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio'}
+    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
   ],
   qua:[
-    // Pastel da Camila — manter como estava
+    // Pastel da Camila mantido
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
 
-    // Bevenutti — manter como estava
+    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Renan Lopes',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
 
-    // Barto
     {nome:'Alessandro',turno:'purple',client:'barto'},
 
-    // Fratelli — 3 vagas
-    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli'},
+    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
 
-    // Drica — quarta 2 vagas
-    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica'},
+    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
 
-    // Meridio — quarta 3 vagas
-    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio'}
+    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
   ],
   qui:[
-    // Pastel da Camila — manter como estava
+    // Pastel da Camila mantido
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
     {nome:'Clayton Silva',turno:'yellow',client:'pastel'},
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
 
-    // Bevenutti — manter como estava
+    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
     {nome:'Renan Lopes',turno:'green',client:'beven'},
 
-    // Barto
     {nome:'Alessandro',turno:'purple',client:'barto'},
 
-    // Fratelli — 3 vagas
-    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli'},
+    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
 
-    // Drica — quinta 3 vagas
-    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica'},
+    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
 
-    // Meridio — quinta 3 vagas
-    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio'}
+    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
   ],
   sex:[
-    // Pastel da Camila — manter como estava
+    // Pastel da Camila mantido
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
@@ -4313,7 +1721,7 @@ var ESCALA_PADRAO = {
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
     {nome:'Gabriel Marcos',turno:'yellow',client:'pastel'},
 
-    // Bevenutti — manter como estava
+    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Kleber Augusto',turno:'green',client:'beven'},
@@ -4323,30 +1731,26 @@ var ESCALA_PADRAO = {
     {nome:'Renan Lopes',turno:'green',client:'beven'},
     {nome:'Clayton Silva',turno:'green',client:'beven'},
 
-    // Barto
     {nome:'Alessandro',turno:'purple',client:'barto'},
 
-    // Fratelli — 4 vagas sex a dom
-    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli'},
+    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli',vaga:true},
 
-    // Drica — 4 vagas sex a dom
-    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica'},
+    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica',vaga:true},
 
-    // Meridio — sexta 5 vagas
-    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio'}
+    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true}
   ],
   sab:[
-    // Pastel da Camila — manter como estava
+    // Pastel da Camila mantido
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
@@ -4354,7 +1758,7 @@ var ESCALA_PADRAO = {
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
     {nome:'Gabriel Marcos',turno:'yellow',client:'pastel'},
 
-    // Bevenutti — manter como estava
+    // Bevenutti mantido
     {nome:'Lucas Cadete',turno:'green',client:'beven'},
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Kleber Augusto',turno:'green',client:'beven'},
@@ -4364,30 +1768,26 @@ var ESCALA_PADRAO = {
     {nome:'Gabriel Martins',turno:'green',client:'beven'},
     {nome:'Clayton Silva',turno:'green',client:'beven'},
 
-    // Barto
     {nome:'Alessandro',turno:'purple',client:'barto'},
 
-    // Fratelli — 4 vagas
-    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli'},
+    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli',vaga:true},
 
-    // Drica — 4 vagas
-    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica'},
+    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica',vaga:true},
 
-    // Meridio — sábado 5 vagas
-    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio'}
+    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true}
   ],
   dom:[
-    // Pastel da Camila — manter como estava
+    // Pastel da Camila mantido
     {nome:'José Henrique',turno:'red',client:'pastel'},
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
     {nome:'Reinaldo Souza',turno:'orange',client:'pastel'},
@@ -4395,7 +1795,7 @@ var ESCALA_PADRAO = {
     {nome:'Murilo Vaz',turno:'yellow',client:'pastel'},
     {nome:'Gabriel Marcos',turno:'yellow',client:'pastel'},
 
-    // Bevenutti — manter como estava
+    // Bevenutti mantido
     {nome:'Matheus Marciano',turno:'green',client:'beven'},
     {nome:'Kleber Augusto',turno:'green',client:'beven'},
     {nome:'Gustavo Henrique',turno:'green',client:'beven'},
@@ -4403,26 +1803,22 @@ var ESCALA_PADRAO = {
     {nome:'Gabriel Martins',turno:'green',client:'beven'},
     {nome:'José Henrique',turno:'green',client:'beven'},
 
-    // Barto — domingo vaga aberta
-    {nome:'Vaga Aberta Barto',turno:'purple',client:'barto'},
+    {nome:'Vaga Aberta Barto',turno:'purple',client:'barto',vaga:true},
 
-    // Fratelli — 4 vagas
-    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli'},
-    {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli'},
+    {nome:'Vaga Aberta Fratelli 17h',turno:'blue',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 1',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
+    {nome:'Vaga Aberta Fratelli 18h 3',turno:'teal',client:'fratelli',vaga:true},
 
-    // Drica — 4 vagas
-    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica'},
-    {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica'},
+    {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Drica 4',turno:'teal',client:'drica',vaga:true},
 
-    // Meridio — domingo 4 vagas
-    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio'},
-    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio'}
+    {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio',vaga:true}
   ]
 };
 
@@ -4477,11 +1873,12 @@ function getTodayKey() {
 /* ═══════════════════════════════════════
    CRIAR CARD DOM
 ═══════════════════════════════════════ */
+var TURNO_HORA = { red:'10h–16h', orange:'15h–21h', yellow:'16h–22h', green:'18h–0h30', blue:'17h–23h', teal:'18h–0h', purple:'11h–16h / 10h–20h' };
 
 function criarCard(entry) {
   var card = document.createElement('div');
   card.className = 'card ' + entry.turno;
-  if ((entry.nome || '').toLowerCase().indexOf('vaga aberta') === 0 || entry.vaga === true) {
+  if (entry.vaga === true || (entry.nome || '').toLowerCase().indexOf('vaga aberta') === 0) {
     card.classList.add('vaga-aberta');
   }
   card.setAttribute('data-turno',   entry.turno);
@@ -4599,7 +1996,7 @@ async function carregarEscala() {
       var ag = {};
       r.data.forEach(function(row){
         if (!ag[row.dia]) ag[row.dia]=[];
-        ag[row.dia].push({nome:row.nome, turno:row.turno, client:row.client});
+        ag[row.dia].push({nome:row.nome, turno:row.turno, client:row.client, vaga:(row.nome||'').toLowerCase().indexOf('vaga aberta')===0});
       });
       renderEscala(ag);
     }
@@ -4774,6 +2171,54 @@ function abrirModalPegarVaga(card) {
   setTimeout(function(){ document.getElementById('pegarNome').focus(); }, 80);
 }
 
+
+function normalizarNomeReserva(nome) {
+  return (nome || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+function encontrarReservaMesmoDia(nome, cardAtual) {
+  var nomeNorm = normalizarNomeReserva(nome);
+  if (!nomeNorm) return null;
+
+  var col = cardAtual.closest('.day-col');
+  if (!col) return null;
+
+  var cards = Array.from(col.querySelectorAll('.card'));
+  for (var i = 0; i < cards.length; i++) {
+    var c = cards[i];
+    if (c === cardAtual) continue;
+    if (c.classList.contains('vaga-aberta')) continue;
+
+    var nomeCard = c.querySelector('.moto-name');
+    if (!nomeCard) continue;
+
+    if (normalizarNomeReserva(nomeCard.textContent) === nomeNorm) {
+      return c;
+    }
+  }
+  return null;
+}
+
+function avisarReservaDuplicada(nome, cardExistente) {
+  var client = cardExistente.getAttribute('data-client');
+  var turno  = TURNO_HORA[cardExistente.getAttribute('data-turno')] || '';
+  var col = cardExistente.closest('.day-col');
+  var DIA_LABEL = { seg:'Segunda', ter:'Terca', qua:'Quarta', qui:'Quinta', sex:'Sexta', sab:'Sabado', dom:'Domingo' };
+  var dia = col ? (DIA_LABEL[col.getAttribute('data-day')] || '') : '';
+
+  document.getElementById('modalDuplicadaInfo').innerHTML =
+    '<strong>' + nome + '</strong>, você já está reservado em <strong>' +
+    getClienteNome(client) + '</strong>' +
+    (turno ? ' no horário <strong>' + turno + '</strong>' : '') +
+    (dia ? ' — <strong>' + dia + '</strong>' : '') +
+    '.<br><br>Para não deixar ninguém em dois lugares ao mesmo tempo, essa vaga não foi reservada. Fale com o suporte se precisar trocar.';
+  document.getElementById('mReservaDuplicada').classList.add('visivel');
+}
+
 function confirmarPegarVaga() {
   var nome = document.getElementById('pegarNome').value.trim();
   if (!nome || nome.split(' ').filter(Boolean).length < 2) {
@@ -4784,8 +2229,16 @@ function confirmarPegarVaga() {
   }
 
   var card = document.getElementById('mPegarVaga')._card;
-  fechar('mPegarVaga');
   if (!card) return;
+
+  var jaReservado = encontrarReservaMesmoDia(nome, card);
+  if (jaReservado) {
+    fechar('mPegarVaga');
+    avisarReservaDuplicada(nome, jaReservado);
+    return;
+  }
+
+  fechar('mPegarVaga');
 
   // Atualiza o nome no card e remove estado vaga-aberta
   var nmEl = card.querySelector('.moto-name');
@@ -4813,8 +2266,34 @@ function confirmarPegarVaga() {
    GRUPOS WHATSAPP — links diretos
 ═══════════════════════════════════════ */
 var WA_SUPORTE  = 'https://chat.whatsapp.com/EDqB87CXggFCPbYnXVhNqp'; // vagas abertas
-var WA_BEVEN    = 'https://chat.whatsapp.com/CaFE5AiQlCAK8SxDb23WNQ?s=cl&p=a&mlu=2'; // escala Bevenutti
-var WA_PASTEL   = 'https://chat.whatsapp.com/Ie2qpJoOhFx6c0nW2acYoJ?s=cl&p=a&mlu=2'; // escala Pastel
+var WA_BEVEN    = 'https://chat.whatsapp.com/CaFE5AiQlCAK8SxDb23WNQ?s=cl&p=a&mlu=2';
+var WA_PASTEL   = 'https://chat.whatsapp.com/Ie2qpJoOhFx6c0nW2acYoJ?s=cl&p=a&mlu=2';
+var WA_MERIDIO  = 'https://chat.whatsapp.com/KaoKSIsxnYWJ7wmLtgiGqh';
+var WA_FRATELLI = 'https://chat.whatsapp.com/KoLz5e4KEz3BHzJhKwPUVr?s=cl&p=a&mlu=2';
+var WA_DRICA    = 'https://chat.whatsapp.com/F0NOHTx0SPj7n9wk8QqahI';
+var WA_BARTO    = 'https://chat.whatsapp.com/IL3kYWx26XqJjH82NaQhAq';
+var WA_CENTER   = 'https://chat.whatsapp.com/Cxh5L3vsXM741CDWMtjV3Q';
+
+var CLIENTE_NOME = {
+  pastel:'Pastel da Camila',
+  beven:'Bevenutti',
+  meridio:'Meridio Pizza',
+  fratelli:'Fratelli Gourmet',
+  drica:'Pastel da Drica',
+  barto:'Barto Bar',
+  centermeat:'Center Meat'
+};
+var CLIENTE_WA = {
+  pastel:WA_PASTEL,
+  beven:WA_BEVEN,
+  meridio:WA_MERIDIO,
+  fratelli:WA_FRATELLI,
+  drica:WA_DRICA,
+  barto:WA_BARTO,
+  centermeat:WA_CENTER
+};
+function getClienteNome(client){ return CLIENTE_NOME[client] || client; }
+function getClienteWa(client){ return CLIENTE_WA[client] || WA_SUPORTE; }
 
 function notificarVagaAberta(card) {
   var nome   = card.querySelector('.moto-name').textContent.trim();
@@ -4859,6 +2338,7 @@ function notificarVagaPegada(card, nomeNovo, nomeAnterior) {
    GERAR MENSAGEM WHATSAPP → CLIENTE
    Linguagem profissional estilo iFood/operadora de delivery
 ═══════════════════════════════════════ */
+var TURNO_MSG = { red:'10h-16h', orange:'15h-21h', yellow:'16h-22h', green:'18h-0h30' };
 var DIA_PT    = { seg:'Segunda', ter:'Terca', qua:'Quarta', qui:'Quinta', sex:'Sexta', sab:'Sabado', dom:'Domingo' };
 
 function gerarMensagemEscala(client, incluirPendentes) {
@@ -5046,14 +2526,28 @@ function ativarDragDrop() {
         if (clientAntigo !== novoClient) {
           card.setAttribute('data-client', novoClient);
 
-          // Ajusta turno para o cliente destino sem amarrar cor a cliente.
+          // Ajusta turno padrão para o cliente destino
           var turnoAtual = card.getAttribute('data-turno');
-          var turnosDestino = (CLIENTES[novoClient] && CLIENTES[novoClient].turnos) ? CLIENTES[novoClient].turnos : [];
-          var novoTurno = turnosDestino.indexOf(turnoAtual) >= 0 ? turnoAtual : (turnosDestino[0] || turnoAtual);
+          var novoTurno = turnoAtual;
+          var DEFAULT_TURNO_CLIENTE = {
+            pastel:'red',
+            beven:'green',
+            meridio:'teal',
+            fratelli:'teal',
+            drica:'teal',
+            barto:'purple',
+            centermeat:'purple'
+          };
+
+          if (DEFAULT_TURNO_CLIENTE[novoClient]) {
+            if (novoClient === 'pastel' && !['red','orange','yellow'].includes(turnoAtual)) novoTurno = 'red';
+            else if (novoClient === 'fratelli' && !['blue','teal'].includes(turnoAtual)) novoTurno = 'teal';
+            else if (novoClient !== 'pastel' && novoClient !== 'fratelli' && turnoAtual !== DEFAULT_TURNO_CLIENTE[novoClient]) novoTurno = DEFAULT_TURNO_CLIENTE[novoClient];
+          }
 
           if (novoTurno !== turnoAtual) {
             card.setAttribute('data-turno', novoTurno);
-            card.classList.remove('red','orange','yellow','green','blue','teal','purple','slate');
+            card.classList.remove('red','orange','yellow','green');
             card.classList.add(novoTurno);
             var turnoEl = card.querySelector('.card-turno');
             if (turnoEl) turnoEl.textContent = TURNO_HORA[novoTurno] || '';
@@ -5145,10 +2639,18 @@ function abrirModalAdd(sec) {
 function syncTurnos() {
   var c = document.getElementById('addCliente').value;
   var s = document.getElementById('addTurno');
-  var lista = (CLIENTES[c] && CLIENTES[c].turnos) ? CLIENTES[c].turnos : Object.keys(TURNOS);
-  s.innerHTML = lista.map(function(t){
-    return '<option value="' + t + '">' + (TURNO_HORA[t] || t) + '</option>';
-  }).join('');
+
+  var htmlTurnos = {
+    beven:      '<option value="green">18h–0h30</option>',
+    meridio:    '<option value="teal">18h–0h</option>',
+    fratelli:   '<option value="blue">17h–23h</option><option value="teal">18h–0h</option>',
+    drica:      '<option value="teal">18h–0h</option>',
+    barto:      '<option value="purple">11h–16h</option>',
+    centermeat: '<option value="purple">10h–20h</option>',
+    pastel:     '<option value="red">10h–16h</option><option value="orange">15h–21h</option><option value="yellow">16h–22h</option>'
+  };
+
+  s.innerHTML = htmlTurnos[c] || htmlTurnos.pastel;
 }
 
 function confirmarAdicionar() {
@@ -5200,7 +2702,7 @@ function applyFilters() {
       if (ok) vis++;
     });
     col.querySelectorAll('.client-section').forEach(function(sec){
-      sec.style.display = (modoAdmin || Array.from(sec.querySelectorAll('.card')).some(function(c){ return c.style.display!=='none'; })) ? 'flex' : 'none';
+      sec.style.display = Array.from(sec.querySelectorAll('.card')).some(function(c){ return c.style.display!=='none'; }) ? 'flex' : 'none';
     });
     var cnt = document.getElementById('cnt-'+day);
     if (cnt) cnt.textContent = vis + (vis===1?' escalado':' escalados');
@@ -5209,29 +2711,25 @@ function applyFilters() {
 }
 
 function recalc() {
-  var tot=0;
-  var porTurno={}, porCliente={};
-  Object.keys(TURNOS).forEach(function(t){ porTurno[t]=0; });
-  Object.keys(CLIENTES).forEach(function(c){ porCliente[c]=0; });
-
+  var tot=0,red=0,org=0,yel=0,grn=0,pas=0,bev=0;
   document.querySelectorAll('.card').forEach(function(c){
     if (c.style.display==='none') return;
     tot++;
     var t=c.getAttribute('data-turno'), cl=c.getAttribute('data-client');
-    if (porTurno[t] !== undefined) porTurno[t]++;
-    if (porCliente[cl] !== undefined) porCliente[cl]++;
+    if(t==='red')    red++;
+    if(t==='orange') org++;
+    if(t==='yellow') yel++;
+    if(t==='green')  grn++;
+    if(cl==='pastel') pas++;
+    if(cl==='beven')  bev++;
   });
-
-  var elTotal = document.getElementById('cTotal');
-  if (elTotal) elTotal.textContent = tot;
-  Object.keys(porTurno).forEach(function(t){
-    var el = document.getElementById('cTurno-'+t);
-    if (el) el.textContent = porTurno[t];
-  });
-  Object.keys(porCliente).forEach(function(cl){
-    var el = document.getElementById('cClient-'+cl);
-    if (el) el.textContent = porCliente[cl];
-  });
+  document.getElementById('cTotal').textContent  = tot;
+  document.getElementById('cRed').textContent    = red;
+  document.getElementById('cOrange').textContent = org;
+  document.getElementById('cYellow').textContent = yel;
+  document.getElementById('cGreen').textContent  = grn;
+  document.getElementById('cPastel').textContent = pas;
+  document.getElementById('cBeven').textContent  = bev;
 }
 
 function toggleTurno(t) {
@@ -5265,7 +2763,7 @@ function clearAll() {
 ═══════════════════════════════════════ */
 var WEEKDAY_MAP  = { 0:'dom', 1:'seg', 2:'ter', 3:'qua', 4:'qui', 5:'sex', 6:'sab' };
 var DIA_NOME_PT  = { seg:'Segunda', ter:'Terca', qua:'Quarta', qui:'Quinta', sex:'Sexta', sab:'Sabado', dom:'Domingo' };
-var _jaFechou    = {}; // controla celebração uma vez por sessão
+var _jaFechou    = { pastel:false, beven:false, meridio:false, fratelli:false, drica:false, barto:false, centermeat:false }; // controla celebração uma vez por sessão
 
 function getMsgTime(nivel, pend, conf, total, nomeCliente) {
   if (total === 0) return nomeCliente + ' nao tem escala hoje.';
@@ -5283,7 +2781,7 @@ function atualizarTimeDoDia() {
   var elDia  = document.getElementById('timeDiaNome');
   if (elDia) elDia.textContent = DIA_NOME_PT[diaKey] || '';
 
-  Object.keys(CLIENTES).forEach(function(client) {
+  ['pastel','beven','meridio','fratelli','drica','barto','centermeat'].forEach(function(client) {
     var cards = Array.from(
       document.querySelectorAll('.day-col[data-day="'+diaKey+'"] .card[data-client="'+client+'"]')
     );
@@ -5322,7 +2820,7 @@ function atualizarTimeDoDia() {
     // ── classe no bloco ──
     var bloco = document.getElementById('tb-'+client);
     if (bloco) {
-      bloco.className = 'time-bloco' + (total === 0 ? ' time-sem-operacao' : nivel === 'ok' ? ' time-fechado' : nivel === 'critico' || nivel === 'zero' ? ' time-critico' : nivel === 'alerta' ? ' time-alerta' : nivel === 'quase' ? ' time-quase' : '');
+      bloco.className = 'time-bloco' + (nivel === 'ok' ? ' time-fechado' : nivel === 'critico' || nivel === 'zero' ? ' time-critico' : nivel === 'alerta' ? ' time-alerta' : nivel === 'quase' ? ' time-quase' : '');
     }
 
     // ── botão enviar incompleta ──
@@ -5348,16 +2846,24 @@ function atualizarTimeDoDia() {
     }
 
     // Cores vivas por cliente e estado
-    var corCliente = getClienteCor(client);
+    var COR_CLIENTE = {
+      pastel:'#DC2626',
+      beven:'#059669',
+      meridio:'#2563EB',
+      fratelli:'#7C3AED',
+      drica:'#EA580C',
+      barto:'#7C3AED',
+      centermeat:'#0F9488'
+    };
     var cores = {
-      confirmado: { fill:corCliente, sw:'2.4' },
+      confirmado: { fill:COR_CLIENTE[client] || '#059669', sw:'2.4' },
       cobriu:     { fill:'#1D4ED8', sw:'2.6' },
       vaga:       { fill:'#9CA3AF', sw:'1.8' },
       pendente:   { fill:'#E5E7EB', sw:'1.8' }
     };
 
     // label do turno para o tooltip
-    var TURNO_LABEL_MINI = {}; Object.keys(TURNOS).forEach(function(k){ TURNO_LABEL_MINI[k] = TURNOS[k].msg; });
+    var TURNO_LABEL_MINI = { red:'10-16h', orange:'15-21h', yellow:'16-22h', green:'18-0h30', blue:'17-23h', teal:'18-0h', purple:'11-16/10-20' };
 
     cards.forEach(function(card) {
       var nomeCompleto = card.querySelector('.moto-name').textContent.trim();
@@ -5409,7 +2915,7 @@ function mostrarCelebracao(client, cards) {
   document.getElementById('celebCliente').textContent = nomeCliente;
   document.getElementById('celebTitulo').textContent  = 'Time fechado! 🏁';
   document.getElementById('celebSub').textContent     = 'Todo mundo confirmou. Hoje tá resolvido, pode focar no trampo.';
-  document.getElementById('celebIcone').textContent   = getClienteIcone(client);
+  document.getElementById('celebIcone').textContent   = client === 'pastel' ? '🔥' : client === 'beven' ? '🟢' : '🏁';
 
   var elNomes = document.getElementById('celebNomes');
   elNomes.innerHTML = '';
@@ -5461,6 +2967,7 @@ function fecharCelebracao() {
 /* ═══════════════════════════════════════
    GERAR MENSAGEM WHATSAPP POR CLIENTE
 ═══════════════════════════════════════ */
+var TURNO_MSG = { red:'10h-16h', orange:'15h-21h', yellow:'16h-22h', green:'18h-0h30' };
 var DIA_PT    = { seg:'Segunda', ter:'Terca', qua:'Quarta', qui:'Quinta', sex:'Sexta', sab:'Sabado', dom:'Domingo' };
 function gerarMensagemEscala(client, incluirPendentes) {
   var nomeCliente = getClienteNome(client);
@@ -5536,62 +3043,22 @@ function gerarMensagemEscala(client, incluirPendentes) {
   return linhas.join('\n');
 }
 
-
-function enviarEscalaCompletaHoje() {
-  var diaKey = WEEKDAY_MAP[new Date().getDay()];
-  var diaNome = DIA_NOME_PT[diaKey] || 'Hoje';
-  var linhas = ['*ESCALA OE — '+diaNome.toUpperCase()+'*', ''];
-  Object.keys(CLIENTES).forEach(function(client){
-    var cards = Array.from(document.querySelectorAll('.day-col[data-day="'+diaKey+'"] .card[data-client="'+client+'"]'));
-    linhas.push('*'+getClienteNome(client)+'*');
-    if (!cards.length) {
-      linhas.push('Sem operação lançada hoje.');
-    } else {
-      cards.forEach(function(card){
-        var nome = card.querySelector('.moto-name').textContent.trim();
-        var turno = TURNO_MSG[card.getAttribute('data-turno')] || '';
-        var status = card.classList.contains('confirmado') ? '✅ confirmado' : card.classList.contains('vaga-aberta') ? '🟠 vaga aberta' : '⏳ pendente';
-        linhas.push('• '+nome+' — '+turno+' — '+status);
-      });
-    }
-    linhas.push('');
-  });
-  var url = 'https://wa.me/?text=' + encodeURIComponent(linhas.join('\n'));
-  window.open(url, '_blank');
-}
-
-function abrirGrupoClienteComMensagem(client, msg) {
-  var grupo = (CLIENTES[client] && CLIENTES[client].whatsapp) ? CLIENTES[client].whatsapp : WA_SUPORTE;
-
-  // Links de grupo do WhatsApp não aceitam texto pré-preenchido com segurança.
-  // Então copiamos a mensagem e abrimos o grupo correto para colar/enviar.
-  try {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(msg).then(function(){
-        toast('saved', 'Mensagem copiada. Cole no grupo.');
-      }).catch(function(){
-        toast('saved', 'Grupo aberto. Copie a mensagem do resumo.');
-      });
-    }
-  } catch(e) {}
-
-  window.open(grupo, '_blank');
-}
-
 function enviarEscala(client) {
   var msg  = gerarMensagemEscala(client, true);
-  abrirGrupoClienteComMensagem(client, msg);
+  var grupo = getClienteWa(client);
+  window.open(grupo + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
 function enviarEscalaIncompleta(client) {
   var msg  = gerarMensagemEscala(client, true);
-  abrirGrupoClienteComMensagem(client, msg);
+  var grupo = getClienteWa(client);
+  window.open(grupo + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
 /* ═══════════════════════════════════════
    FECHAR MODAIS CLICANDO FORA
 ═══════════════════════════════════════ */
-['mSenha','mRemover','mResetar','mAdicionar','mSair','mVaga','mPegarVaga'].forEach(function(id){
+['mSenha','mRemover','mResetar','mAdicionar','mSair','mVaga','mPegarVaga','mReservaDuplicada'].forEach(function(id){
   document.getElementById(id).addEventListener('click', function(e){ if(e.target===this) fechar(id); });
 });
 
@@ -5632,344 +3099,16 @@ function agendarReset() {
 })();
 </script>
 
-<section id="parceiroApp" aria-label="Tela do parceiro Osasco Express">
-  <div class="parceiro-shell">
-    <aside class="parceiro-sidebar">
-      <div class="parceiro-brand">
-        <div class="parceiro-logo">🏍️</div>
-        <div>Osasco<br>Express</div>
-      </div>
-      <nav class="parceiro-nav">
-        <button class="active" type="button">⌂ Início</button>
-        <button type="button">▣ Agenda</button>
-        <button type="button">▤ Vagas</button>
-        <button type="button">☏ Suporte</button>
-        <button type="button">○ Perfil</button>
-      </nav>
-      <div class="parceiro-safety">🛡️ Use parado,<br>com segurança.</div>
-      <div class="parceiro-user">
-        <div class="parceiro-avatar">🏍️</div>
-        <div>
-          <strong>João Motoca</strong>
-          <span>● Parceiro ativo</span>
-        </div>
-      </div>
-    </aside>
-
-    <main class="parceiro-main">
-      <div class="parceiro-top">
-        <div>
-          <h2>Osasco Express — Parceiro</h2>
-          <p>Agenda do parceiro</p>
-        </div>
-        <div class="parceiro-top-actions">
-          <div class="parceiro-bell">🔔</div>
-          <div class="parceiro-status-user">
-            <div class="mini-avatar">🏍️</div>
-            <div>
-              <strong>João Motoca</strong>
-              <span>● Parceiro ativo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <section class="parceiro-hero">
-        <div>
-          <div class="parceiro-hero-title">Hoje — <span>Terça</span></div>
-          <div class="parceiro-hero-info">
-            <div class="parceiro-store-icon">🏪</div>
-            <div>
-              <h3>Pastel da Camila</h3>
-              <p>Turno • <strong>18h–00h</strong></p>
-              <div class="parceiro-helper">Confirme sua presença para segurar o horário.</div>
-            </div>
-          </div>
-        </div>
-        <div class="parceiro-hero-actions">
-          <div class="parceiro-pill-status">◷ Pendente</div>
-          <button class="parceiro-btn primary" type="button" onclick="confirmarPrimeiroCardParceiro()">✓ Confirmar presença</button>
-          <button class="parceiro-btn" type="button" onclick="reabrirPrimeiroCardParceiro()">↻ Reabrir horário</button>
-        </div>
-      </section>
-
-      <section class="parceiro-quick">
-        <button class="parceiro-quick-card" type="button" onclick="abrirGrupoParceiroAtual()">
-          <i>👥</i><div><strong>Grupo da loja</strong><span>Comunicação com a loja</span></div>
-        </button>
-        <button class="parceiro-quick-card" type="button" onclick="toast('saved','Código de entrega: veja no grupo da loja.')">
-          <i>▦</i><div><strong>Código entrega</strong><span>Acessar código rápido</span></div>
-        </button>
-        <button class="parceiro-quick-card" type="button" onclick="window.open(WA_SUPORTE,'_blank')">
-          <i>☏</i><div><strong>Suporte</strong><span>Falar com suporte</span></div>
-        </button>
-        <button class="parceiro-quick-card" type="button" onclick="toast('saved','Abra o endereço pelo pedido/plataforma.')">
-          <i>➤</i><div><strong>Navegar</strong><span>Abrir mapas</span></div>
-        </button>
-      </section>
-
-      <div class="parceiro-section-head">
-        <h3>Vagas abertas hoje</h3>
-        <a href="#vagas">Ver todas ›</a>
-      </div>
-      <section class="vagas-row" id="vagas">
-        <article class="vaga-card">
-          <div class="vaga-card-top"><div class="vaga-icon blue">🍕</div><div><h4>Meridio Pizza</h4><p>18h–00h</p></div></div>
-          <small>0/3 vagas</small>
-          <button class="parceiro-btn primary" type="button" onclick="toast('saved','Vaga solicitada: Meridio Pizza.')">Pegar vaga</button>
-        </article>
-        <article class="vaga-card">
-          <div class="vaga-card-top"><div class="vaga-icon green">🏪</div><div><h4>Bevenutti</h4><p>18h–00h30</p></div></div>
-          <small>0/3 vagas</small>
-          <button class="parceiro-btn primary" type="button" onclick="toast('saved','Vaga solicitada: Bevenutti.')">Pegar vaga</button>
-        </article>
-        <article class="vaga-card">
-          <div class="vaga-card-top"><div class="vaga-icon purple">👨‍🍳</div><div><h4>Fratelli</h4><p>17h–23h</p></div></div>
-          <small>0/3 vagas</small>
-          <button class="parceiro-btn primary" type="button" onclick="toast('saved','Vaga solicitada: Fratelli.')">Pegar vaga</button>
-        </article>
-      </section>
-
-      <div class="parceiro-section-head">
-        <h3>Minha semana</h3>
-      </div>
-      <section class="semana-list">
-        <div class="semana-day">
-          <div class="semana-day-head"><strong>▣ Segunda</strong><span>3 escalas⌄</span></div>
-        </div>
-        <div class="semana-day open">
-          <div class="semana-day-head"><strong>▣ Terça</strong><span>2 escalas⌃</span></div>
-          <div class="semana-entry">
-            <div class="semana-entry-icon red">🏪</div>
-            <div><strong>Pastel da Camila</strong> <small>• 18h–00h</small></div>
-            <div class="spacer"></div>
-            <span class="status-pendente">◷ Pendente</span>
-            <span>›</span>
-          </div>
-          <div class="semana-entry">
-            <div class="semana-entry-icon green">🏪</div>
-            <div><strong>Bevenutti</strong> <small>• 18h–00h30</small></div>
-            <div class="spacer"></div>
-            <span class="status-livre">Livre</span>
-            <span>›</span>
-          </div>
-          <button class="semana-detail-btn" type="button">Ver detalhes</button>
-        </div>
-        <div class="semana-day"><div class="semana-day-head"><strong>▣ Quarta</strong><span>2 escalas⌄</span></div></div>
-        <div class="semana-day"><div class="semana-day-head"><strong>▣ Quinta</strong><span>1 escala⌄</span></div></div>
-        <div class="semana-day"><div class="semana-day-head"><strong>▣ Sexta</strong><span>2 escalas⌄</span></div></div>
-        <div class="semana-day"><div class="semana-day-head"><strong>▣ Sábado</strong><span>1 escala⌄</span></div></div>
-        <div class="semana-day"><div class="semana-day-head"><strong>▣ Domingo</strong><span>0 escalas⌄</span></div></div>
-      </section>
-    </main>
-  </div>
-
-  <nav id="parceiroMobileBar" aria-label="Navegação do parceiro">
-    <button class="active" type="button"><i>⌂</i>Início</button>
-    <button type="button"><i>▣</i>Agenda</button>
-    <button type="button"><i>▤</i>Vagas</button>
-    <button type="button"><i>☏</i>Suporte</button>
-    <button type="button"><i>○</i>Perfil</button>
-  </nav>
-</section>
-
-
 <script>
 /* ═══════════════════════════════════════
-   V3.1 MVP — alternância Admin/Parceiro sem quebrar lógica
-═══════════════════════════════════════ */
-function setOEMode(mode){
-  var isParceiro = mode === 'parceiro';
-  document.body.classList.toggle('oe-parceiro', isParceiro);
-  document.querySelectorAll('.oe-mode-btn').forEach(function(btn){
-    btn.classList.toggle('active', btn.textContent.trim().toLowerCase().indexOf(isParceiro ? 'parceiro' : 'admin') >= 0);
-  });
-  try { localStorage.setItem('oe_mode', mode); } catch(e){}
-}
-
-function getPrimeiroCardParceiro(){
-  var todayKey = (typeof WEEKDAY_MAP !== 'undefined') ? WEEKDAY_MAP[new Date().getDay()] : 'ter';
-  return document.querySelector('.day-col[data-day="'+todayKey+'"] .card[data-client="pastel"]:not(.vaga-aberta)') ||
-         document.querySelector('.day-col[data-day="ter"] .card[data-client="pastel"]:not(.vaga-aberta)') ||
-         document.querySelector('.card[data-client="pastel"]:not(.vaga-aberta)');
-}
-
-function confirmarPrimeiroCardParceiro(){
-  var card = getPrimeiroCardParceiro();
-  if(card && typeof confirmar === 'function'){
-    confirmar(card);
-    toast('saved','Presença confirmada no painel.');
-  } else {
-    toast('saved','Confirmação registrada.');
-  }
-}
-
-function reabrirPrimeiroCardParceiro(){
-  var card = getPrimeiroCardParceiro();
-  if(card && typeof abrirModalVaga === 'function'){
-    abrirModalVaga(card);
-  } else {
-    toast('saved','Pedido de reabertura iniciado.');
-  }
-}
-
-function abrirGrupoParceiroAtual(){
-  if(typeof abrirGrupoClienteComMensagem === 'function'){
-    abrirGrupoClienteComMensagem('pastel','Grupo da loja — Pastel da Camila');
-  } else if(typeof CLIENTES !== 'undefined' && CLIENTES.pastel && CLIENTES.pastel.whatsapp){
-    window.open(CLIENTES.pastel.whatsapp,'_blank');
-  }
-}
-
-(function(){
-  try{
-    var saved = localStorage.getItem('oe_mode');
-    if(saved === 'parceiro') setTimeout(function(){ setOEMode('parceiro'); }, 0);
-  }catch(e){}
-})();
-</script>
-
-
-<script>
-/* ═══════════════════════════════════════
-   V3.2 CLEAN ADMIN — comportamento de filtros e busca rápida
-═══════════════════════════════════════ */
-function toggleAdminFilters(){
-  document.body.classList.toggle('admin-filters-open');
-}
-function closeAdminFilters(){
-  document.body.classList.remove('admin-filters-open');
-}
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closeAdminFilters();
-});
-document.addEventListener('click', function(e){
-  if(!document.body.classList.contains('admin-filters-open')) return;
-  var controls = document.querySelector('.controls');
-  var toggle = document.querySelector('.btn-admin-filter-toggle');
-  if(!controls || controls.contains(e.target) || (toggle && toggle.contains(e.target))) return;
-  closeAdminFilters();
-});
-
-function syncAdminCleanSearch(){
-  var clean = document.getElementById('adminCleanSearch');
-  var original = document.querySelector('.controls .search-input, #searchInput, input[type="search"]');
-  if(!clean || !original) return;
-  clean.addEventListener('input', function(){
-    original.value = clean.value;
-    original.dispatchEvent(new Event('input', {bubbles:true}));
-    if(typeof applyFilters === 'function') applyFilters();
-  });
-}
-
-function updateAdminFilterCount(){
-  var badge = document.getElementById('filterCountBadge');
-  if(!badge) return;
-  var active = 0;
-  document.querySelectorAll('.controls .fbtn').forEach(function(btn){
-    var cls = btn.className || '';
-    if(btn.classList.contains('active') || /\bon-/.test(cls)) active++;
-  });
-  badge.textContent = active;
-}
-
-document.addEventListener('click', function(e){
-  if(e.target.closest && e.target.closest('.controls .fbtn, .controls .btn-clear, .fbtn, .btn-clear')){
-    setTimeout(updateAdminFilterCount, 80);
-  }
-});
-document.addEventListener('DOMContentLoaded', function(){
-  syncAdminCleanSearch();
-  updateAdminFilterCount();
-});
-setTimeout(function(){
-  syncAdminCleanSearch();
-  updateAdminFilterCount();
-}, 600);
-</script>
-
-
-<script>
-/* ═══════════════════════════════════════
-   V3.3 — aplicar base operacional atualizada
-═══════════════════════════════════════ */
-async function aplicarBaseOperacionalAtualizada(){
-  var ok = confirm('Aplicar a base operacional atualizada? Isso substitui a escala estrutural atual pelos clientes/vagas revisados, mantendo as confirmações separadas.');
-  if(!ok) return;
-  try{
-    renderEscala(ESCALA_PADRAO);
-    await autoSave();
-    if (typeof atualizarStatusClientes === 'function') atualizarStatusClientes();
-    toast('saved','Base operacional atualizada.');
-  }catch(e){
-    console.warn(e);
-    toast('error','Erro ao aplicar base.');
-  }
-}
-</script>
-
-
-<script>
-/* ═══════════════════════════════════════
-   V3.3 — agenda semanal recolhível
-═══════════════════════════════════════ */
-function toggleAgendaSemanal(){
-  document.body.classList.toggle('admin-agenda-open');
-  try{ localStorage.setItem('oe_admin_agenda_open', document.body.classList.contains('admin-agenda-open') ? '1' : '0'); }catch(e){}
-}
-(function(){
-  try{
-    if(localStorage.getItem('oe_admin_agenda_open') === '1') document.body.classList.add('admin-agenda-open');
-  }catch(e){}
-})();
-</script>
-
-
-<script>
-/* ═══════════════════════════════════════
-   V3.4 SAFE — força fluxo antigo do parceiro
+   ABERTURA PADRÃO — PARCEIRO
+   A tela abre para o parceiro. Admin só entra pela senha.
 ═══════════════════════════════════════ */
 (function(){
-  try { localStorage.removeItem('oe_mode'); } catch(e){}
   document.addEventListener('DOMContentLoaded', function(){
-    document.body.classList.remove('oe-parceiro');
-    document.body.classList.add('oe-legacy-partner-flow');
-    var sw = document.getElementById('oeModeSwitch');
-    if(sw) sw.style.display = 'none';
-    var p = document.getElementById('parceiroApp');
-    if(p) p.style.display = 'none';
+    document.body.classList.remove('admin-mode');
   });
 })();
-</script>
-
-
-<script>
-/* ═══════════════════════════════════════
-   V3.5 — clique nos ícones de cliente para abrir ações
-═══════════════════════════════════════ */
-document.addEventListener('click', function(e){
-  var bloco = e.target.closest && e.target.closest('.time-bloco');
-  var isInsideAction = e.target.closest && e.target.closest('.time-bloco-footer, .btn-enviar, .btn-enviar-incomplete');
-  if(bloco && !isInsideAction){
-    document.querySelectorAll('.time-bloco.icon-open').forEach(function(el){
-      if(el !== bloco) el.classList.remove('icon-open');
-    });
-    bloco.classList.toggle('icon-open');
-    return;
-  }
-  if(!bloco){
-    document.querySelectorAll('.time-bloco.icon-open').forEach(function(el){
-      el.classList.remove('icon-open');
-    });
-  }
-});
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape'){
-    document.querySelectorAll('.time-bloco.icon-open').forEach(function(el){
-      el.classList.remove('icon-open');
-    });
-  }
-});
 </script>
 
 </body>
