@@ -1408,449 +1408,280 @@ body:not(.admin-mode) .btn-header:nth-of-type(2){display:none!important;}
 .modal-titulo.alerta{color:#EA580C;}
 
 
-/* ═══════════════════════════════════════
-   UX MOBILE SÊNIOR — PARCEIRO DE RUA
-   Objetivo: usar rápido no celular, parado na moto, sem painel de gestor.
-═══════════════════════════════════════ */
-:root{
-  --oe-red:#DC2626;
-  --oe-red-dark:#B91C1C;
-  --oe-ink:#0F172A;
-  --oe-muted:#64748B;
-  --oe-line:#E2E8F0;
-  --oe-card:#FFFFFF;
-  --oe-bg:#F8FAFC;
-}
-
-/* Mobile-first real para parceiro */
-body:not(.admin-mode){
-  background:#F8FAFC!important;
-}
-
-body:not(.admin-mode) .header{
-  position:sticky;
-  top:0;
-  z-index:120;
-  height:60px!important;
-  min-height:60px!important;
-  padding:0 12px!important;
-  background:rgba(255,255,255,.96)!important;
-  border-bottom:1px solid rgba(226,232,240,.9)!important;
-  box-shadow:0 8px 24px rgba(15,23,42,.06)!important;
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
-
-body:not(.admin-mode) .header-brand{
-  min-width:0;
-}
-
-body:not(.admin-mode) .header-logo-icon{
-  width:40px!important;
-  height:40px!important;
-  border-radius:14px!important;
-  background:linear-gradient(135deg,var(--oe-red),var(--oe-red-dark))!important;
-  color:#fff!important;
-  box-shadow:0 10px 18px rgba(220,38,38,.22)!important;
-}
-
-body:not(.admin-mode) .header-titles h1{
-  font-size:14px!important;
-  line-height:1.05!important;
-  letter-spacing:-.03em!important;
-  max-width:180px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-body:not(.admin-mode) .header-titles p{
-  font-size:10px!important;
-  line-height:1.1!important;
-  color:#64748B!important;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-/* Admin fica presente, mas pequeno e sem cara de ação principal */
-body:not(.admin-mode) .header-actions{
-  gap:6px!important;
-}
-
-body:not(.admin-mode) .btn-header{
-  height:38px!important;
-  min-width:44px!important;
-  padding:0 10px!important;
-  border-radius:13px!important;
-  font-size:11px!important;
-  font-weight:900!important;
-  background:#fff!important;
-  border:1px solid #E2E8F0!important;
-  color:#0F172A!important;
-  box-shadow:none!important;
-}
-
-body:not(.admin-mode) .btn-header:first-child{
-  color:#DC2626!important;
-  background:#FEF2F2!important;
-  border-color:#FECACA!important;
-}
-
-/* Tela principal do parceiro */
-body:not(.admin-mode) .partner-home{
-  min-height:calc(100svh - 60px);
-  padding:12px 12px 94px!important;
-  background:
-    radial-gradient(420px 160px at 20% -4%, rgba(220,38,38,.12), transparent 65%),
-    linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 42%,#F1F5F9 100%)!important;
-}
-
-/* Hero mais curto e mais direto */
-body:not(.admin-mode) .partner-hero{
-  border-radius:20px!important;
-  padding:14px!important;
-  margin-bottom:12px!important;
-  border:1px solid rgba(226,232,240,.95)!important;
-  background:linear-gradient(180deg,#FFFFFF 0%,#FFFBFB 100%)!important;
-  box-shadow:0 14px 34px rgba(15,23,42,.08)!important;
-}
-
-body:not(.admin-mode) .partner-kicker{
-  margin-bottom:8px!important;
-  padding:6px 10px!important;
-  border-radius:999px!important;
-  font-size:11px!important;
-  color:#B91C1C!important;
-  background:#FEF2F2!important;
-  border:1px solid #FECACA!important;
-}
-
-body:not(.admin-mode) .partner-title{
-  font-size:24px!important;
-  line-height:1!important;
-  letter-spacing:-.055em!important;
-  color:#0F172A!important;
-}
-
-body:not(.admin-mode) .partner-sub{
-  margin-top:7px!important;
-  font-size:13px!important;
-  line-height:1.34!important;
-  color:#475569!important;
-  max-width:40ch;
-}
-
-body:not(.admin-mode) .partner-safe{
-  margin-top:10px!important;
-  border-radius:14px!important;
-  padding:10px 11px!important;
-  background:#FFFBEB!important;
-  border:1px solid #FDE68A!important;
-  color:#92400E!important;
-  font-size:12px!important;
-  line-height:1.25!important;
-}
-
-/* Seções mais escaneáveis */
-body:not(.admin-mode) .partner-section{
+/* ══════════════════════════════
+   AJUSTE UX — COMEÇAR NAS VAGAS
+   A tela do parceiro começa pelas vagas. A escala dele fica recolhida em "Minha semana".
+══════════════════════════════ */
+body:not(.admin-mode) .partner-vagas-first{
   margin-top:14px!important;
 }
-
-body:not(.admin-mode) .partner-section-head{
-  margin-bottom:9px!important;
-  padding:0 2px!important;
+body:not(.admin-mode) .partner-section-sub{
+  margin-top:3px;
+  color:#64748B;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.25;
 }
-
-body:not(.admin-mode) .partner-section-title{
-  font-size:16px!important;
-  letter-spacing:-.025em!important;
+body:not(.admin-mode) .partner-myweek{
+  margin-top:14px!important;
 }
-
-body:not(.admin-mode) .partner-section-small{
-  font-size:11px!important;
-  color:#64748B!important;
-  background:#fff!important;
-  border:1px solid #E2E8F0!important;
-  padding:5px 8px!important;
-  border-radius:999px!important;
+body:not(.admin-mode) .partner-myweek-toggle{
+  width:100%;
+  min-height:62px;
+  border:1px solid #E2E8F0;
+  background:#fff;
+  border-radius:18px;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-family:var(--font);
+  text-align:left;
+  box-shadow:0 8px 22px rgba(15,23,42,.06);
+  cursor:pointer;
 }
-
-/* Minhas reservas: compacta e com status claro */
-body:not(.admin-mode) .partner-card{
-  border-radius:18px!important;
-  border:1px solid #E2E8F0!important;
-  box-shadow:0 8px 22px rgba(15,23,42,.06)!important;
+body:not(.admin-mode) .partner-myweek-toggle strong{
+  display:block;
+  color:#0F172A;
+  font-size:15px;
+  font-weight:950;
+  letter-spacing:-.02em;
 }
-
-body:not(.admin-mode) .partner-empty{
-  padding:14px!important;
-  font-size:13px!important;
-  line-height:1.35!important;
+body:not(.admin-mode) .partner-myweek-toggle small{
+  display:block;
+  color:#64748B;
+  font-size:12px;
+  font-weight:750;
+  margin-top:2px;
 }
-
-body:not(.admin-mode) .partner-reserva-row{
-  padding:12px!important;
-  gap:10px!important;
-}
-
-body:not(.admin-mode) .partner-reserva-icon{
-  width:38px!important;
-  height:38px!important;
-  border-radius:14px!important;
-}
-
-body:not(.admin-mode) .partner-reserva-info strong{
-  font-size:13px!important;
-  max-width:210px;
-}
-
-body:not(.admin-mode) .partner-reserva-info span{
-  font-size:11.5px!important;
-}
-
-body:not(.admin-mode) .partner-reserva-status{
-  font-size:10px!important;
-  padding:5px 7px!important;
-}
-
-/* Cliente primeiro: cards grandes de toque, não card poluído */
-body:not(.admin-mode) .partner-client-list{
-  display:grid!important;
-  gap:11px!important;
-}
-
-body:not(.admin-mode) .partner-client-group{
-  border-radius:20px!important;
-  border:1px solid #E2E8F0!important;
-  background:#fff!important;
-  box-shadow:0 10px 26px rgba(15,23,42,.07)!important;
-  overflow:hidden!important;
-}
-
-body:not(.admin-mode) .partner-client-main{
-  min-height:74px!important;
-  padding:14px!important;
-  gap:12px!important;
-  background:#fff!important;
-  position:relative;
-}
-
-body:not(.admin-mode) .partner-client-main::after{
-  content:'›';
-  width:26px;
-  height:26px;
+body:not(.admin-mode) .partner-myweek-toggle b{
+  min-width:30px;
+  height:30px;
   border-radius:999px;
   display:grid;
   place-items:center;
-  background:#F1F5F9;
-  color:#0F172A;
-  font-size:23px;
-  font-weight:900;
-  flex:0 0 auto;
-  transition:.18s ease;
-}
-
-body:not(.admin-mode) .partner-client-group.open .partner-client-main::after{
-  transform:rotate(90deg);
   background:#FEF2F2;
+  color:#B91C1C;
+  border:1px solid #FECACA;
+  font-size:12px;
+  font-weight:950;
+}
+body:not(.admin-mode) .partner-myweek-content{
+  margin-top:10px;
+}
+body:not(.admin-mode) .partner-myweek.collapsed .partner-myweek-content{
+  display:none!important;
+}
+body:not(.admin-mode) .partner-myweek:not(.collapsed) .partner-myweek-toggle{
+  border-color:#FECACA;
+  background:#FFFBFB;
+}
+body:not(.admin-mode) .partner-myweek:not(.collapsed) .partner-myweek-toggle::after{
+  content:'▲';
   color:#DC2626;
+  font-size:10px;
+  font-weight:950;
+  margin-left:2px;
+}
+body:not(.admin-mode) .partner-myweek.collapsed .partner-myweek-toggle::after{
+  content:'▼';
+  color:#64748B;
+  font-size:10px;
+  font-weight:950;
+  margin-left:2px;
 }
 
-body:not(.admin-mode) .partner-client-main:active{
-  transform:scale(.992);
-  background:#F8FAFC!important;
+/* Reduz a sensação de "time fechado": o topo da lista é sempre ação de pegar vaga */
+body:not(.admin-mode) .partner-hero{
+  margin-bottom:10px!important;
 }
-
-body:not(.admin-mode) .partner-client-main-icon{
-  width:50px!important;
-  height:50px!important;
-  border-radius:18px!important;
-  font-size:24px!important;
-  box-shadow:0 10px 18px rgba(15,23,42,.12)!important;
-}
-
-body:not(.admin-mode) .partner-client-main-info strong{
-  font-size:16px!important;
-  letter-spacing:-.025em!important;
-  max-width:190px!important;
-}
-
 body:not(.admin-mode) .partner-client-main-info span{
-  font-size:12px!important;
-  margin-top:3px!important;
-  color:#64748B!important;
+  content:'';
 }
 
-body:not(.admin-mode) .partner-client-main-count{
-  padding:6px 9px!important;
-  font-size:11px!important;
-  border-radius:999px!important;
-  color:#B91C1C!important;
-  background:#FEF2F2!important;
-  border:1px solid #FECACA!important;
-}
 
-/* Detalhe do cliente abre limpo */
-body:not(.admin-mode) .partner-client-details{
-  padding:10px!important;
-  gap:10px!important;
-  background:#F8FAFC!important;
-  border-top:1px solid #E2E8F0!important;
+/* ══════════════════════════════
+   SUPORTE OPERACIONAL — AUTONOMIA SEM CÓDIGO
+   Editar vagas, nomes, clientes e congelar agenda.
+══════════════════════════════ */
+.admin-support-panel{
+  display:none;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:0 12px 34px rgba(15,23,42,.08);
+  margin:12px 16px;
+  padding:14px;
 }
-
-body:not(.admin-mode) .partner-client-day-block{
-  border-radius:16px!important;
-  border:1px solid #E2E8F0!important;
-  background:#fff!important;
-  box-shadow:0 4px 14px rgba(15,23,42,.04)!important;
+body.admin-mode .admin-support-panel{
+  display:block;
 }
-
-body:not(.admin-mode) .partner-client-day-head{
-  padding:11px 12px!important;
-  background:linear-gradient(180deg,#FFFFFF,#F8FAFC)!important;
-  border-bottom:1px solid #E2E8F0!important;
+.admin-support-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
 }
-
-body:not(.admin-mode) .partner-client-day-head strong{
-  font-size:14px!important;
-  letter-spacing:-.02em!important;
+.admin-support-title{
+  font-size:16px;
+  font-weight:950;
+  color:var(--text);
+  letter-spacing:-.03em;
 }
-
-body:not(.admin-mode) .partner-client-day-head span{
-  font-size:11px!important;
-  color:#64748B!important;
+.admin-support-sub{
+  margin-top:3px;
+  color:var(--text-3);
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
 }
-
-/* Botão pegar vaga: ação óbvia, grande, de rua */
-body:not(.admin-mode) .partner-slot-btn{
-  min-height:58px!important;
-  padding:13px 12px!important;
-  background:#fff!important;
-  border-color:#E2E8F0!important;
+.admin-support-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
 }
-
-body:not(.admin-mode) .partner-slot-btn:active{
-  background:#FEF2F2!important;
-  transform:scale(.992);
+.support-btn{
+  min-height:40px;
+  border-radius:13px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  padding:0 12px;
+  font-family:var(--font);
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
 }
-
-body:not(.admin-mode) .partner-slot-btn strong{
-  font-size:14px!important;
+.support-btn.primary{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
 }
-
-body:not(.admin-mode) .partner-slot-btn small{
-  font-size:11px!important;
-  margin-top:3px!important;
+.support-btn.dark{
+  background:#0F172A;
+  border-color:#0F172A;
+  color:#fff;
 }
-
-body:not(.admin-mode) .partner-slot-btn span{
-  min-height:34px;
-  display:inline-flex;
+.support-btn.warn{
+  background:#FFFBEB;
+  border-color:#FDE68A;
+  color:#92400E;
+}
+.support-btn.danger{
+  background:#FEF2F2;
+  border-color:#FECACA;
+  color:#B91C1C;
+}
+.admin-support-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+.support-field{
+  display:grid;
+  gap:5px;
+}
+.support-field label{
+  font-size:11px;
+  color:var(--text-3);
+  font-weight:900;
+}
+.support-field input,
+.support-field select{
+  min-height:42px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:0 10px;
+  font-family:var(--font);
+  font-size:13px;
+  font-weight:750;
+  background:#fff;
+  color:var(--text);
+}
+.support-freeze-banner{
+  display:none;
+  margin:10px 16px 0;
+  border:1px solid #FDE68A;
+  background:#FFFBEB;
+  color:#92400E;
+  border-radius:14px;
+  padding:10px 12px;
+  font-size:12px;
+  font-weight:900;
+}
+body.escala-congelada .support-freeze-banner{
+  display:block;
+}
+body:not(.admin-mode).escala-congelada .partner-client-list{
+  display:none!important;
+}
+body:not(.admin-mode).escala-congelada .partner-vagas-first::after{
+  content:'A agenda está congelada pelo suporte no momento. Fale com o suporte se precisar ajustar sua reserva.';
+  display:block;
+  background:#FFFBEB;
+  color:#92400E;
+  border:1px solid #FDE68A;
+  border-radius:18px;
+  padding:16px;
+  font-size:13px;
+  font-weight:850;
+  line-height:1.4;
+  box-shadow:0 8px 22px rgba(15,23,42,.06);
+}
+body.escala-congelada .partner-section-small#partnerTotalVagas{
+  background:#FFFBEB!important;
+  color:#92400E!important;
+  border-color:#FDE68A!important;
+}
+.card .support-card-tools{
+  display:none;
+}
+body.admin-mode .card .support-card-tools{
+  display:flex;
   align-items:center;
-  justify-content:center;
-  padding:0 11px;
-  border-radius:999px;
-  background:#DC2626;
-  color:#fff!important;
-  font-size:11px!important;
-  box-shadow:0 8px 16px rgba(220,38,38,.18);
+  gap:4px;
+  margin-top:6px;
 }
-
-/* Barra inferior: suporte + admin, mas sem atrapalhar */
-body:not(.admin-mode) .partner-actions{
-  position:fixed!important;
-  left:0!important;
-  right:0!important;
-  bottom:0!important;
-  z-index:180!important;
-  padding:9px 12px max(9px, env(safe-area-inset-bottom))!important;
-  background:rgba(255,255,255,.96)!important;
-  border-top:1px solid #E2E8F0!important;
-  box-shadow:0 -12px 30px rgba(15,23,42,.10)!important;
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+.support-mini{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text-3);
+  border-radius:8px;
+  min-height:24px;
+  padding:0 7px;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
 }
-
-body:not(.admin-mode) .partner-bottom-btn{
-  min-height:50px!important;
-  border-radius:16px!important;
-  font-size:13px!important;
-  font-weight:950!important;
+.support-mini.edit{color:#2563EB;background:#EFF6FF;border-color:#BFDBFE;}
+.support-mini.open{color:#059669;background:#ECFDF5;border-color:#A7F3D0;}
+.support-mini.del{color:#B91C1C;background:#FEF2F2;border-color:#FECACA;}
+.modal-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
-
-body:not(.admin-mode) .partner-bottom-btn.primary{
-  background:#0F172A!important;
-  border-color:#0F172A!important;
-  color:#fff!important;
-}
-
-body:not(.admin-mode) .partner-bottom-btn:first-child{
-  background:#FEF2F2!important;
-  border-color:#FECACA!important;
-  color:#B91C1C!important;
-}
-
-/* Modal no celular: mais forte e claro */
-body:not(.admin-mode) .modal-box{
-  border-radius:22px!important;
-  width:min(94vw, 420px)!important;
-}
-
-body:not(.admin-mode) .modal-titulo{
-  font-size:18px!important;
-  letter-spacing:-.03em!important;
-}
-
-body:not(.admin-mode) .form-input,
-body:not(.admin-mode) .modal-input{
-  min-height:50px!important;
-  border-radius:15px!important;
-  font-size:16px!important;
-}
-
-body:not(.admin-mode) .modal-checkline{
-  border-radius:15px!important;
-  padding:11px!important;
-}
-
-body:not(.admin-mode) .modal-checkline span{
-  font-size:12.5px!important;
-}
-
-body:not(.admin-mode) .modal-btn{
-  min-height:48px!important;
-  border-radius:15px!important;
-  font-weight:950!important;
-}
-
-/* Celular pequeno */
-@media(max-width:380px){
-  body:not(.admin-mode) .partner-title{
-    font-size:22px!important;
-  }
-  body:not(.admin-mode) .partner-client-main{
-    padding:12px!important;
-  }
-  body:not(.admin-mode) .partner-client-main-icon{
-    width:46px!important;
-    height:46px!important;
-  }
-  body:not(.admin-mode) .partner-client-main-count{
-    font-size:10px!important;
-    padding:5px 7px!important;
-  }
-  body:not(.admin-mode) .partner-client-main-info strong{
-    max-width:155px!important;
+@media(max-width:900px){
+  .admin-support-grid{
+    grid-template-columns:1fr 1fr;
   }
 }
-
-/* Desktop parceiro continua limpo */
-@media(min-width:769px){
-  body:not(.admin-mode) .partner-home{
-    max-width:760px!important;
-    margin:0 auto!important;
-    padding-top:22px!important;
+@media(max-width:560px){
+  .admin-support-panel{
+    margin:10px 10px;
+    padding:12px;
+    border-radius:16px;
+  }
+  .admin-support-head{
+    display:grid;
+  }
+  .admin-support-grid{
+    grid-template-columns:1fr;
+  }
+  .admin-support-actions .support-btn{
+    flex:1 1 calc(50% - 4px);
   }
 }
 
@@ -2080,30 +1911,37 @@ body:not(.admin-mode) .modal-btn{
 
 <!-- TELA DO PARCEIRO — ABERTURA PADRÃO -->
 
+
 <main class="partner-home" id="partnerHome">
   <section class="partner-hero">
     <div class="partner-kicker">🏍️ Agenda do parceiro</div>
-    <div class="partner-title">Escolha o cliente e reserve</div>
-    <div class="partner-sub">Toque no cliente, escolha o dia e pegue sua vaga. Dá pra reservar o mesmo horário na semana.</div>
+    <div class="partner-title">Pegue suas vagas da semana</div>
+    <div class="partner-sub">Escolha o cliente, veja os dias disponíveis e reserve seu horário. Rápido, direto e sem confusão.</div>
     <div class="partner-safe">Use parado, com segurança.</div>
   </section>
 
-  <section class="partner-section">
+  <section class="partner-section partner-vagas-first">
     <div class="partner-section-head">
-      <div class="partner-section-title">Minhas reservas da semana</div>
-      <div class="partner-section-small" id="partnerSemanaLabel">Semana</div>
-    </div>
-    <div class="partner-card" id="partnerReservasSemana">
-      <div class="partner-empty">Você ainda não tem reserva salva neste celular nesta semana.</div>
-    </div>
-  </section>
-
-  <section class="partner-section">
-    <div class="partner-section-head">
-      <div class="partner-section-title">Escolha um cliente</div>
+      <div>
+        <div class="partner-section-title">Vagas disponíveis</div>
+        <div class="partner-section-sub">Toque no cliente para escolher dia e horário.</div>
+      </div>
       <div class="partner-section-small" id="partnerTotalVagas">Clientes com vagas</div>
     </div>
     <div class="partner-client-list" id="partnerClientesVagas"></div>
+  </section>
+
+  <section class="partner-section partner-myweek collapsed" id="partnerMyWeek">
+    <button class="partner-myweek-toggle" type="button" onclick="toggleMinhaSemana()">
+      <span>
+        <strong>Minha escala da semana</strong>
+        <small>Ver o que eu já reservei</small>
+      </span>
+      <b id="partnerMyWeekBadge">0</b>
+    </button>
+    <div class="partner-card partner-myweek-content" id="partnerReservasSemana">
+      <div class="partner-empty">Você ainda não pegou nenhuma vaga nesta semana.</div>
+    </div>
   </section>
 
   <div class="partner-actions">
@@ -2111,6 +1949,64 @@ body:not(.admin-mode) .modal-btn{
     <button class="partner-bottom-btn primary" type="button" onclick="abrirModalSenha()">Admin</button>
   </div>
 </main>
+
+<div class="support-freeze-banner" id="supportFreezeBanner">
+  Agenda congelada pelo suporte. Novas reservas ficam bloqueadas até descongelar.
+</div>
+
+<section class="admin-support-panel" id="adminSupportPanel">
+  <div class="admin-support-head">
+    <div>
+      <div class="admin-support-title">Suporte operacional</div>
+      <div class="admin-support-sub">Edite vagas, nomes, clientes e congele a agenda sem mexer no código.</div>
+    </div>
+    <div class="admin-support-actions">
+      <button class="support-btn warn" type="button" onclick="toggleCongelarEscala()" id="btnFreezeScale">Congelar agenda</button>
+      <button class="support-btn dark" type="button" onclick="recriarBaseCompletaSuporte()">Recriar base</button>
+    </div>
+  </div>
+
+  <div class="admin-support-grid">
+    <div class="support-field">
+      <label>Dia</label>
+      <select id="supportDia">
+        <option value="seg">Segunda</option>
+        <option value="ter">Terça</option>
+        <option value="qua">Quarta</option>
+        <option value="qui">Quinta</option>
+        <option value="sex">Sexta</option>
+        <option value="sab">Sábado</option>
+        <option value="dom">Domingo</option>
+      </select>
+    </div>
+    <div class="support-field">
+      <label>Cliente</label>
+      <select id="supportCliente" onchange="syncSupportTurnos()">
+        <option value="pastel">Pastel da Camila</option>
+        <option value="beven">Bevenutti</option>
+        <option value="meridio">Meridio Pizza</option>
+        <option value="fratelli">Fratelli Gourmet</option>
+        <option value="drica">Pastel da Drica</option>
+        <option value="barto">Barto Bar</option>
+        <option value="centermeat">Center Meat</option>
+      </select>
+    </div>
+    <div class="support-field">
+      <label>Horário</label>
+      <select id="supportTurno"></select>
+    </div>
+    <div class="support-field">
+      <label>Nome</label>
+      <input id="supportNome" placeholder="Vaga Aberta ou nome do parceiro">
+    </div>
+  </div>
+
+  <div class="admin-support-actions" style="margin-top:12px">
+    <button class="support-btn primary" type="button" onclick="supportAdicionarVaga()">Adicionar vaga</button>
+    <button class="support-btn" type="button" onclick="supportAdicionarVagaAberta()">Adicionar vaga aberta</button>
+  </div>
+</section>
+
 
 <!-- CLIENTS -->
 <div class="client-bar">
@@ -2401,7 +2297,8 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Fratelli 18h 2',turno:'teal',client:'fratelli',vaga:true},
     {nome:'Vaga Aberta Drica 1',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
-    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true}
+    {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
+    {nome:'Vaga Aberta Center Meat',turno:'purple',client:'centermeat',vaga:true}
   ],
   ter:[
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
@@ -2420,7 +2317,8 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Center Meat',turno:'purple',client:'centermeat',vaga:true}
   ],
   qua:[
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
@@ -2440,7 +2338,8 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Drica 2',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Center Meat',turno:'purple',client:'centermeat',vaga:true}
   ],
   qui:[
     {nome:'Kleber Augusto',turno:'red',client:'pastel'},
@@ -2461,7 +2360,8 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Drica 3',turno:'teal',client:'drica',vaga:true},
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
-    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true}
+    {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Center Meat',turno:'purple',client:'centermeat',vaga:true}
   ],
   sex:[
     {nome:'José Henrique',turno:'red',client:'pastel'},
@@ -2491,7 +2391,8 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio',vaga:true},
-    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true}
+    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Center Meat',turno:'purple',client:'centermeat',vaga:true}
   ],
   sab:[
     {nome:'José Henrique',turno:'red',client:'pastel'},
@@ -2521,7 +2422,8 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio',vaga:true},
-    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true}
+    {nome:'Vaga Aberta Meridio 5',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Center Meat',turno:'purple',client:'centermeat',vaga:true}
   ],
   dom:[
     {nome:'José Henrique',turno:'red',client:'pastel'},
@@ -2548,7 +2450,8 @@ var ESCALA_PADRAO = {
     {nome:'Vaga Aberta Meridio 1',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 2',turno:'teal',client:'meridio',vaga:true},
     {nome:'Vaga Aberta Meridio 3',turno:'teal',client:'meridio',vaga:true},
-    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio',vaga:true}
+    {nome:'Vaga Aberta Meridio 4',turno:'teal',client:'meridio',vaga:true},
+    {nome:'Vaga Aberta Center Meat',turno:'purple',client:'centermeat',vaga:true}
   ]
 };
 
@@ -2715,21 +2618,76 @@ function renderEscala(dados) {
 /* ═══════════════════════════════════════
    SUPABASE — CARREGAR ESCALA
 ═══════════════════════════════════════ */
+
+/* ═══════════════════════════════════════
+   GARANTIA DE BASE COMPLETA
+   Mesmo com Supabase antigo, todos os clientes/vagas padrão aparecem.
+═══════════════════════════════════════ */
+function slotEhVaga(entry){
+  return entry && ((entry.vaga === true) || ((entry.nome || '').toLowerCase().indexOf('vaga aberta') === 0));
+}
+function completarComEscalaPadrao(agendaCarregada){
+  var completa = {};
+  DIAS.forEach(function(dia){
+    completa[dia] = [];
+
+    (ESCALA_PADRAO[dia] || []).forEach(function(e){
+      completa[dia].push({
+        nome:e.nome,
+        turno:e.turno,
+        client:e.client,
+        vaga:slotEhVaga(e)
+      });
+    });
+
+    var salvos = (agendaCarregada && agendaCarregada[dia]) ? agendaCarregada[dia] : [];
+    salvos.forEach(function(salvo){
+      if(!salvo || !salvo.client || !salvo.turno || !salvo.nome) return;
+      if(slotEhVaga(salvo)) return;
+
+      var alvo = completa[dia].find(function(e){
+        return e.client === salvo.client && e.turno === salvo.turno && slotEhVaga(e);
+      });
+
+      if(alvo){
+        alvo.nome = salvo.nome;
+        alvo.vaga = false;
+      }else{
+        completa[dia].push({
+          nome:salvo.nome,
+          turno:salvo.turno,
+          client:salvo.client,
+          vaga:false
+        });
+      }
+    });
+  });
+  return completa;
+}
+
 async function carregarEscala() {
   loading('Carregando escala…');
   try {
     var r = await sb.from('escala_estrutura').select('*').order('ordem',{ascending:true});
     if (r.error) throw r.error;
-    if (!r.data || r.data.length === 0) {
-      renderEscala(ESCALA_PADRAO);
-    } else {
-      var ag = {};
+
+    var ag = {};
+    if (r.data && r.data.length > 0) {
       r.data.forEach(function(row){
         if (!ag[row.dia]) ag[row.dia]=[];
-        ag[row.dia].push({nome:row.nome, turno:row.turno, client:row.client, vaga:(row.nome||'').toLowerCase().indexOf('vaga aberta')===0});
+        ag[row.dia].push({
+          nome:row.nome,
+          turno:row.turno,
+          client:row.client,
+          vaga:(row.nome||'').toLowerCase().indexOf('vaga aberta')===0
+        });
       });
-      renderEscala(ag);
     }
+
+    var completa = completarComEscalaPadrao(ag);
+    renderEscala(completa);
+    autoSave();
+
   } catch(e) {
     console.warn('Erro ao carregar:', e);
     renderEscala(ESCALA_PADRAO);
@@ -2885,6 +2843,8 @@ function confirmarAbrirVaga() {
    PEGAR VAGA
 ─────────────────────────────────────── */
 function abrirModalPegarVaga(card) {
+  if(localStorage.getItem('oe_escala_congelada') === '1') { toast('saved','Agenda congelada pelo suporte. Chame o suporte.'); return; }
+
   var turno  = TURNO_HORA[card.getAttribute('data-turno')] || '';
   var client = card.getAttribute('data-client');
   var nomeCliente = getClienteNome(client);
@@ -3018,7 +2978,7 @@ function confirmarPegarVaga() {
 
   if (conflitos.length > 0) {
     setTimeout(function(){
-      toast('saved', conflitos.length + ' dia(s) não foram reservados por conflito de horário.');
+      toast('warn', conflitos.length + ' dia(s) não foram reservados por conflito de horário.');
     }, 700);
   }
 }
@@ -3819,7 +3779,7 @@ function enviarEscalaIncompleta(client) {
 /* ═══════════════════════════════════════
    FECHAR MODAIS CLICANDO FORA
 ═══════════════════════════════════════ */
-['mSenha','mRemover','mResetar','mAdicionar','mSair','mVaga','mPegarVaga','mReservaDuplicada'].forEach(function(id){
+['mSenha','mRemover','mResetar','mAdicionar','mSair','mVaga','mPegarVaga','mReservaDuplicada','mEditarVagaSuporte'].forEach(function(id){
   document.getElementById(id).addEventListener('click', function(e){ if(e.target===this) fechar(id); });
 });
 
@@ -3904,6 +3864,13 @@ function reservarCardParaNome(card, nome){
   tornarConfirmavel(card);
   return nomeAnterior;
 }
+
+function toggleMinhaSemana(){
+  var box = document.getElementById('partnerMyWeek');
+  if(!box) return;
+  box.classList.toggle('collapsed');
+}
+
 function renderPartnerHome(){
   var home = document.getElementById('partnerHome');
   if(!home) return;
@@ -3932,7 +3899,7 @@ function renderPartnerHome(){
     });
   }
   if(minhas.length === 0){
-    reservasBox.innerHTML = '<div class="partner-empty">' + (nomeSalvo ? 'Nenhuma reserva encontrada nesta semana para <strong>'+nomeSalvo+'</strong>.' : 'Você ainda não tem reserva salva neste celular nesta semana.') + '</div>';
+    reservasBox.innerHTML = '<div class="partner-empty">' + (nomeSalvo ? 'Nenhuma escala encontrada nesta semana para <strong>'+nomeSalvo+'</strong>.' : 'Você ainda não pegou nenhuma vaga nesta semana.') + '</div>';
   }else{
     minhas.forEach(function(item){
       var c = item.card;
@@ -3946,6 +3913,10 @@ function renderPartnerHome(){
       reservasBox.appendChild(div);
     });
   }
+
+
+  var badgeMinhaSemana = document.getElementById('partnerMyWeekBadge');
+  if(badgeMinhaSemana) badgeMinhaSemana.textContent = minhas.length;
 
   clientesBox.innerHTML = '';
   var gruposCliente = {};
@@ -4051,27 +4022,240 @@ atualizarStatusClientes = function(){
   agendarReset();
 })();
 </script>
+
+<div class="modal-overlay" id="mEditarVagaSuporte">
+  <div class="modal-box">
+    <div class="modal-titulo">Editar vaga</div>
+    <p class="modal-sub">Ajuste nome, cliente ou horário desta vaga.</p>
+
+    <div class="modal-grid-2">
+      <div class="support-field">
+        <label>Cliente</label>
+        <select id="editCliente" onchange="syncEditTurnos()">
+          <option value="pastel">Pastel da Camila</option>
+          <option value="beven">Bevenutti</option>
+          <option value="meridio">Meridio Pizza</option>
+          <option value="fratelli">Fratelli Gourmet</option>
+          <option value="drica">Pastel da Drica</option>
+          <option value="barto">Barto Bar</option>
+          <option value="centermeat">Center Meat</option>
+        </select>
+      </div>
+      <div class="support-field">
+        <label>Horário</label>
+        <select id="editTurno"></select>
+      </div>
+    </div>
+
+    <div class="support-field" style="margin-top:10px">
+      <label>Nome</label>
+      <input id="editNome" class="form-input" placeholder="Vaga Aberta ou nome do parceiro">
+    </div>
+
+    <div class="modal-btns">
+      <button class="modal-btn cancel" onclick="fechar('mEditarVagaSuporte')">Cancelar</button>
+      <button class="modal-btn ok" onclick="supportSalvarEdicao()">Salvar</button>
+    </div>
+  </div>
+</div>
+
 <script>
 
-/* UX MOBILE SÊNIOR — pequenos atalhos para motoboy */
-function preencherNomeSalvoNoModal(){
-  try{
-    var nome = localStorage.getItem('oe_partner_name') || '';
-    var input = document.getElementById('pegarNome');
-    if(nome && input && !input.value) input.value = nome;
-  }catch(e){}
+/* ══════════════════════════════
+   SUPORTE OPERACIONAL — FUNÇÕES
+══════════════════════════════ */
+var SUPORTE_TURNOS_CLIENTE = {
+  pastel:[['red','10h–16h'],['orange','15h–21h'],['yellow','16h–22h']],
+  beven:[['green','18h–0h30']],
+  meridio:[['teal','18h–0h']],
+  fratelli:[['blue','17h–23h'],['teal','18h–0h']],
+  drica:[['teal','18h–0h']],
+  barto:[['purple','11h–16h']],
+  centermeat:[['purple','10h–20h']]
+};
+function preencherSelectTurno(selectId, client, selected){
+  var sel = document.getElementById(selectId);
+  if(!sel) return;
+  var opts = SUPORTE_TURNOS_CLIENTE[client] || SUPORTE_TURNOS_CLIENTE.pastel;
+  sel.innerHTML = opts.map(function(o){
+    return '<option value="'+o[0]+'" '+(selected === o[0] ? 'selected' : '')+'>'+o[1]+'</option>';
+  }).join('');
 }
-(function(){
-  var originalAbrirModalPegarVaga = window.abrirModalPegarVaga;
-  if(typeof originalAbrirModalPegarVaga === 'function' && !window.__uxMobilePatchApplied){
-    window.__uxMobilePatchApplied = true;
-    window.abrirModalPegarVaga = function(card){
-      originalAbrirModalPegarVaga(card);
-      setTimeout(preencherNomeSalvoNoModal, 80);
-    };
+function syncSupportTurnos(){
+  var c = document.getElementById('supportCliente').value;
+  preencherSelectTurno('supportTurno', c);
+}
+function syncEditTurnos(){
+  var c = document.getElementById('editCliente').value;
+  var card = document.getElementById('mEditarVagaSuporte')._card;
+  var selected = card ? card.getAttribute('data-turno') : null;
+  preencherSelectTurno('editTurno', c, selected);
+}
+function atualizarEstadoCongeladoUI(){
+  var congelada = localStorage.getItem('oe_escala_congelada') === '1';
+  document.body.classList.toggle('escala-congelada', congelada);
+  var btn = document.getElementById('btnFreezeScale');
+  if(btn){
+    btn.textContent = congelada ? 'Descongelar agenda' : 'Congelar agenda';
+    btn.classList.toggle('danger', congelada);
+    btn.classList.toggle('warn', !congelada);
   }
-})();
+}
+function toggleCongelarEscala(){
+  var atual = localStorage.getItem('oe_escala_congelada') === '1';
+  localStorage.setItem('oe_escala_congelada', atual ? '0' : '1');
+  atualizarEstadoCongeladoUI();
+  renderPartnerHome();
+  toast('saved', atual ? 'Agenda descongelada.' : 'Agenda congelada.');
+}
+function criarEntradaSuporte(nome, turno, client){
+  return {
+    nome:nome || 'Vaga Aberta',
+    turno:turno,
+    client:client,
+    vaga:(nome || '').toLowerCase().indexOf('vaga aberta') === 0
+  };
+}
+function supportAdicionarVaga(){
+  var dia = document.getElementById('supportDia').value;
+  var client = document.getElementById('supportCliente').value;
+  var turno = document.getElementById('supportTurno').value;
+  var nome = (document.getElementById('supportNome').value || '').trim() || 'Vaga Aberta';
+
+  var ag = lerAgenda();
+  if(!ag[dia]) ag[dia] = [];
+  ag[dia].push(criarEntradaSuporte(nome, turno, client));
+  renderEscala(ag);
+  autoSave();
+  atualizarStatusClientes();
+  renderPartnerHome();
+  toast('saved','Vaga adicionada.');
+}
+function supportAdicionarVagaAberta(){
+  document.getElementById('supportNome').value = 'Vaga Aberta';
+  supportAdicionarVaga();
+}
+function supportEditarCard(card){
+  var modal = document.getElementById('mEditarVagaSuporte');
+  modal._card = card;
+  document.getElementById('editCliente').value = card.getAttribute('data-client');
+  syncEditTurnos();
+  document.getElementById('editTurno').value = card.getAttribute('data-turno');
+  var nome = card.querySelector('.moto-name') ? card.querySelector('.moto-name').textContent.trim() : '';
+  document.getElementById('editNome').value = nome;
+  modal.classList.add('visivel');
+}
+function supportSalvarEdicao(){
+  var modal = document.getElementById('mEditarVagaSuporte');
+  var card = modal._card;
+  if(!card) return;
+
+  var client = document.getElementById('editCliente').value;
+  var turno = document.getElementById('editTurno').value;
+  var nome = (document.getElementById('editNome').value || '').trim() || 'Vaga Aberta';
+
+  card.setAttribute('data-client', client);
+  card.setAttribute('data-turno', turno);
+  card.className = card.className.replace(/\b(red|orange|yellow|green|blue|teal|purple)\b/g,'').trim() + ' ' + turno;
+
+  var nm = card.querySelector('.moto-name');
+  if(nm) nm.textContent = nome;
+
+  if(nome.toLowerCase().indexOf('vaga aberta') === 0){
+    card.classList.add('vaga-aberta');
+    card.classList.remove('confirmado');
+    card.setAttribute('data-cobriu','0');
+    if(!card.querySelector('.btn-pegar-vaga')){
+      var btn = document.createElement('button');
+      btn.className = 'btn-pegar-vaga';
+      btn.textContent = 'Pegar vaga';
+      btn.onclick = function(e){ e.stopPropagation(); abrirModalPegarVaga(card); };
+      card.appendChild(btn);
+    }
+  }else{
+    card.classList.remove('vaga-aberta');
+  }
+
+  fechar('mEditarVagaSuporte');
+  autoSave();
+  atualizarStatusClientes();
+  renderPartnerHome();
+  toast('saved','Vaga editada.');
+}
+function supportReabrirCard(card){
+  var nm = card.querySelector('.moto-name');
+  if(nm) nm.textContent = 'Vaga Aberta';
+  card.classList.add('vaga-aberta');
+  card.classList.remove('confirmado');
+  card.setAttribute('data-cobriu','0');
+  if(!card.querySelector('.btn-pegar-vaga')){
+    var btn = document.createElement('button');
+    btn.className = 'btn-pegar-vaga';
+    btn.textContent = 'Pegar vaga';
+    btn.onclick = function(e){ e.stopPropagation(); abrirModalPegarVaga(card); };
+    card.appendChild(btn);
+  }
+  autoSave();
+  atualizarStatusClientes();
+  renderPartnerHome();
+  toast('saved','Vaga reaberta.');
+}
+function supportExcluirCard(card){
+  if(!confirm('Excluir esta vaga da escala?')) return;
+  card.remove();
+  recalc();
+  autoSave();
+  atualizarStatusClientes();
+  renderPartnerHome();
+  toast('saved','Vaga excluída.');
+}
+function adicionarFerramentasSuporte(card){
+  if(card.querySelector('.support-card-tools')) return;
+  var tools = document.createElement('div');
+  tools.className = 'support-card-tools';
+  tools.innerHTML =
+    '<button class="support-mini edit" type="button">Editar</button>' +
+    '<button class="support-mini open" type="button">Reabrir</button>' +
+    '<button class="support-mini del" type="button">Excluir</button>';
+  tools.querySelector('.edit').onclick = function(e){ e.stopPropagation(); supportEditarCard(card); };
+  tools.querySelector('.open').onclick = function(e){ e.stopPropagation(); supportReabrirCard(card); };
+  tools.querySelector('.del').onclick = function(e){ e.stopPropagation(); supportExcluirCard(card); };
+  card.appendChild(tools);
+}
+function aplicarFerramentasSuporte(){
+  document.querySelectorAll('.card').forEach(adicionarFerramentasSuporte);
+}
+function recriarBaseCompletaSuporte(){
+  if(!confirm('Recriar a base completa? Isso recoloca todos os clientes e vagas padrão.')) return;
+  renderEscala(ESCALA_PADRAO);
+  autoSave();
+  atualizarStatusClientes();
+  renderPartnerHome();
+  aplicarFerramentasSuporte();
+  toast('saved','Base completa recriada.');
+}
 
 </script>
+
+<script>
+/* PATCH — aplicar ferramentas suporte depois de renderizar */
+(function(){
+  if(window.__supportRenderPatch) return;
+  window.__supportRenderPatch = true;
+  var oldRenderEscala = window.renderEscala;
+  if(typeof oldRenderEscala === 'function'){
+    window.renderEscala = function(agenda){
+      oldRenderEscala(agenda);
+      if(typeof aplicarFerramentasSuporte === 'function') aplicarFerramentasSuporte();
+    };
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    if(typeof syncSupportTurnos === 'function') syncSupportTurnos();
+    if(typeof atualizarEstadoCongeladoUI === 'function') atualizarEstadoCongeladoUI();
+    if(typeof aplicarFerramentasSuporte === 'function') aplicarFerramentasSuporte();
+  });
+})();
+</script>
+
 </body>
 </html>
