@@ -1331,6 +1331,227 @@ body:not(.admin-mode) .header-titles p{ display:block; font-size:10px; }
   .partner-home{ max-width:760px; margin:0 auto; padding-top:22px; }
 }
 
+
+/* ══════════════════════════════
+   PARCEIRO — RESERVA SEMANAL
+══════════════════════════════ */
+.partner-week-list{
+  display:grid;
+  gap:10px;
+}
+.partner-day-group{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.partner-day-main{
+  width:100%;
+  border:0;
+  background:#fff;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-align:left;
+  font-family:var(--font);
+  cursor:pointer;
+}
+.partner-day-badge{
+  width:44px;
+  height:44px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:#FEF2F2;
+  color:var(--red);
+  font-size:18px;
+  font-weight:900;
+  flex:0 0 auto;
+}
+.partner-day-info{
+  flex:1;
+  min-width:0;
+}
+.partner-day-info strong{
+  display:block;
+  color:var(--text);
+  font-size:15px;
+  font-weight:900;
+}
+.partner-day-info span{
+  display:block;
+  color:var(--text-3);
+  font-size:12px;
+  font-weight:700;
+  margin-top:2px;
+}
+.partner-day-count{
+  color:#B91C1C;
+  background:#FEF2F2;
+  border:1px solid #FCA5A5;
+  border-radius:999px;
+  padding:5px 8px;
+  font-size:11px;
+  font-weight:900;
+  white-space:nowrap;
+}
+.partner-day-details{
+  display:none;
+  border-top:1px solid var(--border);
+  background:#FAFAFB;
+  padding:10px;
+  gap:10px;
+}
+.partner-day-group.open .partner-day-details{
+  display:grid;
+}
+.partner-day-empty{
+  padding:12px;
+  color:var(--text-3);
+  font-size:13px;
+  font-weight:700;
+}
+.partner-client-slots{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:15px;
+  overflow:hidden;
+}
+.partner-client-slots-head{
+  padding:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid var(--border);
+}
+.partner-client-mini-icon{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:17px;
+  flex:0 0 auto;
+}
+.partner-client-slots-title{
+  flex:1;
+  min-width:0;
+}
+.partner-client-slots-title strong{
+  display:block;
+  color:var(--text);
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.partner-client-slots-title span{
+  display:block;
+  color:var(--text-3);
+  font-size:11px;
+  font-weight:700;
+  margin-top:2px;
+}
+.partner-slot-btn{
+  border-left:0!important;
+  border-right:0!important;
+  border-top:0!important;
+  border-radius:0!important;
+}
+.partner-slot-btn:last-child{
+  border-bottom:0!important;
+}
+.partner-slot-btn small{
+  display:block;
+  color:var(--text-4);
+  font-size:10px;
+  font-weight:800;
+  margin-top:2px;
+}
+.partner-reserva-dia{
+  display:block;
+  color:var(--red)!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  margin-bottom:2px;
+}
+
+
+/* ══════════════════════════════
+   PARCEIRO — ESCOLHA POR CLIENTE
+══════════════════════════════ */
+.partner-client-list{display:grid;gap:10px;}
+.partner-client-group{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.partner-client-main{
+  width:100%;
+  border:0;
+  background:#fff;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-align:left;
+  font-family:var(--font);
+  cursor:pointer;
+}
+.partner-client-main:active{transform:scale(.99);}
+.partner-client-main-icon{
+  width:46px;height:46px;border-radius:16px;
+  display:grid;place-items:center;color:#fff;font-size:23px;
+  flex:0 0 auto;box-shadow:var(--shadow-sm);
+}
+.partner-client-main-info{flex:1;min-width:0;}
+.partner-client-main-info strong{
+  display:block;color:var(--text);font-size:15px;font-weight:900;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.partner-client-main-info span{
+  display:block;color:var(--text-3);font-size:12px;font-weight:700;margin-top:2px;
+}
+.partner-client-main-count{
+  color:#B91C1C;background:#FEF2F2;border:1px solid #FCA5A5;
+  border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900;white-space:nowrap;
+}
+.partner-client-details{
+  display:none;border-top:1px solid var(--border);background:#FAFAFB;padding:10px;gap:10px;
+}
+.partner-client-group.open .partner-client-details{display:grid;}
+.partner-client-day-block{
+  background:#fff;border:1px solid var(--border);border-radius:15px;overflow:hidden;
+}
+.partner-client-day-head{
+  padding:11px 12px;background:#F8FAFC;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.partner-client-day-head strong{color:var(--text);font-size:13px;font-weight:900;}
+.partner-client-day-head span{color:var(--text-4);font-size:11px;font-weight:800;}
+.partner-slot-btn small{
+  display:block;color:var(--text-4);font-size:10px;font-weight:800;margin-top:2px;
+}
+.modal-checkline{
+  display:flex;align-items:flex-start;gap:9px;margin:10px 0 4px;padding:10px;
+  border:1px solid var(--border);background:#F8FAFC;border-radius:12px;cursor:pointer;
+}
+.modal-checkline input{
+  margin-top:2px;width:17px;height:17px;accent-color:var(--red);flex:0 0 auto;
+}
+.modal-checkline span{
+  color:var(--text);font-size:12px;line-height:1.35;font-weight:800;
+}
+.modal-hint{
+  color:var(--text-4);font-size:11px;font-weight:700;line-height:1.35;margin:0 0 10px;
+}
+
 </style>
 </head>
 <body>
@@ -1516,6 +1737,11 @@ body:not(.admin-mode) .header-titles p{ display:block; font-size:10px; }
       <input type="text" class="form-input" id="pegarNome" placeholder="Ex: Lucas Cadete"
         onkeydown="if(event.key==='Enter')confirmarPegarVaga()">
     </div>
+    <label class="modal-checkline" id="reserveSemanaBox">
+      <input type="checkbox" id="reserveSemanaCheck">
+      <span>Reservar este mesmo cliente e horário nos outros dias disponíveis da semana</span>
+    </label>
+    <div class="modal-hint" id="reserveSemanaHint">O sistema só vai reservar os dias sem conflito de horário.</div>
     <p class="modal-erro" id="erroPegar">Coloca nome e sobrenome pra confirmar.</p>
     <div class="modal-btns">
       <button class="modal-btn cancel" onclick="fechar('mPegarVaga')">Nao posso</button>
@@ -1533,7 +1759,7 @@ body:not(.admin-mode) .header-titles p{ display:block; font-size:10px; }
       Já tem reserva nesse dia
     </div>
     <p class="modal-sub" id="modalDuplicadaInfo">
-      Você já está em outro horário ou cliente neste mesmo dia. Para trocar, fale com o suporte.
+      Você já está em um horário que bate com essa vaga. Para trocar, fale com o suporte.
     </p>
     <div class="modal-btns">
       <button class="modal-btn cancel" onclick="fechar('mReservaDuplicada')">Entendi</button>
@@ -1554,27 +1780,27 @@ body:not(.admin-mode) .header-titles p{ display:block; font-size:10px; }
 <main class="partner-home" id="partnerHome">
   <section class="partner-hero">
     <div class="partner-kicker">🏍️ Agenda do parceiro</div>
-    <div class="partner-title">Escolha uma vaga disponível</div>
-    <div class="partner-sub">Aqui você vê só o que precisa: suas reservas de hoje e vagas abertas para pegar.</div>
+    <div class="partner-title">Escolha o cliente e reserve</div>
+    <div class="partner-sub">Toque no cliente, escolha a vaga do dia e, se quiser, marque o mesmo horário nos outros dias disponíveis.</div>
     <div class="partner-safe">Use parado, com segurança.</div>
   </section>
 
   <section class="partner-section">
     <div class="partner-section-head">
-      <div class="partner-section-title">Minhas reservas de hoje</div>
-      <div class="partner-section-small" id="partnerHojeLabel">Hoje</div>
+      <div class="partner-section-title">Minhas reservas da semana</div>
+      <div class="partner-section-small" id="partnerSemanaLabel">Semana</div>
     </div>
-    <div class="partner-card" id="partnerReservasHoje">
-      <div class="partner-empty">Você ainda não tem reserva salva neste celular hoje.</div>
+    <div class="partner-card" id="partnerReservasSemana">
+      <div class="partner-empty">Você ainda não tem reserva salva neste celular nesta semana.</div>
     </div>
   </section>
 
   <section class="partner-section">
     <div class="partner-section-head">
-      <div class="partner-section-title">Vagas abertas hoje</div>
-      <div class="partner-section-small" id="partnerTotalVagas">—</div>
+      <div class="partner-section-title">Escolha um cliente</div>
+      <div class="partner-section-small" id="partnerTotalVagas">Clientes com vagas</div>
     </div>
-    <div class="partner-vagas-list" id="partnerVagasHoje"></div>
+    <div class="partner-client-list" id="partnerClientesVagas"></div>
   </section>
 
   <div class="partner-actions">
@@ -2369,6 +2595,7 @@ function abrirModalPegarVaga(card) {
   document.getElementById('erroPegar').classList.remove('vis');
   document.getElementById('mPegarVaga').classList.add('visivel');
   document.getElementById('mPegarVaga')._card = card;
+  configurarReservaSemana(card);
   setTimeout(function(){ document.getElementById('pegarNome').focus(); }, 80);
 }
 
@@ -2381,20 +2608,57 @@ function normalizarNomeReserva(nome) {
     .trim();
 }
 
-function encontrarReservaMesmoDia(nome, cardAtual) {
+
+function parseHoraMinutos(h) {
+  var m = String(h || '').match(/(\d{1,2})h(?:[–\-:]?(\d{0,2}))?/);
+  if (!m) return null;
+  var hh = parseInt(m[1], 10);
+  var mm = m[2] ? parseInt(m[2].padEnd(2,'0'), 10) : 0;
+  return (hh * 60) + mm;
+}
+
+function intervaloDoTurno(turno) {
+  var label = TURNO_HORA[turno] || '';
+  var partes = label.split('–');
+  if (partes.length < 2) return null;
+
+  var ini = parseHoraMinutos(partes[0]);
+  var fim = parseHoraMinutos(partes[1]);
+  if (ini === null || fim === null) return null;
+
+  // Turnos que passam da meia-noite.
+  if (fim <= ini) fim += 24 * 60;
+  return { ini: ini, fim: fim, label: label };
+}
+
+function intervalosSobrepostos(a, b) {
+  if (!a || !b) return false;
+  return a.ini < b.fim && b.ini < a.fim;
+}
+
+function encontrarConflitoHorario(nome, cardAtual) {
   var nomeNorm = normalizarNomeReserva(nome);
   if (!nomeNorm) return null;
+
   var col = cardAtual.closest('.day-col');
   if (!col) return null;
+
+  var alvo = intervaloDoTurno(cardAtual.getAttribute('data-turno'));
   var cards = Array.from(col.querySelectorAll('.card'));
+
   for (var i=0; i<cards.length; i++) {
     var c = cards[i];
     if (c === cardAtual) continue;
     if (c.classList.contains('vaga-aberta')) continue;
+
     var el = c.querySelector('.moto-name');
     if (!el) continue;
-    if (normalizarNomeReserva(el.textContent) === nomeNorm) return c;
+    if (normalizarNomeReserva(el.textContent) !== nomeNorm) continue;
+
+    var intervalo = intervaloDoTurno(c.getAttribute('data-turno'));
+    if (intervalosSobrepostos(alvo, intervalo)) return c;
   }
+
   return null;
 }
 
@@ -2404,10 +2668,10 @@ function avisarReservaDuplicada(nome, cardExistente) {
   var col = cardExistente.closest('.day-col');
   var dia = col ? (DIA_PT[col.getAttribute('data-day')] || '') : '';
   document.getElementById('modalDuplicadaInfo').innerHTML =
-    '<strong>' + nome + '</strong>, você já está reservado hoje em <strong>' +
+    '<strong>' + nome + '</strong>, esse horário bate com outra reserva sua:<br><br><strong>' +
     getClienteNome(client) + '</strong>' +
-    (turno ? ' no horário <strong>' + turno + '</strong>' : '') +
-    (dia ? ' — <strong>' + dia + '</strong>' : '') +
+    (turno ? ' • <strong>' + turno + '</strong>' : '') +
+    (dia ? ' • <strong>' + dia + '</strong>' : '') +
     '.<br><br>Para trocar de vaga, fale com o suporte.';
   document.getElementById('mReservaDuplicada').classList.add('visivel');
 }
@@ -2424,10 +2688,27 @@ function confirmarPegarVaga() {
   var card = document.getElementById('mPegarVaga')._card;
   if (!card) return;
 
-  var conflito = encontrarReservaMesmoDia(nome, card);
-  if (conflito) {
+  var checkSemana = document.getElementById('reserveSemanaCheck');
+  var reservarSemana = checkSemana && checkSemana.checked && !checkSemana.disabled;
+  var alvos = reservarSemana ? encontrarVagasMesmoClienteTurnoNaSemana(card) : [card];
+
+  var reservados = [];
+  var conflitos = [];
+  var anteriores = [];
+
+  alvos.forEach(function(alvo){
+    var conflito = encontrarConflitoHorario(nome, alvo);
+    if (conflito) {
+      conflitos.push({alvo:alvo, conflito:conflito});
+      return;
+    }
+    anteriores.push(reservarCardParaNome(alvo, nome));
+    reservados.push(alvo);
+  });
+
+  if (reservados.length === 0 && conflitos.length > 0) {
     fechar('mPegarVaga');
-    avisarReservaDuplicada(nome, conflito);
+    avisarReservaDuplicada(nome, conflitos[0].conflito);
     return;
   }
 
@@ -2435,23 +2716,21 @@ function confirmarPegarVaga() {
 
   try { localStorage.setItem('oe_partner_name', nome); } catch(e){}
 
-  // Atualiza o nome no card e remove estado vaga-aberta
-  var nmEl = card.querySelector('.moto-name');
-  var nomeAnterior = nmEl.textContent.trim();
-  nmEl.textContent = nome;
-  card.setAttribute('data-name', nome.toLowerCase());
-
-  card.classList.remove('vaga-aberta');
-  card.classList.add('confirmado');
-  card.classList.add('cobriu-vaga');
-
-  var id = card.getAttribute('data-card-id');
-  salvarConf(id);
   atualizarStatusClientes();
-
-  // Salva estrutura (novo nome) e notifica
   autoSave();
-  notificarVagaPegada(card, nome, nomeAnterior);
+
+  if (reservados.length === 1) {
+    notificarVagaPegada(reservados[0], nome, anteriores[0] || 'Vaga Aberta');
+    toast('saved','Vaga reservada. Agora confirme sua presença quando estiver certo.');
+  } else {
+    toast('saved', reservados.length + ' reservas salvas na semana.');
+  }
+
+  if (conflitos.length > 0) {
+    setTimeout(function(){
+      toast('warn', conflitos.length + ' dia(s) não foram reservados por conflito de horário.');
+    }, 700);
+  }
 }
 
 /* ───────────────────────────────────────
@@ -3277,133 +3556,195 @@ function agendarReset() {
 }
 
 
+
+
 /* ═══════════════════════════════════════
-   TELA PARCEIRO — renderiza vagas abertas de hoje
+   TELA PARCEIRO — escolha por cliente + reserva semanal opcional
 ═══════════════════════════════════════ */
-function getDiaAtualParceiro(){
-  return WEEKDAY_MAP[new Date().getDay()];
-}
 function getIconeCliente(client){
-  return {
-    pastel:'🥟',
-    beven:'🍕',
-    meridio:'🍕',
-    fratelli:'🍽️',
-    drica:'🥟',
-    barto:'🍹',
-    centermeat:'🥩'
-  }[client] || '🏪';
+  return {pastel:'🥟',beven:'🍕',meridio:'🍕',fratelli:'🍽️',drica:'🥟',barto:'🍹',centermeat:'🥩'}[client] || '🏪';
 }
 function getCorCliente(client){
-  return {
-    pastel:'#DC2626',
-    beven:'#059669',
-    meridio:'#2563EB',
-    fratelli:'#7C3AED',
-    drica:'#EA580C',
-    barto:'#7C3AED',
-    centermeat:'#0F9488'
-  }[client] || '#0F172A';
+  return {pastel:'#DC2626',beven:'#059669',meridio:'#2563EB',fratelli:'#7C3AED',drica:'#EA580C',barto:'#7C3AED',centermeat:'#0F9488'}[client] || '#0F172A';
 }
-function getCardHorario(card){
-  return TURNO_HORA[card.getAttribute('data-turno')] || '';
+function getCardHorario(card){ return TURNO_HORA[card.getAttribute('data-turno')] || ''; }
+function getNomeSalvoParceiro(){ try { return localStorage.getItem('oe_partner_name') || ''; } catch(e){ return ''; } }
+function getDiasSemana(){ return ['seg','ter','qua','qui','sex','sab','dom']; }
+
+function encontrarVagasMesmoClienteTurnoNaSemana(cardBase){
+  var client = cardBase.getAttribute('data-client');
+  var turno = cardBase.getAttribute('data-turno');
+  var vagas = [];
+  getDiasSemana().forEach(function(dia){
+    var col = document.querySelector('.day-col[data-day="'+dia+'"]');
+    if(!col) return;
+    Array.from(col.querySelectorAll('.card.vaga-aberta')).forEach(function(c){
+      if(c.getAttribute('data-client') === client && c.getAttribute('data-turno') === turno) vagas.push(c);
+    });
+  });
+  return vagas;
 }
-function getNomeSalvoParceiro(){
-  try { return localStorage.getItem('oe_partner_name') || ''; } catch(e){ return ''; }
+
+function configurarReservaSemana(card){
+  var check = document.getElementById('reserveSemanaCheck');
+  var hint = document.getElementById('reserveSemanaHint');
+  if(!check || !hint || !card) return;
+  check.checked = false;
+
+  var similares = encontrarVagasMesmoClienteTurnoNaSemana(card);
+  if(similares.length > 1){
+    check.disabled = false;
+    hint.innerHTML = 'Encontramos <strong>' + similares.length + '</strong> vagas desse mesmo cliente e horário na semana. Marcando a opção, o sistema tenta reservar todas sem conflito.';
+  } else {
+    check.disabled = true;
+    hint.textContent = 'Não há outras vagas iguais disponíveis na semana para reservar em lote.';
+  }
 }
+
+function reservarCardParaNome(card, nome){
+  var nmEl = card.querySelector('.moto-name');
+  var nomeAnterior = nmEl ? nmEl.textContent.trim() : '';
+  if(nmEl) nmEl.textContent = nome;
+  card.setAttribute('data-name', nome.toLowerCase());
+
+  card.classList.remove('vaga-aberta');
+  card.classList.add('confirmado');
+  card.classList.add('cobriu-vaga');
+
+  var id = card.getAttribute('data-card-id');
+  salvarConf(id);
+
+  var btn = card.querySelector('.btn-pegar-vaga');
+  if(btn) btn.remove();
+
+  return nomeAnterior;
+}
+
 function renderPartnerHome(){
   var home = document.getElementById('partnerHome');
   if(!home) return;
 
-  var dia = getDiaAtualParceiro();
-  var diaNome = DIA_PT[dia] || 'Hoje';
-  var label = document.getElementById('partnerHojeLabel');
-  if(label) label.textContent = diaNome;
-
   var nomeSalvo = getNomeSalvoParceiro();
-  var col = document.querySelector('.day-col[data-day="'+dia+'"]');
-  var reservasBox = document.getElementById('partnerReservasHoje');
-  var vagasBox = document.getElementById('partnerVagasHoje');
+  var reservasBox = document.getElementById('partnerReservasSemana');
+  var clientesBox = document.getElementById('partnerClientesVagas');
   var totalEl = document.getElementById('partnerTotalVagas');
-  if(!col || !reservasBox || !vagasBox) return;
+  if(!reservasBox || !clientesBox) return;
 
-  var cards = Array.from(col.querySelectorAll('.card'));
-  var abertas = cards.filter(function(c){ return c.classList.contains('vaga-aberta'); });
+  var dias = getDiasSemana();
+  var totalSemana = 0;
 
   reservasBox.innerHTML = '';
   var minhas = [];
   if(nomeSalvo){
-    minhas = cards.filter(function(c){
-      var el = c.querySelector('.moto-name');
-      return el && normalizarNomeReserva(el.textContent) === normalizarNomeReserva(nomeSalvo) && !c.classList.contains('vaga-aberta');
+    dias.forEach(function(dia){
+      var col = document.querySelector('.day-col[data-day="'+dia+'"]');
+      if(!col) return;
+      Array.from(col.querySelectorAll('.card')).forEach(function(c){
+        var el = c.querySelector('.moto-name');
+        if(!el || c.classList.contains('vaga-aberta')) return;
+        if(normalizarNomeReserva(el.textContent) === normalizarNomeReserva(nomeSalvo)) minhas.push({dia:dia, card:c});
+      });
     });
   }
+
   if(minhas.length === 0){
-    reservasBox.innerHTML = '<div class="partner-empty">' + (nomeSalvo ? 'Nenhuma reserva encontrada hoje para <strong>'+nomeSalvo+'</strong>.' : 'Você ainda não tem reserva salva neste celular hoje.') + '</div>';
+    reservasBox.innerHTML = '<div class="partner-empty">' + (nomeSalvo ? 'Nenhuma reserva encontrada nesta semana para <strong>'+nomeSalvo+'</strong>.' : 'Você ainda não tem reserva salva neste celular nesta semana.') + '</div>';
   } else {
-    minhas.forEach(function(c){
+    minhas.forEach(function(item){
+      var c = item.card;
       var client = c.getAttribute('data-client');
       var div = document.createElement('div');
       div.className = 'partner-reserva-row';
       div.innerHTML =
         '<div class="partner-reserva-icon">✓</div>' +
-        '<div class="partner-reserva-info"><strong>'+getClienteNome(client)+'</strong><span>'+getCardHorario(c)+' • '+c.querySelector('.moto-name').textContent.trim()+'</span></div>' +
+        '<div class="partner-reserva-info"><span class="partner-reserva-dia">'+(DIA_PT[item.dia] || '')+'</span><strong>'+getClienteNome(client)+'</strong><span>'+getCardHorario(c)+' • '+c.querySelector('.moto-name').textContent.trim()+'</span></div>' +
         '<div class="partner-reserva-status">Reservado</div>';
       reservasBox.appendChild(div);
     });
   }
 
-  vagasBox.innerHTML = '';
-  if(totalEl) totalEl.textContent = abertas.length + (abertas.length === 1 ? ' vaga' : ' vagas');
-  if(abertas.length === 0){
-    vagasBox.innerHTML = '<div class="partner-card"><div class="partner-empty">Nenhuma vaga aberta para hoje neste momento.</div></div>';
+  clientesBox.innerHTML = '';
+  var gruposCliente = {};
+  dias.forEach(function(dia){
+    var col = document.querySelector('.day-col[data-day="'+dia+'"]');
+    if(!col) return;
+    Array.from(col.querySelectorAll('.card.vaga-aberta')).forEach(function(card){
+      var client = card.getAttribute('data-client');
+      if(!gruposCliente[client]) gruposCliente[client] = [];
+      gruposCliente[client].push({dia:dia, card:card});
+      totalSemana++;
+    });
+  });
+
+  if(totalEl) totalEl.textContent = totalSemana + (totalSemana === 1 ? ' vaga' : ' vagas');
+
+  var ordemClientes = ['pastel','beven','meridio','fratelli','drica','barto','centermeat'];
+  var clientesComVaga = ordemClientes.filter(function(c){ return gruposCliente[c] && gruposCliente[c].length; });
+
+  if(clientesComVaga.length === 0){
+    clientesBox.innerHTML = '<div class="partner-card"><div class="partner-empty">Nenhuma vaga aberta na semana neste momento.</div></div>';
     return;
   }
 
-  var grupos = {};
-  abertas.forEach(function(card){
-    var key = card.getAttribute('data-client') + '|' + card.getAttribute('data-turno');
-    if(!grupos[key]) grupos[key] = [];
-    grupos[key].push(card);
-  });
-
-  Object.keys(grupos).forEach(function(key){
-    var arr = grupos[key];
-    var first = arr[0];
-    var client = first.getAttribute('data-client');
-    var turno = first.getAttribute('data-turno');
+  clientesComVaga.forEach(function(client){
+    var itens = gruposCliente[client];
     var group = document.createElement('div');
-    group.className = 'partner-vaga-group';
+    group.className = 'partner-client-group';
     group.innerHTML =
-      '<div class="partner-vaga-main">' +
-        '<div class="partner-client-icon" style="background:'+getCorCliente(client)+'">'+getIconeCliente(client)+'</div>' +
-        '<div class="partner-vaga-info">' +
-          '<strong>'+getClienteNome(client)+'</strong>' +
-          '<span>'+ (TURNO_HORA[turno] || '') +' • '+diaNome+'</span>' +
-          '<div class="partner-vaga-count">'+arr.length+' '+(arr.length === 1 ? 'vaga aberta' : 'vagas abertas')+'</div>' +
-        '</div>' +
-        '<button class="partner-vaga-btn" type="button">Ver vagas</button>' +
-      '</div>' +
-      '<div class="partner-vaga-details"></div>';
+      '<button class="partner-client-main" type="button">' +
+        '<div class="partner-client-main-icon" style="background:'+getCorCliente(client)+'">'+getIconeCliente(client)+'</div>' +
+        '<div class="partner-client-main-info"><strong>'+getClienteNome(client)+'</strong><span>Toque para escolher dia e horário</span></div>' +
+        '<div class="partner-client-main-count">'+itens.length+' '+(itens.length === 1 ? 'vaga' : 'vagas')+'</div>' +
+      '</button>' +
+      '<div class="partner-client-details"></div>';
 
-    var details = group.querySelector('.partner-vaga-details');
-    arr.forEach(function(card, i){
-      var btn = document.createElement('button');
-      btn.className = 'partner-slot-btn';
-      btn.type = 'button';
-      btn.innerHTML = '<strong>Vaga '+(i+1)+'</strong><span>Pegar vaga</span>';
-      btn.addEventListener('click', function(){ abrirModalPegarVaga(card); });
-      details.appendChild(btn);
+    var details = group.querySelector('.partner-client-details');
+    var sub = {};
+
+    itens.forEach(function(item){
+      var turno = item.card.getAttribute('data-turno');
+      var key = item.dia + '|' + turno;
+      if(!sub[key]) sub[key] = [];
+      sub[key].push(item.card);
     });
 
-    group.querySelector('.partner-vaga-btn').addEventListener('click', function(){
+    Object.keys(sub).sort(function(a,b){
+      var da = dias.indexOf(a.split('|')[0]);
+      var db = dias.indexOf(b.split('|')[0]);
+      if(da !== db) return da - db;
+      return a.localeCompare(b);
+    }).forEach(function(key){
+      var parts = key.split('|');
+      var dia = parts[0];
+      var turno = parts[1];
+      var cards = sub[key];
+
+      var box = document.createElement('div');
+      box.className = 'partner-client-day-block';
+      box.innerHTML = '<div class="partner-client-day-head"><strong>'+(DIA_PT[dia] || dia)+'</strong><span>'+(TURNO_HORA[turno] || '')+' • '+cards.length+' '+(cards.length === 1 ? 'vaga' : 'vagas')+'</span></div>';
+
+      cards.forEach(function(card, i){
+        var btn = document.createElement('button');
+        btn.className = 'partner-slot-btn';
+        btn.type = 'button';
+        btn.innerHTML = '<div><strong>Vaga '+(i+1)+'</strong><small>'+(DIA_PT[dia] || dia)+' • '+(TURNO_HORA[turno] || '')+'</small></div><span>Pegar vaga</span>';
+        btn.addEventListener('click', function(){ abrirModalPegarVaga(card); });
+        box.appendChild(btn);
+      });
+
+      details.appendChild(box);
+    });
+
+    group.querySelector('.partner-client-main').addEventListener('click', function(){
+      document.querySelectorAll('.partner-client-group.open').forEach(function(g){
+        if(g !== group) g.classList.remove('open');
+      });
       group.classList.toggle('open');
     });
 
-    vagasBox.appendChild(group);
+    clientesBox.appendChild(group);
   });
 }
-
 var _atualizarStatusClientesOriginal = atualizarStatusClientes;
 atualizarStatusClientes = function(){
   _atualizarStatusClientesOriginal();
