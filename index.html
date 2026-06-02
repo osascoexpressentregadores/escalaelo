@@ -3279,6 +3279,291 @@ body:not(.oe-parceiro) .vaga-badge{
   }
 }
 
+
+/* ═══════════════════════════════════════
+   V3.4 SAFE — cliente pediu fluxo antigo do parceiro
+   Não apaga lógica. Apenas desativa visualmente a tela nova de parceiro.
+═══════════════════════════════════════ */
+#oeModeSwitch,
+.oe-mode-switch,
+#parceiroApp,
+#parceiroMobileBar{
+  display:none!important;
+}
+body.oe-parceiro{
+  background:inherit!important;
+}
+body.oe-parceiro .controls,
+body.oe-parceiro .time-panel,
+body.oe-parceiro .table-wrap,
+body.oe-parceiro .oe-footer-tip{
+  display:revert!important;
+}
+body.oe-legacy-partner-flow .admin-cleanbar-sub::after{
+  content:' • fluxo do parceiro preservado';
+  color:#16A34A;
+  font-weight:900;
+}
+
+
+/* ═══════════════════════════════════════
+   V3.5 — PAINEL HOJE EM ÍCONES, NÃO CARDS
+   Menos poluição: clientes viram botões/ícones operacionais compactos.
+═══════════════════════════════════════ */
+
+/* O painel de clientes vira uma barra de ícones */
+body:not(.oe-parceiro) .time-blocos{
+  display:flex!important;
+  align-items:stretch!important;
+  gap:10px!important;
+  overflow-x:auto!important;
+  padding:4px 2px 12px!important;
+  scrollbar-width:thin;
+}
+
+/* Cada cliente deixa de ser card grande e vira ícone de status */
+body:not(.oe-parceiro) .time-bloco{
+  position:relative!important;
+  flex:0 0 118px!important;
+  width:118px!important;
+  min-width:118px!important;
+  min-height:112px!important;
+  border-radius:22px!important;
+  padding:10px!important;
+  display:grid!important;
+  grid-template-rows:auto auto auto!important;
+  align-content:start!important;
+  justify-items:center!important;
+  background:#fff!important;
+  border:1px solid #E2E8F0!important;
+  box-shadow:0 10px 24px rgba(15,23,42,.07)!important;
+  overflow:visible!important;
+  cursor:pointer!important;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease!important;
+}
+
+body:not(.oe-parceiro) .time-bloco:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:0 18px 42px rgba(15,23,42,.12)!important;
+  z-index:20!important;
+}
+
+/* Ícone grande do cliente */
+body:not(.oe-parceiro) .time-bloco::before{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 6px;
+  color:#fff;
+  font-size:23px;
+  font-weight:900;
+  box-shadow:0 10px 20px rgba(15,23,42,.12);
+}
+
+/* Ícones por cliente usando o ID existente tb-CLIENTE */
+body:not(.oe-parceiro) #tb-pastel::before{content:'🥟';background:#E10600;}
+body:not(.oe-parceiro) #tb-beven::before{content:'🍕';background:#16A34A;}
+body:not(.oe-parceiro) #tb-meridio::before{content:'🍕';background:#2563EB;}
+body:not(.oe-parceiro) #tb-fratelli::before{content:'🍽️';background:#7C3AED;}
+body:not(.oe-parceiro) #tb-drica::before{content:'🥟';background:#F97316;}
+body:not(.oe-parceiro) #tb-barto::before{content:'🍹';background:#9333EA;}
+body:not(.oe-parceiro) #tb-centermeat::before{content:'🥩';background:#0F9488;}
+
+/* Status visual por borda superior */
+body:not(.oe-parceiro) .time-bloco.time-fechado{
+  border-color:#BBF7D0!important;
+  background:linear-gradient(180deg,#F0FDF4,#FFFFFF 55%)!important;
+}
+body:not(.oe-parceiro) .time-bloco.time-alerta,
+body:not(.oe-parceiro) .time-bloco.time-quase{
+  border-color:#FDE68A!important;
+  background:linear-gradient(180deg,#FFFBEB,#FFFFFF 55%)!important;
+}
+body:not(.oe-parceiro) .time-bloco.time-critico{
+  border-color:#FCA5A5!important;
+  background:linear-gradient(180deg,#FFF1F2,#FFFFFF 55%)!important;
+}
+body:not(.oe-parceiro) .time-bloco.time-sem-operacao{
+  border-color:#E5E7EB!important;
+  background:linear-gradient(180deg,#F8FAFC,#FFFFFF 55%)!important;
+  opacity:.78!important;
+}
+
+/* Cabeçalho vira só nome curto */
+body:not(.oe-parceiro) .time-bloco-header{
+  display:grid!important;
+  justify-items:center!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  order:2!important;
+}
+
+body:not(.oe-parceiro) .time-bloco-cliente{
+  max-width:96px!important;
+  color:#0F172A!important;
+  text-align:center!important;
+  font-size:11px!important;
+  line-height:1.1!important;
+  font-weight:950!important;
+  letter-spacing:-.03em!important;
+  white-space:normal!important;
+  overflow:hidden!important;
+  display:-webkit-box!important;
+  -webkit-line-clamp:2!important;
+  -webkit-box-orient:vertical!important;
+}
+
+/* Placar fica destacado */
+body:not(.oe-parceiro) .time-placar{
+  margin-top:5px!important;
+  color:#0F172A!important;
+  font-size:20px!important;
+  line-height:1!important;
+  font-weight:950!important;
+  text-align:center!important;
+}
+
+/* Esconde motos, mensagens e texto grande na visão padrão */
+body:not(.oe-parceiro) .time-nomes,
+body:not(.oe-parceiro) .time-msg,
+body:not(.oe-parceiro) .time-bloco-footer{
+  display:none!important;
+}
+
+/* Barra de progresso vira mini indicador */
+body:not(.oe-parceiro) .time-barra-wrap{
+  width:76px!important;
+  padding:8px 0 0!important;
+  order:3!important;
+}
+
+body:not(.oe-parceiro) .time-barra-track{
+  height:6px!important;
+  border-radius:999px!important;
+  background:#E5E7EB!important;
+}
+
+body:not(.oe-parceiro) .time-barra-fill{
+  border-radius:999px!important;
+}
+
+/* Ações aparecem só quando o usuário abre/hover, como menu flutuante */
+body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer,
+body:not(.oe-parceiro) .time-bloco:focus-within .time-bloco-footer,
+body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer{
+  display:grid!important;
+  position:absolute!important;
+  top:calc(100% + 8px)!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:190px!important;
+  padding:10px!important;
+  border:1px solid #E2E8F0!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  box-shadow:0 20px 50px rgba(15,23,42,.18)!important;
+  z-index:90!important;
+  gap:8px!important;
+}
+
+/* Mensagem aparece como tooltip curto no hover */
+body:not(.oe-parceiro) .time-bloco:hover .time-msg,
+body:not(.oe-parceiro) .time-bloco.icon-open .time-msg{
+  display:block!important;
+  position:absolute!important;
+  top:calc(100% + 92px)!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:190px!important;
+  min-height:auto!important;
+  padding:10px 12px!important;
+  border-radius:14px!important;
+  background:#0F172A!important;
+  color:#fff!important;
+  font-size:11px!important;
+  line-height:1.3!important;
+  text-align:center!important;
+  box-shadow:0 18px 42px rgba(15,23,42,.24)!important;
+  z-index:91!important;
+}
+
+/* Botões do menu compacto */
+body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer .btn-enviar,
+body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer .btn-enviar-incomplete,
+body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer .btn-enviar,
+body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer .btn-enviar-incomplete{
+  min-height:36px!important;
+  border-radius:11px!important;
+  font-size:11px!important;
+  display:inline-flex!important;
+}
+
+/* Sem operação não precisa menu */
+body:not(.oe-parceiro) .time-bloco.time-sem-operacao:hover .time-bloco-footer,
+body:not(.oe-parceiro) .time-bloco.time-sem-operacao.icon-open .time-bloco-footer{
+  display:none!important;
+}
+
+/* Título do painel deixa claro que são ícones */
+body:not(.oe-parceiro) .time-subtitulo::after{
+  content:' • clientes em ícones, clique para ações';
+  color:#E10600;
+  font-weight:900;
+}
+
+/* Mobile: ícones ficam ainda mais parecidos com app */
+@media(max-width:980px){
+  body:not(.oe-parceiro) .time-blocos{
+    gap:9px!important;
+    padding-bottom:14px!important;
+  }
+  body:not(.oe-parceiro) .time-bloco{
+    flex-basis:104px!important;
+    width:104px!important;
+    min-width:104px!important;
+    min-height:106px!important;
+    border-radius:20px!important;
+  }
+  body:not(.oe-parceiro) .time-bloco::before{
+    width:40px;
+    height:40px;
+    font-size:21px;
+    border-radius:15px;
+  }
+  body:not(.oe-parceiro) .time-bloco-cliente{
+    max-width:86px!important;
+    font-size:10px!important;
+  }
+  body:not(.oe-parceiro) .time-placar{
+    font-size:18px!important;
+  }
+  body:not(.oe-parceiro) .time-bloco:hover .time-bloco-footer,
+  body:not(.oe-parceiro) .time-bloco.icon-open .time-bloco-footer{
+    position:fixed!important;
+    left:12px!important;
+    right:12px!important;
+    bottom:82px!important;
+    top:auto!important;
+    transform:none!important;
+    width:auto!important;
+    z-index:800!important;
+  }
+  body:not(.oe-parceiro) .time-bloco:hover .time-msg,
+  body:not(.oe-parceiro) .time-bloco.icon-open .time-msg{
+    position:fixed!important;
+    left:12px!important;
+    right:12px!important;
+    bottom:162px!important;
+    top:auto!important;
+    transform:none!important;
+    width:auto!important;
+    z-index:801!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5637,6 +5922,54 @@ function toggleAgendaSemanal(){
     if(localStorage.getItem('oe_admin_agenda_open') === '1') document.body.classList.add('admin-agenda-open');
   }catch(e){}
 })();
+</script>
+
+
+<script>
+/* ═══════════════════════════════════════
+   V3.4 SAFE — força fluxo antigo do parceiro
+═══════════════════════════════════════ */
+(function(){
+  try { localStorage.removeItem('oe_mode'); } catch(e){}
+  document.addEventListener('DOMContentLoaded', function(){
+    document.body.classList.remove('oe-parceiro');
+    document.body.classList.add('oe-legacy-partner-flow');
+    var sw = document.getElementById('oeModeSwitch');
+    if(sw) sw.style.display = 'none';
+    var p = document.getElementById('parceiroApp');
+    if(p) p.style.display = 'none';
+  });
+})();
+</script>
+
+
+<script>
+/* ═══════════════════════════════════════
+   V3.5 — clique nos ícones de cliente para abrir ações
+═══════════════════════════════════════ */
+document.addEventListener('click', function(e){
+  var bloco = e.target.closest && e.target.closest('.time-bloco');
+  var isInsideAction = e.target.closest && e.target.closest('.time-bloco-footer, .btn-enviar, .btn-enviar-incomplete');
+  if(bloco && !isInsideAction){
+    document.querySelectorAll('.time-bloco.icon-open').forEach(function(el){
+      if(el !== bloco) el.classList.remove('icon-open');
+    });
+    bloco.classList.toggle('icon-open');
+    return;
+  }
+  if(!bloco){
+    document.querySelectorAll('.time-bloco.icon-open').forEach(function(el){
+      el.classList.remove('icon-open');
+    });
+  }
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    document.querySelectorAll('.time-bloco.icon-open').forEach(function(el){
+      el.classList.remove('icon-open');
+    });
+  }
+});
 </script>
 
 </body>
