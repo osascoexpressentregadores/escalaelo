@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Escala Semanal de Motoboys — Osasco Express</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
@@ -1798,601 +1799,565 @@ body.admin-mode .admin-week-panel{display:block;}
 }
 
 </style>
-</head>
+<style>
+/* ══════════════════════════════
+   ADMIN, SUPORTE E RESERVAS — ESTILOS CONSOLIDADOS
+══════════════════════════════ */
+.support-days-box{margin-top:12px;border:1px solid #E2E8F0;background:#F8FAFC;border-radius:16px;padding:12px}.support-days-title{color:#0F172A;font-size:12px;font-weight:950;margin-bottom:8px}.support-days-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}.support-day-check{min-height:40px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #E2E8F0;background:#fff;border-radius:12px;color:#334155;font-size:11px;font-weight:900;cursor:pointer;user-select:none}.support-day-check input{width:15px;height:15px;accent-color:#DC2626}.support-day-check:has(input:checked){border-color:#FCA5A5;background:#FEF2F2;color:#991B1B}.support-qty-wrap input{width:100%;min-height:44px;border:1px solid #E2E8F0;border-radius:12px;padding:0 12px;font-family:var(--font);font-size:14px;font-weight:900;color:#0F172A;background:#fff}.support-quick-qty{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.support-quick-qty button{min-height:30px;border-radius:999px;border:1px solid #E2E8F0;background:#F8FAFC;color:#334155;padding:0 10px;font-family:var(--font);font-size:11px;font-weight:950;cursor:pointer}.support-quick-qty button:hover{background:#0F172A;color:#fff;border-color:#0F172A}.admin-week-client-head{cursor:pointer}.admin-week-client-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.admin-week-client-add{min-height:34px;border:1px solid #CBD5E1;background:#0F172A;color:#fff;border-radius:11px;padding:0 10px;font-family:var(--font);font-size:11px;font-weight:950;cursor:pointer;white-space:nowrap}.admin-week-day-group{border-top:1px solid #E5E7EB}.admin-week-day-title{padding:10px 12px;background:#F8FAFC;color:#0F172A;font-size:12px;font-weight:950;display:flex;justify-content:space-between;gap:8px}.admin-week-day-title span{color:#64748B;font-size:11px;font-weight:850}.admin-week-row-actions{display:flex;gap:5px;justify-content:flex-end;flex-wrap:wrap}.admin-row-btn{min-height:30px;border-radius:9px;border:1px solid #E2E8F0;background:#fff;padding:0 8px;font-family:var(--font);font-size:10px;font-weight:950;cursor:pointer;white-space:nowrap}.admin-row-btn.edit{color:#1D4ED8;background:#EFF6FF;border-color:#BFDBFE}.admin-row-btn.open{color:#047857;background:#ECFDF5;border-color:#A7F3D0}.admin-row-btn.del{color:#B91C1C;background:#FEF2F2;border-color:#FECACA}.admin-week-row{grid-template-columns:96px minmax(0,1fr) 92px minmax(170px,auto)!important}.admin-day-summary{margin-top:8px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}.admin-day-chip{border:1px solid #E2E8F0;background:#fff;border-radius:12px;padding:7px 6px;display:grid;gap:2px;text-align:center}.admin-day-chip strong{color:#0F172A;font-size:10px;font-weight:950}.admin-day-chip span{color:#64748B;font-size:10px;font-weight:850}.admin-day-chip.ok{border-color:#A7F3D0;background:#ECFDF5}.admin-day-chip.warn{border-color:#FDE68A;background:#FFFBEB}.admin-day-chip.danger{border-color:#FECACA;background:#FEF2F2}.admin-day-chip.extra{border-color:#BFDBFE;background:#EFF6FF}.admin-week-client-info span{line-height:1.35}.admin-week-client-info span b{color:#0F172A}.partner-client-main-count.zero{background:#F1F5F9!important;border-color:#E2E8F0!important;color:#64748B!important}.partner-client-main-info .partner-open-resumo{display:block;margin-top:3px;color:#64748B;font-size:11px;font-weight:850}@media(max-width:720px){.support-days-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-week-row{grid-template-columns:1fr!important;gap:8px}.admin-week-status{justify-self:start}.admin-week-row-actions{justify-content:flex-start}.admin-week-client-actions{justify-content:flex-start;width:100%}.admin-day-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style></head>
 <body>
-
 <!-- LOADING -->
 <div class="loading-overlay" id="loadingOverlay">
-  <div class="loading-box">
-    <div class="loading-spin"></div>
-    <div class="loading-txt" id="loadingTxt">Carregando…</div>
-  </div>
+<div class="loading-box">
+<div class="loading-spin"></div>
+<div class="loading-txt" id="loadingTxt">Carregando…</div>
 </div>
-
+</div>
 <!-- HEADER -->
 <header class="header">
-  <div class="header-logo">
-    <div class="header-logo-icon">
-      <svg width="16" height="12" viewBox="0 0 26 18" fill="none">
-        <circle cx="4.5" cy="13.5" r="3.5" stroke="white" stroke-width="1.8"/>
-        <circle cx="21.5" cy="13.5" r="3.5" stroke="white" stroke-width="1.8"/>
-        <path d="M8 13.5H18M13 13.5V8L10 4.5H16L19 8H14" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M8 8.5H12" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-        <circle cx="16.5" cy="4" r="1.5" fill="white"/>
-      </svg>
-    </div>
-    <div class="header-titles">
-      <h1>Osasco Express — Escala</h1>
-      <p>Planejamento operacional semanal</p>
-    </div>
-  </div>
-  <div class="header-spacer"></div>
-  <div class="save-toast" id="saveToast"></div>
-  <button class="btn-header" id="btnAdmin" onclick="abrirModalSenha()">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-    <span id="adminLabel">Admin</span>
-  </button>
-  <button class="btn-header" onclick="window.print()">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+<div class="header-logo">
+<div class="header-logo-icon">
+<svg fill="none" height="12" viewbox="0 0 26 18" width="16">
+<circle cx="4.5" cy="13.5" r="3.5" stroke="white" stroke-width="1.8"></circle>
+<circle cx="21.5" cy="13.5" r="3.5" stroke="white" stroke-width="1.8"></circle>
+<path d="M8 13.5H18M13 13.5V8L10 4.5H16L19 8H14" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+<path d="M8 8.5H12" stroke="white" stroke-linecap="round" stroke-width="1.6"></path>
+<circle cx="16.5" cy="4" fill="white" r="1.5"></circle>
+</svg>
+</div>
+<div class="header-titles">
+<h1>Osasco Express — Escala</h1>
+<p>Planejamento operacional semanal</p>
+</div>
+</div>
+<div class="header-spacer"></div>
+<div class="save-toast" id="saveToast"></div>
+<button class="btn-header" id="btnAdmin" onclick="abrirModalSenha()">
+<svg fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+<span id="adminLabel">Admin</span>
+</button>
+<button class="btn-header" onclick="window.print()">
+<svg fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect height="8" width="12" x="6" y="14"></rect></svg>
     Imprimir
   </button>
 </header>
-
 <!-- ── MODAIS ── -->
-
 <!-- Senha -->
 <div class="modal-overlay" id="mSenha">
-  <div class="modal-box">
-    <div class="modal-titulo">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+<div class="modal-box">
+<div class="modal-titulo">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><rect height="11" rx="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
       Acesso restrito
     </div>
-    <p class="modal-sub">Só pra quem é da gestão. Digita a senha.</p>
-    <!--
+<p class="modal-sub">Só pra quem é da gestão. Digita a senha.</p>
+<!--
       IMPORTANTE: form real com action="#" para o Chrome/Safari/Google Password Manager
       reconhecerem como tela de login e oferecerem salvar/preencher a senha.
       O campo username oculto é necessário — sem ele o gerenciador não associa
       usuário + senha e não oferece salvar.
     -->
-    <form id="formSenha" action="#" method="post" autocomplete="on"
-      onsubmit="confirmarSenha(); return false;">
-      <input type="text" name="username" autocomplete="username"
-        value="admin-osasco-express" readonly
-        style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;tabindex:-1;"
-        aria-hidden="true">
-      <input type="password" name="password" autocomplete="current-password"
-        class="modal-input" id="senhaInput" placeholder="Digite a senha">
-    </form>
-    <p class="modal-erro" id="erroSenha">Senha errada. Tenta de novo.</p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" type="button" onclick="fechar('mSenha')">Voltar</button>
-      <button class="modal-btn ok" type="submit" form="formSenha">Entrar</button>
-    </div>
-  </div>
+<form action="#" autocomplete="on" id="formSenha" method="post" onsubmit="confirmarSenha(); return false;">
+<input aria-hidden="true" autocomplete="username" name="username" readonly="" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;tabindex:-1;" type="text" value="admin-osasco-express"/>
+<input autocomplete="current-password" class="modal-input" id="senhaInput" name="password" placeholder="Digite a senha" type="password"/>
+</form>
+<p class="modal-erro" id="erroSenha">Senha errada. Tenta de novo.</p>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mSenha')" type="button">Voltar</button>
+<button class="modal-btn ok" form="formSenha" type="submit">Entrar</button>
 </div>
-
+</div>
+</div>
 <!-- Remover motoboy -->
 <div class="modal-overlay" id="mRemover">
-  <div class="modal-box">
-    <div class="modal-titulo danger">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+<div class="modal-box">
+<div class="modal-titulo danger">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
       Tirar da escala
     </div>
-    <p class="modal-sub">Confirma que quer tirar <strong id="remNome"></strong> da escala?<br>
-    <span style="color:#EF4444;font-weight:600;">Salva na hora.</span></p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mRemover')">Cancela</button>
-      <button class="modal-btn danger" onclick="confirmarRemover()">Tira sim</button>
-    </div>
-  </div>
+<p class="modal-sub">Confirma que quer tirar <strong id="remNome"></strong> da escala?<br/>
+<span style="color:#EF4444;font-weight:600;">Salva na hora.</span></p>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mRemover')">Cancela</button>
+<button class="modal-btn danger" onclick="confirmarRemover()">Tira sim</button>
 </div>
-
+</div>
+</div>
 <!-- Resetar confirmações -->
 <div class="modal-overlay" id="mResetar">
-  <div class="modal-box">
-    <div class="modal-titulo danger">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+<div class="modal-box">
+<div class="modal-titulo danger">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
       Zerar confirmações de hoje
     </div>
-    <p class="modal-sub">Apaga todas as confirmações de hoje. A escala em si não muda, só os checks.</p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mResetar')">Cancela</button>
-      <button class="modal-btn danger" onclick="confirmarResetar()">Zera sim</button>
-    </div>
-  </div>
+<p class="modal-sub">Apaga todas as confirmações de hoje. A escala em si não muda, só os checks.</p>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mResetar')">Cancela</button>
+<button class="modal-btn danger" onclick="confirmarResetar()">Zera sim</button>
 </div>
-
+</div>
+</div>
 <!-- Adicionar motoboy -->
 <div class="modal-overlay" id="mAdicionar">
-  <div class="modal-box wide">
-    <div class="modal-titulo">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+<div class="modal-box wide">
+<div class="modal-titulo">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="16"></line><line x1="8" x2="16" y1="12" y2="12"></line></svg>
       Adicionar na escala
     </div>
-    <p class="modal-sub" style="margin-top:-6px;color:#F59E0B;font-weight:600;">Salva automaticamente.</p>
-    <div class="form-row">
-      <label class="form-label">Nome completo</label>
-      <input type="text" class="form-input" id="addNome" placeholder="Ex: Lucas Cadete"
-        onkeydown="if(event.key==='Enter')confirmarAdicionar()">
-    </div>
-    <div class="form-row">
-      <label class="form-label">Cliente</label>
-      <select class="form-select" id="addCliente" onchange="syncTurnos()">
-        <option value="pastel">Pastel da Camila</option>
-        <option value="beven">Bevenutti</option>
-        <option value="meridio">Meridio Pizza</option>
-        <option value="fratelli">Fratelli Gourmet</option>
-        <option value="drica">Pastel da Drica</option>
-        <option value="barto">Barto Bar</option>
-        <option value="centermeat">Center Meat</option>
-      </select>
-    </div>
-    <div class="form-row">
-      <label class="form-label">Turno</label>
-      <select class="form-select" id="addTurno"></select>
-    </div>
-    <p class="modal-erro" id="erroAdd">Coloca o nome do motoboy.</p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mAdicionar')">Cancela</button>
-      <button class="modal-btn ok" onclick="confirmarAdicionar()">Adiciona</button>
-    </div>
-  </div>
+<p class="modal-sub" style="margin-top:-6px;color:#F59E0B;font-weight:600;">Salva automaticamente.</p>
+<div class="form-row">
+<label class="form-label">Nome completo</label>
+<input class="form-input" id="addNome" onkeydown="if(event.key==='Enter')confirmarAdicionar()" placeholder="Ex: Lucas Cadete" type="text"/>
 </div>
-
+<div class="form-row">
+<label class="form-label">Cliente</label>
+<select class="form-select" id="addCliente" onchange="syncTurnos()">
+<option value="pastel">Pastel da Camila</option>
+<option value="beven">Bevenutti</option>
+<option value="meridio">Meridio Pizza</option>
+<option value="fratelli">Fratelli Gourmet</option>
+<option value="drica">Pastel da Drica</option>
+<option value="barto">Barto Bar</option>
+<option value="centermeat">Center Meat</option>
+</select>
+</div>
+<div class="form-row">
+<label class="form-label">Turno</label>
+<select class="form-select" id="addTurno"></select>
+</div>
+<p class="modal-erro" id="erroAdd">Coloca o nome do motoboy.</p>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mAdicionar')">Cancela</button>
+<button class="modal-btn ok" onclick="confirmarAdicionar()">Adiciona</button>
+</div>
+</div>
+</div>
 <!-- Sair admin -->
 <div class="modal-overlay" id="mSair">
-  <div class="modal-box">
-    <div class="modal-titulo">Sair do admin?</div>
-    <p class="modal-sub">Tudo já foi salvo automaticamente.</p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mSair')">Fica</button>
-      <button class="modal-btn ok" onclick="executarSairAdmin()">Sai</button>
-    </div>
-  </div>
+<div class="modal-box">
+<div class="modal-titulo">Sair do admin?</div>
+<p class="modal-sub">Tudo já foi salvo automaticamente.</p>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mSair')">Fica</button>
+<button class="modal-btn ok" onclick="executarSairAdmin()">Sai</button>
 </div>
-
+</div>
+</div>
 <!-- Reabrir vaga — fala com o motoboy -->
 <div class="modal-overlay" id="mVaga">
-  <div class="modal-box">
-    <div class="modal-titulo danger">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+<div class="modal-box">
+<div class="modal-titulo danger">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
       Eita, deu ruim?
     </div>
-    <p class="modal-sub">
-      <strong id="modalVagaNome"></strong>, aconteceu alguma coisa? Se confirmar, a vaga vai abrir e a gestao vai ser avisada agora.<br><br>
-      <span style="color:#DC2626;font-weight:700;">O time precisa saber pra cobrir voce.</span>
-    </p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mVaga')">Nao, to dentro</button>
-      <button class="modal-btn danger" onclick="confirmarAbrirVaga()">Sim, abre a vaga</button>
-    </div>
-  </div>
+<p class="modal-sub">
+<strong id="modalVagaNome"></strong>, aconteceu alguma coisa? Se confirmar, a vaga vai abrir e a gestao vai ser avisada agora.<br/><br/>
+<span style="color:#DC2626;font-weight:700;">O time precisa saber pra cobrir voce.</span>
+</p>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mVaga')">Nao, to dentro</button>
+<button class="modal-btn danger" onclick="confirmarAbrirVaga()">Sim, abre a vaga</button>
 </div>
-
+</div>
+</div>
 <!-- Pegar vaga — fala com o motoboy -->
 <div class="modal-overlay" id="mPegarVaga">
-  <div class="modal-box">
-    <div class="modal-titulo" style="color:var(--green)">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+<div class="modal-box">
+<div class="modal-titulo" style="color:var(--green)">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
       Bora salvar o time?
     </div>
-    <p class="modal-sub" id="modalPegarInfo">—</p>
-    <div class="form-row">
-      <label class="form-label">Teu nome completo</label>
-      <input type="text" class="form-input" id="pegarNome" placeholder="Ex: Lucas Cadete"
-        onkeydown="if(event.key==='Enter')confirmarPegarVaga()">
-    </div>
-    <label class="modal-checkline" id="reserveSemanaBox">
-      <input type="checkbox" id="reserveSemanaCheck">
-      <span>Reservar este mesmo cliente e horário nos outros dias disponíveis da semana</span>
-    </label>
-    <div class="modal-hint" id="reserveSemanaHint">O sistema só vai reservar os dias sem conflito de horário.</div>
-    <p class="modal-erro" id="erroPegar">Coloca nome e sobrenome pra confirmar.</p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mPegarVaga')">Nao posso</button>
-      <button class="modal-btn ok" style="background:var(--green);border-color:var(--green)" onclick="confirmarPegarVaga()">Pego essa vaga</button>
-    </div>
-  </div>
+<p class="modal-sub" id="modalPegarInfo">—</p>
+<div class="form-row">
+<label class="form-label">Teu nome completo</label>
+<input class="form-input" id="pegarNome" onkeydown="if(event.key==='Enter')confirmarPegarVaga()" placeholder="Ex: Lucas Cadete" type="text"/>
 </div>
-
-
+<label class="modal-checkline" id="reserveSemanaBox">
+<input id="reserveSemanaCheck" type="checkbox"/>
+<span>Reservar este mesmo cliente e horário nos outros dias disponíveis da semana</span>
+</label>
+<div class="modal-hint" id="reserveSemanaHint">O sistema só vai reservar os dias sem conflito de horário.</div>
+<p class="modal-erro" id="erroPegar">Coloca nome e sobrenome pra confirmar.</p>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mPegarVaga')">Nao posso</button>
+<button class="modal-btn ok" onclick="confirmarPegarVaga()" style="background:var(--green);border-color:var(--green)">Pego essa vaga</button>
+</div>
+</div>
+</div>
 <!-- Bloqueio: parceiro já está reservado no mesmo dia -->
 <div class="modal-overlay" id="mReservaDuplicada">
-  <div class="modal-box">
-    <div class="modal-titulo alerta">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+<div class="modal-box">
+<div class="modal-titulo alerta">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
       Já tem reserva nesse dia
     </div>
-    <p class="modal-sub" id="modalDuplicadaInfo">
+<p class="modal-sub" id="modalDuplicadaInfo">
       Você já está em outro horário ou cliente neste mesmo dia. Para trocar, fale com o suporte.
     </p>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mReservaDuplicada')">Entendi</button>
-      <button class="modal-btn ok" onclick="window.open(WA_SUPORTE,'_blank')">Chamar suporte</button>
-    </div>
-  </div>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mReservaDuplicada')">Entendi</button>
+<button class="modal-btn ok" onclick="window.open(WA_SUPORTE,'_blank')">Chamar suporte</button>
 </div>
-
+</div>
+</div>
 <!-- ADMIN TOOLBAR -->
 <div class="admin-toolbar">
-  <span class="admin-toolbar-label">Admin ativo — salva automaticamente</span>
-  <button class="btn-admin-tool" onclick="document.getElementById('mResetar').classList.add('visivel')">Zerar confirmacoes</button>
-  <button class="btn-admin-tool danger" onclick="document.getElementById('mSair').classList.add('visivel')">Sair do admin</button>
+<span class="admin-toolbar-label">Admin ativo — salva automaticamente</span>
+<button class="btn-admin-tool" onclick="document.getElementById('mResetar').classList.add('visivel')">Zerar confirmacoes</button>
+<button class="btn-admin-tool danger" onclick="document.getElementById('mSair').classList.add('visivel')">Sair do admin</button>
 </div>
-
-
 <!-- TELA DO PARCEIRO — ABERTURA PADRÃO -->
-
-
 <main class="partner-home" id="partnerHome">
-  <section class="partner-hero">
-    <div class="partner-kicker">🏍️ Agenda do parceiro</div>
-    <div class="partner-title">Pegue suas vagas da semana</div>
-    <div class="partner-sub">Escolha o cliente, veja os dias disponíveis e reserve seu horário. Rápido, direto e sem confusão.</div>
-    <div class="partner-safe">Use parado, com segurança.</div>
-  </section>
-
-  <section class="partner-section partner-vagas-first">
-    <div class="partner-section-head">
-      <div>
-        <div class="partner-section-title">Vagas disponíveis</div>
-        <div class="partner-section-sub">Toque no cliente para escolher dia e horário.</div>
-      </div>
-      <div class="partner-section-small" id="partnerTotalVagas">Clientes com vagas</div>
-    </div>
-    <div class="partner-client-list" id="partnerClientesVagas"></div>
-  </section>
-
-  <section class="partner-section partner-myweek collapsed" id="partnerMyWeek">
-    <button class="partner-myweek-toggle" type="button" onclick="toggleMinhaSemana()">
-      <span>
-        <strong>Minha escala da semana</strong>
-        <small>Ver o que eu já reservei</small>
-      </span>
-      <b id="partnerMyWeekBadge">0</b>
-    </button>
-    <div class="partner-card partner-myweek-content" id="partnerReservasSemana">
-      <div class="partner-empty">Você ainda não pegou nenhuma vaga nesta semana.</div>
-    </div>
-  </section>
-
-  <div class="partner-actions">
-    <button class="partner-bottom-btn" type="button" onclick="window.open(WA_SUPORTE,'_blank')">Suporte</button>
-    <button class="partner-bottom-btn primary" type="button" onclick="abrirModalSenha()">Admin</button>
-  </div>
+<section class="partner-hero">
+<div class="partner-kicker">🏍️ Agenda do parceiro</div>
+<div class="partner-title">Pegue suas vagas da semana</div>
+<div class="partner-sub">Escolha o cliente, veja os dias disponíveis e reserve seu horário. Rápido, direto e sem confusão.</div>
+<div class="partner-safe">Use parado, com segurança.</div>
+</section>
+<section class="partner-section partner-vagas-first">
+<div class="partner-section-head">
+<div>
+<div class="partner-section-title">Vagas disponíveis</div>
+<div class="partner-section-sub">Toque no cliente para escolher dia e horário.</div>
+</div>
+<div class="partner-section-small" id="partnerTotalVagas">Clientes com vagas</div>
+</div>
+<div class="partner-client-list" id="partnerClientesVagas"></div>
+</section>
+<section class="partner-section partner-myweek collapsed" id="partnerMyWeek">
+<button class="partner-myweek-toggle" onclick="toggleMinhaSemana()" type="button">
+<span>
+<strong>Minha escala da semana</strong>
+<small>Ver o que eu já reservei</small>
+</span>
+<b id="partnerMyWeekBadge">0</b>
+</button>
+<div class="partner-card partner-myweek-content" id="partnerReservasSemana">
+<div class="partner-empty">Você ainda não pegou nenhuma vaga nesta semana.</div>
+</div>
+</section>
+<div class="partner-actions">
+<button class="partner-bottom-btn" onclick="window.open(WA_SUPORTE,'_blank')" type="button">Suporte</button>
+<button class="partner-bottom-btn primary" onclick="abrirModalSenha()" type="button">Admin</button>
+</div>
 </main>
-
 <div class="support-freeze-banner" id="supportFreezeBanner">
   Agenda congelada pelo suporte. Novas reservas ficam bloqueadas até descongelar.
 </div>
-
 <section class="admin-support-panel" id="adminSupportPanel">
-  <div class="admin-support-head">
-    <div>
-      <div class="admin-support-title">Suporte operacional</div>
-      <div class="admin-support-sub">Edite vagas, nomes, clientes e congele a agenda sem mexer no código.</div>
-    </div>
-    <div class="admin-support-actions">
-      <button class="support-btn warn" type="button" onclick="toggleCongelarEscala()" id="btnFreezeScale">Congelar agenda</button>
-      <button class="support-btn dark" type="button" onclick="recriarBaseCompletaSuporte()">Recriar base</button>
-    </div>
-  </div>
-
-  <div class="admin-support-grid">
-    <div class="support-field">
-      <label>Dia</label>
-      <select id="supportDia">
-        <option value="seg">Segunda</option>
-        <option value="ter">Terça</option>
-        <option value="qua">Quarta</option>
-        <option value="qui">Quinta</option>
-        <option value="sex">Sexta</option>
-        <option value="sab">Sábado</option>
-        <option value="dom">Domingo</option>
-      </select>
-    </div>
-    <div class="support-field">
-      <label>Cliente</label>
-      <select id="supportCliente" onchange="syncSupportTurnos()">
-        <option value="pastel">Pastel da Camila</option>
-        <option value="beven">Bevenutti</option>
-        <option value="meridio">Meridio Pizza</option>
-        <option value="fratelli">Fratelli Gourmet</option>
-        <option value="drica">Pastel da Drica</option>
-        <option value="barto">Barto Bar</option>
-        <option value="centermeat">Center Meat</option>
-      </select>
-    </div>
-    <div class="support-field">
-      <label>Horário</label>
-      <select id="supportTurno"></select>
-    </div>
-    <div class="support-field">
-      <label>Nome</label>
-      <input id="supportNome" placeholder="Vaga Aberta ou nome do parceiro">
-    </div>
-  </div>
-
-  <div class="admin-support-actions" style="margin-top:12px">
-    <button class="support-btn primary" type="button" onclick="supportAdicionarVaga()">Adicionar vaga</button>
-    <button class="support-btn" type="button" onclick="supportAdicionarVagaAberta()">Adicionar vaga aberta</button>
-  </div>
+<div class="admin-support-head">
+<div>
+<div class="admin-support-title">Suporte operacional</div>
+<div class="admin-support-sub">Edite vagas, nomes, clientes e congele a agenda sem mexer no código.</div>
+</div>
+<div class="admin-support-actions">
+<button class="support-btn warn" id="btnFreezeScale" onclick="toggleCongelarEscala()" type="button">Congelar agenda</button>
+<button class="support-btn dark" onclick="recriarBaseCompletaSuporte()" type="button">Recriar base</button>
+</div>
+</div>
+<div class="admin-support-grid">
+<div class="support-field">
+<label>Dia</label>
+<select id="supportDia">
+<option value="seg">Segunda</option>
+<option value="ter">Terça</option>
+<option value="qua">Quarta</option>
+<option value="qui">Quinta</option>
+<option value="sex">Sexta</option>
+<option value="sab">Sábado</option>
+<option value="dom">Domingo</option>
+</select>
+</div>
+<div class="support-field">
+<label>Cliente</label>
+<select id="supportCliente" onchange="syncSupportTurnos()">
+<option value="pastel">Pastel da Camila</option>
+<option value="beven">Bevenutti</option>
+<option value="meridio">Meridio Pizza</option>
+<option value="fratelli">Fratelli Gourmet</option>
+<option value="drica">Pastel da Drica</option>
+<option value="barto">Barto Bar</option>
+<option value="centermeat">Center Meat</option>
+</select>
+</div>
+<div class="support-field">
+<label>Horário</label>
+<select id="supportTurno"></select>
+</div>
+<div class="support-field">
+<label>Nome</label>
+<input id="supportNome" placeholder="Vaga Aberta ou nome do parceiro"/>
+</div>
+</div>
+<div class="admin-support-actions" style="margin-top:12px">
+<button class="support-btn primary" onclick="supportAdicionarVaga()" type="button">Adicionar vaga</button>
+<button class="support-btn" onclick="supportAdicionarVagaAberta()" type="button">Adicionar vaga aberta</button>
+</div>
 </section>
-
 <section class="admin-week-panel" id="adminWeekPanel">
-  <div class="admin-week-head">
-    <div>
-      <div class="admin-week-title">Reservas da semana</div>
-      <div class="admin-week-sub">Visão do suporte: quem está em cada cliente, dia e horário, e quais vagas ainda estão abertas.</div>
-    </div>
-    <div class="admin-week-total" id="adminWeekTotal"></div>
-  </div>
-  <div class="admin-week-client-list" id="adminWeekClientList"></div>
+<div class="admin-week-head">
+<div>
+<div class="admin-week-title">Reservas da semana</div>
+<div class="admin-week-sub">Visão do suporte: quem está em cada cliente, dia e horário, e quais vagas ainda estão abertas.</div>
+</div>
+<div class="admin-week-total" id="adminWeekTotal"></div>
+</div>
+<div class="admin-week-client-list" id="adminWeekClientList"></div>
 </section>
-
-
 <!-- CLIENTS -->
 <div class="client-bar">
-  <span class="client-label">Clientes</span>
-  <div class="client-badge pastel">
-    <span class="client-dot" style="background:var(--red)"></span>
+<span class="client-label">Clientes</span>
+<div class="client-badge pastel">
+<span class="client-dot" style="background:var(--red)"></span>
     Pastel da Camila
     <span style="font-weight:400;font-size:10px;opacity:.7">— 10h–16h · 15h–21h · 16h–22h</span>
-  </div>
-  <div class="client-badge beven">
-    <span class="client-dot" style="background:var(--green)"></span>
+</div>
+<div class="client-badge beven">
+<span class="client-dot" style="background:var(--green)"></span>
     Bevenutti
     <span style="font-weight:400;font-size:10px;opacity:.7">— 18h–0h30</span>
-  </div>
 </div>
-
+</div>
 <!-- LEGEND -->
 <div class="legend">
-  <span class="legend-label">Turnos</span>
-  <div class="leg red">🏍 10h–16h <span class="leg-client p">Pastel</span></div>
-  <div class="leg orange">🏍 15h–21h · Reinaldo <span class="leg-client p">Pastel</span></div>
-  <div class="leg yellow">🏍 16h–22h <span class="leg-client p">Pastel</span></div>
-  <div class="leg green">🏍 18h–0h30 <span class="leg-client b">Bevenutti</span></div>
+<span class="legend-label">Turnos</span>
+<div class="leg red">🏍 10h–16h <span class="leg-client p">Pastel</span></div>
+<div class="leg orange">🏍 15h–21h · Reinaldo <span class="leg-client p">Pastel</span></div>
+<div class="leg yellow">🏍 16h–22h <span class="leg-client p">Pastel</span></div>
+<div class="leg green">🏍 18h–0h30 <span class="leg-client b">Bevenutti</span></div>
 </div>
-
 <!-- CONTROLS -->
 <div class="controls">
-  <div class="search-wrap">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" class="search-input" id="searchInput" placeholder="Buscar motoboy…" oninput="applyFilters()">
-  </div>
-  <div class="filter-sep"></div>
-  <div class="filter-group" id="fTurnos">
-    <button class="fbtn" data-t="red"    onclick="toggleTurno('red')"   ><span class="chip-dot" style="background:var(--red)"></span>10h–16h</button>
-    <button class="fbtn" data-t="orange" onclick="toggleTurno('orange')"><span class="chip-dot" style="background:var(--orange)"></span>15h–21h</button>
-    <button class="fbtn" data-t="yellow" onclick="toggleTurno('yellow')"><span class="chip-dot" style="background:var(--yellow)"></span>16h–22h</button>
-    <button class="fbtn" data-t="green"  onclick="toggleTurno('green')" ><span class="chip-dot" style="background:var(--green)"></span>18h–0h30</button>
-    <button class="fbtn" data-t="blue"   onclick="toggleTurno('blue')"  ><span class="chip-dot" style="background:var(--blue)"></span>17h–23h</button>
-    <button class="fbtn" data-t="teal"   onclick="toggleTurno('teal')"  ><span class="chip-dot" style="background:var(--teal)"></span>18h–0h</button>
-    <button class="fbtn" data-t="purple" onclick="toggleTurno('purple')"><span class="chip-dot" style="background:var(--purple)"></span>11h–16h / 10h–20h</button>
-  </div>
-  <div class="filter-sep"></div>
-  <div class="filter-group" id="fClientes">
-    <button class="fbtn" data-c="pastel"     onclick="toggleCliente('pastel')"    ><span class="chip-dot" style="background:var(--red)"></span>Pastel</button>
-    <button class="fbtn" data-c="beven"      onclick="toggleCliente('beven')"     ><span class="chip-dot" style="background:var(--green)"></span>Bevenutti</button>
-    <button class="fbtn" data-c="meridio"    onclick="toggleCliente('meridio')"   ><span class="chip-dot" style="background:var(--blue)"></span>Meridio</button>
-    <button class="fbtn" data-c="fratelli"   onclick="toggleCliente('fratelli')"  ><span class="chip-dot" style="background:var(--purple)"></span>Fratelli</button>
-    <button class="fbtn" data-c="drica"      onclick="toggleCliente('drica')"     ><span class="chip-dot" style="background:var(--orange)"></span>Drica</button>
-    <button class="fbtn" data-c="barto"      onclick="toggleCliente('barto')"     ><span class="chip-dot" style="background:var(--purple)"></span>Barto</button>
-    <button class="fbtn" data-c="centermeat" onclick="toggleCliente('centermeat')"><span class="chip-dot" style="background:var(--teal)"></span>Center Meat</button>
-  </div>
-  <div class="filter-sep"></div>
-  <div class="filter-group" id="fDias">
-    <button class="fbtn" data-d="seg" onclick="toggleDay('seg')">Seg</button>
-    <button class="fbtn" data-d="ter" onclick="toggleDay('ter')">Ter</button>
-    <button class="fbtn" data-d="qua" onclick="toggleDay('qua')">Qua</button>
-    <button class="fbtn" data-d="qui" onclick="toggleDay('qui')">Qui</button>
-    <button class="fbtn" data-d="sex" onclick="toggleDay('sex')">Sex</button>
-    <button class="fbtn" data-d="sab" onclick="toggleDay('sab')">Sab</button>
-    <button class="fbtn" data-d="dom" onclick="toggleDay('dom')">Dom</button>
-  </div>
-  <button class="btn-clear" id="btnClear" onclick="clearAll()">Limpar</button>
+<div class="search-wrap">
+<svg fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+<input class="search-input" id="searchInput" oninput="applyFilters()" placeholder="Buscar motoboy…" type="text"/>
 </div>
-
+<div class="filter-sep"></div>
+<div class="filter-group" id="fTurnos">
+<button class="fbtn" data-t="red" onclick="toggleTurno('red')"><span class="chip-dot" style="background:var(--red)"></span>10h–16h</button>
+<button class="fbtn" data-t="orange" onclick="toggleTurno('orange')"><span class="chip-dot" style="background:var(--orange)"></span>15h–21h</button>
+<button class="fbtn" data-t="yellow" onclick="toggleTurno('yellow')"><span class="chip-dot" style="background:var(--yellow)"></span>16h–22h</button>
+<button class="fbtn" data-t="green" onclick="toggleTurno('green')"><span class="chip-dot" style="background:var(--green)"></span>18h–0h30</button>
+<button class="fbtn" data-t="blue" onclick="toggleTurno('blue')"><span class="chip-dot" style="background:var(--blue)"></span>17h–23h</button>
+<button class="fbtn" data-t="teal" onclick="toggleTurno('teal')"><span class="chip-dot" style="background:var(--teal)"></span>18h–0h</button>
+<button class="fbtn" data-t="purple" onclick="toggleTurno('purple')"><span class="chip-dot" style="background:var(--purple)"></span>11h–16h / 10h–20h</button>
+</div>
+<div class="filter-sep"></div>
+<div class="filter-group" id="fClientes">
+<button class="fbtn" data-c="pastel" onclick="toggleCliente('pastel')"><span class="chip-dot" style="background:var(--red)"></span>Pastel</button>
+<button class="fbtn" data-c="beven" onclick="toggleCliente('beven')"><span class="chip-dot" style="background:var(--green)"></span>Bevenutti</button>
+<button class="fbtn" data-c="meridio" onclick="toggleCliente('meridio')"><span class="chip-dot" style="background:var(--blue)"></span>Meridio</button>
+<button class="fbtn" data-c="fratelli" onclick="toggleCliente('fratelli')"><span class="chip-dot" style="background:var(--purple)"></span>Fratelli</button>
+<button class="fbtn" data-c="drica" onclick="toggleCliente('drica')"><span class="chip-dot" style="background:var(--orange)"></span>Drica</button>
+<button class="fbtn" data-c="barto" onclick="toggleCliente('barto')"><span class="chip-dot" style="background:var(--purple)"></span>Barto</button>
+<button class="fbtn" data-c="centermeat" onclick="toggleCliente('centermeat')"><span class="chip-dot" style="background:var(--teal)"></span>Center Meat</button>
+</div>
+<div class="filter-sep"></div>
+<div class="filter-group" id="fDias">
+<button class="fbtn" data-d="seg" onclick="toggleDay('seg')">Seg</button>
+<button class="fbtn" data-d="ter" onclick="toggleDay('ter')">Ter</button>
+<button class="fbtn" data-d="qua" onclick="toggleDay('qua')">Qua</button>
+<button class="fbtn" data-d="qui" onclick="toggleDay('qui')">Qui</button>
+<button class="fbtn" data-d="sex" onclick="toggleDay('sex')">Sex</button>
+<button class="fbtn" data-d="sab" onclick="toggleDay('sab')">Sab</button>
+<button class="fbtn" data-d="dom" onclick="toggleDay('dom')">Dom</button>
+</div>
+<button class="btn-clear" id="btnClear" onclick="clearAll()">Limpar</button>
+</div>
 <!-- SUMMARY -->
 <div class="summary">
-  <div class="pill"><span class="pdot" style="background:var(--text)"></span>Total semana: <strong id="cTotal">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--red)"></span>10h–16h: <strong id="cRed">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--orange)"></span>15h–21h: <strong id="cOrange">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--yellow)"></span>16h–22h: <strong id="cYellow">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--green)"></span>18h–0h30: <strong id="cGreen">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--red);border-radius:2px"></span>Pastel da Camila: <strong id="cPastel">0</strong></div>
-  <div class="pill"><span class="pdot" style="background:var(--green);border-radius:2px"></span>Bevenutti: <strong id="cBeven">0</strong></div>
+<div class="pill"><span class="pdot" style="background:var(--text)"></span>Total semana: <strong id="cTotal">0</strong></div>
+<div class="pill"><span class="pdot" style="background:var(--red)"></span>10h–16h: <strong id="cRed">0</strong></div>
+<div class="pill"><span class="pdot" style="background:var(--orange)"></span>15h–21h: <strong id="cOrange">0</strong></div>
+<div class="pill"><span class="pdot" style="background:var(--yellow)"></span>16h–22h: <strong id="cYellow">0</strong></div>
+<div class="pill"><span class="pdot" style="background:var(--green)"></span>18h–0h30: <strong id="cGreen">0</strong></div>
+<div class="pill"><span class="pdot" style="background:var(--red);border-radius:2px"></span>Pastel da Camila: <strong id="cPastel">0</strong></div>
+<div class="pill"><span class="pdot" style="background:var(--green);border-radius:2px"></span>Bevenutti: <strong id="cBeven">0</strong></div>
 </div>
-
 <!-- CELEBRAÇÃO — time fechado -->
 <div class="celebracao-overlay" id="celebracaoOverlay" onclick="fecharCelebracao()">
-  <div class="celebracao-box" onclick="event.stopPropagation()">
-    <span class="celebracao-icone" id="celebIcone">🏁</span>
-    <div class="celebracao-titulo" id="celebTitulo">Time fechado!</div>
-    <div class="celebracao-cliente" id="celebCliente"></div>
-    <div class="celebracao-sub" id="celebSub">Todos dentro. Pode trabalhar tranquilo hoje.</div>
-    <div class="celebracao-nomes" id="celebNomes"></div>
-    <button class="celebracao-fechar" onclick="fecharCelebracao()">Bora trabalhar!</button>
-  </div>
+<div class="celebracao-box" onclick="event.stopPropagation()">
+<span class="celebracao-icone" id="celebIcone">🏁</span>
+<div class="celebracao-titulo" id="celebTitulo">Time fechado!</div>
+<div class="celebracao-cliente" id="celebCliente"></div>
+<div class="celebracao-sub" id="celebSub">Todos dentro. Pode trabalhar tranquilo hoje.</div>
+<div class="celebracao-nomes" id="celebNomes"></div>
+<button class="celebracao-fechar" onclick="fecharCelebracao()">Bora trabalhar!</button>
 </div>
-
+</div>
 <!-- PAINEL DO TIME — DIA ATUAL -->
 <div class="time-panel" id="timePanel">
-  <div class="time-panel-topo">
-    <div class="time-dia">Hoje — <span id="timeDiaNome">—</span></div>
-    <div class="time-subtitulo">Bate o olho, confirma e libera o time</div>
-  </div>
-  <div class="time-blocos">
-
-    <div class="time-bloco" id="tb-pastel">
-      <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--red)">Pastel da Camila</span>
-        <span class="time-placar" id="tp-pastel">0/0</span>
-      </div>
-      <div class="time-nomes" id="tn-pastel"></div>
-      <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-pastel" style="width:0%"></div></div></div>
-      <div class="time-msg" id="tm-pastel"></div>
-      <div class="time-bloco-footer">
-        <button class="btn-enviar pastel-btn" onclick="enviarEscala('pastel')">Enviar escala via WhatsApp</button>
-        <button class="btn-enviar-incomplete" id="btn-pastel-inc" onclick="enviarEscalaIncompleta('pastel')" style="display:none">Enviar incompleta</button>
-      </div>
-    </div>
-    <div class="time-bloco" id="tb-beven">
-      <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--green)">Bevenutti</span>
-        <span class="time-placar" id="tp-beven">0/0</span>
-      </div>
-      <div class="time-nomes" id="tn-beven"></div>
-      <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-beven" style="width:0%"></div></div></div>
-      <div class="time-msg" id="tm-beven"></div>
-      <div class="time-bloco-footer">
-        <button class="btn-enviar beven-btn" onclick="enviarEscala('beven')">Enviar escala via WhatsApp</button>
-        <button class="btn-enviar-incomplete" id="btn-beven-inc" onclick="enviarEscalaIncompleta('beven')" style="display:none">Enviar incompleta</button>
-      </div>
-    </div>
-    <div class="time-bloco" id="tb-meridio">
-      <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--blue)">Meridio Pizza</span>
-        <span class="time-placar" id="tp-meridio">0/0</span>
-      </div>
-      <div class="time-nomes" id="tn-meridio"></div>
-      <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-meridio" style="width:0%"></div></div></div>
-      <div class="time-msg" id="tm-meridio"></div>
-      <div class="time-bloco-footer">
-        <button class="btn-enviar pastel-btn" onclick="enviarEscala('meridio')">Enviar escala via WhatsApp</button>
-        <button class="btn-enviar-incomplete" id="btn-meridio-inc" onclick="enviarEscalaIncompleta('meridio')" style="display:none">Enviar incompleta</button>
-      </div>
-    </div>
-    <div class="time-bloco" id="tb-fratelli">
-      <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--purple)">Fratelli Gourmet</span>
-        <span class="time-placar" id="tp-fratelli">0/0</span>
-      </div>
-      <div class="time-nomes" id="tn-fratelli"></div>
-      <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-fratelli" style="width:0%"></div></div></div>
-      <div class="time-msg" id="tm-fratelli"></div>
-      <div class="time-bloco-footer">
-        <button class="btn-enviar pastel-btn" onclick="enviarEscala('fratelli')">Enviar escala via WhatsApp</button>
-        <button class="btn-enviar-incomplete" id="btn-fratelli-inc" onclick="enviarEscalaIncompleta('fratelli')" style="display:none">Enviar incompleta</button>
-      </div>
-    </div>
-    <div class="time-bloco" id="tb-drica">
-      <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--orange)">Pastel da Drica</span>
-        <span class="time-placar" id="tp-drica">0/0</span>
-      </div>
-      <div class="time-nomes" id="tn-drica"></div>
-      <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-drica" style="width:0%"></div></div></div>
-      <div class="time-msg" id="tm-drica"></div>
-      <div class="time-bloco-footer">
-        <button class="btn-enviar pastel-btn" onclick="enviarEscala('drica')">Enviar escala via WhatsApp</button>
-        <button class="btn-enviar-incomplete" id="btn-drica-inc" onclick="enviarEscalaIncompleta('drica')" style="display:none">Enviar incompleta</button>
-      </div>
-    </div>
-    <div class="time-bloco" id="tb-barto">
-      <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--purple)">Barto Bar</span>
-        <span class="time-placar" id="tp-barto">0/0</span>
-      </div>
-      <div class="time-nomes" id="tn-barto"></div>
-      <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-barto" style="width:0%"></div></div></div>
-      <div class="time-msg" id="tm-barto"></div>
-      <div class="time-bloco-footer">
-        <button class="btn-enviar pastel-btn" onclick="enviarEscala('barto')">Enviar escala via WhatsApp</button>
-        <button class="btn-enviar-incomplete" id="btn-barto-inc" onclick="enviarEscalaIncompleta('barto')" style="display:none">Enviar incompleta</button>
-      </div>
-    </div>
-    <div class="time-bloco" id="tb-centermeat">
-      <div class="time-bloco-header">
-        <span class="time-bloco-cliente" style="color:var(--teal)">Center Meat</span>
-        <span class="time-placar" id="tp-centermeat">0/0</span>
-      </div>
-      <div class="time-nomes" id="tn-centermeat"></div>
-      <div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-centermeat" style="width:0%"></div></div></div>
-      <div class="time-msg" id="tm-centermeat"></div>
-      <div class="time-bloco-footer">
-        <button class="btn-enviar beven-btn" onclick="enviarEscala('centermeat')">Enviar escala via WhatsApp</button>
-        <button class="btn-enviar-incomplete" id="btn-centermeat-inc" onclick="enviarEscalaIncompleta('centermeat')" style="display:none">Enviar incompleta</button>
-      </div>
-    </div>
-  </div>  </div>
+<div class="time-panel-topo">
+<div class="time-dia">Hoje — <span id="timeDiaNome">—</span></div>
+<div class="time-subtitulo">Bate o olho, confirma e libera o time</div>
 </div>
+<div class="time-blocos">
+<div class="time-bloco" id="tb-pastel">
+<div class="time-bloco-header">
+<span class="time-bloco-cliente" style="color:var(--red)">Pastel da Camila</span>
+<span class="time-placar" id="tp-pastel">0/0</span>
+</div>
+<div class="time-nomes" id="tn-pastel"></div>
+<div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-pastel" style="width:0%"></div></div></div>
+<div class="time-msg" id="tm-pastel"></div>
+<div class="time-bloco-footer">
+<button class="btn-enviar pastel-btn" onclick="enviarEscala('pastel')">Enviar escala via WhatsApp</button>
+<button class="btn-enviar-incomplete" id="btn-pastel-inc" onclick="enviarEscalaIncompleta('pastel')" style="display:none">Enviar incompleta</button>
+</div>
+</div>
+<div class="time-bloco" id="tb-beven">
+<div class="time-bloco-header">
+<span class="time-bloco-cliente" style="color:var(--green)">Bevenutti</span>
+<span class="time-placar" id="tp-beven">0/0</span>
+</div>
+<div class="time-nomes" id="tn-beven"></div>
+<div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-beven" style="width:0%"></div></div></div>
+<div class="time-msg" id="tm-beven"></div>
+<div class="time-bloco-footer">
+<button class="btn-enviar beven-btn" onclick="enviarEscala('beven')">Enviar escala via WhatsApp</button>
+<button class="btn-enviar-incomplete" id="btn-beven-inc" onclick="enviarEscalaIncompleta('beven')" style="display:none">Enviar incompleta</button>
+</div>
+</div>
+<div class="time-bloco" id="tb-meridio">
+<div class="time-bloco-header">
+<span class="time-bloco-cliente" style="color:var(--blue)">Meridio Pizza</span>
+<span class="time-placar" id="tp-meridio">0/0</span>
+</div>
+<div class="time-nomes" id="tn-meridio"></div>
+<div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-meridio" style="width:0%"></div></div></div>
+<div class="time-msg" id="tm-meridio"></div>
+<div class="time-bloco-footer">
+<button class="btn-enviar pastel-btn" onclick="enviarEscala('meridio')">Enviar escala via WhatsApp</button>
+<button class="btn-enviar-incomplete" id="btn-meridio-inc" onclick="enviarEscalaIncompleta('meridio')" style="display:none">Enviar incompleta</button>
+</div>
+</div>
+<div class="time-bloco" id="tb-fratelli">
+<div class="time-bloco-header">
+<span class="time-bloco-cliente" style="color:var(--purple)">Fratelli Gourmet</span>
+<span class="time-placar" id="tp-fratelli">0/0</span>
+</div>
+<div class="time-nomes" id="tn-fratelli"></div>
+<div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-fratelli" style="width:0%"></div></div></div>
+<div class="time-msg" id="tm-fratelli"></div>
+<div class="time-bloco-footer">
+<button class="btn-enviar pastel-btn" onclick="enviarEscala('fratelli')">Enviar escala via WhatsApp</button>
+<button class="btn-enviar-incomplete" id="btn-fratelli-inc" onclick="enviarEscalaIncompleta('fratelli')" style="display:none">Enviar incompleta</button>
+</div>
+</div>
+<div class="time-bloco" id="tb-drica">
+<div class="time-bloco-header">
+<span class="time-bloco-cliente" style="color:var(--orange)">Pastel da Drica</span>
+<span class="time-placar" id="tp-drica">0/0</span>
+</div>
+<div class="time-nomes" id="tn-drica"></div>
+<div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-drica" style="width:0%"></div></div></div>
+<div class="time-msg" id="tm-drica"></div>
+<div class="time-bloco-footer">
+<button class="btn-enviar pastel-btn" onclick="enviarEscala('drica')">Enviar escala via WhatsApp</button>
+<button class="btn-enviar-incomplete" id="btn-drica-inc" onclick="enviarEscalaIncompleta('drica')" style="display:none">Enviar incompleta</button>
+</div>
+</div>
+<div class="time-bloco" id="tb-barto">
+<div class="time-bloco-header">
+<span class="time-bloco-cliente" style="color:var(--purple)">Barto Bar</span>
+<span class="time-placar" id="tp-barto">0/0</span>
+</div>
+<div class="time-nomes" id="tn-barto"></div>
+<div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-barto" style="width:0%"></div></div></div>
+<div class="time-msg" id="tm-barto"></div>
+<div class="time-bloco-footer">
+<button class="btn-enviar pastel-btn" onclick="enviarEscala('barto')">Enviar escala via WhatsApp</button>
+<button class="btn-enviar-incomplete" id="btn-barto-inc" onclick="enviarEscalaIncompleta('barto')" style="display:none">Enviar incompleta</button>
+</div>
+</div>
+<div class="time-bloco" id="tb-centermeat">
+<div class="time-bloco-header">
+<span class="time-bloco-cliente" style="color:var(--teal)">Center Meat</span>
+<span class="time-placar" id="tp-centermeat">0/0</span>
+</div>
+<div class="time-nomes" id="tn-centermeat"></div>
+<div class="time-barra-wrap"><div class="time-barra-track"><div class="time-barra-fill" id="tb-bar-centermeat" style="width:0%"></div></div></div>
+<div class="time-msg" id="tm-centermeat"></div>
+<div class="time-bloco-footer">
+<button class="btn-enviar beven-btn" onclick="enviarEscala('centermeat')">Enviar escala via WhatsApp</button>
+<button class="btn-enviar-incomplete" id="btn-centermeat-inc" onclick="enviarEscalaIncompleta('centermeat')" style="display:none">Enviar incompleta</button>
+</div>
+</div>
+</div> </div>
 
 <!-- GRADE -->
 <div class="table-wrap">
-  <div class="grid" id="grid">
-    <div class="day-col" data-day="seg" id="col-seg">
-      <div class="day-header"><span class="day-name">Segunda</span><span class="day-count" id="cnt-seg">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="seg"><div class="client-section-header pastel">Pastel da Camila</div></div>
-      <div class="client-section" data-client="beven" data-day="seg"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
-      <div class="client-section" data-client="meridio" data-day="seg"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="seg"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
-      <div class="client-section" data-client="drica" data-day="seg"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
-      <div class="client-section" data-client="barto" data-day="seg"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
-      <div class="client-section" data-client="centermeat" data-day="seg"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
-    </div>
-    <div class="day-col" data-day="ter" id="col-ter">
-      <div class="day-header"><span class="day-name">Terça</span><span class="day-count" id="cnt-ter">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="ter"><div class="client-section-header pastel">Pastel da Camila</div></div>
-      <div class="client-section" data-client="beven" data-day="ter"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
-      <div class="client-section" data-client="meridio" data-day="ter"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="ter"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
-      <div class="client-section" data-client="drica" data-day="ter"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
-      <div class="client-section" data-client="barto" data-day="ter"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
-      <div class="client-section" data-client="centermeat" data-day="ter"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
-    </div>
-    <div class="day-col" data-day="qua" id="col-qua">
-      <div class="day-header"><span class="day-name">Quarta</span><span class="day-count" id="cnt-qua">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="qua"><div class="client-section-header pastel">Pastel da Camila</div></div>
-      <div class="client-section" data-client="beven" data-day="qua"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
-      <div class="client-section" data-client="meridio" data-day="qua"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="qua"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
-      <div class="client-section" data-client="drica" data-day="qua"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
-      <div class="client-section" data-client="barto" data-day="qua"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
-      <div class="client-section" data-client="centermeat" data-day="qua"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
-    </div>
-    <div class="day-col" data-day="qui" id="col-qui">
-      <div class="day-header"><span class="day-name">Quinta</span><span class="day-count" id="cnt-qui">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="qui"><div class="client-section-header pastel">Pastel da Camila</div></div>
-      <div class="client-section" data-client="beven" data-day="qui"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
-      <div class="client-section" data-client="meridio" data-day="qui"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="qui"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
-      <div class="client-section" data-client="drica" data-day="qui"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
-      <div class="client-section" data-client="barto" data-day="qui"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
-      <div class="client-section" data-client="centermeat" data-day="qui"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
-    </div>
-    <div class="day-col" data-day="sex" id="col-sex">
-      <div class="day-header"><span class="day-name">Sexta</span><span class="day-count" id="cnt-sex">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="sex"><div class="client-section-header pastel">Pastel da Camila</div></div>
-      <div class="client-section" data-client="beven" data-day="sex"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
-      <div class="client-section" data-client="meridio" data-day="sex"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="sex"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
-      <div class="client-section" data-client="drica" data-day="sex"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
-      <div class="client-section" data-client="barto" data-day="sex"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
-      <div class="client-section" data-client="centermeat" data-day="sex"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
-    </div>
-    <div class="day-col" data-day="sab" id="col-sab">
-      <div class="day-header"><span class="day-name">Sábado</span><span class="day-count" id="cnt-sab">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="sab"><div class="client-section-header pastel">Pastel da Camila</div></div>
-      <div class="client-section" data-client="beven" data-day="sab"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
-      <div class="client-section" data-client="meridio" data-day="sab"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="sab"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
-      <div class="client-section" data-client="drica" data-day="sab"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
-      <div class="client-section" data-client="barto" data-day="sab"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
-      <div class="client-section" data-client="centermeat" data-day="sab"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
-    </div>
-    <div class="day-col" data-day="dom" id="col-dom">
-      <div class="day-header"><span class="day-name">Domingo</span><span class="day-count" id="cnt-dom">—</span></div>
-      <div class="client-section" data-client="pastel" data-day="dom"><div class="client-section-header pastel">Pastel da Camila</div></div>
-      <div class="client-section" data-client="beven" data-day="dom"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
-      <div class="client-section" data-client="meridio" data-day="dom"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
-      <div class="client-section" data-client="fratelli" data-day="dom"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
-      <div class="client-section" data-client="drica" data-day="dom"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
-      <div class="client-section" data-client="barto" data-day="dom"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
-      <div class="client-section" data-client="centermeat" data-day="dom"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
-    </div>
-  </div>
+<div class="grid" id="grid">
+<div class="day-col" data-day="seg" id="col-seg">
+<div class="day-header"><span class="day-name">Segunda</span><span class="day-count" id="cnt-seg">—</span></div>
+<div class="client-section" data-client="pastel" data-day="seg"><div class="client-section-header pastel">Pastel da Camila</div></div>
+<div class="client-section" data-client="beven" data-day="seg"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
+<div class="client-section" data-client="meridio" data-day="seg"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
+<div class="client-section" data-client="fratelli" data-day="seg"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
+<div class="client-section" data-client="drica" data-day="seg"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
+<div class="client-section" data-client="barto" data-day="seg"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
+<div class="client-section" data-client="centermeat" data-day="seg"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
+</div>
+<div class="day-col" data-day="ter" id="col-ter">
+<div class="day-header"><span class="day-name">Terça</span><span class="day-count" id="cnt-ter">—</span></div>
+<div class="client-section" data-client="pastel" data-day="ter"><div class="client-section-header pastel">Pastel da Camila</div></div>
+<div class="client-section" data-client="beven" data-day="ter"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
+<div class="client-section" data-client="meridio" data-day="ter"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
+<div class="client-section" data-client="fratelli" data-day="ter"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
+<div class="client-section" data-client="drica" data-day="ter"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
+<div class="client-section" data-client="barto" data-day="ter"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
+<div class="client-section" data-client="centermeat" data-day="ter"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
+</div>
+<div class="day-col" data-day="qua" id="col-qua">
+<div class="day-header"><span class="day-name">Quarta</span><span class="day-count" id="cnt-qua">—</span></div>
+<div class="client-section" data-client="pastel" data-day="qua"><div class="client-section-header pastel">Pastel da Camila</div></div>
+<div class="client-section" data-client="beven" data-day="qua"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
+<div class="client-section" data-client="meridio" data-day="qua"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
+<div class="client-section" data-client="fratelli" data-day="qua"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
+<div class="client-section" data-client="drica" data-day="qua"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
+<div class="client-section" data-client="barto" data-day="qua"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
+<div class="client-section" data-client="centermeat" data-day="qua"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
+</div>
+<div class="day-col" data-day="qui" id="col-qui">
+<div class="day-header"><span class="day-name">Quinta</span><span class="day-count" id="cnt-qui">—</span></div>
+<div class="client-section" data-client="pastel" data-day="qui"><div class="client-section-header pastel">Pastel da Camila</div></div>
+<div class="client-section" data-client="beven" data-day="qui"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
+<div class="client-section" data-client="meridio" data-day="qui"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
+<div class="client-section" data-client="fratelli" data-day="qui"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
+<div class="client-section" data-client="drica" data-day="qui"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
+<div class="client-section" data-client="barto" data-day="qui"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
+<div class="client-section" data-client="centermeat" data-day="qui"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
+</div>
+<div class="day-col" data-day="sex" id="col-sex">
+<div class="day-header"><span class="day-name">Sexta</span><span class="day-count" id="cnt-sex">—</span></div>
+<div class="client-section" data-client="pastel" data-day="sex"><div class="client-section-header pastel">Pastel da Camila</div></div>
+<div class="client-section" data-client="beven" data-day="sex"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
+<div class="client-section" data-client="meridio" data-day="sex"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
+<div class="client-section" data-client="fratelli" data-day="sex"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
+<div class="client-section" data-client="drica" data-day="sex"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
+<div class="client-section" data-client="barto" data-day="sex"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
+<div class="client-section" data-client="centermeat" data-day="sex"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
+</div>
+<div class="day-col" data-day="sab" id="col-sab">
+<div class="day-header"><span class="day-name">Sábado</span><span class="day-count" id="cnt-sab">—</span></div>
+<div class="client-section" data-client="pastel" data-day="sab"><div class="client-section-header pastel">Pastel da Camila</div></div>
+<div class="client-section" data-client="beven" data-day="sab"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
+<div class="client-section" data-client="meridio" data-day="sab"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
+<div class="client-section" data-client="fratelli" data-day="sab"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
+<div class="client-section" data-client="drica" data-day="sab"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
+<div class="client-section" data-client="barto" data-day="sab"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
+<div class="client-section" data-client="centermeat" data-day="sab"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
+</div>
+<div class="day-col" data-day="dom" id="col-dom">
+<div class="day-header"><span class="day-name">Domingo</span><span class="day-count" id="cnt-dom">—</span></div>
+<div class="client-section" data-client="pastel" data-day="dom"><div class="client-section-header pastel">Pastel da Camila</div></div>
+<div class="client-section" data-client="beven" data-day="dom"><div class="client-section-header beven">Bevenutti · 18h–0h30</div></div>
+<div class="client-section" data-client="meridio" data-day="dom"><div class="client-section-header meridio">Meridio Pizza · 18h–0h</div></div>
+<div class="client-section" data-client="fratelli" data-day="dom"><div class="client-section-header fratelli">Fratelli Gourmet · 17h–23h / 18h–0h</div></div>
+<div class="client-section" data-client="drica" data-day="dom"><div class="client-section-header drica">Pastel da Drica · 18h–0h</div></div>
+<div class="client-section" data-client="barto" data-day="dom"><div class="client-section-header barto">Barto Bar · 11h–16h</div></div>
+<div class="client-section" data-client="centermeat" data-day="dom"><div class="client-section-header centermeat">Center Meat · 10h–20h</div></div>
+</div>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
@@ -2402,7 +2367,7 @@ body.admin-mode .admin-week-panel{display:block;}
 ═══════════════════════════════════════ */
 var SB_URL  = 'https://ilmjgfxkrsvduapdiqvt.supabase.co';
 var SB_KEY  = 'sb_publishable_O2eiAyPOlhwfJjwPgI8aXQ_5fSx8zu_';
-var sb      = supabase.createClient(SB_URL, SB_KEY);
+var sb      = (window.supabase && window.supabase.createClient) ? supabase.createClient(SB_URL, SB_KEY) : null;
 var PWD     = 'osasco2025';
 
 var DIAS = ['seg','ter','qua','qui','sex','sab','dom'];
@@ -3181,78 +3146,7 @@ function notificarVagaPegada(card, nomeNovo, nomeAnterior) {
   window.open(WA_SUPORTE + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
-/* ═══════════════════════════════════════
-   GERAR MENSAGEM WHATSAPP → CLIENTE
-   Linguagem profissional estilo iFood/operadora de delivery
-═══════════════════════════════════════ */
-var TURNO_MSG = { red:'10h-16h', orange:'15h-21h', yellow:'16h-22h', green:'18h-0h30' };
-var DIA_PT    = { seg:'Segunda', ter:'Terca', qua:'Quarta', qui:'Quinta', sex:'Sexta', sab:'Sabado', dom:'Domingo' };
-
-function gerarMensagemEscala(client, incluirPendentes) {
-  var nomeCliente = getClienteNome(client);
-  var hoje    = new Date();
-  var dataStr = hoje.toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit', year:'numeric' });
-  var semana  = 'Semana ' + dataStr;
-
-  var porDia = {};
-  DIAS.forEach(function(dia) {
-    var cards = Array.from(document.querySelectorAll('.day-col[data-day="'+dia+'"] .card[data-client="'+client+'"]'));
-    if (cards.length === 0) return;
-    var conf = cards.filter(function(c){ return c.classList.contains('confirmado'); });
-    var vaga = cards.filter(function(c){ return c.classList.contains('vaga-aberta'); });
-    var pend = cards.filter(function(c){ return !c.classList.contains('confirmado') && !c.classList.contains('vaga-aberta'); });
-    porDia[dia] = { conf:conf, vaga:vaga, pend:pend, total:cards.length };
-  });
-
-  var totalGeral = 0, confGeral = 0;
-  Object.values(porDia).forEach(function(d){ totalGeral += d.total; confGeral += d.conf.length; });
-  var pendGeral = totalGeral - confGeral;
-  var completa  = pendGeral === 0;
-
-  var L = []; // linhas
-  L.push('*Osasco Express - Escala de Entregadores*');
-  L.push('Cliente: *' + nomeCliente + '*');
-  L.push('Referencia: ' + semana);
-  L.push('');
-  L.push(completa
-    ? '*Status: Quadro completo e confirmado.*'
-    : '*Status: Quadro parcial - aguardando confirmacoes (' + confGeral + '/' + totalGeral + ')*');
-  L.push('--------------------');
-
-  DIAS.forEach(function(dia) {
-    if (!porDia[dia]) return;
-    var d = porDia[dia];
-    L.push('');
-    L.push('*' + DIA_PT[dia] + '*');
-
-    d.conf.forEach(function(c) {
-      L.push('  ' + c.querySelector('.moto-name').textContent.trim() + ' | ' + TURNO_MSG[c.getAttribute('data-turno')]);
-    });
-
-    if (d.vaga.length > 0) {
-      d.vaga.forEach(function(c) {
-        L.push('  ' + c.querySelector('.moto-name').textContent.trim() + ' | ' + TURNO_MSG[c.getAttribute('data-turno')] + ' - VAGA EM ABERTO');
-      });
-    }
-
-    if (incluirPendentes && d.pend.length > 0) {
-      d.pend.forEach(function(c) {
-        L.push('  ' + c.querySelector('.moto-name').textContent.trim() + ' | ' + TURNO_MSG[c.getAttribute('data-turno')] + ' - a confirmar');
-      });
-    }
-  });
-
-  L.push('');
-  L.push('--------------------');
-  L.push(completa
-    ? 'Total de entregadores confirmados: ' + totalGeral
-    : 'Confirmados: ' + confGeral + ' | Pendentes: ' + pendGeral);
-  L.push('');
-  L.push('Qualquer atualizacao informamos em seguida.');
-  L.push('_Osasco Express - Operacoes_');
-
-  return L.join('\n');
-}
+/* GERAR MENSAGEM WHATSAPP → CLIENTE: bloco antigo removido. A versão única consolidada fica no bloco POR CLIENTE abaixo. */
 
 /* ═══════════════════════════════════════
    RESETAR CONFIRMAÇÕES
@@ -3336,6 +3230,8 @@ function ativarDragDrop() {
 
   document.querySelectorAll('.client-section').forEach(function(sec) {
     var clientSec = sec.getAttribute('data-client'); // 'pastel' ou 'beven'
+
+    if(!window.Sortable) { console.warn('SortableJS não carregou; drag and drop desativado.'); return; }
 
     var inst = Sortable.create(sec, {
       group: 'escala',          // mesmo grupo = troca entre qualquer seção
@@ -4145,275 +4041,429 @@ atualizarStatusClientes = function(){
   agendarReset();
 })();
 </script>
-
 <div class="modal-overlay" id="mEditarVagaSuporte">
-  <div class="modal-box">
-    <div class="modal-titulo">Editar vaga</div>
-    <p class="modal-sub">Ajuste nome, cliente ou horário desta vaga.</p>
-
-    <div class="modal-grid-2">
-      <div class="support-field">
-        <label>Cliente</label>
-        <select id="editCliente" onchange="syncEditTurnos()">
-          <option value="pastel">Pastel da Camila</option>
-          <option value="beven">Bevenutti</option>
-          <option value="meridio">Meridio Pizza</option>
-          <option value="fratelli">Fratelli Gourmet</option>
-          <option value="drica">Pastel da Drica</option>
-          <option value="barto">Barto Bar</option>
-          <option value="centermeat">Center Meat</option>
-        </select>
-      </div>
-      <div class="support-field">
-        <label>Horário</label>
-        <select id="editTurno"></select>
-      </div>
-    </div>
-
-    <div class="support-field" style="margin-top:10px">
-      <label>Nome</label>
-      <input id="editNome" class="form-input" placeholder="Vaga Aberta ou nome do parceiro">
-    </div>
-
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="fechar('mEditarVagaSuporte')">Cancelar</button>
-      <button class="modal-btn ok" onclick="supportSalvarEdicao()">Salvar</button>
-    </div>
-  </div>
+<div class="modal-box">
+<div class="modal-titulo">Editar vaga</div>
+<p class="modal-sub">Ajuste nome, cliente ou horário desta vaga.</p>
+<div class="modal-grid-2">
+<div class="support-field">
+<label>Cliente</label>
+<select id="editCliente" onchange="syncEditTurnos()">
+<option value="pastel">Pastel da Camila</option>
+<option value="beven">Bevenutti</option>
+<option value="meridio">Meridio Pizza</option>
+<option value="fratelli">Fratelli Gourmet</option>
+<option value="drica">Pastel da Drica</option>
+<option value="barto">Barto Bar</option>
+<option value="centermeat">Center Meat</option>
+</select>
+</div>
+<div class="support-field">
+<label>Horário</label>
+<select id="editTurno"></select>
+</div>
+</div>
+<div class="support-field" style="margin-top:10px">
+<label>Nome</label>
+<input class="form-input" id="editNome" placeholder="Vaga Aberta ou nome do parceiro"/>
+</div>
+<div class="modal-btns">
+<button class="modal-btn cancel" onclick="fechar('mEditarVagaSuporte')">Cancelar</button>
+<button class="modal-btn ok" onclick="supportSalvarEdicao()">Salvar</button>
+</div>
+</div>
 </div>
 
-<script>
 
-/* ══════════════════════════════
-   SUPORTE OPERACIONAL — FUNÇÕES
-══════════════════════════════ */
-var SUPORTE_TURNOS_CLIENTE = {
-  pastel:[['red','10h–16h'],['orange','15h–21h'],['yellow','16h–22h']],
-  beven:[['green','18h–0h30']],
-  meridio:[['teal','18h–0h']],
-  fratelli:[['blue','17h–23h'],['teal','18h–0h']],
-  drica:[['teal','18h–0h']],
-  barto:[['purple','11h–16h']],
-  centermeat:[['purple','10h–20h']]
-};
-function preencherSelectTurno(selectId, client, selected){
-  var sel = document.getElementById(selectId);
-  if(!sel) return;
-  var opts = SUPORTE_TURNOS_CLIENTE[client] || SUPORTE_TURNOS_CLIENTE.pastel;
-  sel.innerHTML = opts.map(function(o){
-    return '<option value="'+o[0]+'" '+(selected === o[0] ? 'selected' : '')+'>'+o[1]+'</option>';
-  }).join('');
-}
-function syncSupportTurnos(){
-  var c = document.getElementById('supportCliente').value;
-  preencherSelectTurno('supportTurno', c);
-}
-function syncEditTurnos(){
-  var c = document.getElementById('editCliente').value;
-  var card = document.getElementById('mEditarVagaSuporte')._card;
-  var selected = card ? card.getAttribute('data-turno') : null;
-  preencherSelectTurno('editTurno', c, selected);
-}
-function atualizarEstadoCongeladoUI(){
-  var congelada = localStorage.getItem('oe_escala_congelada') === '1';
-  document.body.classList.toggle('escala-congelada', congelada);
-  var btn = document.getElementById('btnFreezeScale');
-  if(btn){
-    btn.textContent = congelada ? 'Descongelar agenda' : 'Congelar agenda';
-    btn.classList.toggle('danger', congelada);
-    btn.classList.toggle('warn', !congelada);
-  }
-}
-function toggleCongelarEscala(){
-  var atual = localStorage.getItem('oe_escala_congelada') === '1';
-  localStorage.setItem('oe_escala_congelada', atual ? '0' : '1');
-  atualizarEstadoCongeladoUI();
-  renderPartnerHome();
-  toast('saved', atual ? 'Agenda descongelada.' : 'Agenda congelada.');
-}
-function criarEntradaSuporte(nome, turno, client){
-  return {
-    nome:nome || 'Vaga Aberta',
-    turno:turno,
-    client:client,
-    vaga:(nome || '').toLowerCase().indexOf('vaga aberta') === 0
+
+
+
+
+
+
+
+
+
+<script>/* ═══════════════════════════════════════
+   MÓDULO OPERACIONAL CONSOLIDADO — OSASCO EXPRESS
+   Funções únicas para vagas, reservas, suporte e painel.
+═══════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  var CLIENTES_ORDEM = ['pastel','beven','meridio','fratelli','drica','barto','centermeat'];
+  var CLIENTE_META = {
+    pastel:{nome:'Pastel da Camila', cor:'#DC2626', icone:'🥟'},
+    beven:{nome:'Bevenutti', cor:'#059669', icone:'🍕'},
+    meridio:{nome:'Meridio Pizza', cor:'#2563EB', icone:'🍕'},
+    fratelli:{nome:'Fratelli Gourmet', cor:'#7C3AED', icone:'🍽️'},
+    drica:{nome:'Pastel da Drica', cor:'#EA580C', icone:'🥟'},
+    barto:{nome:'Barto Bar', cor:'#7C3AED', icone:'🍔'},
+    centermeat:{nome:'Center Meat', cor:'#0F9488', icone:'🥩'}
   };
-}
-function supportAdicionarVaga(){
-  var dia = document.getElementById('supportDia').value;
-  var client = document.getElementById('supportCliente').value;
-  var turno = document.getElementById('supportTurno').value;
-  var nome = (document.getElementById('supportNome').value || '').trim() || 'Vaga Aberta';
+  var TURNOS_CLIENTE = {
+    pastel:[['red','10h–16h'],['orange','15h–21h'],['yellow','16h–22h']],
+    beven:[['green','18h–0h30']],
+    meridio:[['teal','18h–0h']],
+    fratelli:[['blue','17h–23h'],['teal','18h–0h']],
+    drica:[['teal','18h–0h']],
+    barto:[['purple','11h–16h']],
+    centermeat:[['purple','10h–20h']]
+  };
+  var DIA_PT_LOCAL = {seg:'Segunda',ter:'Terça',qua:'Quarta',qui:'Quinta',sex:'Sexta',sab:'Sábado',dom:'Domingo'};
+  var DIA_CURTO_LOCAL = {seg:'Seg',ter:'Ter',qua:'Qua',qui:'Qui',sex:'Sex',sab:'Sáb',dom:'Dom'};
+  var CORES_TURNO = ['red','orange','yellow','green','blue','teal','purple'];
 
-  var ag = lerAgenda();
-  if(!ag[dia]) ag[dia] = [];
-  ag[dia].push(criarEntradaSuporte(nome, turno, client));
-  renderEscala(ag);
-  autoSave();
-  atualizarStatusClientes();
-  renderPartnerHome();
-  toast('saved','Vaga adicionada.');
-}
-function supportAdicionarVagaAberta(){
-  document.getElementById('supportNome').value = 'Vaga Aberta';
-  supportAdicionarVaga();
-}
-function supportEditarCard(card){
-  var modal = document.getElementById('mEditarVagaSuporte');
-  modal._card = card;
-  document.getElementById('editCliente').value = card.getAttribute('data-client');
-  syncEditTurnos();
-  document.getElementById('editTurno').value = card.getAttribute('data-turno');
-  var nome = card.querySelector('.moto-name') ? card.querySelector('.moto-name').textContent.trim() : '';
-  document.getElementById('editNome').value = nome;
-  modal.classList.add('visivel');
-}
-function supportSalvarEdicao(){
-  var modal = document.getElementById('mEditarVagaSuporte');
-  var card = modal._card;
-  if(!card) return;
-
-  var client = document.getElementById('editCliente').value;
-  var turno = document.getElementById('editTurno').value;
-  var nome = (document.getElementById('editNome').value || '').trim() || 'Vaga Aberta';
-
-  card.setAttribute('data-client', client);
-  card.setAttribute('data-turno', turno);
-  card.className = card.className.replace(/\b(red|orange|yellow|green|blue|teal|purple)\b/g,'').trim() + ' ' + turno;
-
-  var nm = card.querySelector('.moto-name');
-  if(nm) nm.textContent = nome;
-
-  if(nome.toLowerCase().indexOf('vaga aberta') === 0){
-    card.classList.add('vaga-aberta');
-    card.classList.remove('confirmado');
-    card.setAttribute('data-cobriu','0');
-    if(!card.querySelector('.btn-pegar-vaga')){
-      var btn = document.createElement('button');
-      btn.className = 'btn-pegar-vaga';
-      btn.textContent = 'Pegar vaga';
-      btn.onclick = function(e){ e.stopPropagation(); abrirModalPegarVaga(card); };
-      card.appendChild(btn);
-    }
-  }else{
-    card.classList.remove('vaga-aberta');
+  function $(id){ return document.getElementById(id); }
+  function all(sel, root){ return Array.from((root || document).querySelectorAll(sel)); }
+  function nomeDoCliente(c){ return (CLIENTE_META[c] && CLIENTE_META[c].nome) || (window.CLIENTE_NOME && CLIENTE_NOME[c]) || c; }
+  function corDoCliente(c){ return (CLIENTE_META[c] && CLIENTE_META[c].cor) || '#0F172A'; }
+  function iconeDoCliente(c){ return (CLIENTE_META[c] && CLIENTE_META[c].icone) || '🏍️'; }
+  function horarioDoCard(card){ return (window.TURNO_HORA && TURNO_HORA[card.getAttribute('data-turno')]) || (window.TURNO_LABEL && TURNO_LABEL[card.getAttribute('data-turno')]) || ''; }
+  function isNomeVaga(nome){ return String(nome || '').trim().toLowerCase().indexOf('vaga aberta') === 0; }
+  function nomeEl(card){ return card ? card.querySelector('.moto-name') : null; }
+  function getNome(card){ var el = nomeEl(card); return el ? el.textContent.trim() : ''; }
+  function setNome(card,nome){ var el = nomeEl(card); if(el) el.textContent = nome; card.setAttribute('data-name', String(nome || '').toLowerCase()); }
+  function diaDoCard(card){ var col = card && card.closest('.day-col'); return col ? col.getAttribute('data-day') : ''; }
+  function isCardVaga(card){ return !!card && (card.classList.contains('vaga-aberta') || isNomeVaga(getNome(card)) || card.getAttribute('data-status') === 'aberta'); }
+  function notificarPainel(){
+    try { if(typeof window.recalc === 'function') recalc(); } catch(e){}
+    try { if(typeof window.applyFilters === 'function') applyFilters(); } catch(e){}
+    try { renderPartnerHome(); } catch(e){}
+    try { renderAdminReservasPanel(); } catch(e){}
+    try { atualizarEstadoCongeladoUI(); } catch(e){}
   }
+  function safeToast(tipo,msg){ try { if(typeof window.toast === 'function') toast(tipo,msg); } catch(e){} }
 
-  fechar('mEditarVagaSuporte');
-  autoSave();
-  atualizarStatusClientes();
-  renderPartnerHome();
-  toast('saved','Vaga editada.');
-}
-function supportReabrirCard(card){
-  var nm = card.querySelector('.moto-name');
-  if(nm) nm.textContent = 'Vaga Aberta';
-  card.classList.add('vaga-aberta');
-  card.classList.remove('confirmado');
-  card.setAttribute('data-cobriu','0');
-  if(!card.querySelector('.btn-pegar-vaga')){
+  window.getClienteNome = nomeDoCliente;
+  window.getIconeCliente = iconeDoCliente;
+  window.getCorCliente = corDoCliente;
+
+  window.preencherSelectTurno = function(selectId, client, selected){
+    var sel = $(selectId); if(!sel) return;
+    var opts = TURNOS_CLIENTE[client] || TURNOS_CLIENTE.pastel;
+    sel.innerHTML = opts.map(function(o){ return '<option value="'+o[0]+'" '+(selected === o[0] ? 'selected' : '')+'>'+o[1]+'</option>'; }).join('');
+  };
+  window.syncSupportTurnos = function(){
+    var c = $('supportCliente') ? $('supportCliente').value : 'pastel';
+    preencherSelectTurno('supportTurno', c);
+  };
+  window.syncEditTurnos = function(){
+    var c = $('editCliente') ? $('editCliente').value : 'pastel';
+    var card = $('mEditarVagaSuporte') ? $('mEditarVagaSuporte')._card : null;
+    preencherSelectTurno('editTurno', c, card ? card.getAttribute('data-turno') : null);
+  };
+
+  function estadoCard(card, estado, nome){
+    if(!card) return;
+    card.classList.remove('vaga-aberta','confirmado','cobriu-vaga');
+    card.setAttribute('data-cobriu','0');
+    card.setAttribute('data-status', estado);
+    if(estado === 'aberta'){
+      setNome(card, 'Vaga Aberta');
+      card.classList.add('vaga-aberta');
+    } else if(estado === 'reservada'){
+      setNome(card, nome || getNome(card) || 'Parceiro reservado');
+      card.classList.add('confirmado','cobriu-vaga');
+      card.setAttribute('data-cobriu','1');
+    } else if(estado === 'confirmada'){
+      if(nome) setNome(card, nome);
+      card.classList.add('confirmado');
+    } else {
+      if(nome) setNome(card, nome);
+    }
+    garantirBotaoPegar(card);
+  }
+  window.tornarConfirmavel = function(card){
+    if(!card) return;
+    card.classList.remove('vaga-aberta');
+    card.setAttribute('data-status','reservada');
+    garantirBotaoPegar(card);
+  };
+
+  function garantirBotaoPegar(card){
+    if(!card) return;
+    all('.btn-pegar-vaga', card).forEach(function(b){ b.remove(); });
+    if(!isCardVaga(card)) return;
     var btn = document.createElement('button');
     btn.className = 'btn-pegar-vaga';
+    btn.type = 'button';
     btn.textContent = 'Pegar vaga';
-    btn.onclick = function(e){ e.stopPropagation(); abrirModalPegarVaga(card); };
+    btn.addEventListener('click', function(e){ e.stopPropagation(); abrirModalPegarVaga(card); });
     card.appendChild(btn);
   }
-  autoSave();
-  atualizarStatusClientes();
-  renderPartnerHome();
-  toast('saved','Vaga reaberta.');
-}
-function supportExcluirCard(card){
-  if(!confirm('Excluir esta vaga da escala?')) return;
-  card.remove();
-  recalc();
-  autoSave();
-  atualizarStatusClientes();
-  renderPartnerHome();
-  toast('saved','Vaga excluída.');
-}
-function adicionarFerramentasSuporte(card){
-  if(card.querySelector('.support-card-tools')) return;
-  var tools = document.createElement('div');
-  tools.className = 'support-card-tools';
-  tools.innerHTML =
-    '<button class="support-mini edit" type="button">Editar</button>' +
-    '<button class="support-mini open" type="button">Reabrir</button>' +
-    '<button class="support-mini del" type="button">Excluir</button>';
-  tools.querySelector('.edit').onclick = function(e){ e.stopPropagation(); supportEditarCard(card); };
-  tools.querySelector('.open').onclick = function(e){ e.stopPropagation(); supportReabrirCard(card); };
-  tools.querySelector('.del').onclick = function(e){ e.stopPropagation(); supportExcluirCard(card); };
-  card.appendChild(tools);
-}
-function aplicarFerramentasSuporte(){
-  document.querySelectorAll('.card').forEach(adicionarFerramentasSuporte);
-}
-function recriarBaseCompletaSuporte(){
-  if(!confirm('Recriar a base completa? Isso recoloca todos os clientes e vagas padrão.')) return;
-  renderEscala(ESCALA_PADRAO);
-  autoSave();
-  atualizarStatusClientes();
-  renderPartnerHome();
-  aplicarFerramentasSuporte();
-  toast('saved','Base completa recriada.');
-}
 
-</script>
-
-<script>
-/* PATCH — aplicar ferramentas suporte depois de renderizar */
-(function(){
-  if(window.__supportRenderPatch) return;
-  window.__supportRenderPatch = true;
-  var oldRenderEscala = window.renderEscala;
-  if(typeof oldRenderEscala === 'function'){
-    window.renderEscala = function(agenda){
-      oldRenderEscala(agenda);
-      if(typeof aplicarFerramentasSuporte === 'function') aplicarFerramentasSuporte();
-    };
+  function normalizarCards(){
+    all('.card').forEach(function(card){
+      if(isNomeVaga(getNome(card))) estadoCard(card,'aberta');
+      else if(card.classList.contains('cobriu-vaga') || card.getAttribute('data-cobriu') === '1') card.setAttribute('data-status','reservada');
+      garantirBotaoPegar(card);
+      adicionarFerramentasSuporte(card);
+    });
   }
-  document.addEventListener('DOMContentLoaded', function(){
-    if(typeof syncSupportTurnos === 'function') syncSupportTurnos();
-    if(typeof atualizarEstadoCongeladoUI === 'function') atualizarEstadoCongeladoUI();
-    if(typeof aplicarFerramentasSuporte === 'function') aplicarFerramentasSuporte();
-  });
-})();
-</script>
-
-
-
-<script>
-/* ══════════════════════════════
-   PATCH FINAL — CLIENTES + RESERVAS ADMIN
-   Mantém o app atual e acrescenta visão clara de reservas.
-══════════════════════════════ */
-(function(){
-  var CLIENTES_OFICIAIS_ORDEM = ['pastel','beven','meridio','fratelli','drica','barto','centermeat'];
 
   window.lerAgenda = function(){
     var ag = {};
-    DIAS.forEach(function(dia){
+    (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(dia){
       ag[dia] = [];
-      document.querySelectorAll('.day-col[data-day="'+dia+'"] .card').forEach(function(card){
-        var nm = card.querySelector('.moto-name');
+      all('.day-col[data-day="'+dia+'"] .card').forEach(function(card){
+        var nome = getNome(card) || 'Vaga Aberta';
         ag[dia].push({
-          nome: nm ? nm.textContent.trim() : 'Vaga Aberta',
-          turno: card.getAttribute('data-turno'),
-          client: card.getAttribute('data-client'),
-          vaga: card.classList.contains('vaga-aberta')
+          nome:nome,
+          turno:card.getAttribute('data-turno'),
+          client:card.getAttribute('data-client'),
+          vaga:isCardVaga(card),
+          status:card.getAttribute('data-status') || (isCardVaga(card) ? 'aberta' : (card.classList.contains('confirmado') ? 'confirmada' : 'pendente'))
         });
       });
     });
     return ag;
   };
 
-  function montarGruposVagas(){
+  function persistirLocal(rows){
+    try { localStorage.setItem('oe_escala_backup', JSON.stringify({ts:Date.now(), rows:rows})); } catch(e){}
+  }
+
+  window.autoSave = async function(){
+    var rows = [], ordem = 0;
+    (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(dia){
+      all('.day-col[data-day="'+dia+'"] .card').forEach(function(card){
+        var nome = isCardVaga(card) ? 'Vaga Aberta' : getNome(card);
+        rows.push({dia:dia,nome:nome,turno:card.getAttribute('data-turno'),client:card.getAttribute('data-client'),ordem:ordem++});
+      });
+    });
+    persistirLocal(rows);
+    try{
+      if(!window.sb) throw new Error('Supabase indisponível');
+      if(typeof window.toast === 'function') toast('saving','Salvando…',0);
+      var del = await sb.from('escala_estrutura').delete().neq('id',0);
+      if(del && del.error) throw del.error;
+      if(rows.length){
+        var ins = await sb.from('escala_estrutura').insert(rows);
+        if(ins && ins.error) throw ins.error;
+      }
+      if(typeof window.toast === 'function') toast('saved','✓ Salvo');
+    }catch(e){
+      console.warn('Salvo em backup local:', e.message || e);
+      if(typeof window.toast === 'function') toast('saved','✓ Salvo local');
+    }
+  };
+
+  window.salvarConf = function(id){
+    try{
+      if(!window.sb) return;
+      sb.from('confirmacoes').insert({data_dia:getTodayKey(), card_id:id}).then(function(r){ if(r && r.error) console.warn(r.error.message); });
+    }catch(e){ console.warn(e); }
+  };
+  window.removerConf = function(id){
+    try{
+      if(!window.sb) return;
+      sb.from('confirmacoes').delete().eq('data_dia',getTodayKey()).eq('card_id',id).then(function(r){ if(r && r.error) console.warn(r.error.message); });
+    }catch(e){ console.warn(e); }
+  };
+
+  window.confirmarAbrirVaga = function(){
+    var modal = $('mVaga');
+    var card = modal ? modal._card : null;
+    if(typeof window.fechar === 'function') fechar('mVaga');
+    if(!card) return;
+    var id = card.getAttribute('data-card-id');
+    estadoCard(card,'aberta');
+    removerConf(id);
+    autoSave();
+    notificarPainel();
+    try { if(typeof window.notificarVagaAberta === 'function') notificarVagaAberta(card); } catch(e){}
+  };
+
+  window.reservarCardParaNome = function(card, nome){
+    if(!card) return '';
+    var anterior = getNome(card) || 'Vaga Aberta';
+    estadoCard(card,'reservada',nome);
+    var id = card.getAttribute('data-card-id');
+    if(id) salvarConf(id);
+    return anterior;
+  };
+
+  window.confirmarPegarVaga = function(){
+    var nome = $('pegarNome') ? $('pegarNome').value.trim().replace(/\s+/g,' ') : '';
+    if(!nome || nome.split(' ').filter(Boolean).length < 2){
+      if($('erroPegar')){ $('erroPegar').textContent = 'Coloca nome e sobrenome.'; $('erroPegar').classList.add('vis'); }
+      if($('pegarNome')) $('pegarNome').focus();
+      return;
+    }
+    var modal = $('mPegarVaga');
+    var card = modal ? modal._card : null;
+    if(!card) return;
+
+    var alvos = [card];
+    var checkSemana = $('reserveSemanaCheck');
+    if(checkSemana && checkSemana.checked && !checkSemana.disabled && typeof window.encontrarVagasMesmoClienteTurnoNaSemana === 'function'){
+      alvos = encontrarVagasMesmoClienteTurnoNaSemana(card) || [card];
+    }
+
+    var reservados = [], conflitos = [], anteriores = [];
+    alvos.forEach(function(alvo){
+      var conflito = (typeof window.encontrarConflitoHorario === 'function') ? encontrarConflitoHorario(nome, alvo) : null;
+      if(conflito){ conflitos.push({alvo:alvo, conflito:conflito}); return; }
+      anteriores.push(reservarCardParaNome(alvo,nome));
+      reservados.push(alvo);
+    });
+
+    if(typeof window.fechar === 'function') fechar('mPegarVaga');
+    if(reservados.length === 0 && conflitos.length){
+      if(typeof window.avisarReservaDuplicada === 'function') avisarReservaDuplicada(nome, conflitos[0].conflito);
+      return;
+    }
+
+    try { localStorage.setItem('oe_partner_name', nome); } catch(e){}
+    autoSave();
+    notificarPainel();
+    if(reservados.length === 1){
+      try { if(typeof window.notificarVagaPegada === 'function') notificarVagaPegada(reservados[0], nome, anteriores[0] || 'Vaga Aberta'); } catch(e){}
+      safeToast('saved','Vaga reservada com sucesso.');
+    } else {
+      safeToast('saved', reservados.length + ' reservas salvas na semana.');
+    }
+    if(conflitos.length) setTimeout(function(){ safeToast('warn', conflitos.length + ' dia(s) não foram reservados por conflito de horário.'); },700);
+  };
+
+  function garantirSupportUI(){
+    var panel = $('adminSupportPanel'); if(!panel) return;
+    var grid = panel.querySelector('.admin-support-grid'); if(!grid) return;
+    if(!$('supportQtd')){
+      var wrap = document.createElement('div');
+      wrap.className = 'support-field support-qty-wrap';
+      wrap.innerHTML = '<label>Quantidade de vagas</label><input id="supportQtd" type="number" min="1" max="50" value="1" inputmode="numeric"><div class="support-quick-qty">'+[1,2,3,4,5,6].map(function(n){ return '<button type="button" data-qtd="'+n+'">'+n+'</button>'; }).join('')+'</div>';
+      grid.appendChild(wrap);
+      wrap.querySelectorAll('[data-qtd]').forEach(function(btn){ btn.addEventListener('click',function(){ $('supportQtd').value = btn.getAttribute('data-qtd'); }); });
+    }
+    if(!$('supportDiasBox')){
+      var box = document.createElement('div');
+      box.className = 'support-days-box';
+      box.id = 'supportDiasBox';
+      box.innerHTML = '<div class="support-days-title">Repetir esta vaga nos dias marcados</div><div class="support-days-grid">'+(window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).map(function(d){ return '<label class="support-day-check"><input type="checkbox" value="'+d+'" id="supportDiaChk_'+d+'"><span>'+DIA_CURTO_LOCAL[d]+'</span></label>'; }).join('')+'</div>';
+      grid.parentNode.insertBefore(box, grid.nextSibling);
+    }
+    var selectDia = $('supportDia');
+    function marcarDiaAtual(){
+      var dia = selectDia ? selectDia.value : 'seg';
+      (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(d){ var c = $('supportDiaChk_'+d); if(c) c.checked = d === dia; });
+    }
+    if(selectDia && !selectDia.__oeDiasSync){ selectDia.__oeDiasSync = true; selectDia.addEventListener('change', marcarDiaAtual); marcarDiaAtual(); }
+  }
+  function diasMarcados(){
+    var marcados = (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).filter(function(d){ var c = $('supportDiaChk_'+d); return c && c.checked; });
+    if(!marcados.length && $('supportDia')) marcados = [$('supportDia').value];
+    return marcados;
+  }
+  function quantidadeEscolhida(){
+    var q = parseInt(($('supportQtd') && $('supportQtd').value) || '1',10);
+    if(!isFinite(q) || q < 1) q = 1;
+    if(q > 50) q = 50;
+    return q;
+  }
+  function criarEntrada(nome, turno, client){
+    var aberto = isNomeVaga(nome);
+    return {nome:aberto ? 'Vaga Aberta' : nome, turno:turno, client:client, vaga:aberto};
+  }
+
+  window.supportAdicionarVaga = function(){
+    garantirSupportUI();
+    var client = $('supportCliente') ? $('supportCliente').value : 'pastel';
+    var turno = $('supportTurno') ? $('supportTurno').value : ((TURNOS_CLIENTE[client] || TURNOS_CLIENTE.pastel)[0][0]);
+    var nome = (($('supportNome') && $('supportNome').value) || '').trim() || 'Vaga Aberta';
+    var dias = diasMarcados();
+    var qtd = quantidadeEscolhida();
+    var ag = lerAgenda();
+    dias.forEach(function(dia){
+      if(!ag[dia]) ag[dia] = [];
+      for(var i=0;i<qtd;i++) ag[dia].push(criarEntrada(nome,turno,client));
+    });
+    if(typeof window.renderEscala === 'function') renderEscala(ag);
+    autoSave();
+    notificarPainel();
+    safeToast('saved', (dias.length*qtd)+' vaga(s) adicionada(s).');
+  };
+  window.supportAdicionarVagaAberta = function(){ if($('supportNome')) $('supportNome').value = 'Vaga Aberta'; supportAdicionarVaga(); };
+
+  window.supportEditarCard = function(card){
+    var modal = $('mEditarVagaSuporte'); if(!modal || !card) return;
+    modal._card = card;
+    if($('editCliente')) $('editCliente').value = card.getAttribute('data-client') || 'pastel';
+    syncEditTurnos();
+    if($('editTurno')) $('editTurno').value = card.getAttribute('data-turno') || '';
+    if($('editNome')) $('editNome').value = getNome(card);
+    modal.classList.add('visivel');
+  };
+  window.supportSalvarEdicao = function(){
+    var modal = $('mEditarVagaSuporte'); var card = modal ? modal._card : null; if(!card) return;
+    var client = $('editCliente') ? $('editCliente').value : card.getAttribute('data-client');
+    var turno = $('editTurno') ? $('editTurno').value : card.getAttribute('data-turno');
+    var nome = (($('editNome') && $('editNome').value) || '').trim() || 'Vaga Aberta';
+    card.setAttribute('data-client',client);
+    card.setAttribute('data-turno',turno);
+    CORES_TURNO.forEach(function(c){ card.classList.remove(c); });
+    card.classList.add(turno);
+    estadoCard(card, isNomeVaga(nome) ? 'aberta' : 'pendente', isNomeVaga(nome) ? 'Vaga Aberta' : nome);
+    if(typeof window.fechar === 'function') fechar('mEditarVagaSuporte');
+    autoSave(); notificarPainel(); safeToast('saved','Vaga editada.');
+  };
+  window.supportReabrirCard = function(card){ estadoCard(card,'aberta'); autoSave(); notificarPainel(); safeToast('saved','Vaga reaberta.'); };
+  window.supportExcluirCard = function(card){
+    if(!card) return;
+    if(!confirm('Excluir esta vaga da escala?')) return;
+    card.remove(); autoSave(); notificarPainel(); safeToast('saved','Vaga excluída.');
+  };
+
+  function adicionarFerramentasSuporte(card){
+    if(!card || card.querySelector('.support-card-tools')) return;
+    var tools = document.createElement('div');
+    tools.className = 'support-card-tools';
+    tools.innerHTML = '<button class="support-mini edit" type="button">Editar</button><button class="support-mini open" type="button">Reabrir</button><button class="support-mini del" type="button">Excluir</button>';
+    tools.querySelector('.edit').addEventListener('click',function(e){ e.stopPropagation(); supportEditarCard(card); });
+    tools.querySelector('.open').addEventListener('click',function(e){ e.stopPropagation(); supportReabrirCard(card); });
+    tools.querySelector('.del').addEventListener('click',function(e){ e.stopPropagation(); supportExcluirCard(card); });
+    card.appendChild(tools);
+  }
+  window.aplicarFerramentasSuporte = function(){ all('.card').forEach(adicionarFerramentasSuporte); };
+
+  window.prepararAdicionarVagaCliente = function(client, dia, turno){
+    garantirSupportUI();
+    if($('supportCliente')){ $('supportCliente').value = client; syncSupportTurnos(); }
+    if($('supportDia')) $('supportDia').value = dia || 'seg';
+    if($('supportTurno')) $('supportTurno').value = turno || ((TURNOS_CLIENTE[client] || TURNOS_CLIENTE.pastel)[0][0]);
+    if($('supportNome')) $('supportNome').value = 'Vaga Aberta';
+    if($('supportQtd')) $('supportQtd').value = 1;
+    (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(d){ var c = $('supportDiaChk_'+d); if(c) c.checked = d === (dia || ($('supportDia') && $('supportDia').value) || 'seg'); });
+    var panel = $('adminSupportPanel'); if(panel) panel.scrollIntoView({behavior:'smooth', block:'start'});
+  };
+
+  window.recriarBaseCompletaSuporte = function(){
+    if(!confirm('Recriar a base completa? Isso recoloca todos os clientes e vagas padrão.')) return;
+    if(typeof window.renderEscala === 'function') renderEscala(window.ESCALA_PADRAO || {});
+    autoSave(); notificarPainel(); safeToast('saved','Base completa recriada.');
+  };
+
+  window.toggleCongelarEscala = function(){
+    var atual = localStorage.getItem('oe_escala_congelada') === '1';
+    localStorage.setItem('oe_escala_congelada', atual ? '0' : '1');
+    atualizarEstadoCongeladoUI();
+    renderPartnerHome();
+    safeToast('saved', atual ? 'Agenda descongelada.' : 'Agenda congelada.');
+  };
+  window.atualizarEstadoCongeladoUI = function(){
+    var congelada = localStorage.getItem('oe_escala_congelada') === '1';
+    document.body.classList.toggle('escala-congelada', congelada);
+    var btn = $('btnFreezeScale');
+    if(btn){ btn.textContent = congelada ? 'Descongelar agenda' : 'Congelar agenda'; btn.classList.toggle('danger',congelada); btn.classList.toggle('warn',!congelada); }
+  };
+
+  function montarAbertasPorCliente(){
     var grupos = {};
-    CLIENTES_OFICIAIS_ORDEM.forEach(function(c){ grupos[c] = []; });
-    getDiasSemana().forEach(function(dia){
-      var col = document.querySelector('.day-col[data-day="'+dia+'"]');
-      if(!col) return;
-      Array.from(col.querySelectorAll('.card.vaga-aberta')).forEach(function(card){
+    CLIENTES_ORDEM.forEach(function(c){ grupos[c] = []; });
+    (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(dia){
+      all('.day-col[data-day="'+dia+'"] .card').forEach(function(card){
+        if(!isCardVaga(card)) return;
         var client = card.getAttribute('data-client');
         if(!grupos[client]) grupos[client] = [];
         grupos[client].push({dia:dia, card:card});
@@ -4423,876 +4473,172 @@ function recriarBaseCompletaSuporte(){
   }
 
   window.renderPartnerHome = function(){
-    var home = document.getElementById('partnerHome');
-    if(!home) return;
-    var nomeSalvo = getNomeSalvoParceiro();
-    var reservasBox = document.getElementById('partnerReservasSemana');
-    var clientesBox = document.getElementById('partnerClientesVagas');
-    var totalEl = document.getElementById('partnerTotalVagas');
-    if(!reservasBox || !clientesBox) return;
-
-    var dias = getDiasSemana();
-    reservasBox.innerHTML = '';
-    var minhas = [];
-    if(nomeSalvo){
-      dias.forEach(function(dia){
-        var col = document.querySelector('.day-col[data-day="'+dia+'"]');
-        if(!col) return;
-        Array.from(col.querySelectorAll('.card')).forEach(function(c){
-          var el = c.querySelector('.moto-name');
-          if(!el || c.classList.contains('vaga-aberta')) return;
-          if(normalizarNomeReserva(el.textContent) === normalizarNomeReserva(nomeSalvo)) minhas.push({dia:dia, card:c});
-        });
-      });
-    }
-    if(minhas.length === 0){
-      reservasBox.innerHTML = '<div class="partner-empty">' + (nomeSalvo ? 'Nenhuma reserva encontrada nesta semana para <strong>'+nomeSalvo+'</strong>.' : 'Você ainda não pegou nenhuma vaga nesta semana.') + '</div>';
-    }else{
-      minhas.forEach(function(item){
-        var c = item.card;
-        var client = c.getAttribute('data-client');
-        var div = document.createElement('div');
-        div.className = 'partner-reserva-row';
-        div.innerHTML =
-          '<div class="partner-reserva-icon">✓</div>' +
-          '<div class="partner-reserva-info"><span class="partner-reserva-dia">'+(DIA_PT[item.dia] || '')+'</span><strong>'+getClienteNome(client)+'</strong><span>'+getCardHorario(c)+' • '+c.querySelector('.moto-name').textContent.trim()+'</span></div>' +
-          '<div class="partner-reserva-status">Reservado</div>';
-        reservasBox.appendChild(div);
-      });
-    }
-    var badgeMinhaSemana = document.getElementById('partnerMyWeekBadge');
-    if(badgeMinhaSemana) badgeMinhaSemana.textContent = minhas.length;
-
-    var gruposCliente = montarGruposVagas();
-    var totalSemana = CLIENTES_OFICIAIS_ORDEM.reduce(function(acc,c){ return acc + (gruposCliente[c] ? gruposCliente[c].length : 0); },0);
-    if(totalEl) totalEl.textContent = totalSemana + (totalSemana === 1 ? ' vaga' : ' vagas');
-    clientesBox.innerHTML = '';
-
-    CLIENTES_OFICIAIS_ORDEM.forEach(function(client){
-      var itens = gruposCliente[client] || [];
+    var box = $('partnerClientesVagas');
+    var totalEl = $('partnerTotalVagas');
+    if(!box) return;
+    normalizarCards();
+    var grupos = montarAbertasPorCliente();
+    var total = CLIENTES_ORDEM.reduce(function(s,c){ return s + (grupos[c] ? grupos[c].length : 0); },0);
+    if(totalEl) totalEl.textContent = total + ' vaga(s) aberta(s)';
+    box.innerHTML = '';
+    CLIENTES_ORDEM.forEach(function(client){
+      var itens = grupos[client] || [];
       var group = document.createElement('div');
-      group.className = 'partner-client-group' + (itens.length ? '' : ' sem-vaga');
-      group.innerHTML =
-        '<button class="partner-client-main" type="button">' +
-          '<div class="partner-client-main-icon" style="background:'+getCorCliente(client)+'">'+getIconeCliente(client)+'</div>' +
-          '<div class="partner-client-main-info"><strong>'+getClienteNome(client)+'</strong><span>'+(itens.length ? 'Toque para escolher dia e horário' : 'Sem vaga aberta agora')+'</span></div>' +
-          '<div class="partner-client-main-count">'+(itens.length ? itens.length+' '+(itens.length === 1 ? 'vaga' : 'vagas') : '0 vaga')+'</div>' +
-        '</button>' +
-        '<div class="partner-client-details"></div>';
-
+      group.className = 'partner-client-group' + (itens.length ? '' : ' no-open');
+      group.innerHTML = '<button class="partner-client-main" type="button"><div class="partner-client-main-icon" style="background:'+corDoCliente(client)+'">'+iconeDoCliente(client)+'</div><div class="partner-client-main-info"><strong>'+nomeDoCliente(client)+'</strong><span>'+(itens.length ? 'Toque para escolher dia e horário' : 'Sem vaga aberta agora')+'</span><span class="partner-open-resumo">'+itens.length+' vaga(s) aberta(s)</span></div><div class="partner-client-main-count '+(itens.length ? '' : 'zero')+'">'+itens.length+'</div></button><div class="partner-client-details"></div>';
       var details = group.querySelector('.partner-client-details');
-      if(itens.length === 0){
-        details.innerHTML = '<div class="partner-client-empty">Esse cliente está cadastrado, mas não tem vaga aberta neste momento.</div>';
-      }else{
+      if(itens.length){
         var sub = {};
-        itens.forEach(function(item){
-          var turno = item.card.getAttribute('data-turno');
-          var key = item.dia + '|' + turno;
-          if(!sub[key]) sub[key] = [];
-          sub[key].push(item.card);
-        });
+        itens.forEach(function(item){ var key = item.dia+'|'+item.card.getAttribute('data-turno'); if(!sub[key]) sub[key]=[]; sub[key].push(item.card); });
         Object.keys(sub).sort(function(a,b){
-          var da = dias.indexOf(a.split('|')[0]);
-          var db = dias.indexOf(b.split('|')[0]);
-          if(da !== db) return da - db;
-          return a.localeCompare(b);
+          var pa=a.split('|'), pb=b.split('|'); var da=(window.DIAS||[]).indexOf(pa[0]), db=(window.DIAS||[]).indexOf(pb[0]);
+          return da !== db ? da-db : pa[1].localeCompare(pb[1]);
         }).forEach(function(key){
-          var parts = key.split('|');
-          var dia = parts[0];
-          var turno = parts[1];
-          var cards = sub[key];
-          var box = document.createElement('div');
-          box.className = 'partner-client-day-block';
-          box.innerHTML = '<div class="partner-client-day-head"><strong>'+(DIA_PT[dia] || dia)+'</strong><span>'+(TURNO_HORA[turno] || '')+' • '+cards.length+' '+(cards.length === 1 ? 'vaga' : 'vagas')+'</span></div>';
-          cards.forEach(function(card, i){
-            var btn = document.createElement('button');
-            btn.className = 'partner-slot-btn';
-            btn.type = 'button';
-            btn.innerHTML = '<div><strong>Vaga '+(i+1)+'</strong><small>'+(DIA_PT[dia] || dia)+' • '+(TURNO_HORA[turno] || '')+'</small></div><span>Pegar vaga</span>';
-            btn.addEventListener('click', function(){ abrirModalPegarVaga(card); });
-            box.appendChild(btn);
+          var p = key.split('|'), dia = p[0], turno = p[1], cards = sub[key];
+          var bloco = document.createElement('div'); bloco.className = 'partner-client-day-block';
+          bloco.innerHTML = '<div class="partner-client-day-head"><strong>'+DIA_PT_LOCAL[dia]+'</strong><span>'+((window.TURNO_HORA && TURNO_HORA[turno]) || '')+' • '+cards.length+' vaga(s)</span></div>';
+          cards.forEach(function(card,i){
+            var btn = document.createElement('button'); btn.className = 'partner-slot-btn'; btn.type = 'button';
+            btn.innerHTML = '<div><strong>Vaga '+(i+1)+'</strong><small>'+DIA_PT_LOCAL[dia]+' • '+horarioDoCard(card)+'</small></div><span>Pegar vaga</span>';
+            btn.addEventListener('click',function(){ abrirModalPegarVaga(card); });
+            bloco.appendChild(btn);
           });
-          details.appendChild(box);
+          details.appendChild(bloco);
         });
+      } else {
+        details.innerHTML = '<div class="partner-empty">Este cliente está sem vaga aberta no momento.</div>';
       }
-      group.querySelector('.partner-client-main').addEventListener('click', function(){
-        document.querySelectorAll('.partner-client-group.open').forEach(function(g){ if(g !== group) g.classList.remove('open'); });
-        group.classList.toggle('open');
-      });
-      clientesBox.appendChild(group);
+      group.querySelector('.partner-client-main').addEventListener('click',function(){ all('.partner-client-group.open').forEach(function(g){ if(g !== group) g.classList.remove('open'); }); group.classList.toggle('open'); });
+      box.appendChild(group);
     });
+    renderReservasParceiro();
   };
+
+  function renderReservasParceiro(){
+    var box = $('partnerReservasSemana'); var badge = $('partnerMyWeekBadge'); if(!box) return;
+    var nome = '';
+    try { nome = localStorage.getItem('oe_partner_name') || ''; } catch(e){}
+    var nomeNorm = (typeof window.normalizarNomeReserva === 'function') ? normalizarNomeReserva(nome) : nome.toLowerCase().trim();
+    var itens = [];
+    if(nomeNorm){
+      (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(dia){
+        all('.day-col[data-day="'+dia+'"] .card').forEach(function(card){
+          var n = getNome(card);
+          var nn = (typeof window.normalizarNomeReserva === 'function') ? normalizarNomeReserva(n) : n.toLowerCase().trim();
+          if(nn === nomeNorm && !isCardVaga(card)) itens.push({dia:dia, card:card});
+        });
+      });
+    }
+    if(badge) badge.textContent = itens.length;
+    if(!itens.length){ box.innerHTML = '<div class="partner-empty">Você ainda não pegou nenhuma vaga nesta semana.</div>'; return; }
+    box.innerHTML = itens.map(function(it){ return '<div class="partner-reserva-row"><div class="partner-reserva-icon">✓</div><div class="partner-reserva-info"><strong>'+nomeDoCliente(it.card.getAttribute('data-client'))+'</strong><span>'+DIA_PT_LOCAL[it.dia]+' • '+horarioDoCard(it.card)+'</span></div><div class="partner-reserva-status">Reservado</div></div>'; }).join('');
+  }
 
   window.renderAdminReservasPanel = function(){
-    var list = document.getElementById('adminWeekClientList');
-    var total = document.getElementById('adminWeekTotal');
-    if(!list || !total) return;
-    var dias = getDiasSemana();
-    var geral = {slots:0,reservados:0,abertas:0};
-    var dados = {};
-    CLIENTES_OFICIAIS_ORDEM.forEach(function(c){ dados[c]=[]; });
-
-    dias.forEach(function(dia){
-      var col = document.querySelector('.day-col[data-day="'+dia+'"]');
-      if(!col) return;
-      Array.from(col.querySelectorAll('.card')).forEach(function(card){
-        var client = card.getAttribute('data-client');
-        if(!dados[client]) dados[client]=[];
-        var vaga = card.classList.contains('vaga-aberta');
-        var nomeEl = card.querySelector('.moto-name');
-        var nome = nomeEl ? nomeEl.textContent.trim() : 'Vaga Aberta';
-        dados[client].push({dia:dia, turno:card.getAttribute('data-turno'), nome:nome, vaga:vaga});
-        geral.slots++;
-        if(vaga) geral.abertas++; else geral.reservados++;
-      });
-    });
-
-    total.innerHTML =
-      '<span class="admin-week-pill">Total: '+geral.slots+'</span>'+
-      '<span class="admin-week-pill ok">Reservadas: '+geral.reservados+'</span>'+
-      '<span class="admin-week-pill open">Abertas: '+geral.abertas+'</span>';
-
+    var list = $('adminWeekClientList'); if(!list) return;
+    normalizarCards();
+    var totalCards = all('.card').length, abertas = all('.card').filter(isCardVaga).length, reservadas = totalCards - abertas;
+    var totalEl = $('adminWeekTotal');
+    if(totalEl) totalEl.innerHTML = '<span class="admin-week-pill daymode">Total '+totalCards+'</span><span class="admin-week-pill daymode">Reservadas '+reservadas+'</span><span class="admin-week-pill daymode">Abertas '+abertas+'</span>';
     list.innerHTML = '';
-    CLIENTES_OFICIAIS_ORDEM.forEach(function(client){
-      var itens = (dados[client] || []).sort(function(a,b){
-        var da = dias.indexOf(a.dia), db = dias.indexOf(b.dia);
-        if(da !== db) return da - db;
-        return (TURNO_HORA[a.turno] || '').localeCompare(TURNO_HORA[b.turno] || '');
-      });
-      var abertas = itens.filter(function(i){return i.vaga;}).length;
-      var reservadas = itens.length - abertas;
-      var box = document.createElement('div');
-      box.className = 'admin-week-client';
-      box.innerHTML =
-        '<button class="admin-week-client-head" type="button">'+
-          '<div class="admin-week-client-icon" style="background:'+getCorCliente(client)+'">'+getIconeCliente(client)+'</div>'+
-          '<div class="admin-week-client-info"><strong>'+getClienteNome(client)+'</strong><span>'+itens.length+' horários na semana</span></div>'+
-          '<div class="admin-week-client-badges"><span class="admin-week-badge ok">'+reservadas+' reservadas</span><span class="admin-week-badge open">'+abertas+' abertas</span></div>'+
-        '</button><div class="admin-week-details"></div>';
-      var det = box.querySelector('.admin-week-details');
-      if(itens.length === 0){
-        det.innerHTML = '<div class="partner-client-empty">Cliente cadastrado sem horário criado nesta semana.</div>';
-      }else{
-        itens.forEach(function(item){
-          var row = document.createElement('div');
-          row.className = 'admin-week-row';
-          row.innerHTML =
-            '<div class="admin-week-day">'+(DIA_PT[item.dia] || item.dia)+'</div>'+
-            '<div class="admin-week-person"><strong>'+item.nome+'</strong><span>'+getClienteNome(client)+' • '+(TURNO_HORA[item.turno] || '')+'</span></div>'+
-            '<div class="admin-week-status '+(item.vaga?'open':'ok')+'">'+(item.vaga?'Não reservou':'Reservado')+'</div>';
-          det.appendChild(row);
-        });
-      }
-      box.querySelector('.admin-week-client-head').addEventListener('click', function(){ box.classList.toggle('open'); });
-      list.appendChild(box);
-    });
-  };
-
-  var oldRenderEscala = window.renderEscala;
-  if(typeof oldRenderEscala === 'function'){
-    window.renderEscala = function(agenda){
-      oldRenderEscala(agenda);
-      try { renderAdminReservasPanel(); } catch(e){ console.warn(e); }
-      try { renderPartnerHome(); } catch(e){ console.warn(e); }
-    };
-  }
-
-  var oldAtualizar = window.atualizarStatusClientes;
-  if(typeof oldAtualizar === 'function'){
-    window.atualizarStatusClientes = function(){
-      oldAtualizar();
-      try { renderAdminReservasPanel(); } catch(e){ console.warn(e); }
-      try { renderPartnerHome(); } catch(e){ console.warn(e); }
-    };
-  }
-
-  document.addEventListener('DOMContentLoaded', function(){
-    try { syncSupportTurnos(); } catch(e){}
-    try { atualizarEstadoCongeladoUI(); } catch(e){}
-    try { renderPartnerHome(); } catch(e){}
-    try { renderAdminReservasPanel(); } catch(e){}
-  });
-})();
-</script>
-
-
-
-<style>
-/* ══════════════════════════════
-   PATCH CIRÚRGICO — ADMIN FÁCIL POR CLIENTE
-   Contagem real, repetição por dias e ações na essência.
-══════════════════════════════ */
-.support-days-box{
-  margin-top:12px;
-  border:1px solid #E2E8F0;
-  background:#F8FAFC;
-  border-radius:16px;
-  padding:12px;
-}
-.support-days-title{
-  color:#0F172A;
-  font-size:12px;
-  font-weight:950;
-  margin-bottom:8px;
-}
-.support-days-grid{
-  display:grid;
-  grid-template-columns:repeat(7,minmax(0,1fr));
-  gap:7px;
-}
-.support-day-check{
-  min-height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  border:1px solid #E2E8F0;
-  background:#fff;
-  border-radius:12px;
-  color:#334155;
-  font-size:11px;
-  font-weight:900;
-  cursor:pointer;
-  user-select:none;
-}
-.support-day-check input{ width:15px; height:15px; accent-color:#DC2626; }
-.support-day-check:has(input:checked){
-  border-color:#FCA5A5;
-  background:#FEF2F2;
-  color:#991B1B;
-}
-.admin-week-client-head{ cursor:pointer; }
-.admin-week-client-actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-.admin-week-client-add{
-  min-height:34px;
-  border:1px solid #CBD5E1;
-  background:#0F172A;
-  color:#fff;
-  border-radius:11px;
-  padding:0 10px;
-  font-family:var(--font);
-  font-size:11px;
-  font-weight:950;
-  cursor:pointer;
-  white-space:nowrap;
-}
-.admin-week-day-group{
-  border-top:1px solid #E5E7EB;
-}
-.admin-week-day-title{
-  padding:10px 12px;
-  background:#F8FAFC;
-  color:#0F172A;
-  font-size:12px;
-  font-weight:950;
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-}
-.admin-week-day-title span{
-  color:#64748B;
-  font-size:11px;
-  font-weight:850;
-}
-.admin-week-row-actions{
-  display:flex;
-  gap:5px;
-  justify-content:flex-end;
-  flex-wrap:wrap;
-}
-.admin-row-btn{
-  min-height:30px;
-  border-radius:9px;
-  border:1px solid #E2E8F0;
-  background:#fff;
-  padding:0 8px;
-  font-family:var(--font);
-  font-size:10px;
-  font-weight:950;
-  cursor:pointer;
-  white-space:nowrap;
-}
-.admin-row-btn.edit{ color:#1D4ED8; background:#EFF6FF; border-color:#BFDBFE; }
-.admin-row-btn.open{ color:#047857; background:#ECFDF5; border-color:#A7F3D0; }
-.admin-row-btn.del{ color:#B91C1C; background:#FEF2F2; border-color:#FECACA; }
-.admin-week-row{
-  grid-template-columns:96px minmax(0,1fr) 92px minmax(170px,auto)!important;
-}
-.admin-week-client-info span b{ color:#0F172A; }
-@media(max-width:720px){
-  .support-days-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .admin-week-row{ grid-template-columns:1fr!important; gap:8px; }
-  .admin-week-status{ justify-self:start; }
-  .admin-week-row-actions{ justify-content:flex-start; }
-  .admin-week-client-actions{ justify-content:flex-start; width:100%; }
-}
-</style>
-
-<script>
-/* ══════════════════════════════
-   PATCH CIRÚRGICO — NÃO RECOMEÇAR
-   1) Admin escolhe cliente, horário, nome e marca os dias da semana.
-   2) Painel contabiliza total previsto, reservado e aberto por cliente/dia.
-   3) Admin edita, reabre e exclui direto na visão do cliente.
-══════════════════════════════ */
-(function(){
-  if(window.__patchAdminFacilCliente) return;
-  window.__patchAdminFacilCliente = true;
-
-  var ORDEM_CLIENTES = ['pastel','beven','meridio','fratelli','drica','barto','centermeat'];
-  var DIAS_FIXOS = ['seg','ter','qua','qui','sex','sab','dom'];
-  var DIA_CURTO = {seg:'Seg',ter:'Ter',qua:'Qua',qui:'Qui',sex:'Sex',sab:'Sáb',dom:'Dom'};
-
-  function nomeClienteSeguro(client){ return (typeof getClienteNome === 'function') ? getClienteNome(client) : client; }
-  function corClienteSeguro(client){ return (typeof getCorCliente === 'function') ? getCorCliente(client) : '#0F172A'; }
-  function iconeClienteSeguro(client){ return (typeof getIconeCliente === 'function') ? getIconeCliente(client) : '🏪'; }
-  function horaCardSeguro(card){
-    if(typeof getCardHorario === 'function') return getCardHorario(card);
-    return (window.TURNO_HORA && TURNO_HORA[card.getAttribute('data-turno')]) || '';
-  }
-
-  function garantirSupportDiasUI(){
-    var panel = document.getElementById('adminSupportPanel');
-    if(!panel || document.getElementById('supportDiasBox')) return;
-    var grid = panel.querySelector('.admin-support-grid');
-    if(!grid) return;
-    var box = document.createElement('div');
-    box.className = 'support-days-box';
-    box.id = 'supportDiasBox';
-    box.innerHTML = '<div class="support-days-title">Repetir esta vaga nos dias marcados</div><div class="support-days-grid">'+
-      DIAS_FIXOS.map(function(d){
-        return '<label class="support-day-check"><input type="checkbox" value="'+d+'" id="supportDiaChk_'+d+'"><span>'+DIA_CURTO[d]+'</span></label>';
-      }).join('') + '</div>';
-    grid.insertAdjacentElement('afterend', box);
-
-    var selectDia = document.getElementById('supportDia');
-    if(selectDia){
-      selectDia.addEventListener('change', function(){ marcarSoDia(selectDia.value); });
-      marcarSoDia(selectDia.value || 'seg');
-    }
-  }
-
-  function marcarSoDia(dia){
-    DIAS_FIXOS.forEach(function(d){
-      var el = document.getElementById('supportDiaChk_'+d);
-      if(el) el.checked = (d === dia);
-    });
-  }
-
-  function getDiasMarcadosSuporte(){
-    garantirSupportDiasUI();
-    var dias = DIAS_FIXOS.filter(function(d){
-      var el = document.getElementById('supportDiaChk_'+d);
-      return el && el.checked;
-    });
-    if(dias.length) return dias;
-    var selectDia = document.getElementById('supportDia');
-    return [selectDia ? selectDia.value : 'seg'];
-  }
-
-  function atualizarTudoDepoisDeMudanca(msg){
-    try { recalc(); } catch(e){}
-    try { applyFilters(); } catch(e){}
-    try { autoSave(); } catch(e){}
-    try { atualizarStatusClientes(); } catch(e){}
-    try { renderPartnerHome(); } catch(e){}
-    try { renderAdminReservasPanel(); } catch(e){}
-    try { aplicarFerramentasSuporte(); } catch(e){}
-    if(msg && typeof toast === 'function') toast('saved', msg);
-  }
-
-  window.supportAdicionarVaga = function(){
-    var clientEl = document.getElementById('supportCliente');
-    var turnoEl = document.getElementById('supportTurno');
-    var nomeEl = document.getElementById('supportNome');
-    if(!clientEl || !turnoEl || !nomeEl) return;
-
-    var client = clientEl.value;
-    var turno = turnoEl.value;
-    var nome = (nomeEl.value || '').trim() || 'Vaga Aberta';
-    var dias = getDiasMarcadosSuporte();
-    var ag = (typeof lerAgenda === 'function') ? lerAgenda() : {};
-
-    dias.forEach(function(dia){
-      if(!ag[dia]) ag[dia] = [];
-      ag[dia].push({
-        nome:nome,
-        turno:turno,
-        client:client,
-        vaga:(nome.toLowerCase().indexOf('vaga aberta') === 0)
-      });
-    });
-
-    renderEscala(ag);
-    atualizarTudoDepoisDeMudanca(dias.length === 1 ? 'Vaga adicionada.' : dias.length + ' vagas adicionadas na semana.');
-  };
-
-  window.supportAdicionarVagaAberta = function(){
-    var nomeEl = document.getElementById('supportNome');
-    if(nomeEl) nomeEl.value = 'Vaga Aberta';
-    window.supportAdicionarVaga();
-  };
-
-  window.supportSalvarEdicao = function(){
-    var modal = document.getElementById('mEditarVagaSuporte');
-    var card = modal && modal._card;
-    if(!card) return;
-
-    var client = document.getElementById('editCliente').value;
-    var turno = document.getElementById('editTurno').value;
-    var nome = (document.getElementById('editNome').value || '').trim() || 'Vaga Aberta';
-
-    card.setAttribute('data-client', client);
-    card.setAttribute('data-turno', turno);
-    card.setAttribute('data-name', nome.toLowerCase());
-    card.classList.remove('red','orange','yellow','green','blue','teal','purple');
-    card.classList.add(turno);
-    var nm = card.querySelector('.moto-name');
-    if(nm) nm.textContent = nome;
-    var ht = card.querySelector('.card-turno');
-    if(ht) ht.textContent = (TURNO_HORA && TURNO_HORA[turno]) || '';
-
-    if(nome.toLowerCase().indexOf('vaga aberta') === 0){
-      card.classList.add('vaga-aberta');
-      card.classList.remove('confirmado');
-    }else{
-      card.classList.remove('vaga-aberta');
-    }
-
-    fechar('mEditarVagaSuporte');
-    var ag = lerAgenda();
-    renderEscala(ag);
-    atualizarTudoDepoisDeMudanca('Vaga editada.');
-  };
-
-  window.supportReabrirCard = function(card){
-    if(!card) return;
-    var nm = card.querySelector('.moto-name');
-    if(nm) nm.textContent = 'Vaga Aberta';
-    card.setAttribute('data-name','vaga aberta');
-    card.classList.add('vaga-aberta');
-    card.classList.remove('confirmado');
-    card.setAttribute('data-cobriu','0');
-    atualizarTudoDepoisDeMudanca('Vaga reaberta.');
-  };
-
-  window.supportExcluirCard = function(card){
-    if(!card) return;
-    if(!confirm('Excluir esta vaga da escala?')) return;
-    card.remove();
-    atualizarTudoDepoisDeMudanca('Vaga excluída.');
-  };
-
-  window.prepararAdicionarVagaCliente = function(client){
-    garantirSupportDiasUI();
-    var c = document.getElementById('supportCliente');
-    if(c){ c.value = client; }
-    try { syncSupportTurnos(); } catch(e){}
-    var n = document.getElementById('supportNome');
-    if(n) n.value = 'Vaga Aberta';
-    var panel = document.getElementById('adminSupportPanel');
-    if(panel) panel.scrollIntoView({behavior:'smooth', block:'start'});
-    var primeiro = document.getElementById('supportDiaChk_seg');
-    if(primeiro) primeiro.focus();
-  };
-
-  window.renderAdminReservasPanel = function(){
-    var list = document.getElementById('adminWeekClientList');
-    var total = document.getElementById('adminWeekTotal');
-    if(!list || !total) return;
-
-    window.__adminCardRefs = {};
-    var geral = {slots:0,reservados:0,abertas:0};
-    var dados = {};
-    ORDEM_CLIENTES.forEach(function(c){ dados[c] = []; });
-
-    DIAS_FIXOS.forEach(function(dia){
-      var col = document.querySelector('.day-col[data-day="'+dia+'"]');
-      if(!col) return;
-      Array.from(col.querySelectorAll('.card')).forEach(function(card){
-        var ref = 'adm_' + Math.random().toString(36).slice(2,10);
-        window.__adminCardRefs[ref] = card;
-        var client = card.getAttribute('data-client');
-        if(!dados[client]) dados[client] = [];
-        var vaga = card.classList.contains('vaga-aberta');
-        var nomeEl = card.querySelector('.moto-name');
-        var nome = nomeEl ? nomeEl.textContent.trim() : 'Vaga Aberta';
-        dados[client].push({ref:ref,dia:dia,turno:card.getAttribute('data-turno'),nome:nome,vaga:vaga,card:card});
-        geral.slots++;
-        if(vaga) geral.abertas++; else geral.reservados++;
-      });
-    });
-
-    total.innerHTML =
-      '<span class="admin-week-pill">Total previsto: '+geral.slots+'</span>'+
-      '<span class="admin-week-pill ok">Reservadas: '+geral.reservados+'</span>'+
-      '<span class="admin-week-pill open">Abertas: '+geral.abertas+'</span>';
-
-    list.innerHTML = '';
-    ORDEM_CLIENTES.forEach(function(client){
-      var itens = (dados[client] || []).sort(function(a,b){
-        var da = DIAS_FIXOS.indexOf(a.dia), db = DIAS_FIXOS.indexOf(b.dia);
-        if(da !== db) return da - db;
-        return (horaCardSeguro(a.card) || '').localeCompare(horaCardSeguro(b.card) || '');
-      });
-      var abertas = itens.filter(function(i){ return i.vaga; }).length;
-      var reservadas = itens.length - abertas;
-      var box = document.createElement('div');
-      box.className = 'admin-week-client';
-      box.innerHTML =
-        '<button class="admin-week-client-head" type="button">'+
-          '<div class="admin-week-client-icon" style="background:'+corClienteSeguro(client)+'">'+iconeClienteSeguro(client)+'</div>'+
-          '<div class="admin-week-client-info"><strong>'+nomeClienteSeguro(client)+'</strong><span><b>'+itens.length+'</b> vagas previstas • '+reservadas+' reservadas • '+abertas+' abertas</span></div>'+
-          '<div class="admin-week-client-actions"><button class="admin-week-client-add" type="button">+ Adicionar vaga</button></div>'+
-        '</button><div class="admin-week-details"></div>';
-
-      var det = box.querySelector('.admin-week-details');
-      if(itens.length === 0){
-        det.innerHTML = '<div class="partner-client-empty">Cliente cadastrado sem vaga criada nesta semana.</div>';
-      }else{
-        DIAS_FIXOS.forEach(function(dia){
-          var doDia = itens.filter(function(i){ return i.dia === dia; });
-          if(!doDia.length) return;
-          var abDia = doDia.filter(function(i){ return i.vaga; }).length;
-          var resDia = doDia.length - abDia;
-          var grupo = document.createElement('div');
-          grupo.className = 'admin-week-day-group';
-          grupo.innerHTML = '<div class="admin-week-day-title"><strong>'+(DIA_PT[dia] || dia)+'</strong><span>'+doDia.length+' vagas • '+resDia+' reservadas • '+abDia+' abertas</span></div>';
-          doDia.forEach(function(item){
-            var row = document.createElement('div');
-            row.className = 'admin-week-row';
-            row.innerHTML =
-              '<div class="admin-week-day">'+(DIA_PT[item.dia] || item.dia)+'</div>'+
-              '<div class="admin-week-person"><strong>'+item.nome+'</strong><span>'+nomeClienteSeguro(client)+' • '+horaCardSeguro(item.card)+'</span></div>'+
-              '<div class="admin-week-status '+(item.vaga?'open':'ok')+'">'+(item.vaga?'Não reservou':'Reservado')+'</div>'+
-              '<div class="admin-week-row-actions">'+
-                '<button class="admin-row-btn edit" type="button" data-ref="'+item.ref+'">Editar</button>'+
-                '<button class="admin-row-btn open" type="button" data-ref="'+item.ref+'">Reabrir</button>'+
-                '<button class="admin-row-btn del" type="button" data-ref="'+item.ref+'">Excluir</button>'+
-              '</div>';
+    CLIENTES_ORDEM.forEach(function(client){
+      var cardsCliente = all('.card').filter(function(card){ return card.getAttribute('data-client') === client; });
+      var abertasCliente = cardsCliente.filter(isCardVaga).length;
+      var bloco = document.createElement('div'); bloco.className = 'admin-week-client';
+      bloco.innerHTML = '<div class="admin-week-client-head"><div class="admin-week-client-info"><strong>'+nomeDoCliente(client)+'</strong><span><b>'+cardsCliente.length+'</b> vagas na semana • '+abertasCliente+' aberta(s)</span></div><div class="admin-week-client-actions"><button class="admin-week-client-add" type="button">+ vaga</button></div></div><div class="admin-day-summary"></div><div class="admin-week-client-body"></div>';
+      bloco.querySelector('.admin-week-client-add').addEventListener('click',function(){ prepararAdicionarVagaCliente(client, (window.DIAS||[])[0], (TURNOS_CLIENTE[client]||TURNOS_CLIENTE.pastel)[0][0]); });
+      var summary = bloco.querySelector('.admin-day-summary');
+      var body = bloco.querySelector('.admin-week-client-body');
+      (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(dia){
+        var cardsDia = all('.day-col[data-day="'+dia+'"] .card').filter(function(card){ return card.getAttribute('data-client') === client; });
+        var abertasDia = cardsDia.filter(isCardVaga).length;
+        var chip = document.createElement('div'); chip.className = 'admin-day-chip ' + (abertasDia ? 'danger' : (cardsDia.length ? 'ok' : 'warn'));
+        chip.innerHTML = '<strong>'+DIA_CURTO_LOCAL[dia]+'</strong><span>'+cardsDia.length+' total • '+abertasDia+' aberta(s)</span>';
+        summary.appendChild(chip);
+        if(cardsDia.length){
+          var grupo = document.createElement('div'); grupo.className = 'admin-week-day-group';
+          grupo.innerHTML = '<div class="admin-week-day-title"><strong>'+DIA_PT_LOCAL[dia]+'</strong><span>'+cardsDia.length+' vaga(s), '+abertasDia+' aberta(s)</span></div>';
+          cardsDia.forEach(function(card){
+            var row = document.createElement('div'); row.className = 'admin-week-row';
+            var status = isCardVaga(card) ? 'Aberta' : (card.classList.contains('confirmado') ? 'Confirmada' : 'Pendente');
+            row.innerHTML = '<div class="admin-week-time">'+horarioDoCard(card)+'</div><div class="admin-week-name">'+getNome(card)+'</div><div class="admin-week-status">'+status+'</div><div class="admin-week-row-actions"><button class="admin-row-btn edit">Editar</button><button class="admin-row-btn open">Reabrir</button><button class="admin-row-btn del">Excluir</button></div>';
+            row.querySelector('.edit').addEventListener('click',function(){ supportEditarCard(card); });
+            row.querySelector('.open').addEventListener('click',function(){ supportReabrirCard(card); });
+            row.querySelector('.del').addEventListener('click',function(){ supportExcluirCard(card); });
             grupo.appendChild(row);
           });
-          det.appendChild(grupo);
-        });
-      }
-
-      box.querySelector('.admin-week-client-head').addEventListener('click', function(e){
-        if(e.target.closest('.admin-week-client-add')) return;
-        box.classList.toggle('open');
-      });
-      box.querySelector('.admin-week-client-add').addEventListener('click', function(e){
-        e.stopPropagation();
-        box.classList.add('open');
-        prepararAdicionarVagaCliente(client);
-      });
-      det.addEventListener('click', function(e){
-        var btn = e.target.closest('button[data-ref]');
-        if(!btn) return;
-        e.stopPropagation();
-        var card = window.__adminCardRefs[btn.getAttribute('data-ref')];
-        if(!card) return;
-        if(btn.classList.contains('edit')) supportEditarCard(card);
-        if(btn.classList.contains('open')) supportReabrirCard(card);
-        if(btn.classList.contains('del')) supportExcluirCard(card);
-      });
-      list.appendChild(box);
-    });
-  };
-
-  var oldRender = window.renderEscala;
-  if(typeof oldRender === 'function' && !oldRender.__adminFacilWrapped){
-    var wrapped = function(agenda){
-      oldRender(agenda);
-      try { garantirSupportDiasUI(); } catch(e){}
-      try { renderAdminReservasPanel(); } catch(e){ console.warn(e); }
-      try { renderPartnerHome(); } catch(e){ console.warn(e); }
-      try { aplicarFerramentasSuporte(); } catch(e){}
-    };
-    wrapped.__adminFacilWrapped = true;
-    window.renderEscala = wrapped;
-  }
-
-  document.addEventListener('DOMContentLoaded', function(){
-    try { garantirSupportDiasUI(); } catch(e){}
-    try { syncSupportTurnos(); } catch(e){}
-    try { renderAdminReservasPanel(); } catch(e){}
-  });
-})();
-</script>
-
-
-<style>
-/* ══════════════════════════════
-   PATCH CONTAGEM POR DIA — ADMIN NÃO CONFUNDE SEMANA COM DIA
-══════════════════════════════ */
-.admin-day-summary{
-  margin-top:8px;
-  display:grid;
-  grid-template-columns:repeat(7,minmax(0,1fr));
-  gap:6px;
-}
-.admin-day-chip{
-  border:1px solid #E2E8F0;
-  background:#fff;
-  border-radius:12px;
-  padding:7px 6px;
-  display:grid;
-  gap:2px;
-  text-align:center;
-}
-.admin-day-chip strong{
-  color:#0F172A;
-  font-size:10px;
-  font-weight:950;
-}
-.admin-day-chip span{
-  color:#64748B;
-  font-size:10px;
-  font-weight:850;
-}
-.admin-day-chip.ok{ border-color:#A7F3D0; background:#ECFDF5; }
-.admin-day-chip.warn{ border-color:#FDE68A; background:#FFFBEB; }
-.admin-day-chip.danger{ border-color:#FECACA; background:#FEF2F2; }
-.admin-day-chip.extra{ border-color:#BFDBFE; background:#EFF6FF; }
-.admin-week-client-info span{ line-height:1.35; }
-.admin-week-client-info .admin-client-resumo{
-  display:block;
-  margin-top:3px;
-  color:#64748B;
-  font-size:11px;
-  font-weight:850;
-}
-.admin-week-day-title strong small{
-  display:inline-block;
-  margin-left:6px;
-  color:#64748B;
-  font-size:10px;
-  font-weight:850;
-}
-.admin-week-day-title .faltando{ color:#B91C1C; }
-.admin-week-day-title .okdia{ color:#047857; }
-.admin-week-day-title .sobrando{ color:#1D4ED8; }
-#adminWeekTotal .admin-week-pill.daymode{ background:#F8FAFC; color:#0F172A; border-color:#E2E8F0; }
-@media(max-width:720px){
-  .admin-day-summary{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-}
-</style>
-
-<script>
-/* ══════════════════════════════
-   PATCH FINAL — CONTAGEM POR CLIENTE E POR DIA
-   Não mexe no fluxo do motoboy. Só corrige leitura do admin.
-══════════════════════════════ */
-(function(){
-  if(window.__patchContagemPorDiaAdmin) return;
-  window.__patchContagemPorDiaAdmin = true;
-
-  var CLIENTES_DIA = ['pastel','beven','meridio','fratelli','drica','barto','centermeat'];
-  var DIAS_DIA = ['seg','ter','qua','qui','sex','sab','dom'];
-  var DIA_CURTO_DIA = {seg:'Seg',ter:'Ter',qua:'Qua',qui:'Qui',sex:'Sex',sab:'Sáb',dom:'Dom'};
-
-  var VAGAS_PREVISTAS_DIA = {
-    pastel:     {seg:0, ter:5, qua:5, qui:5, sex:6, sab:6, dom:6},
-    beven:      {seg:3, ter:3, qua:4, qui:4, sex:8, sab:8, dom:6},
-    meridio:    {seg:0, ter:3, qua:3, qui:3, sex:5, sab:5, dom:4},
-    fratelli:   {seg:3, ter:3, qua:3, qui:3, sex:4, sab:4, dom:4},
-    drica:      {seg:3, ter:2, qua:2, qui:3, sex:4, sab:4, dom:4},
-    barto:      {seg:1, ter:1, qua:1, qui:1, sex:1, sab:1, dom:1},
-    centermeat: {seg:1, ter:1, qua:1, qui:1, sex:1, sab:1, dom:1}
-  };
-
-  function nomeClienteDia(client){ return (typeof getClienteNome === 'function') ? getClienteNome(client) : client; }
-  function corClienteDia(client){ return (typeof getCorCliente === 'function') ? getCorCliente(client) : '#0F172A'; }
-  function iconeClienteDia(client){ return (typeof getIconeCliente === 'function') ? getIconeCliente(client) : '🏪'; }
-  function horaDia(card){
-    if(typeof getCardHorario === 'function') return getCardHorario(card);
-    return (window.TURNO_HORA && TURNO_HORA[card.getAttribute('data-turno')]) || '';
-  }
-  function previsto(client,dia){ return (VAGAS_PREVISTAS_DIA[client] && VAGAS_PREVISTAS_DIA[client][dia]) || 0; }
-
-  function classeChip(prev, criado){
-    if(prev === 0 && criado === 0) return 'ok';
-    if(criado === prev) return 'ok';
-    if(criado < prev) return 'danger';
-    return 'extra';
-  }
-  function textoSituacao(prev, criado){
-    if(criado === prev) return 'ok';
-    if(criado < prev) return 'faltam '+(prev-criado);
-    return 'sobram '+(criado-prev);
-  }
-  function classeSituacao(prev, criado){
-    if(criado === prev) return 'okdia';
-    if(criado < prev) return 'faltando';
-    return 'sobrando';
-  }
-
-  window.renderAdminReservasPanel = function(){
-    var list = document.getElementById('adminWeekClientList');
-    var total = document.getElementById('adminWeekTotal');
-    if(!list || !total) return;
-
-    window.__adminCardRefs = {};
-    var dados = {};
-    var geral = {previsto:0,criado:0,reservados:0,abertas:0,faltam:0,sobram:0};
-    CLIENTES_DIA.forEach(function(c){
-      dados[c] = {};
-      DIAS_DIA.forEach(function(d){ dados[c][d] = []; geral.previsto += previsto(c,d); });
-    });
-
-    DIAS_DIA.forEach(function(dia){
-      var col = document.querySelector('.day-col[data-day="'+dia+'"]');
-      if(!col) return;
-      Array.from(col.querySelectorAll('.card')).forEach(function(card){
-        var client = card.getAttribute('data-client');
-        if(!dados[client]){ dados[client] = {}; DIAS_DIA.forEach(function(d){ dados[client][d]=[]; }); }
-        var ref = 'adm_' + Math.random().toString(36).slice(2,10);
-        window.__adminCardRefs[ref] = card;
-        var vaga = card.classList.contains('vaga-aberta');
-        var nomeEl = card.querySelector('.moto-name');
-        var nome = nomeEl ? nomeEl.textContent.trim() : 'Vaga Aberta';
-        dados[client][dia].push({ref:ref,dia:dia,turno:card.getAttribute('data-turno'),nome:nome,vaga:vaga,card:card});
-        geral.criado++;
-        if(vaga) geral.abertas++; else geral.reservados++;
-      });
-    });
-
-    CLIENTES_DIA.forEach(function(c){
-      DIAS_DIA.forEach(function(d){
-        var prev = previsto(c,d);
-        var criado = (dados[c] && dados[c][d]) ? dados[c][d].length : 0;
-        if(criado < prev) geral.faltam += (prev-criado);
-        if(criado > prev) geral.sobram += (criado-prev);
-      });
-    });
-
-    total.innerHTML =
-      '<span class="admin-week-pill daymode">Previstas: '+geral.previsto+'</span>'+
-      '<span class="admin-week-pill daymode">Criadas: '+geral.criado+'</span>'+
-      '<span class="admin-week-pill ok">Reservadas: '+geral.reservados+'</span>'+
-      '<span class="admin-week-pill open">Abertas: '+geral.abertas+'</span>'+
-      '<span class="admin-week-pill open">Faltam criar: '+geral.faltam+'</span>'+
-      (geral.sobram ? '<span class="admin-week-pill daymode">Sobrando: '+geral.sobram+'</span>' : '');
-
-    list.innerHTML = '';
-    CLIENTES_DIA.forEach(function(client){
-      var totalPrev = 0, totalCriado = 0, totalReservado = 0, totalAberto = 0, totalFalta = 0, totalSobra = 0;
-      DIAS_DIA.forEach(function(dia){
-        var arr = dados[client][dia] || [];
-        var prev = previsto(client,dia);
-        totalPrev += prev;
-        totalCriado += arr.length;
-        totalAberto += arr.filter(function(i){ return i.vaga; }).length;
-        totalReservado += arr.filter(function(i){ return !i.vaga; }).length;
-        if(arr.length < prev) totalFalta += (prev-arr.length);
-        if(arr.length > prev) totalSobra += (arr.length-prev);
-      });
-
-      var box = document.createElement('div');
-      box.className = 'admin-week-client';
-      var chips = DIAS_DIA.map(function(dia){
-        var criado = (dados[client][dia] || []).length;
-        var prev = previsto(client,dia);
-        return '<div class="admin-day-chip '+classeChip(prev,criado)+'"><strong>'+DIA_CURTO_DIA[dia]+'</strong><span>'+criado+'/'+prev+'</span></div>';
-      }).join('');
-
-      box.innerHTML =
-        '<button class="admin-week-client-head" type="button">'+
-          '<div class="admin-week-client-icon" style="background:'+corClienteDia(client)+'">'+iconeClienteDia(client)+'</div>'+
-          '<div class="admin-week-client-info"><strong>'+nomeClienteDia(client)+'</strong>'+
-            '<span class="admin-client-resumo">Por dia: criado/previsto. Total: '+totalCriado+'/'+totalPrev+' • '+totalReservado+' reservadas • '+totalAberto+' abertas'+(totalFalta ? ' • faltam '+totalFalta : '')+(totalSobra ? ' • sobrando '+totalSobra : '')+'</span>'+
-            '<div class="admin-day-summary">'+chips+'</div>'+
-          '</div>'+
-          '<div class="admin-week-client-actions"><button class="admin-week-client-add" type="button">+ Adicionar vaga</button></div>'+
-        '</button><div class="admin-week-details"></div>';
-
-      var det = box.querySelector('.admin-week-details');
-      DIAS_DIA.forEach(function(dia){
-        var itens = (dados[client][dia] || []).sort(function(a,b){
-          return (horaDia(a.card) || '').localeCompare(horaDia(b.card) || '');
-        });
-        var prev = previsto(client,dia);
-        var criado = itens.length;
-        var abertas = itens.filter(function(i){ return i.vaga; }).length;
-        var reservadas = criado - abertas;
-        var status = textoSituacao(prev, criado);
-        var grupo = document.createElement('div');
-        grupo.className = 'admin-week-day-group';
-        grupo.innerHTML = '<div class="admin-week-day-title"><strong>'+(DIA_PT[dia] || dia)+' <small class="'+classeSituacao(prev,criado)+'">'+status+'</small></strong><span>previsto '+prev+' • criado '+criado+' • reservado '+reservadas+' • aberto '+abertas+'</span></div>';
-
-        if(!itens.length){
-          var vazio = document.createElement('div');
-          vazio.className = 'admin-week-row';
-          vazio.innerHTML = '<div class="admin-week-day">'+(DIA_PT[dia] || dia)+'</div><div class="admin-week-person"><strong>Nenhuma vaga criada</strong><span>'+nomeClienteDia(client)+' • previsto do dia: '+prev+'</span></div><div class="admin-week-status open">Não criou</div><div class="admin-week-row-actions"><button class="admin-row-btn edit admin-add-day" type="button">Adicionar</button></div>';
-          vazio.querySelector('.admin-add-day').addEventListener('click', function(e){
-            e.stopPropagation();
-            if(typeof prepararAdicionarVagaCliente === 'function') prepararAdicionarVagaCliente(client);
-            var selectDia = document.getElementById('supportDia');
-            if(selectDia){ selectDia.value = dia; selectDia.dispatchEvent(new Event('change')); }
-          });
-          grupo.appendChild(vazio);
+          body.appendChild(grupo);
         }
-
-        itens.forEach(function(item){
-          var row = document.createElement('div');
-          row.className = 'admin-week-row';
-          row.innerHTML =
-            '<div class="admin-week-day">'+(DIA_PT[item.dia] || item.dia)+'</div>'+
-            '<div class="admin-week-person"><strong>'+item.nome+'</strong><span>'+nomeClienteDia(client)+' • '+horaDia(item.card)+'</span></div>'+
-            '<div class="admin-week-status '+(item.vaga?'open':'ok')+'">'+(item.vaga?'Não reservou':'Reservado')+'</div>'+
-            '<div class="admin-week-row-actions">'+
-              '<button class="admin-row-btn edit" type="button" data-ref="'+item.ref+'">Editar</button>'+
-              '<button class="admin-row-btn open" type="button" data-ref="'+item.ref+'">Reabrir</button>'+
-              '<button class="admin-row-btn del" type="button" data-ref="'+item.ref+'">Excluir</button>'+
-            '</div>';
-          grupo.appendChild(row);
-        });
-        det.appendChild(grupo);
       });
-
-      box.querySelector('.admin-week-client-head').addEventListener('click', function(e){
-        if(e.target.closest('.admin-week-client-add')) return;
-        box.classList.toggle('open');
-      });
-      box.querySelector('.admin-week-client-add').addEventListener('click', function(e){
-        e.stopPropagation();
-        box.classList.add('open');
-        if(typeof prepararAdicionarVagaCliente === 'function') prepararAdicionarVagaCliente(client);
-      });
-      det.addEventListener('click', function(e){
-        var btn = e.target.closest('button[data-ref]');
-        if(!btn) return;
-        e.stopPropagation();
-        var card = window.__adminCardRefs[btn.getAttribute('data-ref')];
-        if(!card) return;
-        if(btn.classList.contains('edit')) supportEditarCard(card);
-        if(btn.classList.contains('open')) supportReabrirCard(card);
-        if(btn.classList.contains('del')) supportExcluirCard(card);
-      });
-      list.appendChild(box);
+      list.appendChild(bloco);
     });
   };
 
-  var oldAtualizaDia = window.atualizarStatusClientes;
-  if(typeof oldAtualizaDia === 'function' && !oldAtualizaDia.__contagemDiaWrapped){
-    var w = function(){
-      oldAtualizaDia();
-      try { renderAdminReservasPanel(); } catch(e){ console.warn(e); }
+  var originalRenderEscala = window.renderEscala;
+  if(typeof originalRenderEscala === 'function'){
+    window.renderEscala = function(agenda){
+      originalRenderEscala(agenda);
+      normalizarCards();
+      aplicarFerramentasSuporte();
+      garantirSupportUI();
+      notificarPainel();
     };
-    w.__contagemDiaWrapped = true;
-    window.atualizarStatusClientes = w;
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
+  var originalAtualizarStatus = window.atualizarStatusClientes;
+  window.atualizarStatusClientes = function(){
+    try { if(typeof originalAtualizarStatus === 'function') originalAtualizarStatus(); } catch(e){ console.warn('Status principal ignorado:', e); }
+    try { if(typeof window.atualizarTimeDoDia === 'function') atualizarTimeDoDia(); } catch(e){}
+    try { renderPartnerHome(); } catch(e){}
     try { renderAdminReservasPanel(); } catch(e){}
-  });
-})();
-</script>
+  };
 
-</body>
+  var originalAtivarAdmin = window.ativarAdmin;
+  window.ativarAdmin = function(){
+    if(typeof originalAtivarAdmin === 'function') originalAtivarAdmin();
+    garantirSupportUI(); normalizarCards(); aplicarFerramentasSuporte(); renderAdminReservasPanel(); atualizarEstadoCongeladoUI();
+  };
+
+  window.ativarDragDrop = function(){
+    if(!window.Sortable){ console.warn('SortableJS não carregou; arrastar e soltar desativado.'); return; }
+    try{
+      if(window.sortableInstances) window.sortableInstances.forEach(function(s){ try{s.destroy();}catch(e){} });
+      window.sortableInstances = [];
+      all('.client-section').forEach(function(sec){
+        var inst = Sortable.create(sec,{group:'escala',handle:'.drag-handle',animation:150,ghostClass:'sortable-ghost',chosenClass:'sortable-chosen',filter:'.btn-add-entregador,.client-section-header',preventOnFilter:false,onEnd:function(evt){
+          var card = evt.item, nova = evt.to, client = nova && nova.getAttribute('data-client'); if(client) card.setAttribute('data-client',client);
+          autoSave(); notificarPainel();
+        }});
+        window.sortableInstances.push(inst);
+      });
+    }catch(e){ console.warn('Drag desativado:',e); }
+  };
+
+  window.toggleMinhaSemana = function(){ var el = $('partnerMyWeek'); if(el) el.classList.toggle('collapsed'); };
+
+  window.gerarMensagemEscala = function(client){
+    var linhas = ['Escala '+nomeDoCliente(client)];
+    (window.DIAS || ['seg','ter','qua','qui','sex','sab','dom']).forEach(function(dia){
+      var cards = all('.day-col[data-day="'+dia+'"] .card').filter(function(card){ return card.getAttribute('data-client') === client && !isCardVaga(card); });
+      if(!cards.length) return;
+      linhas.push('', DIA_PT_LOCAL[dia]+':');
+      cards.forEach(function(card){ linhas.push('- '+horarioDoCard(card)+' • '+getNome(card)); });
+    });
+    return linhas.join('\n');
+  };
+
+  function init(){
+    garantirSupportUI();
+    syncSupportTurnos();
+    normalizarCards();
+    aplicarFerramentasSuporte();
+    atualizarEstadoCongeladoUI();
+    renderPartnerHome();
+    renderAdminReservasPanel();
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  setTimeout(init, 500);
+})();
+</script></body>
 </html>
